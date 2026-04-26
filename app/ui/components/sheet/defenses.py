@@ -32,6 +32,7 @@ def _render_defenses(state, char_id, user, _save):
                 rows = [
                     ("AC", str(top.get('ac', 10))),
                     ("Initiative", str(top.get('initiative', '+0'))),
+                    ("Speed", str(cs.speed)),
                     ("Conditions", ', '.join(top.get('conditions', [])) or 'None'),
                 ]
                 if top.get('inspiration') is not None:
@@ -52,6 +53,7 @@ def _render_defenses(state, char_id, user, _save):
                 ac_misc = ui.number("AC Misc", value=cs.ac.misc, step=1).classes('w-full').props('dense')
                 init_base = ui.number("Initiative Base", value=cs.initiative.base, step=1).classes('w-full').props('dense')
                 init_misc = ui.number("Initiative Misc", value=cs.initiative.misc, step=1).classes('w-full').props('dense')
+                speed_inp = ui.number("Speed", value=cs.speed, step=5, min=0).classes('w-full').props('dense')
                 cond_inp  = ui.input("Conditions (comma-separated)", value=', '.join(cs.conditions)).classes('w-full').props('dense')
                 insp_toggle = None
                 if cs.inspiration is not None:
@@ -61,6 +63,7 @@ def _render_defenses(state, char_id, user, _save):
                     updates = {
                         "ac":         {"base": int(ac_base.value or 10), "misc": int(ac_misc.value or 0)},
                         "initiative": {"base": int(init_base.value or 0), "misc": int(init_misc.value or 0)},
+                        "speed":      int(speed_inp.value or 0),
                         "conditions": [c.strip() for c in cond_inp.value.split(",") if c.strip()],
                     }
                     if insp_toggle is not None:
