@@ -16,3 +16,8 @@ class A5eBuilder(BaseSheetBuilder):
         self.view_data['details']['bonds_suppressed'] = True
         self.view_data['details']['flaws_suppressed'] = True
         return self
+
+    def build_combat_stats(self):
+        super().build_combat_stats()
+        self.view_data['combat']['show_strife'] = True
+        return self

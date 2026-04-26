@@ -13,6 +13,15 @@ def _fmt_bonus(n: int) -> str:
     return f"+{n}" if n >= 0 else str(n)
 
 
+def render_pm_adjuster(on_delta):
+    """Render minus/plus buttons that call on_delta(±1).
+
+    on_delta is an async callable; clamping is the caller's job.
+    """
+    ui.button(icon='remove', on_click=lambda: on_delta(-1)).props('flat round dense size=sm')
+    ui.button(icon='add',    on_click=lambda: on_delta(1)).props('flat round dense size=sm')
+
+
 def make_toggle_handler(is_editing, display_col, edit_col, edit_btn):
     def _toggle():
         is_editing[0] = not is_editing[0]

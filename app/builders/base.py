@@ -224,6 +224,8 @@ class BaseSheetBuilder:
             "hp_temp": c.hp_temp,
             "exhaustion": c.exhaustion,
             "exhaustion_label": "Fatigue",
+            "strife": c.strife,
+            "show_strife": False,
             "resistances": c.resistances,
             "immunities": c.immunities,
             "vulnerabilities": c.vulnerabilities,
