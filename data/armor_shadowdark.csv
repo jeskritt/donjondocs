@@ -1,0 +1,6 @@
+Armor Name,Armor Type,Cost,Armor Class (AC),Max Dex,Strength,Stealth,Weight,Notes
+Leather armor,-,10 gp,"11 + DEX mod",-,-,-,1,-
+Chainmail,-,60 gp,"13 + DEX mod",-,-,-,2,"Disadv on stealth, swim"
+Plate mail,-,130 gp,15,-,-,-,3,"No swim, disadv stealth"
+Shield,shield,10 gp,+2,-,-,-,1,"Occupies one hand"
+Mithral (metal armor only),-,x4,-,-,-,-,-1,"No penalty stealth, swim"

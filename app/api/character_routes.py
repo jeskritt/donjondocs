@@ -1,0 +1,164 @@
+"""
+AI Helper Docstring
+Purpose: REST endpoints for character side-effects that don't belong on the NiceGUI sheet page — rest mechanics, JSON export download, JSON import upload. Translates `CharacterServiceError` into HTTP status codes; everything else delegates to `character_service`.
+Interactions:
+- `app.services.character_service`: `rest_character`, `export_character`, `import_character`.
+- `app.services.character_io`: `EXPORT_VERSION` for the envelope; `export_filename_for` for Content-Disposition.
+- `app.api.deps`: `get_current_user` (JWT cookie) and `get_db` (async session).
+- Hard cap on import payload size (`MAX_IMPORT_BYTES = 1 MiB`) — defense against the OOM-by-upload finding from the security audit.
+"""
+
+"""Character REST routes.
+
+POST /api/characters/{id}/rest    — apply a short or long rest to a character.
+GET  /api/characters/{id}/export  — download character as JSON.
+POST /api/characters/import       — upload a JSON file to create a character.
+"""
+
+import json
+from typing import Annotated, Any, Literal
+
+from fastapi import APIRouter, Depends, HTTPException, UploadFile
+from fastapi.responses import Response
+from pydantic import BaseModel, Field
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.api.deps import get_current_user, get_db
+from app.models.user import User
+from app.schemas.char_sheet_global import SheetStyle
+from app.services.character_io import EXPORT_VERSION, export_filename_for
+from app.services.character_service import (
+    CharacterServiceError,
+    export_character,
+    import_character,
+    rest_character,
+)
+from app.user_context import UserContext
+
+
+router = APIRouter()
+
+
+# Hard cap on uploaded import payloads. A real character export is a few KB;
+# 1 MiB leaves comfortable headroom while preventing the OOM-by-upload DoS
+# called out in the security audit (finding #3). Enforced both via the
+# Content-Length header (cheap pre-check) and a streaming read with an
+# accumulator (defense for chunked or missing-header uploads).
+MAX_IMPORT_BYTES = 1 * 1024 * 1024
+
+
+class RestRequest(BaseModel):
+    kind: Literal["short", "long"]
+    options: dict = Field(default_factory=dict)
+
+
+@router.post("/{character_id}/rest")
+async def rest_endpoint(
+    character_id: str,
+    body: RestRequest,
+    db: Annotated[AsyncSession, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
+):
+    rec = await rest_character(db, character_id, body.kind, body.options, UserContext.from_user(current_user))
+    return {
+        "id": rec.id,
+        "hp_current": rec.character_data.get("hp_current"),
+        "hp_max": rec.character_data.get("hp_max"),
+    }
+
+
+@router.get("/{character_id}/export")
+async def export_endpoint(
+    character_id: str,
+    db: Annotated[AsyncSession, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
+):
+    data = await export_character(db, character_id, UserContext.from_user(current_user))
+    content = json.dumps(data, indent=2, default=str)
+    safe_name = export_filename_for(data["name"])
+    return Response(
+        content=content,
+        media_type="application/json",
+        headers={"Content-Disposition": f'attachment; filename="{safe_name}.json"'},
+    )
+
+
+async def _read_import_file(file: UploadFile) -> bytes:
+    """Validate the upload and return its raw bytes.
+
+    Rejects non-`.json` filenames and any payload exceeding `MAX_IMPORT_BYTES`.
+    Cheap path: trust `Content-Length` when present. Defence in depth:
+    accumulate chunks and bail out the moment we cross the cap, so a chunked
+    upload or a lying header can't sneak past.
+    """
+    if not file.filename or not file.filename.endswith(".json"):
+        raise HTTPException(status_code=400, detail="Only .json files are accepted.")
+
+    declared = file.size if file.size is not None else None
+    if declared is not None and declared > MAX_IMPORT_BYTES:
+        raise HTTPException(
+            status_code=413,
+            detail=f"Import file exceeds {MAX_IMPORT_BYTES} bytes.",
+        )
+
+    chunks: list[bytes] = []
+    total = 0
+    while True:
+        chunk = await file.read(64 * 1024)
+        if not chunk:
+            break
+        total += len(chunk)
+        if total > MAX_IMPORT_BYTES:
+            raise HTTPException(
+                status_code=413,
+                detail=f"Import file exceeds {MAX_IMPORT_BYTES} bytes.",
+            )
+        chunks.append(chunk)
+    return b"".join(chunks)
+
+
+def _parse_envelope(raw: bytes) -> dict[str, Any]:
+    """Decode the raw upload as a JSON envelope dict containing character_data."""
+    try:
+        envelope = json.loads(raw)
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        raise HTTPException(status_code=400, detail="Invalid JSON file.")
+
+    if not isinstance(envelope, dict) or "character_data" not in envelope:
+        raise HTTPException(status_code=400, detail="Missing 'character_data' in import file.")
+    return envelope
+
+
+def _coerce_style(style_str: str) -> SheetStyle:
+    try:
+        return SheetStyle(style_str)
+    except ValueError:
+        raise HTTPException(status_code=400, detail=f"Unknown style: {style_str}")
+
+
+@router.post("/import")
+async def import_endpoint(
+    file: UploadFile,
+    db: Annotated[AsyncSession, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
+):
+    raw = await _read_import_file(file)
+    envelope = _parse_envelope(raw)
+
+    name = envelope.get("name", "Imported Character")
+    style = _coerce_style(envelope.get("style", SheetStyle.DND5E.value))
+
+    version = envelope.get("version", EXPORT_VERSION)
+    if not isinstance(version, int):
+        raise HTTPException(status_code=400, detail="Envelope 'version' must be an integer.")
+
+    try:
+        rec = await import_character(
+            db, name, style, envelope["character_data"], UserContext.from_user(current_user), version=version,
+        )
+    except CharacterServiceError:
+        raise
+    except Exception:
+        raise HTTPException(status_code=400, detail="Character data failed validation.")
+
+    return {"id": rec.id, "name": rec.name}

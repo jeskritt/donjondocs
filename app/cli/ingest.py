@@ -1,0 +1,231 @@
+"""
+AI Helper Docstring
+Purpose: Automation pipeline for parsing CSV game data (Weapons, Armor, Classes, Skills, Items, Attributes) into SQLite lookup tables. Extracts armor AC stats (base_ac, dex_cap, is_shield) from CSV formats.
+Interactions:
+- `app.models.char_sheet.py`: Uses `GlobalClass` and others as the core ORM objects for `session.add`.
+- `app.database.py`: Establishes its own async pipeline during module runtime.
+"""
+
+import asyncio
+import csv
+import glob
+import os
+import re
+import sys
+
+from sqlalchemy import select
+
+from app.config import get_settings
+from app.database import async_session_factory, engine, Base
+from app.schemas.char_sheet_global import SheetStyle
+from app.models.char_sheet import (
+    GlobalAbility,
+    GlobalClass,
+    GlobalAttribute,
+    GlobalSkill,
+    GlobalItem,
+    GlobalWeapon,
+    GlobalArmor,
+    GlobalCombatManeuver,
+    GlobalSpell,
+    GlobalDestiny
+)
+
+_ATTR_ALIAS = {
+    "strength": "STR", "str": "STR",
+    "dexterity": "DEX", "dex": "DEX",
+    "constitution": "CON", "con": "CON",
+    "intelligence": "INT", "int": "INT",
+    "wisdom": "WIS", "wis": "WIS",
+    "charisma": "CHA", "cha": "CHA",
+}
+
+
+def normalize_attribute(value: str | None) -> str | None:
+    """Convert a full attribute name ('Dexterity') or existing alias to a 3-letter code."""
+    if value is None:
+        return None
+    v = value.strip().lower()
+    return _ATTR_ALIAS.get(v, value.strip())
+
+
+def get_style_from_filename(filename: str) -> SheetStyle:
+    if "phb2014" in filename:
+        return SheetStyle.DND5E
+    elif "levelup" in filename or "a5e" in filename:
+        return SheetStyle.A5E
+    elif "shadowdark" in filename:
+        return SheetStyle.SHADOWDARK
+    return SheetStyle.DND5E # default
+
+_DEX_CAP_PATTERNS = (
+    re.compile(r'^\s*\+?\s*Dex(?:\s*mod)?\s*$', re.IGNORECASE),  # "-"/"DEX mod"
+    re.compile(r'unlimited', re.IGNORECASE),
+)
+
+
+def parse_armor_stats(armor_type: str | None, armor_class: str | None,
+                      max_dex: str | None) -> tuple[int | None, int | None, bool]:
+    """Extract (base_ac, dex_cap, is_shield) from the CSV's armor_class / max_dex / type cells.
+
+    Handles the three CSV flavors in `data/`:
+      PHB:        base is a plain int, `Max Dex` is "-"/"0"/"2".  Shield row uses `Armor Type == "Shield"`.
+      A5e:        same, but `Max Dex` of "Unlimited" means no cap; shields use "+N" in `Armor Class`.
+      Shadowdark: base may be "11 + DEX mod" (uncapped light) or a plain int.
+
+    Returns (None, None, False) if the cells are too malformed to parse — the
+    sheet math then falls back on `c.ac.base` as today.
+    """
+    is_shield = (armor_type or "").strip().lower() == "shield"
+    ac_str = (armor_class or "").strip()
+
+    if is_shield:
+        # Strip leading "+" and parse as bonus. "+2" → 2, "2" → 2.
+        m = re.match(r'^\+?\s*(\d+)', ac_str)
+        return (int(m.group(1)) if m else 0, None, True)
+
+    # Non-shield: pull the first integer run as base_ac. Catches "11", "11 + DEX mod", "15".
+    m = re.match(r'^(\d+)', ac_str)
+    base_ac = int(m.group(1)) if m else None
+
+    # Dex cap: a plain integer means a hard cap (Medium = 2, Heavy = 0);
+    # any "Dex"-shaped marker or "Unlimited" means no cap.
+    cap_raw = (max_dex or "").strip()
+    ac_mentions_dex = bool(re.search(r'dex', ac_str, re.IGNORECASE))
+    is_light = (armor_type or "").strip().lower() == "light"
+
+    if not cap_raw or cap_raw in {"-", "—"}:
+        # PHB light armor: "-" means uncapped. Shadowdark armor doesn't list
+        # caps; infer from whether the AC string mentions DEX (e.g.
+        # "11 + DEX mod" ⇒ uncapped; a plain "15" ⇒ no dex contribution).
+        if is_light or ac_mentions_dex:
+            dex_cap = None
+        else:
+            dex_cap = 0
+    elif any(p.search(cap_raw) for p in _DEX_CAP_PATTERNS):
+        dex_cap = None
+    else:
+        try:
+            dex_cap = int(cap_raw)
+        except ValueError:
+            dex_cap = None
+
+    return base_ac, dex_cap, False
+
+
+def normalize_key(key: str) -> str:
+    key = key.lower().strip()
+    if 'name' in key and 'weapon' in key: return 'name'
+    if 'name' in key and 'armor' in key: return 'name'
+    if 'type' in key and 'weapon' in key: return 'type'
+    if 'type' in key and 'armor' in key: return 'type'
+    if 'cost' in key: return 'value'
+    if 'properties' in key: return 'notes'
+    if 'armor class' in key or 'ac' in key: return 'armor_class'
+    if 'strength' in key: return 'strength_requirement'
+    if 'stealth' in key: return 'disadvantage_on_stealth'
+    if 'item' == key: return 'name'
+    # Skills CSV columns
+    if key == 'skill': return 'name'
+    if key == 'ability': return 'attribute'
+    if 'example uses' in key: return 'example_uses'
+    return key
+
+
+async def ingest_file(session, filepath: str):
+    filename = os.path.basename(filepath)
+    style = get_style_from_filename(filename)
+    
+    if "armor" in filename:
+        ModelCls = GlobalArmor
+    elif "weapon" in filename:
+        ModelCls = GlobalWeapon
+    elif "equipment" in filename:
+        ModelCls = GlobalItem
+    elif "classes" in filename:
+        ModelCls = GlobalClass
+    elif "attributes" in filename:
+        ModelCls = GlobalAttribute
+    elif "skills" in filename:
+        ModelCls = GlobalSkill
+    else:
+        print(f"Skipping unknown file prefix for {filename}")
+        return
+
+    print(f"Ingesting {filename} as {style.value}...")
+    
+    valid_keys = [c.name for c in ModelCls.__table__.columns]
+    
+    with open(filepath, 'r', encoding='utf-8-sig') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            parsed_row = {}
+            # Capture the raw Max Dex cell (not an ORM column itself) so we
+            # can combine it with armor_class + type below.
+            raw_max_dex = None
+            for k, v in row.items():
+                if not k: continue
+                norm_k = normalize_key(k)
+                if k.strip().lower().replace(' ', '') in {'maxdex', 'max_dex'}:
+                    raw_max_dex = v
+                if norm_k in valid_keys:
+                    # special handlings
+                    if norm_k == 'disadvantage_on_stealth':
+                        parsed_row[norm_k] = "Yes" if "Disadvantage" in str(v) else None
+                    elif norm_k == 'attribute' and ModelCls is GlobalSkill:
+                        parsed_row[norm_k] = normalize_attribute(v)
+                    else:
+                        parsed_row[norm_k] = v
+
+            # Derive AC numerics for armor rows so the builder can compute
+            # total AC without re-parsing strings on every render.
+            if ModelCls is GlobalArmor:
+                base_ac, dex_cap, is_shield = parse_armor_stats(
+                    parsed_row.get('type'),
+                    parsed_row.get('armor_class'),
+                    raw_max_dex,
+                )
+                parsed_row['base_ac'] = base_ac
+                parsed_row['dex_cap'] = dex_cap
+                parsed_row['is_shield'] = is_shield
+
+            # Upsert logic
+            if 'name' not in parsed_row: continue
+            name = parsed_row['name']
+            
+            stmt = select(ModelCls).where(ModelCls.name == name, ModelCls.source == style.value, ModelCls.owner_id == None).limit(1)
+            result = await session.execute(stmt)
+            obj = result.scalars().first()
+            
+            if obj:
+                for k, v in parsed_row.items():
+                    setattr(obj, k, v)
+            else:
+                parsed_row['source'] = style.value
+                obj = ModelCls(**parsed_row)
+                session.add(obj)
+
+
+async def run_ingestion(data_dir: str):
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+    files = glob.glob(os.path.join(data_dir, "*.csv"))
+    if not files:
+        print(f"No CSV files found in {data_dir}")
+        return
+
+    async with async_session_factory() as session:
+        for f in files:
+            await ingest_file(session, f)
+        await session.commit()
+    print("Ingestion complete.")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python -m app.cli.ingest <data_dir>")
+        sys.exit(1)
+    
+    get_settings()
+    asyncio.run(run_ingestion(sys.argv[1]))

@@ -1,0 +1,5 @@
+name,hit_dice,primary_ability,saving_throws,proficiencies
+Fighter,d8,Strength,-,"All weapons, All armor and shields"
+Priest,d6,Wisdom,-,"Club, crossbow, dagger, mace, longsword, staff, warhammer, All armor and shields"
+Wizard,d4,Intelligence,-,"Dagger, staff, no armor"
+Thief,d4,Dexterity,-," Club, crossbow, dagger, shortbow, shortsword, Leather armor, mithral chainmail"

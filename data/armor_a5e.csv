@@ -1,0 +1,23 @@
+Armor Name,Armor Type,Cost,Armor Class (AC),Max Dex,Strength,Stealth,Weight,Notes
+Padded cloth,Light,5 gp,11,Unlimited,—,—,6 lbs.,"Comfortable, flaw (piercing), underarmor"
+Padded leather,Light,15 gp,12,Unlimited,—,—,8 lbs.,"Comfortable, Flaw (piercing)"
+Cloth brigandine,Medium,5 gp,12,Unlimited,—,—,7 lbs.,"Comfortable, flaw (piercing), underarmor"
+Leather brigandine,Medium,20 gp,13,Unlimited,—,—,10 lbs.,"Comfortable, flaw (piercing)"
+Hide armor,Medium,10 gp,13,2,—,—,15 lbs.,"Comfortable, wild"
+Chain shirt (steel),Medium,50 gp,13,2,—,—,15 lbs.,Low-maintenance (expertise die)
+Chain shirt (mithral),Medium,150 gp,13,2,—,—,8 lbs.,"High-quality, lightweight, low-maintenance (advantage)"
+Scale mail (steel),Medium,50 gp,14,2,Str 14,Disadvantage,35 lbs.,Low-maintenance (expertise die)
+Breastplate (bone),Medium,100 gp,14,2,—,—,10 lbs.,Flaw
+Breastplate or cuirass (steel),Medium,400 gp,14,2,Str 11,Disadvantage,20 lbs.,Low-maintenance (expertise die)
+Breastplate or cuirass (bronze),Medium,300 gp,14,2,Str 12,Disadvantage,35 lbs.,Weighty (+1)
+Elven breastplate (mithral),Medium,"1,200 gp",14,2,—,—,10 lbs.,"High-quality, lightweight, low-maintenance (advantage)"
+Half plate (steel),Medium,750 gp,15,2,Str 13,Disadvantage,,Low-maintenance (expertise die)
+Hauberk (steel),Heavy,150 gp,16,0,Str 13,—,20 lbs.,Low-maintenance (expertise die)
+Splint (steel),Heavy,450 gp,17,0,Str 15,Disadvantage,30 lbs.,Low-maintenance (expertise die)
+Full plate (steel),Heavy,"1,500 gp",18,0,Str 15,Disadvantage,55 lbs.,Low-maintenance (expertise die)
+Dwarven plate (stone),Heavy,"4,500 gp",19,0,Str 17,Disadvantage,110 lbs.,"Fortified, weighty (+2)"
+Elven plate (mithral),Heavy,"4,500 gp",18,0,—,—,28 lbs.,"High-quality, lightweight, low-maintenance (advantage)"
+Light Shield,Shield,5 gp,+1,-,-,"Improvised Thrown Weapon 1d6 Bludegoning"
+Medium Shield,Shield,10 gp,+2,-,-,-
+Heavy Shield,Shield,15 gp,+2,-,-,"expertise of DEX save. Disadv. on Acrobatics & Stealth"
+Tower Shield,Shield,20 gp,+3,-,-,"expertise of DEX save. Disadv. on Acrobatics & Stealth. -10 speed"

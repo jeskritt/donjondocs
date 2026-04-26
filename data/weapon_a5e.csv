@@ -1,0 +1,48 @@
+Weapon Name,Weapon Type,Cost,Range,Damage,Weight,Notes
+Brass knuckles,Martial Melee,4 gp,-,1d4 bludgeoning,½ lb.,"Dual-wielding, hand-mounted"
+Club,Simple Melee,1 sp,-,1d4 bludgeoning,2 lbs.,Simple
+Dagger,Simple Melee,2 gp,-,1d4 piercing,1 lb.,"Dual-wielding, finesse"
+Dueling dagger,Martial Melee,6 gp,-,1d4 piercing,1 lb.,"Dual-wielding, finesse, parrying"
+Light hammer,Martial Melee,2 gp,-,1d4 bludgeoning,2 lbs.,"Dual-wielding, thrown (20/60)"
+Punching dagger,Martial Melee,4 gp,-,1d4 piercing,1 lb.,"Dual-wielding, hand-mounted"
+Sickle,Simple Melee,1 gp,-,1d4 slashing,2 lbs.,Dual-wielding
+Throwing dagger,Martial Melee,3 gp,-,1d4 piercing,½ lb.,"Dual-wielding, finesse, thrown (30/80)"
+Whip,Martial Melee,2 gp,-,1d4 slashing,3 lbs.,"Finesse, parrying immunity, reach (15), trip"
+Handaxe,Simple Melee,5 gp,-,1d6 slashing,2 lbs.,"Breaker (wood), defensive (light), dual-wielding, thrown (20/60)"
+Javelin,Martial Melee,5 sp,-,1d6 piercing,2 lbs.,Thrown (30/120)
+Mace,Simple Melee,5 gp,-,1d6 bludgeoning,4 lbs.,Defensive (medium)
+Quarterstaff,Simple Melee,2 sp,-,1d6 bludgeoning,4 lbs.,"Parrying, two-handed"
+Scimitar,Martial Melee,20 gp,-,1d6 slashing,3 lbs.,"Defensive (light), dual-wielding, finesse"
+Shortsword,Martial Melee,10 gp,-,1d6 slashing,2 lbs.,"Defensive (medium), finesse, parrying"
+Spear,Simple Melee,1 gp,-,1d6 piercing,3 lbs.,"Defensive (heavy), thrown (20/60), versatile (1d8)"
+Trident,Martial Melee,10 gp,-,1d6 piercing,3 lbs.,"Thrown (20/60), versatile (1d8), mounted"
+Bastard sword,Martial Melee,35 gp,-,1d8 slashing,5 lbs.,"Parrying, versatile (1d10)"
+Battleaxe,Martial Melee,10 gp,-,1d8 slashing,6 lbs.,"Breaker (wood), versatile (1d10)"
+Flail,Martial Melee,20 gp,-,1d8 bludgeoning,3 lbs.,"Parrying immunity, trip"
+Greatclub,Simple Melee,5 sp,-,1d8 bludgeoning,10 lbs.,"Simple, versatile (1d10)"
+Longsword,Martial Melee,20 gp,-,1d8 slashing,3 lbs.,Defensive (medium)
+Morningstar,Martial Melee,15 gp,-,1d8 bludgeoning,4 lbs.,Defensive (medium)
+Rapier,Martial Melee,25 gp,-,1d8 piercing,2 lbs.,"Defensive (light), finesse"
+Saber,Martial Melee,30 gp,-,1d8 slashing,3 lbs.,"Defensive (light), finesse, mounted (1d10)"
+Warhammer,Martial Melee,15 gp,-,1d8 bludgeoning,3 lbs.,"Breaker, versatile (1d10)"
+Warpick,Martial Melee,5 gp,-,1d8 piercing,2 lbs.,Breaker (stone)
+Glaive,Martial Melee,12 gp,-,1d10 slashing,5 lbs.,"Reach, two-handed"
+Halberd,Martial Melee,25 gp,-,1d10 piercing or slashing,7 lbs.,"Heavy, reach, trip, two-handed"
+Pike,Martial Melee,5 gp,-,1d10 piercing,13 lbs.,"Defensive (heavy), heavy, reach*"
+Scythe,Martial Melee,1 gp,-,1d10 slashing,12 lbs.,"Heavy, parrying, two-handed"
+Greataxe,Martial Melee,30 gp,-,1d12 slashing,9 lbs.,"Breaker (wood), heavy, two-handed"
+Greatsword,Martial Melee,50 gp,-,2d6 slashing,7 lbs.,"Heavy, parrying, two-handed"
+Maul,Martial Melee,20 gp,-,2d6 bludgeoning,11 lbs.,"Breaker, heavy, two-handed"
+Blowgun,Simple Ranged,1 gp,25/100,1d4 piercing,½ lb.,"Loading, range (25/100)"
+Dart,Martial Ranged,5 sp,20/60,1d4 piercing,¼ lb.,Range (20/60)
+Sling,Simple Ranged,2 sp,30/120,1d4 bludgeoning,—,Range (30/120)
+Hand crossbow,Martial Ranged,60 gp,30/120,1d6 piercing,3 lbs.,"Dual-wielding, loading, range (30/120)"
+Shortbow,Martial Ranged,25 gp,80/320,1d6 piercing,2 lbs.,"Range (80/320), two-handed"
+Composite bow,Martial Ranged,200 gp,150/600,1d8 piercing,2 lbs.,"Compounding, heavy, range (150/600), two-handed"
+Light crossbow,Simple Ranged,45 gp,80/320,1d8 piercing,5 lbs.,"Loading, range (80/320), two-handed"
+Longbow,Martial Ranged,50 gp,150/600,1d8 piercing,2 lbs.,"Heavy, range (150/600), two-handed"
+Heavy crossbow,Simple Ranged,100 gp,100/400,1d10 piercing,15 lbs.,"Heavy, loading, range (100/400), two-handed"
+Garrotte,Martial Melee,3 sp,-,None,—,Two-handed
+Lance,Martial Melee,10 gp,-,Piercing (1d12),6 lbs.,"Defensive (medium), reach"
+Net,Martial Ranged,1 gp,-,None,2 lbs.,Thrown (5/15)
+Spear-thrower,Martial Melee,10 gp,-,Piercing (see description),4 lbs.,"Loading, range (80/320)"
