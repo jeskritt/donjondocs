@@ -9,6 +9,7 @@ def _render_hp(state, char_id, user, _save):
         cs = state["cs"]
         combat = state["vd"].get("combat", {})
         exhaustion_label = combat.get("exhaustion_label", "Exhaustion")
+        show_strife = combat.get("show_strife", False)
         is_editing = [False]
 
         with ui.card().classes('w-full flex-1 min-w-[260px]'):
@@ -21,11 +22,14 @@ def _render_hp(state, char_id, user, _save):
             edit_col = ui.column().classes('w-full')
 
             with display_col:
-                for label, val in [
+                rows = [
                     ("Current / Max", f"{cs.hp_current} / {cs.hp_max}"),
                     ("Temporary", str(cs.hp_temp)),
                     (exhaustion_label, f"{cs.exhaustion} / 6"),
-                ]:
+                ]
+                if show_strife:
+                    rows.append(("Strife", f"{cs.strife} / 6"))
+                for label, val in rows:
                     with ui.row().classes('w-full justify-between border-b border-gray-800 py-1'):
                         ui.label(label).classes('text-gray-400')
                         ui.label(val).classes('text-white font-bold' if label == "Current / Max" else 'text-white')
@@ -48,12 +52,16 @@ def _render_hp(state, char_id, user, _save):
                 hp_max  = ui.number("Max HP", value=cs.hp_max, step=1, min=1).classes('w-full').props('dense')
                 hp_temp = ui.number("Temp HP", value=cs.hp_temp, step=1, min=0).classes('w-full').props('dense')
                 exh_inp = ui.number(exhaustion_label, value=cs.exhaustion, step=1, min=0, max=6).classes('w-full').props('dense')
+                strife_inp = (
+                    ui.number("Strife", value=cs.strife, step=1, min=0, max=6).classes('w-full').props('dense')
+                    if show_strife else None
+                )
                 res_inp  = ui.input("Resistances", value=cs.resistances).classes('w-full').props('dense')
                 imm_inp  = ui.input("Immunities", value=cs.immunities).classes('w-full').props('dense')
                 vul_inp  = ui.input("Vulnerabilities", value=cs.vulnerabilities).classes('w-full').props('dense')
 
                 async def _save_hp():
-                    await _save({
+                    updates = {
                         "hp_current": int(hp_cur.value or 0),
                         "hp_max":     int(hp_max.value or 1),
                         "hp_temp":    int(hp_temp.value or 0),
@@ -61,7 +69,10 @@ def _render_hp(state, char_id, user, _save):
                         "resistances": (res_inp.value or "").strip(),
                         "immunities": (imm_inp.value or "").strip(),
                         "vulnerabilities": (vul_inp.value or "").strip(),
-                    })
+                    }
+                    if strife_inp is not None:
+                        updates["strife"] = int(strife_inp.value or 0)
+                    await _save(updates)
 
                 ui.button("Save", on_click=_save_hp).props('unelevated color=primary').classes('mt-2 w-full')
 

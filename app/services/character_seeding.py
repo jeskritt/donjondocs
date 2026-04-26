@@ -250,6 +250,7 @@ async def build_blank_character_data(
         "hp_max": hp_default,
         "hp_temp": 0,
         "exhaustion": 0,
+        "strife": 0,
         **score_defaults,
         "saving_throws": saving_throws,
         "skills": skills_seed,

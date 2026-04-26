@@ -332,6 +332,7 @@ class Character(BaseModel):
     hp_max: int = 10
     hp_temp: int = 0
     exhaustion: int = 0  # 0-6; maps to "Exhaustion" in D&D 5e, "Fatigue" in A5e
+    strife: int = 0  # 0-6; A5e only ("Strife" condition track)
     resistances: str = ""
     immunities: str = ""
     vulnerabilities: str = ""
