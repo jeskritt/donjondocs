@@ -16,7 +16,7 @@ from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import pool
-from sqlalchemy.ext.asyncio import async_engine_from_config
+from sqlalchemy.ext.asyncio import create_async_engine
 
 from app.config import get_settings
 from app.database import Base
@@ -75,12 +75,17 @@ def do_run_migrations(connection) -> None:
 
 async def run_async_migrations() -> None:
     """Run migrations in 'online' mode with async engine."""
-    section = config.get_section(config.config_ini_section, {}) or {}
-    section["sqlalchemy.url"] = DATABASE_URL
-    connectable = async_engine_from_config(
-        section,
-        prefix="sqlalchemy.",
+    # Mirror app/database.py: Supabase's pgbouncer pooler (port 6543) is
+    # in transaction mode and does not support prepared statements.
+    connect_args: dict = {}
+    if "asyncpg" in DATABASE_URL:
+        connect_args["statement_cache_size"] = 0
+        connect_args["prepared_statement_cache_size"] = 0
+
+    connectable = create_async_engine(
+        DATABASE_URL,
         poolclass=pool.NullPool,
+        connect_args=connect_args,
     )
 
     async with connectable.connect() as connection:
