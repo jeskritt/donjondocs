@@ -36,9 +36,12 @@ if config.config_file_name is not None:
 # Set the target metadata for autogenerate
 target_metadata = Base.metadata
 
-# Read the database URL from app settings
+# Read the database URL from app settings. Do NOT route this through
+# config.set_main_option / alembic.ini — configparser treats '%' as
+# interpolation syntax and rejects URL-encoded password chars (%40, %3F,
+# %25, ...). Inject the URL into the engine config dict instead.
 settings = get_settings()
-config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)
+DATABASE_URL = settings.DATABASE_URL
 
 
 def run_migrations_offline() -> None:
@@ -46,9 +49,8 @@ def run_migrations_offline() -> None:
 
     Generates SQL scripts without requiring a live database connection.
     """
-    url = config.get_main_option("sqlalchemy.url")
     context.configure(
-        url=url,
+        url=DATABASE_URL,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
@@ -73,8 +75,10 @@ def do_run_migrations(connection) -> None:
 
 async def run_async_migrations() -> None:
     """Run migrations in 'online' mode with async engine."""
+    section = config.get_section(config.config_ini_section, {}) or {}
+    section["sqlalchemy.url"] = DATABASE_URL
     connectable = async_engine_from_config(
-        config.get_section(config.config_ini_section, {}),
+        section,
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
