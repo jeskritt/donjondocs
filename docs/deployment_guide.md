@@ -61,8 +61,8 @@ Render is a fantastic platform for beginners and offers a permanent free tier fo
    - **Branch:** `main`
    - **Runtime:** `Python 3`
    - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 10000`
-     *(This start command runs your database migrations first, then starts the web server).*
+   - **Start Command:** `alembic upgrade head && python main.py`
+     *(Runs your database migrations first, then starts the web server. `main.py` reads Render's `PORT` env var and binds to `0.0.0.0` automatically — no extra flags needed. NiceGUI starts uvicorn internally; do not run `uvicorn main:app` directly, that bypasses NiceGUI's startup hook and the app will fail to boot.)*
    - **Instance Type:** Select **Free** ($0/month).
 
 ### Step 4: Configure Secure Environment Variables

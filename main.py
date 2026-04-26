@@ -145,9 +145,15 @@ async def startup():
 # ---------------------------------------------------------------------------
 
 if __name__ in {"__main__", "__mp_main__"}:
+    import os
+
+    # PORT is a deploy-platform convention (Render, Heroku, Fly) — not
+    # app config — so it's read directly from the environment rather
+    # than going through Settings. Defaults to 8080 for local dev.
     ui.run(
         title=settings.APP_NAME,
         storage_secret=settings.STORAGE_SECRET,
         reload=False,  # temporarily disabled for stability
-        port=8080,
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8080)),
     )
