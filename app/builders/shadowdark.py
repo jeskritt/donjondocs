@@ -25,6 +25,11 @@ class ShadowdarkBuilder(BaseSheetBuilder):
         self.view_data['combat_maneuvers'] = None
         return self
 
+    def build_combat_stats(self):
+        super().build_combat_stats()
+        self.view_data['combat']['show_death_saves'] = False
+        return self
+
     def build_style_flags(self):
         super().build_style_flags()
         self.view_data['style_flags']['has_skills'] = False

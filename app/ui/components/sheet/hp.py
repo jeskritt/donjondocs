@@ -10,6 +10,7 @@ def _render_hp(state, char_id, user, _save):
         combat = state["vd"].get("combat", {})
         exhaustion_label = combat.get("exhaustion_label", "Exhaustion")
         show_strife = combat.get("show_strife", False)
+        show_death_saves = combat.get("show_death_saves", False)
         is_editing = [False]
 
         with ui.card().classes('w-full flex-1 min-w-[260px]'):
@@ -84,15 +85,27 @@ def _render_hp(state, char_id, user, _save):
                         with ui.row().classes('items-center gap-1'):
                             render_pm_adjuster(_make_hd_adjust(cls_name))
                             ui.label(f"{hd['current']} / {hd['maximum']}").classes('text-white ml-2')
-                for def_label, def_val in [
-                    ("Resistances", combat.get("resistances", "")),
-                    ("Immunities", combat.get("immunities", "")),
-                    ("Vulnerabilities", combat.get("vulnerabilities", "")),
-                ]:
-                    if def_val:
-                        with ui.row().classes('w-full justify-between border-b border-gray-800 py-1'):
-                            ui.label(def_label).classes('text-gray-400')
-                            ui.label(def_val).classes('text-white text-sm')
+
+                if show_death_saves:
+                    for ds_label, ds_field, ds_value in [
+                        ("Death Saves — Successes", "death_save_successes", cs.death_save_successes),
+                        ("Death Saves — Failures",  "death_save_failures",  cs.death_save_failures),
+                    ]:
+                        with ui.row().classes('w-full justify-between items-center border-b border-gray-800 py-1'):
+                            ui.label(ds_label).classes('text-gray-400')
+                            with ui.row().classes('items-center gap-1'):
+                                filled = max(0, min(3, ds_value))
+                                for i in range(3):
+                                    is_checked = i < filled
+                                    def _mk_handler(field=ds_field, idx=i):
+                                        async def _h(e):
+                                            cur = getattr(cs, field)
+                                            new_val = idx + 1 if e.value else idx
+                                            new_val = max(0, min(3, new_val))
+                                            if new_val != cur:
+                                                await _save({field: new_val})
+                                        return _h
+                                    ui.checkbox(value=is_checked, on_change=_mk_handler()).props('dense')
 
             with edit_col:
                 hp_cur  = ui.number("Current HP", value=cs.hp_current, step=1).classes('w-full').props('dense')
@@ -103,9 +116,14 @@ def _render_hp(state, char_id, user, _save):
                     ui.number("Strife", value=cs.strife, step=1, min=0, max=6).classes('w-full').props('dense')
                     if show_strife else None
                 )
-                res_inp  = ui.input("Resistances", value=cs.resistances).classes('w-full').props('dense')
-                imm_inp  = ui.input("Immunities", value=cs.immunities).classes('w-full').props('dense')
-                vul_inp  = ui.input("Vulnerabilities", value=cs.vulnerabilities).classes('w-full').props('dense')
+                ds_succ_inp = (
+                    ui.number("Death Save Successes", value=cs.death_save_successes, step=1, min=0, max=3).classes('w-full').props('dense')
+                    if show_death_saves else None
+                )
+                ds_fail_inp = (
+                    ui.number("Death Save Failures", value=cs.death_save_failures, step=1, min=0, max=3).classes('w-full').props('dense')
+                    if show_death_saves else None
+                )
 
                 async def _save_hp():
                     updates = {
@@ -113,12 +131,13 @@ def _render_hp(state, char_id, user, _save):
                         "hp_max":     int(hp_max.value or 1),
                         "hp_temp":    int(hp_temp.value or 0),
                         "exhaustion": int(exh_inp.value or 0),
-                        "resistances": (res_inp.value or "").strip(),
-                        "immunities": (imm_inp.value or "").strip(),
-                        "vulnerabilities": (vul_inp.value or "").strip(),
                     }
                     if strife_inp is not None:
                         updates["strife"] = int(strife_inp.value or 0)
+                    if ds_succ_inp is not None:
+                        updates["death_save_successes"] = max(0, min(3, int(ds_succ_inp.value or 0)))
+                    if ds_fail_inp is not None:
+                        updates["death_save_failures"] = max(0, min(3, int(ds_fail_inp.value or 0)))
                     await _save(updates)
 
                 ui.button("Save", on_click=_save_hp).props('unelevated color=primary').classes('mt-2 w-full')

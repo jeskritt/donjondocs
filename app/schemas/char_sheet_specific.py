@@ -333,6 +333,8 @@ class Character(BaseModel):
     hp_temp: int = 0
     exhaustion: int = 0  # 0-6; maps to "Exhaustion" in D&D 5e, "Fatigue" in A5e
     strife: int = 0  # 0-6; A5e only ("Strife" condition track)
+    death_save_successes: int = 0  # 0-3; not used in Shadowdark
+    death_save_failures: int = 0  # 0-3; not used in Shadowdark
     resistances: str = ""
     immunities: str = ""
     vulnerabilities: str = ""

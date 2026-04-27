@@ -47,7 +47,7 @@ class TestMigrateCharacterData:
             migrate_character_data({}, 3)
 
     def test_walks_multi_step_chain(self, monkeypatch):
-        """Hand-roll a 1→2→3→4 chain and verify each hop fires once."""
+        """Hand-roll a 1→2→3→…→EXPORT_VERSION chain and verify each hop fires once."""
         called = []
 
         def step(n):
@@ -56,13 +56,10 @@ class TestMigrateCharacterData:
                 return data
             return _m
 
-        monkeypatch.setattr(
-            character_io,
-            "_MIGRATIONS",
-            {1: step(1), 2: step(2), 3: step(3)},
-        )
+        chain = {n: step(n) for n in range(1, character_io.EXPORT_VERSION)}
+        monkeypatch.setattr(character_io, "_MIGRATIONS", chain)
         migrate_character_data({}, 1)
-        assert called == [1, 2, 3]
+        assert called == list(range(1, character_io.EXPORT_VERSION))
 
 
 class TestMigrateV3ToV4:
