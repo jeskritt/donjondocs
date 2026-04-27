@@ -5,8 +5,11 @@ Import button opens an upload dialog to create a character from an exported JSON
 """
 
 import json
+import logging
 
 from nicegui import ui
+
+logger = logging.getLogger(__name__)
 
 from app.schemas.char_sheet_global import SheetStyle
 from app.services.character_io import EXPORT_VERSION, export_filename_for
@@ -102,8 +105,7 @@ async def characters_page():
 
             async def _handle_upload(e):
                 try:
-                    raw = e.content.read()
-                    envelope = json.loads(raw)
+                    envelope = await e.file.json()
                 except (json.JSONDecodeError, UnicodeDecodeError):
                     notify_error("Invalid JSON file.")
                     return
@@ -137,6 +139,7 @@ async def characters_page():
                 except CharacterServiceError as exc:
                     notify_error(exc.message)
                 except Exception:
+                    logger.exception("character import failed")
                     notify_error("Character data failed validation. Is this a valid export?")
 
             ui.upload(
