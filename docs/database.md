@@ -110,4 +110,4 @@ Most character state lives in `characters.character_data` (JSON). The shape is t
 | `equipment` | `CharacterEquipment` | Currently holds `money: dict[currency_code, amount]` |
 | `personality`, `ideals`, `bonds`, `flaws`, `appearance`, `backstory` | `str` | Free-text roleplay fields (default `""`) |
 | `age`, `gender`, `height`, `weight`, `eyes`, `hair`, `skin`, `alignment`, `title`, `deity` | `str` | Physical/identity description fields (default `""`, hidden when empty) |
-| `hp_current`, `hp_max`, `hp_temp`, `exhaustion`, `strife`, `inspiration`, `conditions`, `resistances`, `immunities`, `vulnerabilities` | scalars / lists | Combat state (resistances/immunities/vulnerabilities are free-text strings; `strife` is the A5e-only Strife track, 0–6) |
+| `hp_current`, `hp_max`, `hp_temp`, `exhaustion`, `strife`, `death_save_successes`, `death_save_failures`, `inspiration`, `conditions`, `resistances`, `immunities`, `vulnerabilities` | scalars / lists | Combat state (resistances/immunities/vulnerabilities are free-text strings; `strife` is the A5e-only Strife track, 0–6; `death_save_successes`/`death_save_failures` are 0–3 counters, suppressed in Shadowdark) |

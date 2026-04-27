@@ -879,7 +879,7 @@ class TestRoleplayingFieldsRoundtrip:
 class TestExportImport:
     async def test_export_returns_versioned_envelope(self, db_session, standard_user, sample_character):
         data = await export_character(db_session, sample_character.id, standard_user)
-        assert data["version"] == 4
+        assert data["version"] == 5
         assert data["name"] == sample_character.name
         assert data["style"] == sample_character.style.value
         assert "character_data" in data

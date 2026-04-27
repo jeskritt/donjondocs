@@ -7,6 +7,7 @@ def _render_defenses(state, char_id, user, _save):
     @ui.refreshable
     def _section():
         top = state["vd"].get("top_bar", {})
+        combat = state["vd"].get("combat", {})
         cs = state["cs"]
         is_editing = [False]
 
@@ -35,12 +36,28 @@ def _render_defenses(state, char_id, user, _save):
                     ("Speed", str(cs.speed)),
                     ("Conditions", ', '.join(top.get('conditions', [])) or 'None'),
                 ]
-                if top.get('inspiration') is not None:
-                    rows.append(("Inspiration", "Yes" if top.get('inspiration') else "No"))
                 for label, val in rows:
                     with ui.row().classes('w-full justify-between border-b border-gray-800 py-1'):
                         ui.label(label).classes('text-gray-400')
                         ui.label(val).classes('text-white')
+
+                if top.get('inspiration') is not None:
+                    async def _toggle_inspiration(e):
+                        await _save({"inspiration": bool(e.value)})
+                    with ui.row().classes('w-full justify-between items-center border-b border-gray-800 py-1'):
+                        ui.label("Inspiration").classes('text-gray-400')
+                        ui.checkbox(value=bool(top.get('inspiration')), on_change=_toggle_inspiration).props('dense')
+
+                for def_label, def_val in [
+                    ("Resistances", combat.get("resistances", "")),
+                    ("Immunities", combat.get("immunities", "")),
+                    ("Vulnerabilities", combat.get("vulnerabilities", "")),
+                ]:
+                    if def_val:
+                        with ui.row().classes('w-full justify-between border-b border-gray-800 py-1'):
+                            ui.label(def_label).classes('text-gray-400')
+                            ui.label(def_val).classes('text-white text-sm')
+
                 if ac_subline:
                     ui.label(ac_subline).classes('text-gray-500 text-xs italic')
 
@@ -55,9 +72,9 @@ def _render_defenses(state, char_id, user, _save):
                 init_misc = ui.number("Initiative Misc", value=cs.initiative.misc, step=1).classes('w-full').props('dense')
                 speed_inp = ui.number("Speed", value=cs.speed, step=5, min=0).classes('w-full').props('dense')
                 cond_inp  = ui.input("Conditions (comma-separated)", value=', '.join(cs.conditions)).classes('w-full').props('dense')
-                insp_toggle = None
-                if cs.inspiration is not None:
-                    insp_toggle = ui.checkbox("Inspiration", value=bool(cs.inspiration))
+                res_inp = ui.input("Resistances", value=cs.resistances).classes('w-full').props('dense')
+                imm_inp = ui.input("Immunities", value=cs.immunities).classes('w-full').props('dense')
+                vul_inp = ui.input("Vulnerabilities", value=cs.vulnerabilities).classes('w-full').props('dense')
 
                 async def _save_defenses():
                     updates = {
@@ -65,9 +82,10 @@ def _render_defenses(state, char_id, user, _save):
                         "initiative": {"base": int(init_base.value or 0), "misc": int(init_misc.value or 0)},
                         "speed":      int(speed_inp.value or 0),
                         "conditions": [c.strip() for c in cond_inp.value.split(",") if c.strip()],
+                        "resistances": (res_inp.value or "").strip(),
+                        "immunities": (imm_inp.value or "").strip(),
+                        "vulnerabilities": (vul_inp.value or "").strip(),
                     }
-                    if insp_toggle is not None:
-                        updates["inspiration"] = insp_toggle.value
                     await _save(updates)
 
                 ui.button("Save", on_click=_save_defenses).props('unelevated color=primary').classes('mt-2 w-full')
