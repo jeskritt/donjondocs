@@ -99,6 +99,19 @@ python cli.py reset-password --email alice@example.com --new-password "NewPass12
 
 Public registration is enabled by default. Users who register through `/register` get the `standard` role. To disable registration, set `ALLOW_REGISTRATION=false` in `.env`.
 
+## Backups
+
+Snapshot user-owned data (users, characters, custom globals) to a portable JSON file:
+
+```bash
+python cli.py backup                                                  # writes to ./backups/donjondocs-<UTC>.json
+python cli.py restore --input <file> --dry-run                        # validate without writing
+python cli.py restore --input <file>                                  # merge (default)
+python cli.py restore --input <file> --mode replace --yes             # destructive: wipes user data first
+```
+
+Backup files contain hashed passwords — treat them as secrets. See [`docs/operations.md`](docs/operations.md) for the file format, merge vs replace semantics, and the production rehearsal procedure.
+
 ## Documentation
 
 Detailed docs live in the [`docs/`](docs/) directory:
@@ -110,6 +123,7 @@ Detailed docs live in the [`docs/`](docs/) directory:
 | [Dependencies](docs/dependencies.md) | Module dependency graph |
 | [Deployment](docs/deployment.md) | Environment variables, production setup, systemd example |
 | [Development](docs/development.md) | CLI reference, running tests, data ingestion, migrations |
+| [Operations](docs/operations.md) | Backup & restore CLI, file format, schema-version safety |
 | [RBAC](docs/rbac.md) | Roles, auth flow, authorization rules |
 
 ## License

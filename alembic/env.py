@@ -24,7 +24,7 @@ from app.database import Base
 # Import every model module so its tables register on Base.metadata
 # before autogenerate inspects it. Importing the modules (not symbols)
 # is sufficient — the side effect is what matters.
-from app.models import user, character, char_sheet  # noqa: F401
+from app.models import user, character, character_addons, char_sheet  # noqa: F401
 
 # Alembic Config object
 config = context.config

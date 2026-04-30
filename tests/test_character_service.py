@@ -15,6 +15,7 @@ from app.models.character import CharacterRecord
 from app.models.user import User, UserRole
 from app.schemas.char_sheet_global import SheetStyle
 from app.schemas.char_sheet_specific import CharacterClassEntry
+from app.services.character_io import EXPORT_VERSION
 from app.services.character_service import (
     CharacterServiceError,
     apply_rest,
@@ -879,11 +880,15 @@ class TestRoleplayingFieldsRoundtrip:
 class TestExportImport:
     async def test_export_returns_versioned_envelope(self, db_session, standard_user, sample_character):
         data = await export_character(db_session, sample_character.id, standard_user)
-        assert data["version"] == 5
+        assert data["version"] == EXPORT_VERSION
         assert data["name"] == sample_character.name
         assert data["style"] == sample_character.style.value
         assert "character_data" in data
         assert "exported_at" in data
+        # v6+: addons travel at envelope level, defaulting to empty for a
+        # freshly-created character with no allies or notes yet.
+        assert data["allies"] == []
+        assert data["notes"] == []
 
     async def test_export_denied_for_non_owner(self, db_session, admin_user, standard_user, sample_character):
         other = User(
@@ -923,6 +928,70 @@ class TestExportImport:
                 {"invalid": "data"},
                 standard_user,
             )
+
+    async def test_export_includes_allies_and_notes(self, db_session, standard_user, sample_character):
+        from app.schemas.ally import AllyCreate
+        from app.schemas.note import NoteCreate
+        from app.services.ally_service import create_ally
+        from app.services.note_service import create_note
+
+        await create_ally(
+            db_session, sample_character.id,
+            AllyCreate(name="Goblin", ally_type="Stat Block", body_md="**HP** 7"),
+            standard_user,
+        )
+        await create_note(
+            db_session, sample_character.id,
+            NoteCreate(title="Plot", body_md="Find the **artifact**."),
+            standard_user,
+        )
+
+        exported = await export_character(db_session, sample_character.id, standard_user)
+        assert len(exported["allies"]) == 1
+        assert exported["allies"][0]["name"] == "Goblin"
+        assert exported["allies"][0]["body_md"] == "**HP** 7"
+        # `id` and `character_id` are intentionally not in the envelope —
+        # the importer assigns fresh ones.
+        assert "id" not in exported["allies"][0]
+        assert len(exported["notes"]) == 1
+        assert exported["notes"][0]["title"] == "Plot"
+
+    async def test_import_creates_addons(self, db_session, standard_user, sample_character):
+        from app.models.character_addons import CharacterAlly, CharacterNote
+        from app.schemas.ally import AllyCreate
+        from app.schemas.note import NoteCreate
+        from app.services.ally_service import create_ally
+        from app.services.note_service import create_note
+        from sqlalchemy import select
+
+        await create_ally(
+            db_session, sample_character.id,
+            AllyCreate(name="Goblin", ally_type="Stat Block"),
+            standard_user,
+        )
+        await create_note(
+            db_session, sample_character.id,
+            NoteCreate(title="Plot"),
+            standard_user,
+        )
+        exported = await export_character(db_session, sample_character.id, standard_user)
+
+        rec = await import_character(
+            db_session, exported["name"], SheetStyle(exported["style"]),
+            exported["character_data"], standard_user,
+            allies=exported["allies"],
+            notes=exported["notes"],
+        )
+
+        # New character has its own copies of the addons.
+        allies = (await db_session.execute(
+            select(CharacterAlly).where(CharacterAlly.character_id == rec.id)
+        )).scalars().all()
+        notes = (await db_session.execute(
+            select(CharacterNote).where(CharacterNote.character_id == rec.id)
+        )).scalars().all()
+        assert [a.name for a in allies] == ["Goblin"]
+        assert [n.title for n in notes] == ["Plot"]
 
     async def test_import_rejects_version_newer_than_supported(
         self, db_session, standard_user, sample_character

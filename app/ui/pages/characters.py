@@ -132,6 +132,8 @@ async def characters_page():
                         rec = await import_character(
                             session, name, style, envelope["character_data"], user,
                             version=version,
+                            allies=envelope.get("allies"),
+                            notes=envelope.get("notes"),
                         )
                     notify_success(f"Imported '{rec.name}' successfully!")
                     dialog.close()
@@ -142,6 +144,10 @@ async def characters_page():
                     logger.exception("character import failed")
                     notify_error("Character data failed validation. Is this a valid export?")
 
+            # `add-icon` swaps the q-uploader "+" picker button for an upload
+            # arrow so the affordance reads as "upload a file" rather than
+            # "add a row". `upload-icon` is set for parity if auto-upload
+            # ever gets toggled off and the manual upload button shows up.
             ui.upload(
                 on_upload=_handle_upload,
                 auto_upload=True,
@@ -198,11 +204,13 @@ async def characters_page():
                 </q-td>
             ''')
 
+            # The action cell stops row-click propagation so per-row buttons
+            # don't double-fire the "open" handler below.
             table.add_slot("body-cell-actions", r'''
-                <q-td :props="props">
-                    <q-btn flat round dense icon="login" title="Open Sheet" @click="$parent.$emit('open', props.row)" size="sm" color="primary" />
-                    <q-btn flat round dense icon="download" title="Export" @click="$parent.$emit('export', props.row)" size="sm" color="teal" />
-                    <q-btn flat round dense icon="delete" title="Delete" @click="$parent.$emit('delete', props.row)" size="sm" color="negative" />
+                <q-td :props="props" @click.stop>
+                    <q-btn flat round dense icon="login" title="Open Sheet" @click.stop="$parent.$emit('open', props.row)" size="sm" color="primary" />
+                    <q-btn flat round dense icon="download" title="Export" @click.stop="$parent.$emit('export', props.row)" size="sm" color="teal" />
+                    <q-btn flat round dense icon="delete" title="Delete" @click.stop="$parent.$emit('delete', props.row)" size="sm" color="negative" />
                 </q-td>
             ''')
 
@@ -215,6 +223,9 @@ async def characters_page():
             table.on("open", handle_open)
             table.on("export", handle_export)
             table.on("delete", handle_delete)
+            # Click anywhere on a row (outside the action buttons) opens the sheet.
+            # Quasar's row-click event payload is (evt, row, idx); we only need row.
+            table.on("row-click", lambda e: ui.navigate.to(f"/character/{e.args[1]['id']}"))
 
         chars_table()
 

@@ -14,6 +14,7 @@ from app.services._errors import CharacterServiceError
 from app.services.character_io import (
     EXPORT_VERSION,
     _migrate_v3_to_v4,
+    _migrate_v5_to_v6,
     export_filename_for,
     migrate_character_data,
 )
@@ -91,6 +92,30 @@ class TestMigrateV3ToV4:
         out = _migrate_v3_to_v4(data)
         assert out["currency"] == {"GP": 999}
         assert "equipment" not in out
+
+
+class TestMigrateV5ToV6:
+    """v5→v6 is intentionally a pass-through for character_data — the
+    breaking change happened at envelope level (allies/notes are now
+    sibling keys, not blob fields). Pin the no-op so a future schema
+    change to the blob doesn't accidentally remove this migrator and
+    leave v5 imports stuck at the wrong version.
+    """
+
+    def test_passes_data_through_unchanged(self):
+        data = {"name": "X", "currency": {"GP": 1}, "death_save_successes": 0}
+        out = _migrate_v5_to_v6(data)
+        assert out == data
+
+    def test_chain_v5_arrives_at_v6(self):
+        """A v5 blob walked through migrate_character_data lands at EXPORT_VERSION
+        with no shape change — proves the chain still terminates correctly
+        after the EXPORT_VERSION bump.
+        """
+        v5_blob = {"name": "X", "death_save_successes": 1, "death_save_failures": 2}
+        out = migrate_character_data(dict(v5_blob), 5)
+        assert out["death_save_successes"] == 1
+        assert out["death_save_failures"] == 2
 
 
 class TestExportFilenameFor:

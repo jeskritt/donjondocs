@@ -120,8 +120,8 @@ class TestLogoutRoute:
     """Tests for POST /api/auth/logout."""
 
     async def test_logout_clears_cookie(self, client, test_user):
-        cookies = auth_cookies(test_user)
-        resp = await client.post("/api/auth/logout", cookies=cookies)
+        client.cookies = auth_cookies(test_user)
+        resp = await client.post("/api/auth/logout")
         assert resp.status_code == 204
 
 
@@ -130,8 +130,8 @@ class TestMeRoute:
     """Tests for GET /api/auth/me."""
 
     async def test_me_returns_user_info(self, client, test_user):
-        cookies = auth_cookies(test_user)
-        resp = await client.get("/api/auth/me", cookies=cookies)
+        client.cookies = auth_cookies(test_user)
+        resp = await client.get("/api/auth/me")
         assert resp.status_code == 200
         data = resp.json()
         assert data["username"] == "standard_user"

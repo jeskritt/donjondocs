@@ -13,6 +13,8 @@ from app.ui.components.character_editor import open_character_editor
 
 from app.ui.components.sheet.abilities import _render_abilities
 from app.ui.components.sheet.actions import _render_actions
+from app.ui.components.sheet.allies import _render_allies
+from app.ui.components.sheet.notes import _render_notes
 from app.ui.components.sheet.skills import _render_skills
 from app.ui.components.sheet.hp import _render_hp
 from app.ui.components.sheet.defenses import _render_defenses
@@ -20,6 +22,13 @@ from app.ui.components.sheet.proficiencies import _render_proficiencies
 from app.ui.components.sheet.description import _render_description
 from app.ui.components.sheet.features import _render_features
 from app.ui.components.sheet.equipment import _render_equipment
+
+
+# Tab labels are constants so the panel-name lookup never silently desyncs
+# from the tab declarations. Order here is the order the tabs render.
+PAGE_CHARACTER = "Character"
+PAGE_ALLIES = "Allies & Stat Blocks"
+PAGE_NOTES = "Notes"
 
 
 @ui.page("/character/{char_id}")
@@ -53,6 +62,9 @@ async def character_sheet_page(char_id: str):
         "features_tab": "Abilities",
         "features_source_tab": None,
         "equipment_tab": "Weapons",
+        # Active page tab. Survives `_save` re-renders the same way the
+        # features/equipment subtabs do.
+        "active_page": PAGE_CHARACTER,
     }
 
     refresh_fns: list = []
@@ -222,23 +234,52 @@ async def character_sheet_page(char_id: str):
             refresh_fns.append(section)
 
     # -----------------------------------------------------------------------
-    # Content
+    # Page Tabs (Character / Allies / Notes)
     # -----------------------------------------------------------------------
-    with ui.column().classes("w-full max-w-7xl mx-auto p-4 gap-4"):
+    # Mounting Quasar's q-tabs sticky just below the existing top_bar
+    # (which sits at top-[60px]). Tab content swaps via tab_panels — one URL,
+    # no router. State["active_page"] mirrors the tab so a top-level _save
+    # rerender doesn't snap users back to the Character tab.
+    with ui.tabs(value=state["active_page"]).classes("w-full sticky top-[140px] z-30 bg-[#1e1e2f] border-b border-gray-700") as page_tabs:
+        ui.tab(PAGE_CHARACTER)
+        ui.tab(PAGE_ALLIES)
+        ui.tab(PAGE_NOTES)
+    page_tabs.bind_value(state, "active_page")
 
-        with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-            _track(_render_abilities(state, char_id, user, _save))
-            _track(_render_actions(state, char_id, user, _save))
-            _track(_render_skills(state, char_id, user, _save))
+    with ui.tab_panels(page_tabs, value=state["active_page"]).bind_value(state, "active_page").classes("w-full bg-transparent"):
+        # -------------------------------------------------------------------
+        # Character page (the existing card grid)
+        # -------------------------------------------------------------------
+        with ui.tab_panel(PAGE_CHARACTER):
+            with ui.column().classes("w-full max-w-7xl mx-auto p-4 gap-4"):
 
-        with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-            _track(_render_hp(state, char_id, user, _save))
-            _track(_render_defenses(state, char_id, user, _save))
-            _track(_render_proficiencies(state, char_id, user, _save))
+                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                    _track(_render_abilities(state, char_id, user, _save))
+                    _track(_render_actions(state, char_id, user, _save))
+                    _track(_render_skills(state, char_id, user, _save))
 
-        with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-            _track(_render_description(state, char_id, user, _save))
-            _track(_render_features(state, char_id, user, _save))
+                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                    _track(_render_hp(state, char_id, user, _save))
+                    _track(_render_defenses(state, char_id, user, _save))
+                    _track(_render_proficiencies(state, char_id, user, _save))
 
-        with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-            _track(_render_equipment(state, char_id, user, _save))
+                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                    _track(_render_description(state, char_id, user, _save))
+                    _track(_render_features(state, char_id, user, _save))
+
+                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                    _track(_render_equipment(state, char_id, user, _save))
+
+        # -------------------------------------------------------------------
+        # Allies & Stat Blocks
+        # -------------------------------------------------------------------
+        with ui.tab_panel(PAGE_ALLIES):
+            with ui.column().classes("w-full max-w-7xl mx-auto p-4 gap-4"):
+                _track(_render_allies(state, char_id, user))
+
+        # -------------------------------------------------------------------
+        # Notes
+        # -------------------------------------------------------------------
+        with ui.tab_panel(PAGE_NOTES):
+            with ui.column().classes("w-full max-w-7xl mx-auto p-4 gap-4"):
+                _track(_render_notes(state, char_id, user))

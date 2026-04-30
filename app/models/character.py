@@ -48,6 +48,17 @@ class CharacterRecord(TimestampMixin, Base):
     owner: Mapped["User"] = relationship(
         "User", back_populates="characters"
     )
+    # Cascade is ORM-side (not passive_deletes) so deleting a character
+    # always wipes its addons regardless of whether the DB enforces the
+    # FK ON DELETE CASCADE — matches the User→characters pattern at
+    # `app/models/user.py:56` and works under in-memory SQLite tests
+    # where PRAGMA foreign_keys is off by default.
+    allies: Mapped[list["CharacterAlly"]] = relationship(
+        "CharacterAlly", back_populates="character", cascade="all, delete-orphan",
+    )
+    notes: Mapped[list["CharacterNote"]] = relationship(
+        "CharacterNote", back_populates="character", cascade="all, delete-orphan",
+    )
 
     def __repr__(self) -> str:
         return f"<Character '{self.name}' ({self.style.value})>"

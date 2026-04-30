@@ -19,6 +19,8 @@ All tables that mix in `TimestampMixin` also carry `created_at` and `updated_at`
 | --- | --- | --- |
 | `users` | Accounts with RBAC | `id`, `username`, `email`, `hashed_password`, `role`, `is_active`, `last_login` (+ audit fields from `TimestampMixin`) |
 | `characters` | Character records — most state is in JSON blob | `id`, `name`, `style`, `owner_id` (FK users), `character_data` (JSON) |
+| `character_allies` | Per-character allies, companions, stat blocks (Markdown bodies) | `id`, `character_id` (FK characters, ON DELETE CASCADE), `name`, `ally_type` (free text), `body_md` |
+| `character_notes` | Per-character free-form notes (Markdown bodies) | `id`, `character_id` (FK characters, ON DELETE CASCADE), `title`, `body_md` |
 | `global_class` | System-defined classes (per `source`) | `id`, `name`, `description`, `reference`, `hit_dice`, `primary_ability`, `saving_throws`, `proficiencies`, `source`, `owner_id` (NULL = global) |
 | `global_skill` | System-defined skills | `id`, `name`, `attribute`, `example_uses`, `specialties`, `reference`, `source`, `owner_id` |
 | `global_attribute` | System-defined ability scores | `id`, `name`, `alias` (e.g. `STR`), `description`, `reference`, `source`, `owner_id` |
@@ -39,6 +41,8 @@ Note: `global_ability`, `global_combat_maneuver`, `global_spell`, and `global_de
 ```mermaid
 erDiagram
   USER ||--o{ CHARACTER : owns
+  CHARACTER ||--o{ CHARACTER_ALLY : "has"
+  CHARACTER ||--o{ CHARACTER_NOTE : "has"
   USER ||--o{ GLOBAL_CLASS : "owns custom"
   USER ||--o{ GLOBAL_SKILL : "owns custom"
   USER ||--o{ GLOBAL_ATTRIBUTE : "owns custom"
@@ -66,6 +70,19 @@ erDiagram
     enum   style
     string owner_id FK
     json   character_data
+  }
+  CHARACTER_ALLY {
+    string id PK
+    string character_id FK
+    string name
+    string ally_type
+    text   body_md
+  }
+  CHARACTER_NOTE {
+    string id PK
+    string character_id FK
+    string title
+    text   body_md
   }
   GLOBAL_CLASS {
     string id PK
