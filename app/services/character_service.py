@@ -1,8 +1,9 @@
 """
 AI Helper Docstring
-Purpose: All write/read operations on `CharacterRecord` with owner-based RBAC. Owns character creation (with seeding), updates to the JSON `character_data` blob, listing, deletion, the rest mechanics entry point, and the export/import dispatch.
+Purpose: All write/read operations on `CharacterRecord` with owner-based RBAC. Owns character creation (with seeding), updates to the JSON `character_data` blob, listing, deletion, the rest mechanics entry point, and the export/import dispatch (including the per-character ally and note addons).
 Interactions:
 - `app.models.character.CharacterRecord`: target ORM row (1:1 per character).
+- `app.models.character_addons.{CharacterAlly, CharacterNote}`: addon rows packed into the export envelope and recreated on import.
 - `app.services.character_seeding`: initial `character_data` for a fresh character.
 - `app.services.character_mechanics.apply_rest`: pure helper used by `rest_character`.
 - `app.services.character_io`: `EXPORT_VERSION`, `migrate_character_data`, filename helper.
@@ -13,16 +14,19 @@ Interactions:
 """Character service logic with RBAC constraints."""
 
 from datetime import datetime, timezone
-from typing import Sequence
+from typing import Any, Sequence
 import uuid
 
 from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.character import CharacterRecord
+from app.models.character_addons import CharacterAlly, CharacterNote
 from app.models.user import User
+from app.schemas.ally import AllyCreate
 from app.schemas.char_sheet_global import SheetStyle
 from app.schemas.char_sheet_specific import Character, CharacterClassEntry
+from app.schemas.note import NoteCreate
 from app.services._errors import CharacterServiceError
 from app.services.character_io import (
     EXPORT_VERSION,
@@ -222,14 +226,42 @@ async def export_character(
     character_id: str,
     current_user: UserContext,
 ) -> dict:
-    """Export a character as a versioned JSON-serializable dict."""
+    """Export a character as a versioned JSON-serializable dict.
+
+    Allies and notes are packed at envelope level (sibling keys to
+    `character_data`) — they live in their own tables. Each entry
+    carries only the fields the importer needs to recreate it; `id`
+    and `character_id` are intentionally omitted because the importer
+    assigns fresh UUIDs and a new parent.
+    """
     rec = await get_character(session, character_id, current_user)
+    allies_rows = (
+        await session.execute(
+            select(CharacterAlly)
+            .where(CharacterAlly.character_id == character_id)
+            .order_by(CharacterAlly.created_at.asc())
+        )
+    ).scalars().all()
+    notes_rows = (
+        await session.execute(
+            select(CharacterNote)
+            .where(CharacterNote.character_id == character_id)
+            .order_by(CharacterNote.created_at.desc())
+        )
+    ).scalars().all()
     return {
         "version": EXPORT_VERSION,
         "exported_at": datetime.now(timezone.utc).isoformat(),
         "name": rec.name,
         "style": rec.style.value,
         "character_data": rec.character_data,
+        "allies": [
+            {"name": a.name, "ally_type": a.ally_type, "body_md": a.body_md}
+            for a in allies_rows
+        ],
+        "notes": [
+            {"title": n.title, "body_md": n.body_md} for n in notes_rows
+        ],
     }
 
 
@@ -240,13 +272,21 @@ async def import_character(
     character_data: dict,
     current_user: UserContext,
     version: int = EXPORT_VERSION,
+    allies: list[dict[str, Any]] | None = None,
+    notes: list[dict[str, Any]] | None = None,
 ) -> CharacterRecord:
-    """Import a character from an exported JSON blob.
+    """Import a character from an exported JSON envelope.
 
     Validates data against the Character schema, overrides owner_id,
     generates a fresh ID, and enforces character count limits. When the
     envelope version is older than EXPORT_VERSION, character_data is run
     through the migration chain before validation.
+
+    `allies` and `notes` are accepted as opt-in lists at envelope level
+    (added in EXPORT_VERSION 6). Each entry is validated against
+    `AllyCreate` / `NoteCreate` before insert; an invalid entry rolls back
+    the whole import. Older exports without these keys import cleanly with
+    no addon rows.
     """
     await _assert_within_character_limit(session, current_user)
 
@@ -258,6 +298,10 @@ async def import_character(
 
     Character(**character_data)
 
+    # Validate addon payloads up front so we don't half-create the character.
+    ally_payloads = [AllyCreate(**a) for a in (allies or [])]
+    note_payloads = [NoteCreate(**n) for n in (notes or [])]
+
     new_char = CharacterRecord(
         id=str(uuid.uuid4()),
         name=name,
@@ -266,6 +310,22 @@ async def import_character(
         character_data=character_data,
     )
     session.add(new_char)
+    await session.flush()
+
+    for payload in ally_payloads:
+        session.add(CharacterAlly(
+            character_id=new_char.id,
+            name=payload.name,
+            ally_type=payload.ally_type,
+            body_md=payload.body_md,
+        ))
+    for payload in note_payloads:
+        session.add(CharacterNote(
+            character_id=new_char.id,
+            title=payload.title,
+            body_md=payload.body_md,
+        ))
+
     await session.commit()
     await session.refresh(new_char)
     return new_char

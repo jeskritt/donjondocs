@@ -14,7 +14,6 @@ Provides:
 - Factory fixtures for creating test users
 """
 
-import asyncio
 import os
 from typing import AsyncGenerator
 
@@ -46,14 +45,11 @@ get_settings.cache_clear()
 # ---------------------------------------------------------------------------
 # Database fixtures
 # ---------------------------------------------------------------------------
-
-@pytest.fixture(scope="session")
-def event_loop():
-    """Create an event loop for the test session."""
-    loop = asyncio.new_event_loop()
-    yield loop
-    loop.close()
-
+# Note: pytest-asyncio's `auto` mode (set in pytest.ini) provides a
+# function-scoped event loop by default. We previously redefined the
+# `event_loop` fixture here, but that pattern is deprecated in
+# pytest-asyncio. If a test ever needs a wider scope, use the
+# `loop_scope=` argument on `@pytest.mark.asyncio` instead.
 
 @pytest_asyncio.fixture
 async def db_engine():

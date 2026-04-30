@@ -82,15 +82,35 @@ flowchart LR
 - Features and Equipment tabs bind their active-tab value to the page `state` dict via `bind_value()`, so the selected tab survives save-triggered re-renders.
 - Cards with variable-length content (Features, Equipment, Actions) are height-capped at 400px with `overflow-y: auto` so the overall sheet layout stays compact.
 
+### Page tabs (Character / Allies / Notes)
+
+The character sheet hosts three sibling pages under one URL (`/character/{id}`):
+
+- **Character** — the existing card grid (abilities, HP, equipment, etc.).
+- **Allies & Stat Blocks** — `app/ui/components/sheet/allies.py`.
+- **Notes** — `app/ui/components/sheet/notes.py`.
+
+Switching is implemented with `ui.tabs` + `ui.tab_panels` mounted just below the sticky top-bar — no router changes, no new URLs. The active tab is stored in `state["active_page"]` so a top-level `_save()` re-render can't snap users back to the Character tab.
+
+Allies and notes are persisted in their own tables (`character_allies`, `character_notes`) rather than inside the `character_data` JSON blob, so each row is independently sortable, edited one-at-a-time, and gets DB-side `created_at` / `updated_at`. Both bodies are Markdown — rendered via `ui.markdown` on expand, edited in a `ui.textarea` with a "Markdown supported" hint. Writes go through `app/services/ally_service.py` and `app/services/note_service.py`, which both gate on `character_service.get_character` for ownership/admin RBAC.
+
 ## Character Import / Export
 
 Characters can be exported as JSON from the character management page (`/characters`). The export envelope is versioned:
 
 ```json
-{"version": 3, "exported_at": "...", "name": "...", "style": "dnd5e", "character_data": {...}}
+{
+  "version": 6,
+  "exported_at": "...",
+  "name": "...",
+  "style": "Dungeons & Dragons 5e",
+  "character_data": {...},
+  "allies": [{"name": "...", "ally_type": "...", "body_md": "..."}],
+  "notes":  [{"title": "...", "body_md": "..."}]
+}
 ```
 
-Import reads the envelope, validates `character_data` against the `Character` Pydantic schema, overrides `owner_id` for security, and creates a new `CharacterRecord` with a fresh UUID. The `version` field enables future schema migration during import.
+Import reads the envelope, validates `character_data` against the `Character` Pydantic schema, overrides `owner_id` for security, and creates a new `CharacterRecord` with a fresh UUID. Allies and notes are validated against `AllyCreate` / `NoteCreate` and inserted with the new character's id. The `version` field walks the migration chain in `app/services/character_io.py::_MIGRATIONS` so older exports (v3, v4, v5) still import cleanly; v3-v5 envelopes simply land with empty `allies` / `notes` lists.
 
 API endpoints: `GET /api/characters/{id}/export`, `POST /api/characters/import`. Service functions: `export_character()`, `import_character()` in `character_service.py`.
 

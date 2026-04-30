@@ -20,16 +20,17 @@ DonjonDocs ships a CLI for snapshotting and restoring **user-owned data** to a s
 |---|---|
 | All rows of `users` | — |
 | All rows of `characters` (with `character_data` migrated to the latest schema) | — |
+| All rows of `character_allies` and `character_notes` (per-character relational addons; added in `BACKUP_VERSION` 2) | — |
 | Rows of the nine `global_*` tables where `owner_id IS NOT NULL` (custom items, spells, abilities a user has added) | Bulk rule data — rows in `global_*` tables where `owner_id IS NULL`. That data is reproducible from `data/*.csv` via `python -m app.cli.ingest`. |
 
 ### Backup file format
 
 ```json
 {
-  "backup_version": 1,
+  "backup_version": 2,
   "exported_at": "2026-04-30T12:34:56+00:00",
-  "alembic_revision": "80e99f975648",
-  "character_data_version": 5,
+  "alembic_revision": "f9f7baa647cc",
+  "character_data_version": 6,
   "users":      [ /* User rows */ ],
   "characters": [ /* CharacterRecord rows */ ],
   "user_globals": {
@@ -43,9 +44,15 @@ DonjonDocs ships a CLI for snapshotting and restoring **user-owned data** to a s
     "global_skill":  [ ... ],
     "global_combat_maneuver": [ ... ],
     "global_destiny":[ ... ]
+  },
+  "character_addons": {
+    "character_allies": [ ... ],
+    "character_notes":  [ ... ]
   }
 }
 ```
+
+`backup_version` 1 (without the `character_addons` bucket) is still accepted by the loader — missing addon buckets default to empty, so older artifacts restore cleanly into a v2 codebase.
 
 - `alembic_revision` is read from the source DB's `alembic_version` table. Restore rejects mismatched revisions unless you pass `--force`.
 - `character_data_version` is the version of each character's JSON blob (currently 5). Older blobs are migrated up to this version at backup time, so restored characters always match the current `Character` schema (`app/schemas/char_sheet_specific.py`).

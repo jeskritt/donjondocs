@@ -81,6 +81,7 @@ CharacterRecord.character_data (JSON)
 - `app/builders/__init__.py::get_builder()` dispatches on `SheetStyle`. Concrete builders exist for **DND5E, A5E, SHADOWDARK**; the other enum values (`UM5`, `GENEFUNK`, `CARBON`) raise `NotImplementedError`. Style-specific builders override only the methods they need on `BaseSheetBuilder`.
 - `app/builders/base.py::_compute_ac()` derives total AC from equipped inventory (armor `base_ac` replaces manual base, `dex_cap` clamps DEX, shields stack). The breakdown is emitted as `view_data['ac_breakdown']`.
 - **The "refresh-all" save pattern.** Every `@ui.refreshable` card's refresh handle is collected into `refresh_fns` by `app/ui/pages/character_sheet.py`. The single write path is `_save(updates)` in that file: it calls `update_character()`, rebuilds `state["cs"]` and `state["vd"]`, then iterates `refresh_fns` to re-render every card. This is how an attribute edit propagates to skills/defenses/magic-DC/actions without per-card wiring — **don't add ad-hoc refresh code; just go through `_save`**.
+- **Page tabs (Character / Allies / Notes).** `character_sheet.py` mounts three `ui.tab_panels` under the sticky top bar. `state["active_page"]` survives `_save` re-renders. The Allies and Notes panels are rendered by `app/ui/components/sheet/{allies,notes}.py`; their writes go through `app/services/{ally_service,note_service}.py`, **not** `_save` — they don't touch `character_data`, they own their own tables (`character_allies`, `character_notes`).
 - Inline play-time controls (e.g. exertion +/- in `features_maneuvers.py`, HP +/- and slider in `hp.py`, magic resource +/- in `features_magic.py`) all follow the same shape: an async closure that clamps a value and calls `await _save({field: new_val})`. Use the `render_pm_adjuster(on_delta)` helper in `app/ui/components/sheet/helpers.py` for new +/- pairs.
 - Features and Equipment tabs `bind_value()` to the page `state` dict so the active tab survives re-renders.
 
@@ -99,11 +100,20 @@ API routes are exempt from `AuthMiddleware` because they carry their own JWT coo
 
 - Alembic now owns schema (`alembic/versions/2026_04_26_1053-..._baseline_schema.py`). Run `alembic upgrade head` before first boot. The `cli.py` test/dev path still uses `Base.metadata.create_all` for tests.
 - On startup, if any of the **six core** global lookup tables (`global_class`, `global_skill`, `global_attribute`, `global_weapon`, `global_armor`, `global_item`) is empty, `app/cli/ingest.py` is auto-invoked against `data/`. The four newer tables (`global_ability`, `global_combat_maneuver`, `global_spell`, `global_destiny`) have ORM definitions but no CSV loader yet — they remain empty until populated manually.
-- **Most character state is in the `character_data` JSON blob** — adding a new field to the `Character` Pydantic model usually does *not* require an Alembic migration. Migrations are needed only for changes to the columns of `characters` itself (or other tables).
+- **Most character state is in the `character_data` JSON blob** — adding a new field to the `Character` Pydantic model usually does *not* require an Alembic migration. Migrations are needed only for changes to the columns of `characters` itself (or other tables). **Exception:** allies and notes are *not* in the JSON blob — they live in `character_allies` and `character_notes` tables (one row per item, cascade-deleted with their character). New fields on those tables *do* need migrations.
 
 ### Import / export
 
-Versioned envelope: `{"version": 3, "exported_at": ..., "name": ..., "style": ..., "character_data": {...}}`. Import validates `character_data` against `Character`, overrides `owner_id` for safety, and creates a new `CharacterRecord` with a fresh UUID. Endpoints: `GET /api/characters/{id}/export`, `POST /api/characters/import`.
+Versioned envelope (current `EXPORT_VERSION` = 6 in `app/services/character_io.py`):
+
+```json
+{"version": 6, "exported_at": "...", "name": "...", "style": "...",
+ "character_data": {...},
+ "allies": [{"name", "ally_type", "body_md"}],
+ "notes":  [{"title", "body_md"}]}
+```
+
+Import validates `character_data` against `Character`, validates each addon against `AllyCreate` / `NoteCreate`, overrides `owner_id` for safety, and creates a new `CharacterRecord` (with fresh UUID) plus addon rows. Older envelopes (v3-v5) walk the `_MIGRATIONS` chain in `character_io.py` and arrive with empty addon lists. Endpoints: `GET /api/characters/{id}/export`, `POST /api/characters/import`.
 
 ## Conventions worth knowing
 

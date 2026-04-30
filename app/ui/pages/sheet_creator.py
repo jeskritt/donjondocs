@@ -32,13 +32,18 @@ async def sheet_creator_page():
 
         with ui.row().classes("gap-6 justify-center w-full max-w-4xl"):
 
+            # Cards share width and a fixed height, then use flex-col + flex-1
+            # on the description so the icon/title/button line up exactly across
+            # all three regardless of the description text length.
             def system_card(title: str, description: str, style: SheetStyle, icon: str, color: str):
-                with ui.card().classes("w-64 cursor-pointer hover:scale-105 transition-transform duration-200").style(
+                with ui.card().classes(
+                    "w-64 h-72 flex flex-col cursor-pointer hover:scale-105 transition-transform duration-200"
+                ).style(
                     f"background: #1E1E2E; border-top: 4px solid {color};"
                 ).on('click', lambda s=style: do_create(s)):
                     ui.icon(icon, size="3xl").classes("w-full text-center mt-4").style(f"color: {color};")
                     ui.label(title).classes("text-xl font-bold text-white w-full text-center mt-4")
-                    ui.label(description).classes("text-xs text-gray-400 text-center mt-2 mb-4 h-16")
+                    ui.label(description).classes("text-xs text-gray-400 text-center mt-2 mb-4 flex-1")
                     ui.button("Select").props("unelevated outline").classes("w-full").style(f"color: {color};")
 
             system_card(

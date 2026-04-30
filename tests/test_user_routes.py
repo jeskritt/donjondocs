@@ -5,7 +5,14 @@ Interactions:
 - Leverages `app.api.user_routes.py` over an `httpx` AsyncClient proxy.
 """
 
-"""Tests for user management API routes."""
+"""Tests for user management API routes.
+
+httpx 0.28+ deprecates per-request `cookies=` kwargs because cookie
+persistence semantics get ambiguous when both the client jar and the
+per-request kwarg are populated. The tests here set cookies on the
+client instance instead — `client.cookies = auth_cookies(user)` is the
+recommended pattern.
+"""
 
 import pytest
 
@@ -17,20 +24,20 @@ class TestAdminUserRoutes:
     """Tests for admin-only user management endpoints."""
 
     async def test_admin_list_users(self, client, test_admin):
-        cookies = auth_cookies(test_admin)
-        resp = await client.get("/api/users", cookies=cookies)
+        client.cookies = auth_cookies(test_admin)
+        resp = await client.get("/api/users")
         assert resp.status_code == 200
         assert isinstance(resp.json(), list)
 
     async def test_admin_get_user(self, client, test_admin, test_user):
-        cookies = auth_cookies(test_admin)
-        resp = await client.get(f"/api/users/{test_user.id}", cookies=cookies)
+        client.cookies = auth_cookies(test_admin)
+        resp = await client.get(f"/api/users/{test_user.id}")
         assert resp.status_code == 200
         assert resp.json()["username"] == "standard_user"
 
     async def test_admin_create_user(self, client, test_admin):
-        cookies = auth_cookies(test_admin)
-        resp = await client.post("/api/users", cookies=cookies, json={
+        client.cookies = auth_cookies(test_admin)
+        resp = await client.post("/api/users", json={
             "username": "created_by_admin",
             "email": "admin_created@test.com",
             "password": "Pass1234!",
@@ -40,23 +47,22 @@ class TestAdminUserRoutes:
         assert resp.json()["role"] == "premium"
 
     async def test_admin_update_user(self, client, test_admin, test_user):
-        cookies = auth_cookies(test_admin)
-        resp = await client.put(f"/api/users/{test_user.id}", cookies=cookies, json={
+        client.cookies = auth_cookies(test_admin)
+        resp = await client.put(f"/api/users/{test_user.id}", json={
             "role": "premium",
         })
         assert resp.status_code == 200
         assert resp.json()["role"] == "premium"
 
     async def test_admin_delete_user(self, client, test_admin, test_user):
-        cookies = auth_cookies(test_admin)
-        resp = await client.delete(f"/api/users/{test_user.id}", cookies=cookies)
+        client.cookies = auth_cookies(test_admin)
+        resp = await client.delete(f"/api/users/{test_user.id}")
         assert resp.status_code == 204
 
     async def test_admin_reset_user_password(self, client, test_admin, test_user):
-        cookies = auth_cookies(test_admin)
+        client.cookies = auth_cookies(test_admin)
         resp = await client.post(
             f"/api/users/{test_user.id}/reset-password",
-            cookies=cookies,
             json={"new_password": "ResetPass789!"},
         )
         assert resp.status_code == 204
@@ -70,17 +76,15 @@ class TestAdminUserRoutes:
         able to fire reset attempts at machine speed (cf. audit
         finding #6 — silent account takeover via admin reset).
         """
-        cookies = auth_cookies(test_admin)
+        client.cookies = auth_cookies(test_admin)
         for _ in range(3):
             resp = await client.post(
                 f"/api/users/{test_user.id}/reset-password",
-                cookies=cookies,
                 json={"new_password": "ResetPass789!"},
             )
             assert resp.status_code == 204
         resp = await client.post(
             f"/api/users/{test_user.id}/reset-password",
-            cookies=cookies,
             json={"new_password": "ResetPass789!"},
         )
         assert resp.status_code == 429
@@ -91,13 +95,13 @@ class TestNonAdminRestrictions:
     """Tests that non-admin users can't access admin routes."""
 
     async def test_standard_user_cannot_list_users_403(self, client, test_user):
-        cookies = auth_cookies(test_user)
-        resp = await client.get("/api/users", cookies=cookies)
+        client.cookies = auth_cookies(test_user)
+        resp = await client.get("/api/users")
         assert resp.status_code == 403
 
     async def test_standard_user_cannot_create_user_403(self, client, test_user):
-        cookies = auth_cookies(test_user)
-        resp = await client.post("/api/users", cookies=cookies, json={
+        client.cookies = auth_cookies(test_user)
+        resp = await client.post("/api/users", json={
             "username": "hacker",
             "email": "hack@test.com",
             "password": "Pass1234!",
@@ -110,8 +114,8 @@ class TestSelfServiceRoutes:
     """Tests for self-service profile management."""
 
     async def test_self_update_profile(self, client, test_user):
-        cookies = auth_cookies(test_user)
-        resp = await client.put("/api/users/me", cookies=cookies, json={
+        client.cookies = auth_cookies(test_user)
+        resp = await client.put("/api/users/me", json={
             "username": "updated_name",
         })
         assert resp.status_code == 200
@@ -119,8 +123,8 @@ class TestSelfServiceRoutes:
 
     async def test_self_update_cannot_change_role(self, client, test_user):
         """ProfileUpdate schema has no 'role' field, so it's ignored."""
-        cookies = auth_cookies(test_user)
-        resp = await client.put("/api/users/me", cookies=cookies, json={
+        client.cookies = auth_cookies(test_user)
+        resp = await client.put("/api/users/me", json={
             "username": "sneaky",
             "role": "admin",  # This field is not in ProfileUpdate schema
         })
@@ -129,16 +133,16 @@ class TestSelfServiceRoutes:
         assert resp.json()["role"] == "standard"  # Unchanged
 
     async def test_self_change_password(self, client, test_user):
-        cookies = auth_cookies(test_user)
-        resp = await client.post("/api/users/me/change-password", cookies=cookies, json={
+        client.cookies = auth_cookies(test_user)
+        resp = await client.post("/api/users/me/change-password", json={
             "current_password": "TestPass123!",
             "new_password": "NewTestPass456!",
         })
         assert resp.status_code == 204
 
     async def test_self_change_password_wrong_current_400(self, client, test_user):
-        cookies = auth_cookies(test_user)
-        resp = await client.post("/api/users/me/change-password", cookies=cookies, json={
+        client.cookies = auth_cookies(test_user)
+        resp = await client.post("/api/users/me/change-password", json={
             "current_password": "WrongPass!",
             "new_password": "NewTestPass456!",
         })

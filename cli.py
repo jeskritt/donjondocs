@@ -132,10 +132,11 @@ async def _backup(args):
 
     output.write_text(envelope.model_dump_json(indent=2), encoding="utf-8")
     custom_globals = sum(len(v) for v in envelope.user_globals.values())
+    addons = sum(len(v) for v in envelope.character_addons.values())
     print(
         f"[OK] wrote {output} "
         f"({len(envelope.users)} users, {len(envelope.characters)} characters, "
-        f"{custom_globals} custom globals)"
+        f"{custom_globals} custom globals, {addons} character addons)"
     )
     print("[WARN] Backup contains hashed passwords. Treat the file as a secret.")
 
@@ -181,7 +182,8 @@ async def _restore(args):
         f"{prefix} mode={report.mode.value} "
         f"users(+{report.users_inserted}/~{report.users_updated}) "
         f"characters(+{report.characters_inserted}/~{report.characters_updated}) "
-        f"user_globals(+{report.user_globals_inserted}/~{report.user_globals_updated})"
+        f"user_globals(+{report.user_globals_inserted}/~{report.user_globals_updated}) "
+        f"addons(+{report.character_addons_inserted}/~{report.character_addons_updated})"
     )
 
 

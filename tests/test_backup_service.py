@@ -19,10 +19,14 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from app.database import Base
 from app.models import char_sheet as global_models
 from app.models.character import CharacterRecord
+from app.models.character_addons import CharacterAlly, CharacterNote
 from app.models.user import User
+from app.schemas.ally import AllyCreate
 from app.schemas.char_sheet_global import SheetStyle
 from app.schemas.char_sheet_specific import CharacterClassEntry
+from app.schemas.note import NoteCreate
 from app.security import hash_password
+from app.services.ally_service import create_ally
 from app.services.backup_service import (
     BackupServiceError,
     RestoreMode,
@@ -30,6 +34,7 @@ from app.services.backup_service import (
     restore_backup,
 )
 from app.services.character_service import create_character
+from app.services.note_service import create_note
 from app.user_roles import UserRole
 
 
@@ -117,7 +122,21 @@ async def test_backup_round_trip(
     db_session, target_engine,
     seed_user, seed_character, seed_custom_item, seed_csv_item,
 ):
-    """End-to-end: source → envelope → target. Rows match; CSV globals excluded."""
+    """End-to-end: source → envelope → target. Rows match; CSV globals excluded.
+    Also seeds allies + notes so addon round-trip is covered.
+    """
+    # Add per-character addons so the round-trip exercises BACKUP_VERSION 2.
+    seeded_ally = await create_ally(
+        db_session, seed_character.id,
+        AllyCreate(name="Goblin", ally_type="Stat Block", body_md="**HP** 7"),
+        seed_user,
+    )
+    seeded_note = await create_note(
+        db_session, seed_character.id,
+        NoteCreate(title="Plot Hook", body_md="Find the **artifact**."),
+        seed_user,
+    )
+
     # Source side: db_session is already populated by fixtures.
     await db_session.commit()
     envelope = await create_backup(db_session)
@@ -128,6 +147,11 @@ async def test_backup_round_trip(
     assert any(row["name"] == "Sunblade of Tharivol" for row in backed_items)
     assert not any(row["name"] == "Longsword" for row in backed_items)
 
+    # Sanity: addon buckets present and populated.
+    assert envelope.backup_version == 2
+    assert len(envelope.character_addons["character_allies"]) == 1
+    assert len(envelope.character_addons["character_notes"]) == 1
+
     # Restore into the empty target engine.
     factory = async_sessionmaker(target_engine, class_=AsyncSession, expire_on_commit=False)
     async with factory() as target:
@@ -135,12 +159,15 @@ async def test_backup_round_trip(
         assert report.users_inserted == 1
         assert report.characters_inserted == 1
         assert report.user_globals_inserted == 1
+        assert report.character_addons_inserted == 2  # 1 ally + 1 note
 
     # Verify in a fresh session so we read committed state.
     async with factory() as verify:
         users = (await verify.execute(select(User))).scalars().all()
         chars = (await verify.execute(select(CharacterRecord))).scalars().all()
         items = (await verify.execute(select(global_models.GlobalItem))).scalars().all()
+        allies = (await verify.execute(select(CharacterAlly))).scalars().all()
+        notes = (await verify.execute(select(CharacterNote))).scalars().all()
 
     assert {u.id for u in users} == {seed_user.id}
     assert users[0].email == seed_user.email
@@ -149,6 +176,34 @@ async def test_backup_round_trip(
     assert chars[0].name == "Tharivol"
     assert chars[0].character_data["name"] == "Tharivol"
     assert {i.id for i in items} == {seed_custom_item.id}
+    # Addons keep their original ids on restore (upsert by PK), so we can
+    # round-trip a backup file without invalidating links/references.
+    assert {a.id for a in allies} == {seeded_ally.id}
+    assert allies[0].body_md == "**HP** 7"
+    assert {n.id for n in notes} == {seeded_note.id}
+    assert notes[0].body_md == "Find the **artifact**."
+
+
+@pytest.mark.asyncio
+async def test_v1_backup_envelope_loads_with_empty_addons(
+    db_session, target_engine, seed_user, seed_character,
+):
+    """A backup file produced by the v1 codebase (no `character_addons`
+    key) must restore cleanly — the field defaults to an empty dict."""
+    await db_session.commit()
+    envelope = await create_backup(db_session)
+    # Simulate a v1 backup by stripping the v2-only buckets and re-shaping.
+    envelope.backup_version = 1
+    envelope.character_addons = {}
+
+    factory = async_sessionmaker(target_engine, class_=AsyncSession, expire_on_commit=False)
+    async with factory() as target:
+        report = await restore_backup(target, envelope, mode=RestoreMode.MERGE)
+        assert report.character_addons_inserted == 0
+
+    async with factory() as verify:
+        allies = (await verify.execute(select(CharacterAlly))).scalars().all()
+    assert allies == []
 
 
 @pytest.mark.asyncio

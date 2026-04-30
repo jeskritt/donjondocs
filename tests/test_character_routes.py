@@ -31,10 +31,10 @@ class TestRestEndpoint:
 
     async def test_long_rest_restores_hp(self, client, db_session, test_user):
         char = await self._make_char(db_session, test_user)
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             f"/api/characters/{char.id}/rest",
             json={"kind": "long", "options": {}},
-            cookies=auth_cookies(test_user),
         )
         assert resp.status_code == 200
         body = resp.json()
@@ -50,28 +50,28 @@ class TestRestEndpoint:
 
     async def test_other_user_forbidden(self, client, db_session, test_user, test_premium):
         char = await self._make_char(db_session, test_user)
+        client.cookies = auth_cookies(test_premium)
         resp = await client.post(
             f"/api/characters/{char.id}/rest",
             json={"kind": "long", "options": {}},
-            cookies=auth_cookies(test_premium),
         )
         assert resp.status_code == 403
 
     async def test_admin_can_rest_any(self, client, db_session, test_user, test_admin):
         char = await self._make_char(db_session, test_user)
+        client.cookies = auth_cookies(test_admin)
         resp = await client.post(
             f"/api/characters/{char.id}/rest",
             json={"kind": "long", "options": {}},
-            cookies=auth_cookies(test_admin),
         )
         assert resp.status_code == 200
 
     async def test_bad_kind_rejected(self, client, db_session, test_user):
         char = await self._make_char(db_session, test_user)
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             f"/api/characters/{char.id}/rest",
             json={"kind": "nap", "options": {}},
-            cookies=auth_cookies(test_user),
         )
         # Pydantic Literal rejects → 422
         assert resp.status_code == 422
@@ -104,10 +104,10 @@ class TestImportEndpoint:
     async def test_valid_import_creates_character(self, client, db_session, test_user):
         env = await _good_envelope(db_session, test_user, "Valid")
         envelope = json.dumps(env, default=str).encode()
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             "/api/characters/import",
             files=_upload(envelope),
-            cookies=auth_cookies(test_user),
         )
         assert resp.status_code == 200, resp.text
         body = resp.json()
@@ -120,10 +120,10 @@ class TestImportEndpoint:
         env["padding"] = "x" * (MAX_IMPORT_BYTES + 1024)
         envelope = json.dumps(env, default=str).encode()
         assert len(envelope) > MAX_IMPORT_BYTES
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             "/api/characters/import",
             files=_upload(envelope),
-            cookies=auth_cookies(test_user),
         )
         assert resp.status_code == 413
         assert "exceeds" in resp.json()["detail"]
@@ -131,19 +131,19 @@ class TestImportEndpoint:
     async def test_non_json_filename_rejected(self, client, db_session, test_user):
         env = await _good_envelope(db_session, test_user)
         envelope = json.dumps(env, default=str).encode()
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             "/api/characters/import",
             files=_upload(envelope, filename="char.txt"),
-            cookies=auth_cookies(test_user),
         )
         assert resp.status_code == 400
         assert ".json" in resp.json()["detail"]
 
     async def test_invalid_json_rejected(self, client, test_user):
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             "/api/characters/import",
             files=_upload(b"not json {{{"),
-            cookies=auth_cookies(test_user),
         )
         assert resp.status_code == 400
         assert "Invalid JSON" in resp.json()["detail"]
@@ -152,10 +152,10 @@ class TestImportEndpoint:
         envelope = json.dumps(
             {"version": 3, "name": "X", "style": SheetStyle.DND5E.value}
         ).encode()
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             "/api/characters/import",
             files=_upload(envelope),
-            cookies=auth_cookies(test_user),
         )
         assert resp.status_code == 400
         assert "character_data" in resp.json()["detail"]
@@ -163,10 +163,10 @@ class TestImportEndpoint:
     async def test_unknown_style_rejected(self, client, db_session, test_user):
         env = await _good_envelope(db_session, test_user)
         env["style"] = "homebrew_xyz"
+        client.cookies = auth_cookies(test_user)
         resp = await client.post(
             "/api/characters/import",
             files=_upload(json.dumps(env, default=str).encode()),
-            cookies=auth_cookies(test_user),
         )
         assert resp.status_code == 400
         assert "Unknown style" in resp.json()["detail"]

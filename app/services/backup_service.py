@@ -32,6 +32,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import char_sheet as global_models
 from app.models.character import CharacterRecord
+from app.models.character_addons import CharacterAlly, CharacterNote
 from app.models.user import User
 from app.rule_systems import SheetStyle
 from app.schemas.char_sheet_specific import Character
@@ -39,7 +40,18 @@ from app.services.character_io import EXPORT_VERSION, migrate_character_data
 from app.user_roles import UserRole
 
 
-BACKUP_VERSION = 1
+# v2 added the `character_allies` and `character_notes` buckets at envelope
+# level. v1 backups still load — missing keys default to empty lists, so
+# nothing is destroyed by restoring an older artifact.
+BACKUP_VERSION = 2
+
+# Per-character relational addons. These tables have ON DELETE CASCADE on
+# their FK to `characters`, so REPLACE-mode restore wipes them implicitly
+# when characters are deleted; we still insert in (parent, addon) order.
+CHARACTER_ADDON_MODELS: list[tuple[str, type]] = [
+    ("character_allies", CharacterAlly),
+    ("character_notes", CharacterNote),
+]
 
 # Per-user global tables in dependency-safe insert order. Restore in
 # REPLACE mode deletes in reverse to satisfy the FK from each global_*
@@ -78,6 +90,10 @@ class BackupEnvelope(BaseModel):
     users: list[dict]
     characters: list[dict]
     user_globals: dict[str, list[dict]]
+    # Per-character relational addons (added in BACKUP_VERSION 2). Defaulted
+    # to {} so v1 envelopes loaded into a v2 codebase parse cleanly with
+    # empty addon buckets.
+    character_addons: dict[str, list[dict]] = {}
 
 
 class RestoreReport(BaseModel):
@@ -91,6 +107,8 @@ class RestoreReport(BaseModel):
     characters_updated: int = 0
     user_globals_inserted: int = 0
     user_globals_updated: int = 0
+    character_addons_inserted: int = 0
+    character_addons_updated: int = 0
 
 
 def _model_columns(model: type) -> list[str]:
@@ -163,6 +181,12 @@ async def create_backup(session: AsyncSession) -> BackupEnvelope:
         rows = (await session.execute(stmt)).scalars().all()
         user_globals[table_name] = [_row_to_dict(r, cols) for r in rows]
 
+    character_addons: dict[str, list[dict]] = {}
+    for table_name, model in CHARACTER_ADDON_MODELS:
+        cols = _model_columns(model)
+        rows = (await session.execute(select(model))).scalars().all()
+        character_addons[table_name] = [_row_to_dict(r, cols) for r in rows]
+
     return BackupEnvelope(
         backup_version=BACKUP_VERSION,
         exported_at=datetime.now(timezone.utc).isoformat(),
@@ -171,6 +195,7 @@ async def create_backup(session: AsyncSession) -> BackupEnvelope:
         users=users,
         characters=characters,
         user_globals=user_globals,
+        character_addons=character_addons,
     )
 
 
@@ -267,7 +292,12 @@ async def restore_backup(
 
     try:
         if mode == RestoreMode.REPLACE:
-            # FK-safe wipe: globals → characters → users.
+            # FK-safe wipe: addons → globals → characters → users.
+            # Character addons must go before characters because their FK
+            # cascade may not be honored by SQLite without PRAGMA enabled,
+            # and explicit deletes are portable across backends.
+            for _, model in reversed(CHARACTER_ADDON_MODELS):
+                await session.execute(delete(model))
             for _, model in reversed(USER_GLOBAL_MODELS):
                 await session.execute(delete(model).where(model.owner_id.isnot(None)))
             await session.execute(delete(CharacterRecord))
@@ -297,6 +327,16 @@ async def restore_backup(
                     report.user_globals_inserted += 1
                 else:
                     report.user_globals_updated += 1
+        await session.flush()
+
+        # Character addons go after characters so FK constraints are satisfied.
+        for table_name, model in CHARACTER_ADDON_MODELS:
+            for raw in envelope.character_addons.get(table_name, []):
+                inserted = await _upsert(session, model, _prepare_global_row(raw))
+                if inserted:
+                    report.character_addons_inserted += 1
+                else:
+                    report.character_addons_updated += 1
         await session.flush()
 
         if dry_run:

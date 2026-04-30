@@ -20,7 +20,7 @@ from typing import Callable
 from app.services._errors import CharacterServiceError
 
 
-EXPORT_VERSION = 5
+EXPORT_VERSION = 6
 
 
 def export_filename_for(name: str) -> str:
@@ -51,12 +51,24 @@ def _migrate_v4_to_v5(data: dict) -> dict:
     return data
 
 
+def _migrate_v5_to_v6(data: dict) -> dict:
+    """v6: envelope-level change only — `allies` and `notes` are now sibling
+    keys to `character_data` in the export envelope (rows in the new
+    `character_allies` and `character_notes` tables, not fields on the
+    `Character` schema). The character_data blob itself is unchanged, so
+    this migrator is a pass-through. The caller (`import_character`)
+    handles the new envelope keys separately.
+    """
+    return data
+
+
 _MIGRATIONS: dict[int, Callable[[dict], dict]] = {
     # Keyed by source version. Each entry migrates a character_data dict
     # from version N up to version N+1. When EXPORT_VERSION bumps, add
     # the N → N+1 migrator here so old exports still import cleanly.
     3: _migrate_v3_to_v4,
     4: _migrate_v4_to_v5,
+    5: _migrate_v5_to_v6,
 }
 
 
