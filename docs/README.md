@@ -14,6 +14,7 @@ Audience: AI assistants and humans onboarding to the codebase.
 | [rbac.md](rbac.md) | UserRole enum, route protection, ownership rules |
 | [dependencies.md](dependencies.md) | Component interaction graph |
 | [user_stories.md](user_stories.md) | Example end-to-end flows |
+| [operations.md](operations.md) | Backup & restore CLI |
 
 ## Conventions
 
