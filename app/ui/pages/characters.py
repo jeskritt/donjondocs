@@ -152,7 +152,7 @@ async def characters_page():
                 on_upload=_handle_upload,
                 auto_upload=True,
                 max_files=1,
-            ).props('accept=".json" add-icon=upload upload-icon=upload').classes("w-full")
+            ).props('accept=".json"').classes("w-full")
 
             with ui.row().classes("w-full justify-end mt-4"):
                 ui.button("Cancel", on_click=dialog.close).props("flat").style("color: #94A3B8;")

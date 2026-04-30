@@ -146,6 +146,21 @@ def apply_global_styles():
             border: 1px solid rgba(79, 70, 229, 0.15) !important;
         }
 
+        /* Q-Uploader icon override */
+        .q-uploader__header-content .q-btn:first-of-type .q-icon {
+            visibility: hidden;
+            position: relative;
+        }
+        .q-uploader__header-content .q-btn:first-of-type .q-icon::after {
+            content: "upload";
+            visibility: visible;
+            font-family: "Material Icons";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .auth-card {

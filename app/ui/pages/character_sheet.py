@@ -240,13 +240,13 @@ async def character_sheet_page(char_id: str):
     # (which sits at top-[60px]). Tab content swaps via tab_panels — one URL,
     # no router. State["active_page"] mirrors the tab so a top-level _save
     # rerender doesn't snap users back to the Character tab.
-    with ui.tabs().classes("w-full sticky top-[140px] z-30 bg-[#1e1e2f] border-b border-gray-700") as page_tabs:
+    with ui.tabs(value=state["active_page"]).classes("w-full sticky top-[140px] z-30 bg-[#1e1e2f] border-b border-gray-700") as page_tabs:
         ui.tab(PAGE_CHARACTER)
         ui.tab(PAGE_ALLIES)
         ui.tab(PAGE_NOTES)
     page_tabs.bind_value(state, "active_page")
 
-    with ui.tab_panels(page_tabs).bind_value(state, "active_page").classes("w-full bg-transparent"):
+    with ui.tab_panels(page_tabs, value=state["active_page"]).bind_value(state, "active_page").classes("w-full bg-transparent"):
         # -------------------------------------------------------------------
         # Character page (the existing card grid)
         # -------------------------------------------------------------------
