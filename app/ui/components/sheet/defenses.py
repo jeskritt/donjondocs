@@ -68,7 +68,6 @@ def _render_defenses(state, char_id, user, _save):
                     ac_base.props('readonly')
                     ui.label(f"Base locked by equipped armor: {ac_bd.get('armor_name')}").classes('text-gray-500 text-xs italic')
                 ac_misc = ui.number("AC Misc", value=cs.ac.misc, step=1).classes('w-full').props('dense')
-                init_base = ui.number("Initiative Base", value=cs.initiative.base, step=1).classes('w-full').props('dense')
                 init_misc = ui.number("Initiative Misc", value=cs.initiative.misc, step=1).classes('w-full').props('dense')
                 speed_inp = ui.number("Speed", value=cs.speed, step=5, min=0).classes('w-full').props('dense')
                 cond_inp  = ui.input("Conditions (comma-separated)", value=', '.join(cs.conditions)).classes('w-full').props('dense')
@@ -79,7 +78,7 @@ def _render_defenses(state, char_id, user, _save):
                 async def _save_defenses():
                     updates = {
                         "ac":         {"base": int(ac_base.value or 10), "misc": int(ac_misc.value or 0)},
-                        "initiative": {"base": int(init_base.value or 0), "misc": int(init_misc.value or 0)},
+                        "initiative": {"base": 0, "misc": int(init_misc.value or 0)},
                         "speed":      int(speed_inp.value or 0),
                         "conditions": [c.strip() for c in cond_inp.value.split(",") if c.strip()],
                         "resistances": (res_inp.value or "").strip(),

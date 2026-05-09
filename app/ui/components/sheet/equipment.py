@@ -8,6 +8,7 @@ from app.services.global_items_service import (
     list_weapons, list_armor, list_items,
     add_custom_weapon, add_custom_armor, add_custom_item,
 )
+from app.ui.components.sheet.helpers import render_pm_adjuster
 
 
 def _render_equipment(state, char_id, user, _save):
@@ -133,6 +134,9 @@ def _render_equipment(state, char_id, user, _save):
                                 ui.label(w.weapon_range or "—").classes('flex-1 text-gray-400 text-sm')
                                 ui.label(w.item_notes or "—").classes('flex-1 text-gray-400 text-xs')
                                 ui.label(str(w.quantity)).classes('w-10 text-center text-white text-sm')
+                                ui.button(icon='edit',
+                                          on_click=lambda n=wname: _open_edit_inventory_dialog(cs, _save, _section, n, "weapon")
+                                          ).props('flat round dense color=primary')
                                 async def _rm_w(n=wname):
                                     updated = [it for it in cs.inventory if it.name != n or it.item_type != "weapon"]
                                     await _save({"inventory": [it.model_dump() for it in updated]})
@@ -187,6 +191,9 @@ def _render_equipment(state, char_id, user, _save):
                                 ui.label("Yes" if a.is_shield else "No").classes('flex-1 text-gray-400 text-sm')
                                 ui.label(a.weight or "—").classes('flex-1 text-gray-400 text-sm')
                                 ui.label(str(a.quantity)).classes('w-10 text-center text-white text-sm')
+                                ui.button(icon='edit',
+                                          on_click=lambda n=aname: _open_edit_inventory_dialog(cs, _save, _section, n, "armor")
+                                          ).props('flat round dense color=primary')
                                 async def _rm_a(n=aname):
                                     updated = [it for it in cs.inventory if it.name != n or it.item_type != "armor"]
                                     await _save({"inventory": [it.model_dump() for it in updated]})
@@ -207,14 +214,34 @@ def _render_equipment(state, char_id, user, _save):
                     else:
                         with ui.row().classes('w-full text-xs text-gray-500 px-1 mb-1 gap-2'):
                             for h in ["Name", "Weight", "Value", "Qty", ""]:
-                                ui.label(h).classes('flex-1' if h not in ["Qty", ""] else 'w-10 text-center')
+                                if h == "Qty":
+                                    ui.label(h).classes('w-24 text-center')
+                                elif h == "":
+                                    ui.label(h).classes('w-10 text-center')
+                                else:
+                                    ui.label(h).classes('flex-1')
                         for it in items:
                             with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
                                 ui.label(it.name).classes('flex-1 text-white text-sm')
                                 ui.label(it.weight or "—").classes('flex-1 text-gray-400 text-sm')
                                 ui.label(it.value or "—").classes('flex-1 text-gray-400 text-sm')
-                                ui.label(str(it.quantity)).classes('w-10 text-center text-white text-sm')
                                 iname = it.name
+
+                                async def _qty_adjust(delta: int, n=iname):
+                                    updated = []
+                                    for x in cs.inventory:
+                                        d = x.model_dump()
+                                        if x.name == n and x.item_type == "item":
+                                            d["quantity"] = max(0, d["quantity"] + delta)
+                                        updated.append(d)
+                                    await _save({"inventory": updated})
+
+                                with ui.row().classes('w-24 items-center justify-center gap-1 no-wrap'):
+                                    ui.label(str(it.quantity)).classes('text-white text-sm')
+                                    render_pm_adjuster(_qty_adjust)
+                                ui.button(icon='edit',
+                                          on_click=lambda n=iname: _open_edit_inventory_dialog(cs, _save, _section, n, "item")
+                                          ).props('flat round dense color=primary')
                                 async def _rm_i(n=iname):
                                     updated = [x for x in cs.inventory if x.name != n or x.item_type != "item"]
                                     await _save({"inventory": [x.model_dump() for x in updated]})
@@ -255,7 +282,12 @@ def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                 return
 
             options = {r.name: r for r in rows}
-            selected = ui.select(options=list(options.keys()), label=f"Choose {item_type}", value=list(options.keys())[0]).classes('w-full')
+            selected = ui.select(
+                options=list(options.keys()),
+                label=f"Choose {item_type}",
+                value=list(options.keys())[0],
+                with_input=True,
+            ).classes('w-full')
             qty_inp = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
 
             with ui.row().classes('w-full justify-end gap-2 mt-4'):
@@ -348,6 +380,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                             damage=dto.damage, damage_type=dto.damage_type,
                             weapon_range=dto.weapon_range, weight=dto.weight,
                             value=dto.value, item_notes=dto.notes,
+                            is_custom=True,
                         )
                     elif item_type == "armor":
                         from app.cli.ingest import parse_armor_stats
@@ -366,6 +399,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                             base_ac=base_ac, dex_cap=dex_cap, is_shield=is_shield,
                             weight=dto.weight,
                             value=dto.value, item_notes=dto.notes,
+                            is_custom=True,
                         )
                     else:
                         dto = CustomItemInput(
@@ -376,6 +410,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                         inv_item = InventoryItem(
                             item_type="item", name=name, quantity=int(qty_inp.value or 1),
                             weight=dto.weight, value=dto.value,
+                            is_custom=True,
                         )
 
                 updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
@@ -385,5 +420,118 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                 notify_success(f"Custom {item_type} '{name}' added to library and inventory")
 
             ui.button("Add", on_click=_confirm).props('unelevated color=primary')
+
+    dialog.open()
+
+
+def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type: str):
+    """Edit an existing inventory entry's display fields and quantity.
+
+    Edits the inventory snapshot only — never the underlying GlobalWeapon /
+    Armor / Item row. Every successful save sets is_custom=True so a
+    previously-pristine library snapshot is marked as diverged.
+    """
+    target = next(
+        (x for x in cs.inventory if x.name == item_name and x.item_type == item_type),
+        None,
+    )
+    if not target:
+        return
+    target_idx = cs.inventory.index(target)
+
+    with ui.dialog() as dialog, ui.card().classes('w-full max-w-md').style(DIALOG_CARD_STYLE):
+        ui.label(f"Edit {item_type.title()}").classes('text-lg font-bold mb-2 text-white')
+        inp_name = ui.input("Name*", value=target.name).classes('w-full')
+        qty_inp  = ui.number("Quantity", value=target.quantity, step=1, min=0).classes('w-full').props('dense')
+
+        if item_type == "weapon":
+            inp_dmg    = ui.input("Damage (e.g. 1d8)", value=target.damage or "").classes('w-full').props('dense')
+            inp_dmgt   = ui.input("Damage Type (e.g. slashing)", value=target.damage_type or "").classes('w-full').props('dense')
+            inp_range  = ui.input("Range (e.g. 20/60)", value=target.weapon_range or "").classes('w-full').props('dense')
+            inp_weight = ui.input("Weight", value=target.weight or "").classes('w-full').props('dense')
+            inp_value  = ui.input("Cost", value=target.value or "").classes('w-full').props('dense')
+            inp_notes  = ui.input("Properties", value=target.item_notes or "").classes('w-full').props('dense')
+        elif item_type == "armor":
+            inp_atype  = ui.input("Type (e.g. Light, Medium, Heavy, Shield)",
+                                  value=("Shield" if target.is_shield else "")
+                                  ).classes('w-full').props('dense')
+            inp_ac     = ui.input("AC (e.g. 11 + Dex)", value=target.armor_class or "").classes('w-full').props('dense')
+            inp_weight = ui.input("Weight", value=target.weight or "").classes('w-full').props('dense')
+            inp_value  = ui.input("Cost", value=target.value or "").classes('w-full').props('dense')
+            inp_notes  = ui.input("Notes", value=target.item_notes or "").classes('w-full').props('dense')
+        else:
+            inp_weight = ui.input("Weight", value=target.weight or "").classes('w-full').props('dense')
+            inp_value  = ui.input("Cost", value=target.value or "").classes('w-full').props('dense')
+            inp_notes  = ui.input("Effects/Notes", value=target.item_notes or "").classes('w-full').props('dense')
+
+        with ui.row().classes('w-full justify-end gap-2 mt-4'):
+            ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
+
+            async def _confirm(idx=target_idx):
+                new_name = (inp_name.value or "").strip()
+                if not new_name:
+                    notify_error("Name is required"); return
+                new_qty = max(0, int(qty_inp.value or 0))
+
+                if item_type == "weapon":
+                    new_entry = InventoryItem(
+                        item_type="weapon",
+                        name=new_name,
+                        quantity=new_qty,
+                        equipped=target.equipped,
+                        attuned=target.attuned,
+                        notes=target.notes,
+                        damage=(inp_dmg.value or "").strip() or None,
+                        damage_type=(inp_dmgt.value or "").strip() or None,
+                        weapon_range=(inp_range.value or "").strip() or None,
+                        weight=(inp_weight.value or "").strip() or None,
+                        value=(inp_value.value or "").strip() or None,
+                        item_notes=(inp_notes.value or "").strip() or None,
+                        is_custom=True,
+                    )
+                elif item_type == "armor":
+                    # Re-derive the numeric AC breakdown from the freeform inputs so
+                    # AC math stays consistent — same path the Add-Custom dialog uses.
+                    from app.cli.ingest import parse_armor_stats
+                    base_ac, dex_cap, is_shield = parse_armor_stats(
+                        inp_atype.value or "", inp_ac.value or "", None,
+                    )
+                    new_entry = InventoryItem(
+                        item_type="armor",
+                        name=new_name,
+                        quantity=new_qty,
+                        equipped=target.equipped,
+                        attuned=target.attuned,
+                        notes=target.notes,
+                        armor_class=(inp_ac.value or "").strip() or None,
+                        base_ac=base_ac,
+                        dex_cap=dex_cap,
+                        is_shield=is_shield,
+                        weight=(inp_weight.value or "").strip() or None,
+                        value=(inp_value.value or "").strip() or None,
+                        item_notes=(inp_notes.value or "").strip() or None,
+                        is_custom=True,
+                    )
+                else:
+                    new_entry = InventoryItem(
+                        item_type="item",
+                        name=new_name,
+                        quantity=new_qty,
+                        equipped=target.equipped,
+                        attuned=target.attuned,
+                        notes=target.notes,
+                        weight=(inp_weight.value or "").strip() or None,
+                        value=(inp_value.value or "").strip() or None,
+                        item_notes=(inp_notes.value or "").strip() or None,
+                        is_custom=True,
+                    )
+
+                updated = [x.model_dump() for x in cs.inventory]
+                updated[idx] = new_entry.model_dump()
+                await _save({"inventory": updated})
+                dialog.close()
+                refresh_fn.refresh()
+
+            ui.button("Save", on_click=_confirm).props('unelevated color=primary')
 
     dialog.open()

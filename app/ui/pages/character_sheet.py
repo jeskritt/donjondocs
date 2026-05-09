@@ -1,4 +1,4 @@
-from nicegui import ui
+from nicegui import app, ui
 
 from app.ui.auth import current_user_context
 from app.ui.theme import DIALOG_CARD_STYLE, apply_global_styles, notify_success
@@ -219,12 +219,25 @@ async def character_sheet_page(char_id: str):
                             else:
                                 ui.label(str(top.get(key, ''))).classes('text-2xl font-bold text-white')
 
-                with ui.row().classes('gap-2'):
+                with ui.row().classes('gap-2 items-center'):
                     for rest in top.get('rest_options', []):
                         kind = "short" if "Short" in rest else "long"
                         ui.button(rest, icon='hotel',
                                   on_click=lambda _, k=kind: _open_rest_dialog(k)
                                   ).props('flat dense').classes('text-gray-300')
+
+                    def _toggle_phb(e):
+                        # PHB style is a viewing preference scoped to the user.
+                        # Persist via app.storage.user (server-side, per-account)
+                        # then refresh the panels that consume it.
+                        app.storage.user["phb_style"] = bool(e.value)
+                        for fn in refresh_fns:
+                            fn.refresh()
+                    ui.switch(
+                        "PHB style",
+                        value=bool(app.storage.user.get("phb_style", False)),
+                        on_change=_toggle_phb,
+                    ).props('dense').classes('text-xs text-gray-300')
 
     _top_bar_section()
     refresh_fns.append(_top_bar_section)

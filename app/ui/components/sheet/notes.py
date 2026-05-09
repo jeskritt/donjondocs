@@ -11,7 +11,7 @@ Interactions:
 
 """Notes panel for the character sheet."""
 
-from nicegui import ui
+from nicegui import app, ui
 
 from app.schemas.note import Note, NoteCreate, NoteUpdate
 from app.services.note_service import (
@@ -167,7 +167,11 @@ def _render_notes(state, char_id, user):
             if is_open:
                 ui.separator()
                 if note.body_md.strip():
-                    ui.markdown(note.body_md).classes("w-full px-2 py-1 text-gray-200")
+                    # When PHB is on, drop text-gray-200 so the vendored
+                    # parchment-friendly colors win cleanly. Off → keep the
+                    # Tailwind utility for legible dark-mode text.
+                    color_class = "phb" if app.storage.user.get("phb_style") else "text-gray-200"
+                    ui.markdown(note.body_md).classes(f"w-full px-2 py-1 {color_class}")
                 else:
                     ui.label("(empty)").classes("text-gray-500 italic px-2 py-1")
 

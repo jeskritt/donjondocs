@@ -140,7 +140,7 @@ class BaseSheetBuilder:
             'ac': ac_breakdown["total"],
             'hp_current': c.hp_current,
             'hp_max': c.hp_max,
-            'initiative': _fmt_mod(c.initiative.base + c.initiative.misc),
+            'initiative': _fmt_mod(self._attr_mods()['DEX'] + c.initiative.misc),
             'speed': c.speed,
             'inspiration': c.inspiration,
             'conditions': c.conditions,

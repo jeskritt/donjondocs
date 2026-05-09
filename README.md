@@ -1,6 +1,28 @@
 # DonjonDocs
 
-A web app for creating and managing tabletop RPG character sheets. Supports **D&D 5e**, **Level Up: Advanced 5e**, and **Shadowdark RPG**.
+A web app for creating and managing tabletop RPG character sheets. Supports **D&D 5e**, **Level Up: Advanced 5e**, and **Shadowdark RPG**
+
+### What it does
+
+This application allows you to create, edit, and manage character sheets for tabletop role-playing games. It supports multiple game systems, including D&D 5e, Level Up: Advanced 5e, and Shadowdark RPG. Users can create and manage their own characters, and the application provides a user-friendly interface for editing character information. It is meant to be a step or two above paper character sheets, with minimal automation. Allows for quick cut and paste from PDFs and websites to populate your character sheets
+
+### What it is not
+
+It is not a character builder, validator or generator. It doesn't walk you through the process of creating a character. It is just a place to store and organize your character sheets.
+
+## How to use
+
+### Web Interface
+
+Although this is a web app you can run it locally with very little setup or requirements. You'll just need to have 
+[python installed](https://www.python.org/downloads/). See `Quick Start (local dev)` section below to get started.
+
+1. Open the application in your web browser.
+2. Log in with your account or create a new account.
+3. Navigate to the "Characters" section to create or manage your characters.
+4. Use the "New Character" button to create a new character sheet.
+5. Fill in the character information and save it.
+6. You can also edit existing character sheets by clicking on the character name.
 
 Built with FastAPI, NiceGUI, and async SQLAlchemy. Dark-mode UI with reactive server-rendered pages — no frontend build step required.
 
@@ -8,6 +30,12 @@ Built with FastAPI, NiceGUI, and async SQLAlchemy. Dark-mode UI with reactive se
 
 - Full character sheets with abilities, skills, equipment, spells, features, and more
 - Per-system builders that adapt the sheet layout to each rule system
+- Minor automation:
+  - Stats effects Skills, AC, saves, Spell DCs, Attack bonuses, Initiative, etc.
+  - AC calculator: flat armor + armor modifiers + dex + shield + buffs
+  - Short and Long rest mechanics
+- Allies, Contacts and Wildshape stat blocks using free form Markdown.
+- Note taking
 - Import/export characters as JSON
 - Role-based access control (admin, premium, standard)
 - Self-service registration and profile management
@@ -92,7 +120,7 @@ python cli.py reset-password --email alice@example.com --new-password "NewPass12
 | Role | Access |
 |------|--------|
 | **admin** | Full access to all characters and the user management dashboard |
-| **premium** | Standard access (reserved for future expansion) |
+| **premium** | Create, edit, and manage own characters (unlimited) |
 | **standard** | Create, edit, and manage own characters (up to 25) |
 
 ### Self-registration

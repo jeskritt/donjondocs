@@ -46,3 +46,8 @@ coverage.xml
 # NiceGUI
 .nicegui/
 review/
+
+CLAUDE.md
+.claude/
+docs/things_to_fix.txt
+

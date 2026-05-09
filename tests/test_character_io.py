@@ -15,6 +15,7 @@ from app.services.character_io import (
     EXPORT_VERSION,
     _migrate_v3_to_v4,
     _migrate_v5_to_v6,
+    _migrate_v6_to_v7,
     export_filename_for,
     migrate_character_data,
 )
@@ -116,6 +117,43 @@ class TestMigrateV5ToV6:
         out = migrate_character_data(dict(v5_blob), 5)
         assert out["death_save_successes"] == 1
         assert out["death_save_failures"] == 2
+
+
+class TestMigrateV6ToV7:
+    """v7: stamps `is_custom: False` on every InventoryItem so re-exported
+    v7 files round-trip with the field present. Pydantic supplies the
+    default on import either way, but the explicit value protects callers
+    that introspect the JSON directly.
+    """
+
+    def test_sets_is_custom_false_on_each_inventory_entry(self):
+        data = {"inventory": [
+            {"item_type": "item", "name": "Torch", "quantity": 10},
+            {"item_type": "weapon", "name": "Longsword", "quantity": 1},
+        ]}
+        out = _migrate_v6_to_v7(data)
+        assert out["inventory"][0]["is_custom"] is False
+        assert out["inventory"][1]["is_custom"] is False
+
+    def test_preserves_existing_is_custom_true(self):
+        """An entry that already carries the flag (e.g. created on a v7
+        client and re-imported through the chain) keeps its value."""
+        data = {"inventory": [
+            {"item_type": "item", "name": "Star Charm", "is_custom": True},
+        ]}
+        out = _migrate_v6_to_v7(data)
+        assert out["inventory"][0]["is_custom"] is True
+
+    def test_handles_missing_inventory(self):
+        """Old v6 blobs without an inventory key (legacy fixtures) survive."""
+        data = {"name": "X"}
+        out = _migrate_v6_to_v7(data)
+        assert out == {"name": "X"}
+
+    def test_chain_v6_arrives_at_v7(self):
+        v6_blob = {"name": "X", "inventory": [{"item_type": "item", "name": "Bedroll"}]}
+        out = migrate_character_data(dict(v6_blob), 6)
+        assert out["inventory"][0]["is_custom"] is False
 
 
 class TestExportFilenameFor:

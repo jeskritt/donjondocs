@@ -119,6 +119,25 @@ def test_top_bar_emits_classes_list_for_multiclass():
     assert wiz['level'] == 2
 
 
+def test_top_bar_initiative_uses_dex_modifier_plus_misc():
+    """Initiative on the top bar = DEX modifier + initiative.misc (base ignored)."""
+    from app.schemas.char_sheet_specific import AbilityScore
+
+    # DEX 14 (+2) + misc 2 → +4
+    c = create_mock_character(SheetStyle.DND5E)
+    c.dex_score = AbilityScore(base=14)
+    c.initiative = CharacterStat(base=99, misc=2)  # base must be ignored
+    view_data = get_builder(c).build()
+    assert view_data['top_bar']['initiative'] == "+4"
+
+    # DEX 8 (-1) + misc 0 → -1
+    c2 = create_mock_character(SheetStyle.DND5E)
+    c2.dex_score = AbilityScore(base=8)
+    c2.initiative = CharacterStat(base=5, misc=0)
+    view_data2 = get_builder(c2).build()
+    assert view_data2['top_bar']['initiative'] == "-1"
+
+
 def test_combat_emits_per_class_hit_dice():
     from app.schemas.char_sheet_specific import CharacterClassEntry
 
