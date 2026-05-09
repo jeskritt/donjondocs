@@ -64,6 +64,7 @@ def apply_global_styles():
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/_static/vendor/homebrewery/phb.scoped.css">
     ''')
 
     ui.add_css('''
@@ -170,6 +171,38 @@ def apply_global_styles():
             .page-content {
                 padding: 1rem;
             }
+        }
+
+        /* donjondocs-specific overrides on the vendored PHB stylesheet.
+           phb.scoped.css still imposes printed-page geometry (US-Letter
+           width/height, 2 columns, fixed column-width) — fine for the
+           homebrewery web app that simulates a book page, but it clips
+           our markdown to "page one" inside the Allies/Notes cards.
+           Restore natural block flow here while keeping PHB typography. */
+        .phb {
+            width: auto !important;
+            height: auto !important;
+            min-height: 0 !important;
+            column-count: 1 !important;
+            -webkit-column-count: 1 !important;
+            -moz-column-count: 1 !important;
+            column-width: auto !important;
+            -webkit-column-width: auto !important;
+            -moz-column-width: auto !important;
+            overflow: visible !important;
+            padding: 1rem 1.25rem !important;
+            margin: 0 !important;
+            /* PHB CSS sets a parchment background but never a body color —
+               upstream relies on <body> inheriting from the host page.
+               In our dark-mode app the markdown root inherits white, which
+               is unreadable on cream. Set the canonical PHB body brown so
+               descendants without their own color rule (paragraphs, list
+               items, table cells, blockquotes) render against parchment. */
+            color: #322C25 !important;
+        }
+        .phb h1, .phb h2, .phb h3, .phb h4, .phb h5 {
+            column-span: none !important;
+            -webkit-column-span: none !important;
         }
     ''')
 

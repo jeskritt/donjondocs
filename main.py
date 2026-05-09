@@ -71,6 +71,13 @@ app.add_middleware(AuthMiddleware)
 app.add_middleware(SecurityHeadersMiddleware, hsts_enabled=settings.HSTS_ENABLED)
 
 # ---------------------------------------------------------------------------
+# Static assets — vendored CSS/fonts under app/static/. Mounted at /_static
+# so it falls under AuthMiddleware.PUBLIC_PREFIXES without changes there.
+# ---------------------------------------------------------------------------
+
+app.add_static_files('/_static', 'app/static')
+
+# ---------------------------------------------------------------------------
 # API Routes
 # ---------------------------------------------------------------------------
 

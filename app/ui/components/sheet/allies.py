@@ -11,7 +11,9 @@ Interactions:
 
 """Allies & Stat Blocks panel for the character sheet."""
 
-from nicegui import ui
+from pathlib import Path
+
+from nicegui import app, ui
 
 from app.schemas.ally import Ally, AllyCreate, AllyUpdate
 from app.services.ally_service import (
@@ -27,6 +29,18 @@ from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
 # Quick-pick suggestions surfaced in the type select. The field is free
 # text on the model — users may type anything; these are just hints.
 ALLY_TYPE_SUGGESTIONS = ["Contact", "Companion", "Pet", "Wildshape", "User Defined"]
+
+# Types whose body field auto-seeds with a homebrewery-style stat-block
+# template. Source lives in stat_block_template.md so a maintainer can
+# tune the placeholder without round-tripping through Python.
+SEEDABLE_TYPES = {"Pet", "Companion", "Wildshape"}
+_TEMPLATE_PATH = Path(__file__).resolve().parent / "stat_block_template.md"
+
+
+def _read_stat_block_template() -> str:
+    """Read the stat-block template fresh on each call so an edit to the
+    .md file shows up without restarting the dev server."""
+    return _TEMPLATE_PATH.read_text(encoding="utf-8")
 
 
 def _render_allies(state, char_id, user):
@@ -69,6 +83,18 @@ def _render_allies(state, char_id, user):
                 value=(existing.body_md if existing else ""),
             ).props("dense outlined autogrow").classes("w-full")
             ui.label("Body field supports Markdown.").classes("text-xs text-gray-500 -mt-2")
+
+            def _maybe_seed_template(e):
+                # Only seed on Add (existing is None) and only when the body
+                # is still empty — never clobber what the player has typed.
+                if existing is not None:
+                    return
+                if (body_in.value or "").strip():
+                    return
+                if (e.value or "").strip() in SEEDABLE_TYPES:
+                    body_in.set_value(_read_stat_block_template())
+
+            type_in.on_value_change(_maybe_seed_template)
 
             async def _save_click():
                 name = (name_in.value or "").strip()
@@ -189,7 +215,11 @@ def _render_allies(state, char_id, user):
             if is_open:
                 ui.separator()
                 if ally.body_md.strip():
-                    ui.markdown(ally.body_md).classes("w-full px-2 py-1 text-gray-200")
+                    # When PHB is on, drop text-gray-200 so the vendored
+                    # parchment-friendly colors win cleanly. Off → keep the
+                    # Tailwind utility for legible dark-mode text.
+                    color_class = "phb" if app.storage.user.get("phb_style") else "text-gray-200"
+                    ui.markdown(ally.body_md).classes(f"w-full px-2 py-1 {color_class}")
                 else:
                     ui.label("(empty)").classes("text-gray-500 italic px-2 py-1")
 

@@ -62,6 +62,10 @@ sequenceDiagram
 Public allow-list (in `app/ui/middleware.py`): `/login`, `/register`, plus prefixes `/_nicegui`, `/api/`, `/_static`.
 API routes are exempt from the NiceGUI session check because they carry their own JWT cookie verified by `get_current_user` in `app/api/deps.py`. `SecurityHeadersMiddleware` is registered last in `main.py` so it stamps headers on every response — including auth redirects and rate-limit 429s.
 
+### Static assets
+
+`main.py` mounts `app/static/` at `/_static` via `app.add_static_files('/_static', 'app/static')`. The path falls under the public allow-list above so vendored CSS / fonts load without auth. Vendored third-party content (currently the homebrewery PHB CSS used to PHB-style the Allies and Notes markdown) lives at `app/static/vendor/<project>/`, with its upstream `LICENSE` next to it; see `THIRD_PARTY_LICENSES.md` at the repo root for the project-level summary. The file actually served is `phb.scoped.css` — a derivative produced by `app/static/vendor/homebrewery/scope_phb_css.py` that wraps every selector under a `.phb` ancestor (the upstream `phb.standalone.css` ships an unscoped Eric Meyer reset that would otherwise leak globally). The standalone original is kept in-tree as the source of truth so the scoper can be re-run on future upstream updates. The `<link>` is emitted from `app/ui/theme.py::apply_global_styles()`, where a small donjondocs-specific override block also relaxes PHB's printed-page geometry (column count, fixed page height) so markdown flows naturally inside our cards. The toggle that adds `.phb` to the markdown elements is on the character sheet top bar, persisted per logged-in user via `app.storage.user["phb_style"]`.
+
 ## Character-sheet rendering
 
 The `Character` Pydantic schema is the source of truth for a character. The page renders a per-style **view model** rather than the raw schema:
