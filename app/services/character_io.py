@@ -20,7 +20,7 @@ from typing import Callable
 from app.services._errors import CharacterServiceError
 
 
-EXPORT_VERSION = 6
+EXPORT_VERSION = 7
 
 
 def export_filename_for(name: str) -> str:
@@ -62,6 +62,21 @@ def _migrate_v5_to_v6(data: dict) -> dict:
     return data
 
 
+def _migrate_v6_to_v7(data: dict) -> dict:
+    """v7: add `is_custom: bool` to every InventoryItem. False means the
+    entry is a pristine snapshot of a global library row; True means the
+    user authored it via Add-Custom or has edited the row's display fields.
+    Pydantic supplies the default on validation, but record the explicit
+    False here so re-exported v7 files round-trip cleanly.
+    """
+    inv = data.get("inventory")
+    if isinstance(inv, list):
+        for entry in inv:
+            if isinstance(entry, dict):
+                entry.setdefault("is_custom", False)
+    return data
+
+
 _MIGRATIONS: dict[int, Callable[[dict], dict]] = {
     # Keyed by source version. Each entry migrates a character_data dict
     # from version N up to version N+1. When EXPORT_VERSION bumps, add
@@ -69,6 +84,7 @@ _MIGRATIONS: dict[int, Callable[[dict], dict]] = {
     3: _migrate_v3_to_v4,
     4: _migrate_v4_to_v5,
     5: _migrate_v5_to_v6,
+    6: _migrate_v6_to_v7,
 }
 
 

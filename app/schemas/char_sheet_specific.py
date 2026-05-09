@@ -442,6 +442,10 @@ class InventoryItem(BaseModel):
     :param weight: item weight
     :param value: item cost/value
     :param item_notes: properties/notes from global table (e.g. "Finesse, light")
+    :param is_custom: True if the entry was authored or edited by the player —
+        i.e. has diverged from any library template. False on pristine snapshots
+        added via "Add from Library". Set on the Add-Custom path and on every
+        successful inventory edit.
     """
     item_type: str  # "weapon", "armor", "item"
     name: str
@@ -462,6 +466,7 @@ class InventoryItem(BaseModel):
     weight: str | None = None
     value: str | None = None
     item_notes: str | None = None
+    is_custom: bool = False
 
 
 # Resolve forward reference
