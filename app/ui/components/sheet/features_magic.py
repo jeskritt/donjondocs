@@ -280,7 +280,17 @@ def _open_edit_resource(cs, _save, resource_name):
                 )
                 updated = [mr.model_dump() for mr in cs.magic_resources]
                 updated[idx] = entry.model_dump()
-                await _save({"magic_resources": updated})
+                updates = {"magic_resources": updated}
+                old_name = res_obj.name
+                if name != old_name:
+                    updated_spells = []
+                    for sp in cs.spells:
+                        d = sp.model_dump()
+                        if d.get("resource_name") == old_name:
+                            d["resource_name"] = name
+                        updated_spells.append(d)
+                    updates["spells"] = updated_spells
+                await _save(updates)
                 dialog.close()
 
             ui.button("Save", on_click=_confirm).props('unelevated color=primary')
@@ -348,7 +358,11 @@ def _open_edit_spell(cs, _save, resources, spell_name, spell_idx):
             inp_ritual = ui.checkbox("Ritual", value=spell_obj.ritual)
             inp_conc   = ui.checkbox("Concentration", value=spell_obj.concentration)
         resource_names = [r['name'] for r in resources]
-        inp_res    = ui.select(resource_names + [None], label="Resource", value=spell_obj.resource_name).classes('w-full')
+        options = list(resource_names)
+        if spell_obj.resource_name and spell_obj.resource_name not in options:
+            options.append(spell_obj.resource_name)
+        options.append(None)
+        inp_res    = ui.select(options, label="Resource", value=spell_obj.resource_name).classes('w-full')
         inp_prep   = ui.checkbox("Prepared", value=spell_obj.prepared)
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):

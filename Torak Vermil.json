@@ -1,0 +1,1124 @@
+{
+  "version": 6,
+  "exported_at": "2026-05-09T16:37:17.006433+00:00",
+  "name": "Torak Vermil",
+  "style": "Level Up: Advanced 5e",
+  "character_data": {
+    "name": "Torak Vermil",
+    "style": "Level Up: Advanced 5e",
+    "owner_id": "51a6f8c3-855f-41ad-8ec5-7b71cf8d4698",
+    "race": {
+      "ancestry": "Unliving/Vampire",
+      "culture": "Blightlander",
+      "lineage": null
+    },
+    "background": "Monster Slayer",
+    "destiny": {
+      "name": "Victory",
+      "src_inspiration": "Defeat woth foe",
+      "inspiration_feat": "1 hour, expertise on opposed rolls",
+      "fullfillment": ""
+    },
+    "prof_bonus": 2,
+    "ac": {
+      "base": 10,
+      "misc": 0
+    },
+    "initiative": {
+      "base": 0,
+      "misc": 0
+    },
+    "conditions": [],
+    "inspiration": true,
+    "speed": 30,
+    "size": "Medium",
+    "proficiency": {
+      "weapon": [
+        "simple weapons",
+        "martial weapons"
+      ],
+      "armor": [
+        "All armor",
+        "shields"
+      ],
+      "language": [
+        "Common",
+        "Sylvan",
+        "Dwarven",
+        "+ 1 more"
+      ],
+      "tool": [
+        "Alchemist's Supplies"
+      ],
+      "instrument": [],
+      "game": []
+    },
+    "experience_points": 0,
+    "classes": [
+      {
+        "name": "Fighter",
+        "archetype": "Eldritch Knight",
+        "level": 3,
+        "hit_dice": "d10",
+        "hit_dice_current": 3,
+        "hit_dice_max": 3,
+        "saving_throw_grants": [
+          "STR",
+          "CON"
+        ],
+        "proficiency_grants": {
+          "weapon": [
+            "simple weapons",
+            "martial weapons"
+          ],
+          "armor": [
+            "All armor",
+            "shields"
+          ]
+        }
+      }
+    ],
+    "character_class": "Fighter",
+    "level": 3,
+    "hp_current": 24,
+    "hp_max": 25,
+    "hp_temp": 5,
+    "exhaustion": 0,
+    "cha_score": {
+      "base": 14,
+      "racial": 0,
+      "level": 0,
+      "misc": 0
+    },
+    "con_score": {
+      "base": 13,
+      "racial": 0,
+      "level": 0,
+      "misc": 0
+    },
+    "dex_score": {
+      "base": 12,
+      "racial": 0,
+      "level": 0,
+      "misc": 0
+    },
+    "int_score": {
+      "base": 12,
+      "racial": 0,
+      "level": 0,
+      "misc": 0
+    },
+    "str_score": {
+      "base": 15,
+      "racial": 1,
+      "level": 0,
+      "misc": 0
+    },
+    "wis_score": {
+      "base": 12,
+      "racial": 1,
+      "level": 0,
+      "misc": 0
+    },
+    "saving_throws": [
+      {
+        "attribute": "STR",
+        "proficiency": 2,
+        "misc": 0
+      },
+      {
+        "attribute": "DEX",
+        "proficiency": 0,
+        "misc": 0
+      },
+      {
+        "attribute": "CON",
+        "proficiency": 2,
+        "misc": 0
+      },
+      {
+        "attribute": "INT",
+        "proficiency": 0,
+        "misc": 0
+      },
+      {
+        "attribute": "WIS",
+        "proficiency": 0,
+        "misc": 0
+      },
+      {
+        "attribute": "CHA",
+        "proficiency": 0,
+        "misc": 0
+      }
+    ],
+    "skills": [
+      {
+        "name": "Acrobatics",
+        "attribute": "DEX",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Stay on your feet in a tricky situation, or perform an acrobatic stunt.",
+        "notes": null
+      },
+      {
+        "name": "Animal Handling",
+        "attribute": "WIS",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Calm or train an animal, or get an animal to behave in a certain way.",
+        "notes": null
+      },
+      {
+        "name": "Arcana",
+        "attribute": "INT",
+        "proficiency": 2,
+        "misc": 0,
+        "example_uses": "Recall lore about spells, magic items, and the planes of existence.",
+        "notes": "Monstrosities"
+      },
+      {
+        "name": "Athletics",
+        "attribute": "STR",
+        "proficiency": 2,
+        "misc": 0,
+        "example_uses": "Jump farther than normal, stay afloat in rough water, or break something.",
+        "notes": null
+      },
+      {
+        "name": "Culture",
+        "attribute": "INT",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Know the customs, laws, trade in regional products, and etiquette of other cultures.",
+        "notes": null
+      },
+      {
+        "name": "Deception",
+        "attribute": "CHA",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Tell a convincing lie, or wear a disguise convincingly.",
+        "notes": null
+      },
+      {
+        "name": "Engineering",
+        "attribute": "INT",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Know a fact or advance a project involving building, invention, or mathematics.",
+        "notes": null
+      },
+      {
+        "name": "History",
+        "attribute": "INT",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Recall lore about historical events, people, nations, and cultures.",
+        "notes": null
+      },
+      {
+        "name": "Insight",
+        "attribute": "WIS",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Discern a person\u2019s mood and intentions.",
+        "notes": "Adv violence / hostility"
+      },
+      {
+        "name": "Intimidation",
+        "attribute": "CHA",
+        "proficiency": 2,
+        "misc": 0,
+        "example_uses": "Awe or threaten someone into doing what you want.",
+        "notes": "Interrogation"
+      },
+      {
+        "name": "Investigation",
+        "attribute": "INT",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Find obscure information in books, or deduce how something works.",
+        "notes": null
+      },
+      {
+        "name": "Medicine",
+        "attribute": "WIS",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Diagnose an illness, or determine what killed the recently slain.",
+        "notes": null
+      },
+      {
+        "name": "Nature",
+        "attribute": "INT",
+        "proficiency": 2,
+        "misc": 0,
+        "example_uses": "Recall lore about terrain, plants, animals, and weather.",
+        "notes": null
+      },
+      {
+        "name": "Perception",
+        "attribute": "WIS",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Using a combination of senses, notice something that\u2019s easy to miss.",
+        "notes": "+5 Passive Perception"
+      },
+      {
+        "name": "Performance",
+        "attribute": "CHA",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Act, tell a story, perform music, or dance.",
+        "notes": null
+      },
+      {
+        "name": "Persuasion",
+        "attribute": "CHA",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Honestly and graciously convince someone of something.",
+        "notes": null
+      },
+      {
+        "name": "Religion",
+        "attribute": "INT",
+        "proficiency": 2,
+        "misc": 0,
+        "example_uses": "Recall lore about gods, religious rituals, and holy symbols.",
+        "notes": "Undead"
+      },
+      {
+        "name": "Sleight of Hand",
+        "attribute": "DEX",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Pick a pocket, conceal a handheld object, or perform legerdemain.",
+        "notes": null
+      },
+      {
+        "name": "Stealth",
+        "attribute": "DEX",
+        "proficiency": 0,
+        "misc": 0,
+        "example_uses": "Escape notice by moving quietly and hiding behind things.",
+        "notes": null
+      },
+      {
+        "name": "Survival",
+        "attribute": "WIS",
+        "proficiency": 2,
+        "misc": 0,
+        "example_uses": "Follow tracks, forage, find a trail, or avoid natural hazards.",
+        "notes": "Tracking"
+      }
+    ],
+    "abilities": [
+      {
+        "name": "Darkvision 60'",
+        "source": "Heritage",
+        "description": "Your cursed anatomy grants you superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\u2019t discern color in darkness, only shades of gray.",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Blood Feasting",
+        "source": "Heritage",
+        "description": "on a short rest I can drink the blood from a corpse and regain proficiency bonus worth of hit dice. Can only gain max level woth of hit dice per long rest.",
+        "sub_abilities": [],
+        "tracker": {
+          "name": "",
+          "current": 3,
+          "maximum": 3,
+          "reset_on": "long"
+        }
+      },
+      {
+        "name": "Wall creeper",
+        "source": "Heritage",
+        "description": "I'm under the effects of hte spider climb spell at all times. Cannon be detected not dispelled except by Wish level magic.",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Stand firm",
+        "source": "Culture",
+        "description": "I can ignore intimidation or any effect that causes Confuse, Frightened, or Rattled. 1 / long rest",
+        "sub_abilities": [],
+        "tracker": {
+          "name": "",
+          "current": 1,
+          "maximum": 1,
+          "reset_on": "long"
+        }
+      },
+      {
+        "name": "Fighting Style: Battle Ready",
+        "source": "Class",
+        "description": "I can activate 2 stance in a signle Bonus Action, without spending exertion",
+        "sub_abilities": [],
+        "tracker": {
+          "name": "",
+          "current": 1,
+          "maximum": 1,
+          "reset_on": "short"
+        }
+      },
+      {
+        "name": "Soildering Knack: Weather Beaten",
+        "source": "Class",
+        "description": "Advantage on rolls for weapther, percipitation or adverse conditions due to heat or cold",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Steely Mien: Watchful Eye",
+        "source": "Class",
+        "description": "Gain Advantage on insight checks to detect Violence or hosility\n\nGain +5 passive perception",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Weapon Bond",
+        "source": "Class",
+        "description": "I cannot be disarmed from my weapon bond unless incapacitated\n\nWith a Bonus Action I can teleport my weapon bond to me if it is on the same plane\n\nI can have 2 weapon bonds",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Maneuver Specialist",
+        "source": "Class",
+        "description": "Choose a maneuver to spcialize in. you can:\nincrease your DC +1\ndecrease exertion cost 1\nincrease damage +2",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Blessing of Boreas: Cold Aegis",
+        "source": "DM Gift",
+        "description": "If you take Cold damage, you can use your Reaction to give yourself Resistance to Cold damage until the end of your next turn. You can use this Reaction a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+        "sub_abilities": [],
+        "tracker": {
+          "name": "",
+          "current": 2,
+          "maximum": 2,
+          "reset_on": "long"
+        }
+      },
+      {
+        "name": "Blessing of Boreas: Winter Magic",
+        "source": "DM Gift",
+        "description": "You know the Ray of Frost cantrip. Choose either the Armor of Agathys or Ice Knife spell. You always have that spell prepared. You can cast the spell once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast this spell using any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat\u2019s spells (choose when you select this feat).",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Darkwood Magic",
+        "source": "Culture",
+        "description": "You know the pestilence cantrip. At 3rd\nlevel, you can cast either fog cloud or inflict wounds once\nbetween long rests. At 5th level, you can cast either acid\narrow or invisibility once between long rests. Your\nspellcasting ability for these is your choice of\nIntelligence, Wisdom, or Charisma.",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Walking Corpse",
+        "source": "Heritage",
+        "description": "Your creature type is both Humanoid and Undead. You do not need to breathe. When a creature would deal you necrotic damage, at their option they can heal you for that amount instead. Once you have been healed this way, you can\u2019t be again until you finish a long rest.",
+        "sub_abilities": [],
+        "tracker": {
+          "name": "",
+          "current": 1,
+          "maximum": 1,
+          "reset_on": "long"
+        }
+      },
+      {
+        "name": "Already Dead",
+        "source": "Heritage",
+        "description": "You are immune to disease. You have resistance to poison damage, and advantage on saving throws against the poisoned condition.",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Fanged Bite",
+        "source": "Heritage",
+        "description": "The bite is a natural weapon, which you can use to make unarmed strikes that deal equal to 1d4 piercing damage. Attack and damage rolls with your bite use your choice of Strength, Dexterity, or Constitution modifiers.\n\nWhile you or your target are bloodied, you gain an expertise die on these attack rolls.",
+        "sub_abilities": [],
+        "tracker": null
+      }
+    ],
+    "actions": [
+      {
+        "name": "Fanged Bite",
+        "attribute": "STR",
+        "proficient": true,
+        "attack_misc": 0,
+        "dc_misc": 0,
+        "show_attack_bonus": true,
+        "show_attack_dc": false,
+        "damage": "1d4 + 3 P",
+        "range": "5 ft",
+        "notes": "with expertise if I'm bloodied"
+      },
+      {
+        "name": "Longsword",
+        "attribute": "STR",
+        "proficient": true,
+        "attack_misc": 0,
+        "dc_misc": 0,
+        "show_attack_bonus": true,
+        "show_attack_dc": false,
+        "damage": "1D8 + 3 S",
+        "range": "",
+        "notes": ""
+      },
+      {
+        "name": "Longsword + Elemental Rebound",
+        "attribute": "STR",
+        "proficient": true,
+        "attack_misc": 0,
+        "dc_misc": 0,
+        "show_attack_bonus": true,
+        "show_attack_dc": false,
+        "damage": "1d8 + 3 S + 1d6 Element",
+        "range": "",
+        "notes": ""
+      },
+      {
+        "name": "Longsword + Hoarfrost",
+        "attribute": "STR",
+        "proficient": true,
+        "attack_misc": 0,
+        "dc_misc": 0,
+        "show_attack_bonus": true,
+        "show_attack_dc": false,
+        "damage": "1d8 + 3 S + 1d4 cold",
+        "range": "",
+        "notes": ""
+      }
+    ],
+    "inventory": [
+      {
+        "item_type": "armor",
+        "name": "Scale mail (steel)",
+        "quantity": 1,
+        "equipped": true,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": "14",
+        "base_ac": 14,
+        "dex_cap": 2,
+        "is_shield": false,
+        "weight": "35 lbs.",
+        "value": "50 gp",
+        "item_notes": "Low-maintenance (expertise die)"
+      },
+      {
+        "item_type": "armor",
+        "name": "Medium Shield",
+        "quantity": 1,
+        "equipped": true,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": "+2",
+        "base_ac": 2,
+        "dex_cap": null,
+        "is_shield": true,
+        "weight": null,
+        "value": "10 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "weapon",
+        "name": "Longsword",
+        "quantity": 1,
+        "equipped": true,
+        "attuned": false,
+        "notes": "",
+        "damage": "1d8 slashing",
+        "damage_type": null,
+        "weapon_range": "-",
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "3 lbs.",
+        "value": "20 gp",
+        "item_notes": "Defensive (medium)"
+      },
+      {
+        "item_type": "item",
+        "name": "Bedroll",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "7 lb.",
+        "value": "1 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Alchemist's supplies",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "8 lb.",
+        "value": "50 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Clothes (traveler's)",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "4 lb.",
+        "value": "2 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Mastiff",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "-",
+        "value": "25 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Holy water (flask)",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "1 lb.",
+        "value": "25 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Wooden Stake",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "",
+        "value": "",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Shovel",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "5 lb.",
+        "value": "2 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Backpack",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "",
+        "value": "",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Mess tin",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "1 lb.",
+        "value": "2 sp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Tinderbox",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "1 lb.",
+        "value": "5 sp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Torch",
+        "quantity": 10,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "1 lb.",
+        "value": "1 cp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Rope, hempen (50 feet)",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "10 lb.",
+        "value": "1 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Potion of Hill Giant Strength",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "",
+        "value": "300 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Potion of Heroism",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "",
+        "value": "550 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Healing potion (basic)",
+        "quantity": 1,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "0.5 lb.",
+        "value": "50 gp",
+        "item_notes": null
+      },
+      {
+        "item_type": "item",
+        "name": "Healing potion (greater)",
+        "quantity": 2,
+        "equipped": false,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "0.5 lb.",
+        "value": "150 gp",
+        "item_notes": null
+      }
+    ],
+    "currency": {
+      "CP": 0,
+      "SP": 0,
+      "EP": 0,
+      "GP": 65,
+      "PP": 0
+    },
+    "resistances": "Necrotic, Poison, Adv on Poison saves",
+    "immunities": "Disease",
+    "vulnerabilities": "Radiant",
+    "magic_resources": [
+      {
+        "name": "Spellcasting (Eldritch Knight)",
+        "source": "Class",
+        "magic_type": "Slots / Level",
+        "attribute": "CHA",
+        "spell_attack_misc": 0,
+        "spell_dc_misc": 0,
+        "current": [
+          1
+        ],
+        "maximum": [
+          2
+        ],
+        "extra_resource": null
+      },
+      {
+        "name": "Darkwood Magic",
+        "source": "Blightlander",
+        "magic_type": "Slots / Level",
+        "attribute": "CHA",
+        "spell_attack_misc": 0,
+        "spell_dc_misc": 0,
+        "current": [
+          1
+        ],
+        "maximum": [
+          1
+        ],
+        "extra_resource": null
+      },
+      {
+        "name": "Winter Magic",
+        "source": "Blessing of Boreas",
+        "magic_type": "Slots / Level",
+        "attribute": "CHA",
+        "spell_attack_misc": 0,
+        "spell_dc_misc": 0,
+        "current": [
+          0
+        ],
+        "maximum": [
+          1
+        ],
+        "extra_resource": null
+      }
+    ],
+    "known_traditions": "Arcane Knight, Cutting Omens",
+    "exertion_current": 2,
+    "exertion_max": 4,
+    "maneuvers_known": 4,
+    "max_degree": 1,
+    "maneuver_attack_misc": 0,
+    "maneuver_dc_misc": 0,
+    "appearance": "",
+    "personality": "",
+    "backstory": "",
+    "title": "Undying Scion, Winter's Heart",
+    "age": "",
+    "gender": "Male",
+    "height": "6' 4\"",
+    "weight": "",
+    "eyes": "Red",
+    "hair": "White",
+    "skin": "Pale",
+    "deity": "",
+    "strife": 0,
+    "combat_maneuvers": [
+      {
+        "name": "Fridgid Strike (+2 Dmg)",
+        "degree": 1,
+        "tradition": "Arcane Knight",
+        "exertion_cost": 1,
+        "action_type": "A",
+        "stance": false,
+        "description": "Make an attack, if damage is dealt also reduce movement speed by 15 ft\n(+2 dmg due to Maneuver Specialist)"
+      },
+      {
+        "name": "Martial Caster Stance",
+        "degree": 1,
+        "tradition": "Cutting Omens",
+        "exertion_cost": 1,
+        "action_type": "BA",
+        "stance": true,
+        "description": "Expertise on concetration checks\nCan cast both a BA and a R spell the same turn"
+      },
+      {
+        "name": "Malicious Mark",
+        "degree": 1,
+        "tradition": "Arcane Knight",
+        "exertion_cost": 1,
+        "action_type": "BA",
+        "stance": true,
+        "description": "Can use a BA to mark someone within 15 ft, or as a reaction on an attack.\nWhile marked using a help action against target is a BA"
+      },
+      {
+        "name": "Warding Flourish",
+        "degree": 1,
+        "tradition": "Arcane Knight",
+        "exertion_cost": 2,
+        "action_type": "A",
+        "stance": false,
+        "description": "Target Ally within 15 ft (not self). they gain +2 AC. Lasts unil I can't take actions."
+      }
+    ],
+    "spells": [
+      {
+        "name": "Pestilence",
+        "level": 0,
+        "school": "",
+        "description": "A swarm of insects fills the area. Creatures that begin their turn within the spell\u2019s area or who enter the area for the first time on their turn must make a Constitution saving throw or take 1d4 piercing damage. The pests also ravage any unattended organic material within their radius, such as plant, wood, or fabric.\n\nThis spell\u2019s damage increases by 1d4 when you reach 5th level (2d4), 10th level (3d4), and 15th level (4d4).",
+        "casting_time": "1 A",
+        "duration": "1 minute",
+        "spell_range": "60 ft (10 ft Sphere)",
+        "ritual": false,
+        "concentration": true,
+        "resource_name": "Darkwood Magic",
+        "prepared": true
+      },
+      {
+        "name": "Hoarfrost",
+        "level": 0,
+        "school": "",
+        "description": "+ 2d4 cold damage",
+        "casting_time": "1 BA",
+        "duration": "1 min or hit",
+        "spell_range": "Self",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Spellcasting (Eldritch Knight)",
+        "prepared": true
+      },
+      {
+        "name": "Prestidigitation",
+        "level": 0,
+        "school": "",
+        "description": "You wield arcane energies to produce minor effects. Choose one of the following: \n\n* create a single burst of magic that manifests to one of the senses (for example a burst of sound, sparks, or an odd odor).\n* clean or soil an object of 1 cubic foot or less.\n* light or snuff a flame.\n* chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.\n* color or mark an object or surface for 1 hour.\n* create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round.\n\nYou may cast this spell multiple times, though only three effects may be active at a time. Dismissing each effect requires an action.",
+        "casting_time": "1 BA",
+        "duration": "1 hour",
+        "spell_range": "30 ft",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Spellcasting (Eldritch Knight)",
+        "prepared": true
+      },
+      {
+        "name": "Fog Cloud",
+        "level": 1,
+        "school": "",
+        "description": "You create a heavily obscured area of fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour).\n\nCast at Higher Levels\nThe spell\u2019s radius increases by 20 feet for each slot level above 1st.",
+        "casting_time": "1 A",
+        "duration": "1 hour",
+        "spell_range": "120 ft (20 ft Sphere)",
+        "ritual": false,
+        "concentration": true,
+        "resource_name": "Darkwood Magic",
+        "prepared": true
+      },
+      {
+        "name": "Inflict Wounds",
+        "level": 1,
+        "school": "",
+        "description": "You impart fell energies that suck away the target\u2019s life force, making a melee spell attack that deals 3d10 necrotic damage.\n\nCast at Higher Levels\nThe damage increases by 1d10 for each slot level above 1st.",
+        "casting_time": "1 A",
+        "duration": "Instant",
+        "spell_range": "Touch",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Darkwood Magic",
+        "prepared": true
+      },
+      {
+        "name": "Shadow Armor",
+        "level": 1,
+        "school": "",
+        "description": "When attacked to trigger. Attack gets disavantage on the attack. Gain resistance to Radiant damage until end of my turn",
+        "casting_time": "1 R",
+        "duration": "1 round",
+        "spell_range": "Self",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Spellcasting (Eldritch Knight)",
+        "prepared": true
+      },
+      {
+        "name": "Elemental Rebound",
+        "level": 1,
+        "school": "",
+        "description": "You redirect and reflect a portion of incoming elemental energy. You gain resistance to the damage type that triggered this spell, which applies against the incoming damage. The next time you deal damage before this spell ends, one of your targets takes 1d6 damage of the triggering type. Dealing this extra damage ends the spell early.\n\nMOAR 222",
+        "casting_time": "1 R",
+        "duration": "1 round",
+        "spell_range": "Self",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Spellcasting (Eldritch Knight)",
+        "prepared": true
+      },
+      {
+        "name": "Ice Bolts",
+        "level": 1,
+        "school": "",
+        "description": "You create three bolts of ice that you direct at one or more creatures within range and line of sight. Each bolt hits automatically and does 1d6 cold damage. The bolts all strike simultaneously.\n\nEnhancement: For each spell slot used higher than 1st level, you create one additional bolt.\n\nBook of Lost Spells 73",
+        "casting_time": "1A",
+        "duration": "Instant",
+        "spell_range": "120 ft",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Spellcasting (Eldritch Knight)",
+        "prepared": true
+      },
+      {
+        "name": "Armor of Agathys",
+        "level": 1,
+        "school": "",
+        "description": "Protective magical frost surrounds you. You gain 5 Temporary Hit Points. If a creature hits you with a melee attack roll before the spell ends, the creature takes 5 Cold damage. The spell ends early if you have no Temporary Hit Points.\n\nUsing a Higher-Level Spell Slot. The Temporary Hit Points and the Cold damage both increase by 5 for each spell slot level above 1.",
+        "casting_time": "1 BA",
+        "duration": "1 Hour",
+        "spell_range": "Self",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Winter Magic",
+        "prepared": true
+      },
+      {
+        "name": "Ray of Frost",
+        "level": 0,
+        "school": "",
+        "description": "An icy beam shoots from your outstretched fingers. Make a ranged spell attack . On a hit, you deal 1d8 cold damage and reduce the target\u2019s Speed by 10 feet until the start of your next turn.\n\nThis spell\u2019s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
+        "casting_time": "1 A",
+        "duration": "Instant",
+        "spell_range": "60 ft",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Winter Magic",
+        "prepared": true
+      }
+    ],
+    "death_save_successes": 0,
+    "death_save_failures": 0
+  },
+  "allies": [
+    {
+      "name": "Freki",
+      "ally_type": "Pet",
+      "body_md": "#### Mastiff \n\n*Pets & Sidekicks page 110*\n\n**CR:** 1/8 (Level 1 Companion)\n**Prof:** 2 (+1/4 per level)\n\n**S:** 12&dagger; **D:** 14 **C:** 10&dagger; **I:** 3 **W:** 12 **Ch:** 6 \n\n&dagger; *Save Proficiency*\n\n**AC:** 12  **HP:** 19  **CMD:** 12\n\n**Speed:** 40 \n\n**Perception:** +3 (Advantage - Keen Senses)\n\n---\n\n**Easy to Train.** Advantage on any Companion rolls\n\n**Combat Training: First Blood.** +1d6 Damage on first attack per round. Increases ever 2 levels\n\n---\n\n*Bite.* +3 to hit, 5 ft, 1d4+1 Piercing. DC 11 STR save or knocked prone\n\n "
+    },
+    {
+      "name": "Undead Contact",
+      "ally_type": "Contact",
+      "body_md": "From Blightlander"
+    },
+    {
+      "name": "Alchemist Contact",
+      "ally_type": "Contact",
+      "body_md": "**From Background**\n\nLikes to get me to try experimental compounds"
+    }
+  ],
+  "notes": [
+    {
+      "title": "Character Build Sources",
+      "body_md": "* **Herirage:** Unliving/Vampire (MOAR 29-31)\n* **Culture :** blightlander (MOAR)\n* **Background :** [Monster Slayer](https://a5e.tools/node/4170) (GPG)\n* **Destiny :** [Victory](https://a5e.tools/node/4224) (Voidrunner)\n* **Archetype :** [Eldritch Knight (PHB 2014)](https://www.dndbeyond.com/classes/10-fighter#EldritchKnight) adjust to CHA casting stat \n* **Combat Traditions :** Arcane Knight(Martial Artistry / GPG), Cutting Omens (MOAR 205)"
+    },
+    {
+      "title": "Back Story",
+      "body_md": "## \n\n## Torak's Sire: The General (Alaric). \n\nIn life, the General fell to an onslaught of Chernobog's feral vampires (Draugr). They infected him with their curse, but his own burning will and hatred of the undead allowed him to choose his own fate. He spent decades upon decades recruiting the toughest warriors into service. Those who survived his training were given the chance to join the Einherjar.  He hand-picked Torak and, in a ritual out on the tundra and in the heart of a blizzard, drove a shard of starlight ice into the young soldier's chest, replacing his heart with the Frost of the North. \n\nWhen Hrimm-Kastel fell, Alaric stayed behind to buy time for the others to flee and brought many traitors down. Their bloody, dying screams followed Torak and his family as they fled to Ironcrag Hold. Torak dreams of his sire wandering the Bleak Expanse, a broken spear with an orange-glowing tip in his hand as he hunts the enemy. \n\n## The Widow's Nail\n\nThe fortress your family controlled along the wall is called Hrimm-Kastjel (Rime Bastion) by the dwarves, but it is also known as the \"Widow's Nail\" by the human and giant Jarls. It was a human, Jarl Hlothar Kurgensson, who led the betrayal. He was the leader of a settlement near the wall and provided your family with supplies. A rumour of an ancient artifact in the deep dungeons of the fortress caused him to betray you and your family to get at the relic. You never heard any such rumour. \n\n## The Dwarves\n\nThe survivors fled to Ironcrag Hold. The dwarves there, led by Thane Hreidmar \"Stone-Eye,\" are Clan Bofyr. These dwarves referred to your family as \"Einherjar,\" an important distinction. The north has many undead types, especially on the other side of the Wall, but most vampires are feral Darakhul, lowly beasts little better than ghouls. Einherjar are referred to as the Heroic Dead, who gave up Valhalla to continue the fight in the mortal world. \n\nThane Stone-Eye, who has a carved sapphire in his left eye socket, is said to be able to see through half-truths and illusions. He is a devout follower of Wotan. \n\nOne final secret: one of the ancestors of Clan Bofyr is a dwarven vampire wizard who was the one who recommended the thane ally with your people. You know of this secret, as it was part of why you trusted the thane. He gave you this secret to prove his loyalty and respect.\n\nThe clan is watched over by an Einjerjar, a 1500-year-old vampire named Valdrin Bofyr, Deep-Root of the Mountain, Master of the Old Oaths of Stone and Blood. Valdrin has given Torak a blood oath to protect the remaining members of his family. The elder vampire awoke from torpor when the fortress fell and Alaric was slain. His skin has taken a rough, stone-like texture, and when he slumbers most would mistake him for a statue of a dwarf on a throne in a forgotten chamber high on the mountain.\n\n"
+    },
+    {
+      "title": "Gain Blightlander spells @ level 5",
+      "body_md": "Once I get to level 5 I get more spells from my culture"
+    }
+  ]
+}
