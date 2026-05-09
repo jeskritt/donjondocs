@@ -91,44 +91,74 @@ def _render_magic_tab(state, cs, magic, _save):
     if resources or spells:
         ui.separator()
         ui.label("Spells").classes('text-sm text-gray-400 mt-2 mb-1')
-        if not spells:
-            ui.label("No spells added yet.").classes('text-gray-500 italic text-sm py-1')
-        else:
-            sorted_spells = sorted(spells, key=lambda s: (s['level'], s['name']))
-            for sp_idx, sp in enumerate(sorted_spells):
-                orig_idx = spells.index(sp)
-                sp_name = sp['name']
-                desc_row = None
-                with ui.column().classes('w-full gap-0'):
-                    with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
-                        level_lbl = "C" if sp['level'] == 0 else str(sp['level'])
-                        ui.label(level_lbl).classes('w-6 text-center text-xs text-gray-400')
-                        name_classes = 'text-sm'
-                        name_classes += ' text-white font-bold' if sp.get('prepared') else ' text-gray-300'
-                        def _toggle_sp_desc(dr=None):
-                            if dr:
-                                vis = dr.style.get('display', 'none') != 'none'
-                                dr.style('display: none' if vis else 'display: block')
-                        name_btn = ui.button(sp_name, on_click=lambda: None).props('flat dense no-caps').classes(name_classes + ' flex-1 justify-start')
-                        if sp.get('ritual'):
-                            ui.badge('R', color='purple').props('dense')
-                        ui.label(sp.get('casting_time') or '—').classes('w-20 text-gray-400 text-xs')
-                        ui.label(sp.get('spell_range') or '—').classes('w-16 text-gray-400 text-xs')
-                        dur = sp.get('duration') or ''
-                        dur_display = f"Conc. {dur}" if sp.get('concentration') and dur else ('Conc.' if sp.get('concentration') else dur or '—')
-                        ui.label(dur_display).classes('w-24 text-gray-400 text-xs')
-                        ui.label(sp.get('resource_name') or '—').classes('flex-1 text-gray-400 text-sm')
-                        ui.button(icon='edit', on_click=lambda n=sp_name, i=orig_idx: _open_edit_spell(cs, _save, resources, n, i)).props('flat round dense color=primary')
-                        async def _rm_spell(n=sp_name):
-                            updated = [s for s in cs.spells if s.name != n]
-                            await _save({"spells": [s.model_dump() for s in updated]})
-                        ui.button(icon='delete', on_click=_rm_spell).props('flat round dense color=negative')
-                    desc_row = ui.row().classes('w-full pl-8 py-1 border-b border-gray-800').style('display: none')
-                    with desc_row:
-                        ui.label(sp.get('description') or 'No description.').classes('text-gray-400 text-sm whitespace-pre-wrap')
-                    name_btn.on('click', lambda dr=desc_row: _toggle_sp_desc(dr))
 
-        ui.button("Add Spell", icon='add', on_click=lambda: _open_add_spell(cs, _save, resources)).props('unelevated color=indigo').classes('mt-2')
+        # Filter selections survive _save re-renders by living on `state`.
+        # Local @ui.refreshable lets a checkbox toggle re-render the list
+        # immediately without threading a refresh handle through the
+        # features.py dispatcher.
+        filt = state.setdefault("spell_filters", {"prepared": False, "concentration": False, "ritual": False})
+
+        @ui.refreshable
+        def _spells_section():
+            with ui.row().classes('items-center gap-3 mb-1'):
+                ui.label("Filter:").classes('text-xs text-gray-500')
+                for key, label in (("prepared", "Prepared"),
+                                   ("concentration", "Concentration"),
+                                   ("ritual", "Ritual")):
+                    def _on_change(e, k=key):
+                        filt[k] = bool(e.value)
+                        _spells_section.refresh()
+                    ui.checkbox(label, value=filt[key], on_change=_on_change).props('dense')
+
+            if not spells:
+                ui.label("No spells added yet.").classes('text-gray-500 italic text-sm py-1')
+            else:
+                visible_spells = [
+                    s for s in spells
+                    if (not filt["prepared"]      or s.get("prepared"))
+                    and (not filt["concentration"] or s.get("concentration"))
+                    and (not filt["ritual"]        or s.get("ritual"))
+                ]
+                if not visible_spells:
+                    ui.label("No spells match the active filters.").classes('text-gray-500 italic text-sm py-1')
+                else:
+                    sorted_spells = sorted(visible_spells, key=lambda s: (s['level'], s['name']))
+                    for sp_idx, sp in enumerate(sorted_spells):
+                        orig_idx = spells.index(sp)
+                        sp_name = sp['name']
+                        desc_row = None
+                        with ui.column().classes('w-full gap-0'):
+                            with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
+                                level_lbl = "C" if sp['level'] == 0 else str(sp['level'])
+                                ui.label(level_lbl).classes('w-6 text-center text-xs text-gray-400')
+                                name_classes = 'text-sm'
+                                name_classes += ' text-white font-bold' if sp.get('prepared') else ' text-gray-300'
+                                def _toggle_sp_desc(dr=None):
+                                    if dr:
+                                        vis = dr.style.get('display', 'none') != 'none'
+                                        dr.style('display: none' if vis else 'display: block')
+                                name_btn = ui.button(sp_name, on_click=lambda: None).props('flat dense no-caps').classes(name_classes + ' flex-1 justify-start')
+                                if sp.get('ritual'):
+                                    ui.badge('R', color='purple').props('dense')
+                                ui.label(sp.get('casting_time') or '—').classes('w-20 text-gray-400 text-xs')
+                                ui.label(sp.get('spell_range') or '—').classes('w-16 text-gray-400 text-xs')
+                                dur = sp.get('duration') or ''
+                                dur_display = f"Conc. {dur}" if sp.get('concentration') and dur else ('Conc.' if sp.get('concentration') else dur or '—')
+                                ui.label(dur_display).classes('w-24 text-gray-400 text-xs')
+                                ui.label(sp.get('resource_name') or '—').classes('flex-1 text-gray-400 text-sm')
+                                ui.button(icon='edit', on_click=lambda n=sp_name, i=orig_idx: _open_edit_spell(cs, _save, resources, n, i)).props('flat round dense color=primary')
+                                async def _rm_spell(n=sp_name):
+                                    updated = [s for s in cs.spells if s.name != n]
+                                    await _save({"spells": [s.model_dump() for s in updated]})
+                                ui.button(icon='delete', on_click=_rm_spell).props('flat round dense color=negative')
+                            desc_row = ui.row().classes('w-full pl-8 py-1 border-b border-gray-800').style('display: none')
+                            with desc_row:
+                                ui.label(sp.get('description') or 'No description.').classes('text-gray-400 text-sm whitespace-pre-wrap')
+                            name_btn.on('click', lambda dr=desc_row: _toggle_sp_desc(dr))
+
+            ui.button("Add Spell", icon='add', on_click=lambda: _open_add_spell(cs, _save, resources)).props('unelevated color=indigo').classes('mt-2')
+
+        _spells_section()
 
 
 def _open_add_resource(cs, _save, resources):

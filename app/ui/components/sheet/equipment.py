@@ -282,7 +282,12 @@ def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                 return
 
             options = {r.name: r for r in rows}
-            selected = ui.select(options=list(options.keys()), label=f"Choose {item_type}", value=list(options.keys())[0]).classes('w-full')
+            selected = ui.select(
+                options=list(options.keys()),
+                label=f"Choose {item_type}",
+                value=list(options.keys())[0],
+                with_input=True,
+            ).classes('w-full')
             qty_inp = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
 
             with ui.row().classes('w-full justify-end gap-2 mt-4'):
