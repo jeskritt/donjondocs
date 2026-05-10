@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "exported_at": "2026-05-09T16:37:17.006433+00:00",
+  "version": 7,
+  "exported_at": "2026-05-10T15:22:56.011589+00:00",
   "name": "Torak Vermil",
   "style": "Level Up: Advanced 5e",
   "character_data": {
@@ -513,7 +513,8 @@
         "is_shield": false,
         "weight": "35 lbs.",
         "value": "50 gp",
-        "item_notes": "Low-maintenance (expertise die)"
+        "item_notes": "Low-maintenance (expertise die)",
+        "is_custom": false
       },
       {
         "item_type": "armor",
@@ -531,7 +532,8 @@
         "is_shield": true,
         "weight": null,
         "value": "10 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "weapon",
@@ -549,7 +551,8 @@
         "is_shield": false,
         "weight": "3 lbs.",
         "value": "20 gp",
-        "item_notes": "Defensive (medium)"
+        "item_notes": "Defensive (medium)",
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -567,7 +570,8 @@
         "is_shield": false,
         "weight": "7 lb.",
         "value": "1 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -585,7 +589,8 @@
         "is_shield": false,
         "weight": "8 lb.",
         "value": "50 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -603,7 +608,8 @@
         "is_shield": false,
         "weight": "4 lb.",
         "value": "2 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -621,7 +627,8 @@
         "is_shield": false,
         "weight": "-",
         "value": "25 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -639,7 +646,8 @@
         "is_shield": false,
         "weight": "1 lb.",
         "value": "25 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -657,7 +665,8 @@
         "is_shield": false,
         "weight": "",
         "value": "",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -675,7 +684,8 @@
         "is_shield": false,
         "weight": "5 lb.",
         "value": "2 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -693,7 +703,8 @@
         "is_shield": false,
         "weight": "",
         "value": "",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -711,7 +722,8 @@
         "is_shield": false,
         "weight": "1 lb.",
         "value": "2 sp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -729,12 +741,13 @@
         "is_shield": false,
         "weight": "1 lb.",
         "value": "5 sp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
         "name": "Torch",
-        "quantity": 10,
+        "quantity": 9,
         "equipped": false,
         "attuned": false,
         "notes": "",
@@ -747,7 +760,8 @@
         "is_shield": false,
         "weight": "1 lb.",
         "value": "1 cp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -765,7 +779,8 @@
         "is_shield": false,
         "weight": "10 lb.",
         "value": "1 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -783,7 +798,8 @@
         "is_shield": false,
         "weight": "",
         "value": "300 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -801,7 +817,8 @@
         "is_shield": false,
         "weight": "",
         "value": "550 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -819,7 +836,8 @@
         "is_shield": false,
         "weight": "0.5 lb.",
         "value": "50 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       },
       {
         "item_type": "item",
@@ -837,7 +855,8 @@
         "is_shield": false,
         "weight": "0.5 lb.",
         "value": "150 gp",
-        "item_notes": null
+        "item_notes": null,
+        "is_custom": false
       }
     ],
     "currency": {
@@ -1094,7 +1113,7 @@
     {
       "name": "Freki",
       "ally_type": "Pet",
-      "body_md": "#### Mastiff \n\n*Pets & Sidekicks page 110*\n\n**CR:** 1/8 (Level 1 Companion)\n**Prof:** 2 (+1/4 per level)\n\n**S:** 12&dagger; **D:** 14 **C:** 10&dagger; **I:** 3 **W:** 12 **Ch:** 6 \n\n&dagger; *Save Proficiency*\n\n**AC:** 12  **HP:** 19  **CMD:** 12\n\n**Speed:** 40 \n\n**Perception:** +3 (Advantage - Keen Senses)\n\n---\n\n**Easy to Train.** Advantage on any Companion rolls\n\n**Combat Training: First Blood.** +1d6 Damage on first attack per round. Increases ever 2 levels\n\n---\n\n*Bite.* +3 to hit, 5 ft, 1d4+1 Piercing. DC 11 STR save or knocked prone\n\n "
+      "body_md": "___\n> ## Mastif Companion\n> *Heroic Medium Beast*\n> ___\n> *Armor Class* 12  \n> *Hit Points* 19 (2d8 + 10/level)  \n> *Speed* 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|14 (+2)|10 (+0)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> *Proficiency* +2 (+ 1/4 heroic level) &emsp; *CMD* 10 + PB  \n> *Saving Throws* Str +1 + PB, Dex 1 + PB  \n> *Skills* Perception +1 + PB  \n> *Senses* Passive Perception 11 + PB  \n> *Languages* &mdash;   \n> *Challenge* 1/8 (25 XP) &emsp; *Heroic Level* 1\n> ___\n>\n> ### Traits\n> ***Keen Hearing and Smell.*** The mastiff has advantage on Perception checks that rely on hearing and smell.\n>\n> ***Easy to Train.***  A trainer has advantage on checks made during downtime activities to befriend, tame, or form a companion bond with a mastif\n>\n> ***Combat Training: First Blood.*** The first time the mastiff deals damage with an attack on a turn, it deals an extra 3 (1d6) damage per two heroic levels (rounded up).\n>\n> ### Actions\n> ***Bite.*** *Melee Weapon Attack:* + + PB to hit, reach 5 ft., one target. *Hit:* 3 (1d4 + 1) piercing damage. If the target is a creature, it makes a DC (9 + PB) Strength saving throw , falling prone  on a failure.\n>\n> *Pets & Sidekicks page 110*"
     },
     {
       "name": "Undead Contact",
