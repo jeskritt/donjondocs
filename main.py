@@ -23,7 +23,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from nicegui import app, ui
 
 from app.config import get_settings
-from app.api import auth_routes, user_routes, character_routes, character_addons_routes
+from app.api import auth_routes, user_routes, character_routes, character_addons_routes, creature_routes
 from app.rate_limit import limiter
 from app.security_headers import SecurityHeadersMiddleware
 from app.services._errors import ServiceError, service_error_handler
@@ -86,6 +86,7 @@ app.include_router(user_routes.router, prefix="/api/users", tags=["users"])
 app.include_router(character_routes.router, prefix="/api/characters", tags=["characters"])
 app.include_router(character_addons_routes.allies_router, prefix="/api/allies", tags=["allies"])
 app.include_router(character_addons_routes.notes_router, prefix="/api/notes", tags=["notes"])
+app.include_router(creature_routes.router, prefix="/api/creatures", tags=["creatures"])
 
 # ---------------------------------------------------------------------------
 # UI Logout redirect (called from header menu)
@@ -104,7 +105,7 @@ async def logout_ui():
 # Import NiceGUI pages (registering @ui.page routes)
 # ---------------------------------------------------------------------------
 
-from app.ui.pages import login, register, dashboard, profile, admin, character_sheet  # noqa: F401, E402
+from app.ui.pages import login, register, dashboard, profile, admin, character_sheet, characters, creatures  # noqa: F401, E402
 
 
 # ---------------------------------------------------------------------------

@@ -1,52 +1,57 @@
 # DonjonDocs
 
-A web app for creating and managing tabletop RPG character sheets. Supports **D&D 5e**, **Level Up: Advanced 5e**, and **Shadowdark RPG**
+**A home for your tabletop characters, and your monsters too.**
 
-### What it does
+DonjonDocs is a self-hosted web app that holds your D&D 5e, Level Up: Advanced 5e, and Shadowdark characters in one tidy place. Run it for your group, sign your friends in, and put the paper sheets and scattered spreadsheets away.
 
-This application allows you to create, edit, and manage character sheets for tabletop role-playing games. It supports multiple game systems, including D&D 5e, Level Up: Advanced 5e, and Shadowdark RPG. Users can create and manage their own characters, and the application provides a user-friendly interface for editing character information. It is meant to be a step or two above paper character sheets, with minimal automation. Allows for quick cut and paste from PDFs and websites to populate your character sheets
+## What it is
 
-### What it is not
+A *living* digital character sheet. Update an ability score and your skills, saves, AC, attack bonuses, spell DCs and initiative recalculate in front of you. Click a checkbox and a spell slot is spent. Take a short rest and the right things refresh.
 
-It is not a character builder, validator or generator. It doesn't walk you through the process of creating a character. It is just a place to store and organize your character sheets.
+Beyond the sheet, every character has tabs for **Allies & Stat Blocks** (your pets, companions, wildshape forms, NPC contacts) and **Notes** (session logs, plot hooks, backstory). Both panes accept Markdown, and you can toggle a switch on the character sheet to redraw them in the typography of an open Player's Handbook: parchment, serif body, small-caps headings.
 
-## How to use
+A **Creature Catalog** sits next to your characters: your private bestiary, with one-click sharing for the rest of your group.
 
-### Web Interface
+## What it's not
 
-Although this is a web app you can run it locally with very little setup or requirements. You'll just need to have 
-[python installed](https://www.python.org/downloads/). See `Quick Start (local dev)` section below to get started.
+It's not a character builder, validator, or generator. It won't walk you through making a character. It's a place to *store and organise* the characters you've already designed, usually a step or two nicer than paper, with quick cut-and-paste from PDFs and other sites.
 
-1. Open the application in your web browser.
-2. Log in with your account or create a new account.
-3. Navigate to the "Characters" section to create or manage your characters.
-4. Use the "New Character" button to create a new character sheet.
-5. Fill in the character information and save it.
-6. You can also edit existing character sheets by clicking on the character name.
+## Highlights
 
-Built with FastAPI, NiceGUI, and async SQLAlchemy. Dark-mode UI with reactive server-rendered pages — no frontend build step required.
+**Character sheets that do the math for you.**
+- Three rule systems supported first-class: D&D 5e, Level Up: Advanced 5e, and Shadowdark RPG. Each gets its own layout. A5e shows Strife and combat maneuvers; Shadowdark hides proficiency bonus; 5e renames Fatigue back to Exhaustion.
+- Multiclass-aware. Ability scores propagate to skills, saves, attacks, AC and spell DCs.
+- HP +/- buttons, exhaustion / strife tracks, death-save counters, equipped armor automatically replaces your AC base.
+- Short and long rest mechanics that reset trackers and refill slots.
+- Per-item edit pen on Equipment so you can tweak a weapon's properties without deleting and re-adding.
 
-## Features
+**Allies, pets, and wildshape forms.**
+- Each character has an Allies & Stat Blocks tab. Markdown bodies, sorted and edited one at a time.
+- Add an ally of type Pet, Companion, or Wildshape and the body field auto-fills with a homebrewery-flavoured stat block template so you can fill in the blanks.
 
-- Full character sheets with abilities, skills, equipment, spells, features, and more
-- Per-system builders that adapt the sheet layout to each rule system
-- Minor automation:
-  - Stats effects Skills, AC, saves, Spell DCs, Attack bonuses, Initiative, etc.
-  - AC calculator: flat armor + armor modifiers + dex + shield + buffs
-  - Short and Long rest mechanics
-- Allies, Contacts and Wildshape stat blocks using free form Markdown.
-- Note taking
-- Import/export characters as JSON
-- Role-based access control (admin, premium, standard)
-- Self-service registration and profile management
-- Admin dashboard for user management
+**Notes that survive the campaign.**
+- Markdown notes for session logs, backstory, plot hooks, faction info, whatever your DM keeps prompting you to write down.
 
-## Quick Start (local dev)
+**Creature Catalog**
+- Build your own bestiary alongside your characters. Each entry is a homebrewery-style stat block in Markdown, rendered to look like a page from a 5e monster manual.
+- Keep your work private, or flip the **Public** toggle to share with everyone signed in to your instance, handy for the DM who wants to drop polished stat blocks in front of the party, or a player keeping a binder of hirelings and recurring villains.
+- Copy a public creature into your own catalog with one click. The copy lands private and yours to remix.
+- Paste a stat block in, click **Update from stat block** and the parser fills in size / type / challenge rating for you. (Tested against 121 real homebrewery monsters; works on bullet-list and italic field formats, plural "swarm of *aberrations*" types, and slash-separated compound types like *aberration/undead*.)
+- Search and filter by name, creature type, or size. Toggle one-column or two-column page layout per creature.
+- Single-creature export and import as JSON, so you can share one monster file with a friend without uprooting your whole catalog.
 
-### Prerequisites
+**It looks like a book.**
+- Toggle the **PHB style** switch on a character sheet and your Allies and Notes panes redraw with parchment, BookSanity body text, and small-caps headings.
+- The Creature Catalog uses the same typography by default, with an optional two-column page layout for longer stat blocks.
 
-- Python 3.11+
-- Git
+**Yours to host.**
+- Whole-instance backup and restore CLI for the DM running the server.
+- Role-based accounts: admin / premium / standard. Self-service registration on by default; turn it off with one environment variable.
+- Character and creature data lives in a single SQLite file by default. Your group, your data, no third-party signup, no analytics to delete later.
+
+## Run it for your group
+
+You only need Python 3.11+ and Git. The DM (or whoever is hosting) runs steps 1-4 once; players just need a username and password to sign in afterwards.
 
 ### 1. Clone and install
 
@@ -94,18 +99,18 @@ python cli.py create-user --username admin --email admin@example.com --password 
 python main.py
 ```
 
-Open **http://localhost:8080** and log in with the admin credentials you just created.
+Open **http://localhost:8080** and log in with the admin credentials you just created. To let your players in, hand them the URL (or your machine's IP and port) and either let them self-register, or create their accounts from the Admin > User Management page.
 
-## Managing Users
+## Managing your group
 
 ### Through the web UI
 
-Log in as an admin and navigate to **Admin > User Management** (or go to `/admin/users` directly). From there you can:
+Log in as an admin and head to **Admin > User Management** (or `/admin/users` directly). From there you can:
 
-- **Create users** — click "Create User", fill in username, email, password, and select a role (admin / premium / standard)
-- **Edit users** — change username, email, role, or toggle active/inactive status
-- **Reset passwords** — set a new password for any user
-- **Deactivate users** — soft-delete that can be reversed by editing the user back to active
+- **Create users:** click "Create User", fill in username, email, password, and choose a role (admin / premium / standard)
+- **Edit users:** change username, email, role, or toggle active/inactive
+- **Reset passwords:** set a new password for any user
+- **Deactivate users:** soft-delete that you can reverse later by editing the user back to active
 
 ### Through the CLI
 
@@ -125,7 +130,7 @@ python cli.py reset-password --email alice@example.com --new-password "NewPass12
 
 ### Self-registration
 
-Public registration is enabled by default. Users who register through `/register` get the `standard` role. To disable registration, set `ALLOW_REGISTRATION=false` in `.env`.
+Public registration is enabled by default. Users who register through `/register` get the `standard` role. To disable, set `ALLOW_REGISTRATION=false` in `.env`.
 
 ## Backups
 
@@ -138,15 +143,17 @@ python cli.py restore --input <file>                                  # merge (d
 python cli.py restore --input <file> --mode replace --yes             # destructive: wipes user data first
 ```
 
-Backup files contain hashed passwords — treat them as secrets. See [`docs/operations.md`](docs/operations.md) for the file format, merge vs replace semantics, and the production rehearsal procedure.
+Backup files contain hashed passwords, treat them as secrets. See [`docs/operations.md`](docs/operations.md) for the file format, merge vs replace semantics, and the production rehearsal procedure.
 
-## Documentation
+## For developers
+
+Open source under the GNU AGPL-3.0 (see License below). Contributions welcome, bug reports and pull requests both. Built with FastAPI, NiceGUI, and async SQLAlchemy; no frontend build step.
 
 Detailed docs live in the [`docs/`](docs/) directory:
 
 | Document | Contents |
 |----------|----------|
-| [Architecture](docs/architecture.md) | Stack, layer diagram, request lifecycle, character-sheet rendering |
+| [Architecture](docs/architecture.md) | Stack, layer diagram, request lifecycle, character-sheet rendering, Creature Catalog |
 | [Database](docs/database.md) | Tables, ER diagram, character data blob structure |
 | [Dependencies](docs/dependencies.md) | Module dependency graph |
 | [Deployment](docs/deployment.md) | Environment variables, production setup, systemd example |
