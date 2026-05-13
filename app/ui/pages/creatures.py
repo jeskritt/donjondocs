@@ -110,7 +110,7 @@ async def creatures_page():
                 state["owner_usernames"] = {uid: uname for uid, uname in u_rows.all()}
             else:
                 state["owner_usernames"] = {}
-        _grid.refresh()
+        _card_list.refresh()
 
     def _visible_rows() -> list[dict]:
         rows = state["rows"]
@@ -372,11 +372,16 @@ async def creatures_page():
                 ui.button("Cancel", on_click=dialog.close).props("flat").style("color: #94A3B8;")
         dialog.open()
 
-    @ui.refreshable
-    def _grid():
-        rows = _visible_rows()
+    def _build_header_and_filters():
+        """Render the page header + the filter row.
 
-        # Header row: title + search/filter inputs + import/new buttons.
+        Kept outside `_card_list`'s refreshable so the search input is not
+        torn down on every keystroke — that rebuild is what made the
+        catalog feel like it only accepted one character at a time. The
+        700-line cure was worse than the disease here: a 300 ms Quasar
+        debounce on the input + a smaller refreshable scope below is all
+        we need.
+        """
         with ui.row().classes("w-full items-center justify-between mb-4 gap-3 flex-wrap"):
             ui.label("Creature Catalog").classes("text-2xl font-bold text-white")
             with ui.row().classes("gap-2 items-center"):
@@ -395,9 +400,9 @@ async def creatures_page():
             search_in = ui.input(
                 placeholder="Search name…",
                 value=state["filter_q"],
-            ).props("dense outlined clearable").classes("flex-1 min-w-[200px]")
+            ).props("dense outlined clearable debounce=300").classes("flex-1 min-w-[200px]")
             search_in.on_value_change(
-                lambda e: (state.__setitem__("filter_q", e.value or ""), _grid.refresh())
+                lambda e: (state.__setitem__("filter_q", e.value or ""), _card_list.refresh())
             )
             type_filter = ui.select(
                 options=list(CREATURE_TYPES),
@@ -407,7 +412,7 @@ async def creatures_page():
                 with_input=True,
             ).props("dense").classes("min-w-[180px]")
             type_filter.on_value_change(
-                lambda e: (state.__setitem__("filter_type", e.value), _grid.refresh())
+                lambda e: (state.__setitem__("filter_type", e.value), _card_list.refresh())
             )
             size_filter = ui.select(
                 options=list(CREATURE_SIZES),
@@ -416,9 +421,17 @@ async def creatures_page():
                 clearable=True,
             ).props("dense").classes("min-w-[140px]")
             size_filter.on_value_change(
-                lambda e: (state.__setitem__("filter_size", e.value), _grid.refresh())
+                lambda e: (state.__setitem__("filter_size", e.value), _card_list.refresh())
             )
 
+    @ui.refreshable
+    def _card_list():
+        """Refreshable scope is now just the empty-state + card grid.
+
+        The filter inputs above are stable across `_card_list.refresh()`
+        calls so focus / typed-in-progress text survives a refilter.
+        """
+        rows = _visible_rows()
         if not rows:
             ui.label(
                 "No creatures yet. Click 'New Creature' to author one, or "
@@ -441,7 +454,7 @@ async def creatures_page():
                 state["expanded"].discard(creature["id"])
             else:
                 state["expanded"].add(creature["id"])
-            _grid.refresh()
+            _card_list.refresh()
 
         with ui.card().classes("w-full"):
             # Header row: name + badges on the left, action icons on the right.
@@ -496,7 +509,8 @@ async def creatures_page():
                     ui.label("(empty)").classes("text-gray-500 italic px-2 py-1")
 
     with ui.column().classes("page-content"):
-        _grid()
+        _build_header_and_filters()
+        _card_list()
 
     # Initial load happens after the UI is mounted so the page paints fast.
     async def _initial_load():
