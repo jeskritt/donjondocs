@@ -204,6 +204,25 @@ def apply_global_styles():
             column-span: none !important;
             -webkit-column-span: none !important;
         }
+
+        /* Opt-in two-column variant for the Creature Catalog. A creature
+           row with `columns == 2` gets `.phb.phb-cols-2` on its markdown
+           wrapper, which restores the homebrewery printed-page two-column
+           flow on top of our single-column default. Headings still span
+           the full width so big creature names sit cleanly on the page. */
+        .phb.phb-cols-2 {
+            column-count: 2 !important;
+            -webkit-column-count: 2 !important;
+            -moz-column-count: 2 !important;
+            column-width: 8cm !important;
+            -webkit-column-width: 8cm !important;
+            -moz-column-width: 8cm !important;
+            column-gap: 1cm !important;
+        }
+        .phb.phb-cols-2 h1, .phb.phb-cols-2 h2 {
+            column-span: all !important;
+            -webkit-column-span: all !important;
+        }
     ''')
 
 

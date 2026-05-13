@@ -98,6 +98,29 @@ Switching is implemented with `ui.tabs` + `ui.tab_panels` mounted just below the
 
 Allies and notes are persisted in their own tables (`character_allies`, `character_notes`) rather than inside the `character_data` JSON blob, so each row is independently sortable, edited one-at-a-time, and gets DB-side `created_at` / `updated_at`. Both bodies are Markdown — rendered via `ui.markdown` on expand, edited in a `ui.textarea` with a "Markdown supported" hint. Writes go through `app/services/ally_service.py` and `app/services/note_service.py`, which both gate on `character_service.get_character` for ownership/admin RBAC.
 
+## Creature Catalog
+
+A second markdown-authored domain object — the **Creature Catalog** — lives independently of any character. The page at `/creatures` lists every creature visible to the current user; visibility = `is_public OR owner_id == me` (same filter shape the global-items service uses for vendor-vs-user-owned globals). Each row carries denormalised search metadata (size, comma-joined creature types, CR, habitat, `columns` for 1- vs 2-column display) alongside a PHB-style markdown `body_md`.
+
+Pipeline:
+
+```
+POST /api/creatures (form / import / copy)
+  → CreatureCreate                     # validated payload
+  → creature_service.create_creature  # sets owner_id, returns ORM row
+  → GET /api/creatures                 # visible-to-me query, owner_username denormalised
+  → ui/pages/creatures.py              # flex-wrap grid, click-to-expand, .phb markdown
+```
+
+Files: `app/models/creature.py` (one table, FK `users.id` with `ondelete=CASCADE`), `app/schemas/creature.py`, `app/services/creature_service.py` (CRUD + visibility + copy-resets-public), `app/services/creature_io.py` (versioned envelope, `EXPORT_VERSION = 1`, fresh chain — never crosses with the character envelope), `app/services/creature_parser.py` (tolerant homebrewery-style stat-block parser that the "Update from stat block" button calls), `app/api/creature_routes.py` (REST surface at `/api/creatures`), `app/ui/pages/creatures.py` (the grid page).
+
+Two design rules:
+
+- **`is_public` is never trusted from an envelope or copy.** Both `import` and `copy_creature` force the new row to `is_public = False` so the importer / copier opts into sharing explicitly.
+- **Edit-only-if-owner** (or admin). The catalog page hides the edit/delete buttons on rows the current user doesn't own; the service layer enforces the same constraint server-side, so a hand-crafted PATCH from a non-owner returns 403.
+
+The catalog reuses the homebrewery PHB CSS (see "Static assets" above) for stat-block rendering. The per-creature `columns` field decorates the markdown wrapper with `.phb.phb-cols-2`, which unmasks the upstream two-column layout that the donjondocs override otherwise pins to a single column.
+
 ## Character Import / Export
 
 Characters can be exported as JSON from the character management page (`/characters`). The export envelope is versioned:

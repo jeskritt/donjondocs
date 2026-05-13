@@ -33,6 +33,18 @@ class CharacterServiceError(ServiceError):
         super().__init__(message, status_code=status_code)
 
 
+class CreatureServiceError(ServiceError):
+    """Creature catalog service error with a user-safe message.
+
+    Mirrors `CharacterServiceError` for the creature domain so raises from
+    `creature_service`, `creature_io`, and `creature_parser` don't have to
+    reuse the character error class.
+    """
+
+    def __init__(self, message: str, status_code: int = 400):
+        super().__init__(message, status_code=status_code)
+
+
 async def service_error_handler(_request: Request, exc: ServiceError) -> JSONResponse:
     return JSONResponse(
         status_code=exc.status_code,

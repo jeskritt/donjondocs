@@ -31,6 +31,18 @@ from pydantic import BaseModel, Field
 from app.rule_systems import SheetStyle  # noqa: F401
 
 
+# Canonical 5e-flavoured creature taxonomies. Plain tuples (not enums) so the
+# DB column can store a comma-joined free-text value while the UI and parser
+# validate against this list. Used by the Creature Catalog.
+CREATURE_TYPES: tuple[str, ...] = (
+    "Aberration", "Beast", "Celestial", "Construct", "Dragon", "Elemental",
+    "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead",
+)
+CREATURE_SIZES: tuple[str, ...] = (
+    "Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Titanic",
+)
+
+
 class MagicType(str, enum.Enum):
     """
     The type of magic system used by the character.
