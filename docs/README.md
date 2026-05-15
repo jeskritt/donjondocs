@@ -13,6 +13,7 @@ Audience: AI assistants and humans onboarding to the codebase.
 | [deployment.md](deployment.md) | Running locally, env vars, prod deployment sketch |
 | [rbac.md](rbac.md) | UserRole enum, route protection, ownership rules |
 | [dependencies.md](dependencies.md) | Component interaction graph |
+| [nicegui.md](nicegui.md) | NiceGUI conventions, sanctioned exceptions, deferred divergences |
 | [user_stories.md](user_stories.md) | Example end-to-end flows |
 | [operations.md](operations.md) | Backup & restore CLI |
 

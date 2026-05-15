@@ -37,6 +37,7 @@ from app.services.creature_service import (
 )
 from app.services.session import service_session
 from app.ui.auth import current_user_context
+from app.ui.async_helpers import defer_load
 from app.ui.components.header import build_header
 from app.ui.components.sidebar import build_sidebar
 from app.ui.theme import DIALOG_CARD_STYLE, apply_global_styles, notify_error, notify_success
@@ -516,4 +517,4 @@ async def creatures_page():
     async def _initial_load():
         await _reload()
 
-    ui.timer(0, _initial_load, once=True)
+    defer_load(_initial_load)

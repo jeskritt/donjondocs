@@ -8,6 +8,7 @@ from app.services.global_items_service import (
     list_weapons, list_armor, list_items,
     add_custom_weapon, add_custom_armor, add_custom_item,
 )
+from app.ui.async_helpers import defer_load
 from app.ui.components.sheet.helpers import render_pm_adjuster
 
 
@@ -328,7 +329,7 @@ def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str):
 
         dialog.open()
 
-    ui.timer(0, _load_and_show, once=True)
+    defer_load(_load_and_show)
 
 
 def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
