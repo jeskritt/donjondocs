@@ -1,5 +1,6 @@
 from nicegui import ui
 
+from app.ui.async_helpers import defer_load
 from app.ui.components.sheet.helpers import make_toggle_handler
 from app.schemas.char_sheet_global import SheetStyle
 from app.services.session import service_session
@@ -128,7 +129,7 @@ def _render_description(state, char_id, user, _save):
                     with ui.row().classes('w-full pl-4'):
                         inp_destiny_full = ui.input("Fulfillment Feat", value=cs.destiny.fullfillment).classes('flex-1').props('dense')
 
-                    ui.timer(0.1, _load_destiny_options, once=True)
+                    defer_load(_load_destiny_options, delay=0.1)
 
                 ui.separator().classes('my-2')
                 ui.label("Physical Description").classes('text-gray-400 text-xs uppercase')

@@ -23,6 +23,7 @@ from app.services.ally_service import (
     update_ally,
 )
 from app.services.session import service_session
+from app.ui.async_helpers import defer_load
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
 
 
@@ -230,5 +231,5 @@ def _render_allies(state, char_id, user):
     async def _initial_load():
         await _reload()
 
-    ui.timer(0, _initial_load, once=True)
+    defer_load(_initial_load)
     return _section
