@@ -67,7 +67,17 @@ async def character_sheet_page(char_id: str):
         "active_page": PAGE_CHARACTER,
     }
 
-    refresh_fns: list = []
+    # Two refresh lists, split by *what changed*, not lumped together:
+    #   data_refresh_fns  — re-render on a character_data change (_save /
+    #                       _apply_rest). The top bar + every Character-tab card.
+    #   style_refresh_fns — re-render on the PHB viewing-preference toggle
+    #                       (_toggle_phb). Superset: the data cards PLUS the
+    #                       Allies/Notes panels, which read `phb_style` for
+    #                       markdown styling but no character_data — so they
+    #                       must follow the style toggle but must NOT be rebuilt
+    #                       by an unrelated HP/equipment/rest save.
+    data_refresh_fns: list = []
+    style_refresh_fns: list = []
 
     async def _save(updates: dict):
         async with service_session() as session:
@@ -75,7 +85,7 @@ async def character_sheet_page(char_id: str):
         new_schema = Character(**rec.character_data)
         state["cs"] = new_schema
         state["vd"] = get_builder(new_schema).build()
-        for fn in refresh_fns:
+        for fn in data_refresh_fns:
             try:
                 fn.refresh()
             except Exception:
@@ -88,7 +98,7 @@ async def character_sheet_page(char_id: str):
         new_schema = Character(**rec.character_data)
         state["cs"] = new_schema
         state["vd"] = get_builder(new_schema).build()
-        for fn in refresh_fns:
+        for fn in data_refresh_fns:
             try:
                 fn.refresh()
             except Exception:
@@ -231,7 +241,7 @@ async def character_sheet_page(char_id: str):
                         # Persist via app.storage.user (server-side, per-account)
                         # then refresh the panels that consume it.
                         app.storage.user["phb_style"] = bool(e.value)
-                        for fn in refresh_fns:
+                        for fn in style_refresh_fns:
                             fn.refresh()
                     ui.switch(
                         "PHB style",
@@ -240,11 +250,18 @@ async def character_sheet_page(char_id: str):
                     ).props('dense').classes('text-xs text-gray-300')
 
     _top_bar_section()
-    refresh_fns.append(_top_bar_section)
+    data_refresh_fns.append(_top_bar_section)
+    style_refresh_fns.append(_top_bar_section)
 
-    def _track(section):
-        if section is not None:
-            refresh_fns.append(section)
+    def _track(section, *, data: bool = True):
+        """Register a refreshable. ``data=False`` keeps it off the
+        character_data save path (Allies/Notes) while still following the
+        PHB style toggle."""
+        if section is None:
+            return
+        if data:
+            data_refresh_fns.append(section)
+        style_refresh_fns.append(section)
 
     # -----------------------------------------------------------------------
     # Page Tabs (Character / Allies / Notes)
@@ -288,11 +305,11 @@ async def character_sheet_page(char_id: str):
         # -------------------------------------------------------------------
         with ui.tab_panel(PAGE_ALLIES):
             with ui.column().classes("w-full max-w-7xl mx-auto p-4 gap-4"):
-                _track(_render_allies(state, char_id, user))
+                _track(_render_allies(state, char_id, user), data=False)
 
         # -------------------------------------------------------------------
         # Notes
         # -------------------------------------------------------------------
         with ui.tab_panel(PAGE_NOTES):
             with ui.column().classes("w-full max-w-7xl mx-auto p-4 gap-4"):
-                _track(_render_notes(state, char_id, user))
+                _track(_render_notes(state, char_id, user), data=False)

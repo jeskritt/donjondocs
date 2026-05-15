@@ -47,8 +47,11 @@ def _read_stat_block_template() -> str:
 def _render_allies(state, char_id, user):
     """Render the Allies & Stat Blocks panel.
 
-    Returns the refreshable handle so the parent page can wire it into
-    `refresh_fns` (so a top-level `_save` triggers a re-render here too).
+    Returns the refreshable handle. The panel re-renders on its own writes
+    (via `ally_service`) and on the PHB style toggle (it reads `phb_style`
+    for markdown styling). It is intentionally NOT refreshed by a top-level
+    `character_data` `_save` — Allies own their own table and read no
+    character_data, so the parent page registers this with `data=False`.
     """
     state.setdefault("allies", [])
     state.setdefault("allies_sort", "name")

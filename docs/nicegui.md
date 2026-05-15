@@ -46,11 +46,15 @@ plus the places we deliberately diverge, so the guidance matches reality.
 
 ## Repo-specific patterns
 
-- **The "refresh-all" save path.** Every `@ui.refreshable` card's refresh handle
-  is collected into `refresh_fns`; the single write path is `_save(updates)` in
-  `app/ui/pages/character_sheet.py`. Don't add ad-hoc refresh code — go through
-  `_save`. (Allies/Notes own their own tables and write via their services, not
-  `_save`.) See `CLAUDE.md` → "The character sheet pipeline".
+- **The "refresh-all" save path.** `@ui.refreshable` card handles are collected
+  via `_track()` into two trigger-split lists in
+  `app/ui/pages/character_sheet.py`: `data_refresh_fns` (character_data cards,
+  iterated by `_save`/`_apply_rest`) and `style_refresh_fns` (those plus the
+  Allies/Notes panels, iterated by the PHB `_toggle_phb`). Don't add ad-hoc
+  refresh code — go through `_save`. Allies/Notes own their own tables, read no
+  character_data, and write via their services — they're registered
+  `_track(..., data=False)` so a data save never rebuilds them. See `CLAUDE.md`
+  → "The character sheet pipeline".
 - **Deferred async load idiom — use `defer_load`.** To load data after the page
   builds without blocking the skeleton, call
   `app/ui/async_helpers.py::defer_load(callback, *, delay=0.0)` during element

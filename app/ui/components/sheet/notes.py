@@ -28,8 +28,11 @@ from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
 def _render_notes(state, char_id, user):
     """Render the Notes panel.
 
-    Returns the refreshable handle so the parent page can wire it into
-    `refresh_fns`.
+    Returns the refreshable handle. The panel re-renders on its own writes
+    (via `note_service`) and on the PHB style toggle (it reads `phb_style`
+    for markdown styling). It is intentionally NOT refreshed by a top-level
+    `character_data` `_save` — Notes own their own table and read no
+    character_data, so the parent page registers this with `data=False`.
     """
     state.setdefault("notes", [])
     # "created" sorts newest-first; "title" sorts alphabetically ascending.
