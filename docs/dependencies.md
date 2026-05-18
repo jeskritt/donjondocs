@@ -91,3 +91,32 @@ flowchart TD
 - **Models depend on the database layer only.** They never import schemas or services.
 - **Middleware depends on `nicegui.app`** for storage and lives outside the service stack. It is the only auth guard for UI pages; API routes use the JWT dep in `app/api/deps.py`.
 - **NiceGUI is pinned `>=3.12,<4`** (`requirements.txt`). Bumped from 3.10 for the 3.12 security fix (unauthenticated DoS on dynamic-resource/ESM routes) plus stability fixes that touch our code paths: silent window reloads on WebSocket reconnect (long-lived character sheet), a `ValidationElement.validate()` KeyError (we use `validation=` on login/register/profile), a Windows `PermissionError` during `app.storage.user` cleanup, and unbounded streaming-cookie memory growth. No API breakage applied (audited). Conventions: `docs/nicegui.md`.
+
+## Dependency risks (tracked, not yet actionable)
+
+Most of `requirements*.txt` uses version *floors* (only deliberate caps:
+`nicegui>=3.12,<4`, `bcrypt<5`), so installs already resolve to current
+releases — there is no "bump" that removes the standing `DeprecationWarning`s.
+Two of those warnings are upstream Python-3.14 deprecations correctly silenced
+in `pytest.ini`; do **not** treat them as fixable by upgrading:
+
+- **`slowapi` is dormant — forward-incompatible.** Latest is `0.1.9`
+  (Feb 2024); the project shows no 2025/2026 activity. `slowapi/extension.py`
+  calls `asyncio.iscoroutinefunction`, which Python **3.14 deprecates and 3.16
+  removes**. On 3.16 the rate limiter would *break*, not just warn, and no
+  newer slowapi exists. **Action when 3.16 nears:** vendor a one-line patch
+  (`inspect.iscoroutinefunction`), swap the limiter, or hold Python `<3.16`.
+- **`pytest-asyncio` event-loop-policy warning is upstream, not stale.**
+  `1.3.0` (current) still calls `asyncio.get/set_event_loop_policy` for its
+  `event_loop_policy` fixture; Python 3.14 deprecated those (removal 3.16). No
+  released version is silent yet — the `pytest.ini` filter stays until upstream
+  ships a 3.14-clean release.
+- **`passlib 1.7.4` (2020, unmaintained)** under the `bcrypt<5` cap with
+  bcrypt 3.2.2. Works today; the cap exists because newer bcrypt trips
+  passlib's `bcrypt.__about__` probe. A future auth-hashing migration
+  (passlib → bcrypt-direct or argon2) is the real fix; keep the cap until then.
+
+The httpx per-request `cookies=` deprecation that *was* visible in the test
+run came from our own tests, not a dependency — fixed by standardising on the
+suite-wide `client.cookies = auth_cookies(user)` pattern (see
+`tests/test_creature_routes.py`).
