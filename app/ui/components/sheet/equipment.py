@@ -8,7 +8,6 @@ from app.services.global_items_service import (
     list_weapons, list_armor, list_items,
     add_custom_weapon, add_custom_armor, add_custom_item,
 )
-from app.ui.async_helpers import defer_load
 from app.ui.components.sheet.helpers import render_pm_adjuster
 
 
@@ -144,8 +143,8 @@ def _render_equipment(state, char_id, user, _save):
                                 ui.button(icon='delete', on_click=_rm_w).props('flat round dense color=negative')
 
                     with ui.row().classes('gap-2 mt-2'):
-                        def _add_w_from_db():
-                            _open_picker_dialog(cs, state, user, _save, _section, "weapon")
+                        async def _add_w_from_db():
+                            await _open_picker_dialog(cs, state, user, _save, _section, "weapon")
                         def _add_w_custom():
                             _open_custom_dialog(cs, state, user, _save, _section, "weapon")
                         ui.button("Add from Library", icon='library_add', on_click=_add_w_from_db).props('flat dense').classes('text-indigo-400')
@@ -260,76 +259,76 @@ def _render_equipment(state, char_id, user, _save):
     return _section
 
 
-def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str):
+async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str):
+    # Invoked from a button-click handler: the client is already connected and a
+    # slot context is active, so load the library rows and build the dialog
+    # inline. (Do NOT defer this onto a background task — defer_load runs without
+    # a slot context, so dialog construction raises and is silently swallowed.)
+    async with service_session() as session:
+        style = cs.style
+        owner_id = user.id
+        if item_type == "weapon":
+            rows = await list_weapons(session, style, owner_id)
+        elif item_type == "armor":
+            rows = await list_armor(session, style, owner_id)
+        else:
+            rows = await list_items(session, style, owner_id)
 
-    async def _load_and_show():
-        async with service_session() as session:
-            style = cs.style
-            owner_id = user.id
-            if item_type == "weapon":
-                rows = await list_weapons(session, style, owner_id)
-            elif item_type == "armor":
-                rows = await list_armor(session, style, owner_id)
-            else:
-                rows = await list_items(session, style, owner_id)
+    with ui.dialog() as dialog, ui.card().classes('w-full max-w-lg').style(DIALOG_CARD_STYLE):
+        ui.label(f"Add {item_type.title()} from Library").classes('text-lg font-bold mb-2 text-white')
 
-        with ui.dialog() as dialog, ui.card().classes('w-full max-w-lg').style(DIALOG_CARD_STYLE):
-            ui.label(f"Add {item_type.title()} from Library").classes('text-lg font-bold mb-2 text-white')
+        if not rows:
+            ui.label(f"No {item_type}s found. Run `python -m app.cli.ingest data/` to populate.").classes('text-yellow-400 text-sm')
+            ui.button("Close", on_click=dialog.close).props('flat')
+            dialog.open()
+            return
 
-            if not rows:
-                ui.label(f"No {item_type}s found. Run `python -m app.cli.ingest data/` to populate.").classes('text-yellow-400 text-sm')
-                ui.button("Close", on_click=dialog.close).props('flat')
-                dialog.open()
-                return
+        options = {r.name: r for r in rows}
+        selected = ui.select(
+            options=list(options.keys()),
+            label=f"Choose {item_type}",
+            value=list(options.keys())[0],
+            with_input=True,
+        ).classes('w-full')
+        qty_inp = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
 
-            options = {r.name: r for r in rows}
-            selected = ui.select(
-                options=list(options.keys()),
-                label=f"Choose {item_type}",
-                value=list(options.keys())[0],
-                with_input=True,
-            ).classes('w-full')
-            qty_inp = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
+        with ui.row().classes('w-full justify-end gap-2 mt-4'):
+            ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
 
-            with ui.row().classes('w-full justify-end gap-2 mt-4'):
-                ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
+            async def _confirm():
+                r = options[selected.value]
+                if item_type == "weapon":
+                    inv_item = InventoryItem(
+                        item_type="weapon", name=r.name,
+                        quantity=int(qty_inp.value or 1),
+                        damage=r.damage, damage_type=r.damage_type,
+                        weapon_range=r.range, weight=r.weight, value=r.value,
+                        item_notes=r.notes,
+                    )
+                elif item_type == "armor":
+                    inv_item = InventoryItem(
+                        item_type="armor", name=r.name,
+                        quantity=int(qty_inp.value or 1),
+                        armor_class=r.armor_class,
+                        base_ac=r.base_ac, dex_cap=r.dex_cap,
+                        is_shield=bool(r.is_shield),
+                        weight=r.weight, value=r.value,
+                        item_notes=r.notes,
+                    )
+                else:
+                    inv_item = InventoryItem(
+                        item_type="item", name=r.name,
+                        quantity=int(qty_inp.value or 1),
+                        weight=r.weight, value=r.value,
+                    )
+                updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
+                await _save({"inventory": updated})
+                dialog.close()
+                refresh_fn.refresh()
 
-                async def _confirm():
-                    r = options[selected.value]
-                    if item_type == "weapon":
-                        inv_item = InventoryItem(
-                            item_type="weapon", name=r.name,
-                            quantity=int(qty_inp.value or 1),
-                            damage=r.damage, damage_type=r.damage_type,
-                            weapon_range=r.range, weight=r.weight, value=r.value,
-                            item_notes=r.notes,
-                        )
-                    elif item_type == "armor":
-                        inv_item = InventoryItem(
-                            item_type="armor", name=r.name,
-                            quantity=int(qty_inp.value or 1),
-                            armor_class=r.armor_class,
-                            base_ac=r.base_ac, dex_cap=r.dex_cap,
-                            is_shield=bool(r.is_shield),
-                            weight=r.weight, value=r.value,
-                            item_notes=r.notes,
-                        )
-                    else:
-                        inv_item = InventoryItem(
-                            item_type="item", name=r.name,
-                            quantity=int(qty_inp.value or 1),
-                            weight=r.weight, value=r.value,
-                        )
-                    updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
-                    await _save({"inventory": updated})
-                    dialog.close()
-                    refresh_fn.refresh()
+            ui.button("Add", on_click=_confirm).props('unelevated color=primary')
 
-                ui.button("Add", on_click=_confirm).props('unelevated color=primary')
-
-        dialog.open()
-
-    defer_load(_load_and_show)
+    dialog.open()
 
 
 def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
