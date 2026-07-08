@@ -3,6 +3,10 @@
 Renders magic resources (slots / per-level / points / Shadowdark
 casting), an optional extra-resource tracker per resource (e.g.
 Sorcery Points), and the spell list with add/edit dialogs.
+
+Each spell row toggles an extended view (label:value block + markdown
+description, PHB-independent) on a whole-row click; the trailing
+edit/delete buttons sit outside the clickable area so they don't toggle.
 """
 
 from nicegui import ui
@@ -13,7 +17,13 @@ from app.schemas.char_sheet_specific import (
     ExtraResource,
     MagicResource,
 )
-from app.ui.components.sheet.helpers import _fmt_bonus, _render_slot_checkboxes
+from app.ui.components.sheet.helpers import (
+    _fmt_bonus,
+    _render_slot_checkboxes,
+    render_detail_pairs,
+    render_plain_markdown,
+    toggle_element_display,
+)
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error
 
 
@@ -126,35 +136,46 @@ def _render_magic_tab(state, cs, magic, _save):
                     for sp_idx, sp in enumerate(sorted_spells):
                         orig_idx = spells.index(sp)
                         sp_name = sp['name']
-                        desc_row = None
                         with ui.column().classes('w-full gap-0'):
                             with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
-                                level_lbl = "C" if sp['level'] == 0 else str(sp['level'])
-                                ui.label(level_lbl).classes('w-6 text-center text-xs text-gray-400')
-                                name_classes = 'text-sm'
-                                name_classes += ' text-white font-bold' if sp.get('prepared') else ' text-gray-300'
-                                def _toggle_sp_desc(dr=None):
-                                    if dr:
-                                        vis = dr.style.get('display', 'none') != 'none'
-                                        dr.style('display: none' if vis else 'display: block')
-                                name_btn = ui.button(sp_name, on_click=lambda: None).props('flat dense no-caps').classes(name_classes + ' flex-1 justify-start')
-                                if sp.get('ritual'):
-                                    ui.badge('R', color='purple').props('dense')
-                                ui.label(sp.get('casting_time') or '—').classes('w-20 text-gray-400 text-xs')
-                                ui.label(sp.get('spell_range') or '—').classes('w-16 text-gray-400 text-xs')
-                                dur = sp.get('duration') or ''
-                                dur_display = f"Conc. {dur}" if sp.get('concentration') and dur else ('Conc.' if sp.get('concentration') else dur or '—')
-                                ui.label(dur_display).classes('w-24 text-gray-400 text-xs')
-                                ui.label(sp.get('resource_name') or '—').classes('flex-1 text-gray-400 text-sm')
+                                # Whole info area toggles the extended view; the
+                                # edit/delete buttons sit outside it so their
+                                # clicks never reach the toggle.
+                                info_row = ui.row().classes('flex-1 items-center gap-2 cursor-pointer no-wrap')
+                                with info_row:
+                                    level_lbl = "C" if sp['level'] == 0 else str(sp['level'])
+                                    ui.label(level_lbl).classes('w-6 text-center text-xs text-gray-400')
+                                    name_classes = 'text-sm flex-1'
+                                    name_classes += ' text-white font-bold' if sp.get('prepared') else ' text-gray-300'
+                                    ui.label(sp_name).classes(name_classes)
+                                    if sp.get('ritual'):
+                                        ui.badge('R', color='purple').props('dense')
+                                    ui.label(sp.get('casting_time') or '—').classes('w-20 text-gray-400 text-xs')
+                                    ui.label(sp.get('spell_range') or '—').classes('w-16 text-gray-400 text-xs')
+                                    dur = sp.get('duration') or ''
+                                    dur_display = f"Conc. {dur}" if sp.get('concentration') and dur else ('Conc.' if sp.get('concentration') else dur or '—')
+                                    ui.label(dur_display).classes('w-24 text-gray-400 text-xs')
+                                    ui.label(sp.get('resource_name') or '—').classes('w-24 text-gray-400 text-sm')
                                 ui.button(icon='edit', on_click=lambda n=sp_name, i=orig_idx: _open_edit_spell(cs, _save, resources, n, i)).props('flat round dense color=primary')
                                 async def _rm_spell(n=sp_name):
                                     updated = [s for s in cs.spells if s.name != n]
                                     await _save({"spells": [s.model_dump() for s in updated]})
                                 ui.button(icon='delete', on_click=_rm_spell).props('flat round dense color=negative')
-                            desc_row = ui.row().classes('w-full pl-8 py-1 border-b border-gray-800').style('display: none')
+                            desc_row = ui.column().classes('w-full pl-8 py-1 gap-1 border-b border-gray-800').style('display: none')
                             with desc_row:
-                                ui.label(sp.get('description') or 'No description.').classes('text-gray-400 text-sm whitespace-pre-wrap')
-                            name_btn.on('click', lambda dr=desc_row: _toggle_sp_desc(dr))
+                                render_detail_pairs([
+                                    ("Level", "Cantrip" if sp['level'] == 0 else str(sp['level'])),
+                                    ("School", sp.get('school')),
+                                    ("Casting Time", sp.get('casting_time')),
+                                    ("Range", sp.get('spell_range')),
+                                    ("Duration", sp.get('duration')),
+                                    ("Concentration", "Yes" if sp.get('concentration') else "No"),
+                                    ("Ritual", "Yes" if sp.get('ritual') else "No"),
+                                    ("Resource", sp.get('resource_name')),
+                                    ("Prepared", "Yes" if sp.get('prepared') else "No"),
+                                ])
+                                render_plain_markdown(sp.get('description'))
+                            info_row.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
             ui.button("Add Spell", icon='add', on_click=lambda: _open_add_spell(cs, _save, resources)).props('unelevated color=indigo').classes('mt-2')
 
