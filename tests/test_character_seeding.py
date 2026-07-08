@@ -139,3 +139,7 @@ class TestDefaultMoney:
 
     def test_shadowdark_seeds_only_gp(self):
         assert default_money(SheetStyle.SHADOWDARK) == {"GP": 0}
+
+    def test_um5_seeds_only_dollars(self):
+        # Ultramodern5 uses a modern dollar economy, not fantasy coinage.
+        assert default_money(SheetStyle.UM5) == {"$": 0}

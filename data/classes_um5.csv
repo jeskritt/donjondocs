@@ -1,0 +1,12 @@
+name,hit_dice,primary_ability,saving_throws,proficiencies
+Civilian,d8,Any,"Any two","Light armor; all simple weapons"
+Face,d8,Charisma,"Intelligence, Wisdom, Charisma","Light armor; all simple weapons, one-handed small arms; disguise kit, all ground vehicles and aircraft"
+Grounder,d10,Strength,"Strength, Dexterity","All armor, shields; simple weapons, one-handed and two-handed small arms, heavy weapons, super heavy weapons; all ground vehicles and aircraft"
+Gunslinger,d8,Dexterity,"Dexterity, Wisdom","Light and medium armor; simple weapons, one-handed and two-handed small arms; all ground vehicles and aircraft"
+Heavy,d10,Strength,"Strength, Constitution","All armor, shields; simple weapons, one-handed and two-handed small arms, heavy weapons, super heavy weapons; all ground vehicles and aircraft"
+Infiltrator,d8,Dexterity,"Dexterity, Wisdom","Light armor; simple weapons, one-handed small arms, any two melee martial weapons; disguise kit or poisoner's kit, all ground vehicles and aircraft"
+Marshal,d8,Charisma,"Intelligence, Charisma","Light armor, medium armor; simple weapons, one-handed and two-handed small arms, heavy weapons; all ground vehicles and aircraft"
+Martial Artist,d10,Dexterity,"Strength, Dexterity","Light armor; all simple melee weapons, all one-handed small arms, four martial melee weapons; all ground vehicles and aircraft"
+Medic,d6,Intelligence,"Intelligence, Wisdom","Light armor; simple weapons, one-handed small arms; poisoner's kit, all ground vehicles and aircraft"
+Sniper,d8,Dexterity,"Dexterity, Wisdom","Light armor; simple weapons, one-handed small arms, two-handed small arms, all sniper weapons; all ground vehicles and aircraft"
+Techie,d8,Intelligence,"Intelligence, Wisdom","Light and medium armor; simple weapons, one-handed small arms; tinker's tools, all ground vehicles and aircraft"

@@ -13,6 +13,7 @@ from app.builders import get_builder
 from app.builders.dnd5e import DnD2014Builder
 from app.builders.shadowdark import ShadowdarkBuilder
 from app.builders.a5e import A5eBuilder
+from app.builders.um5 import Um5Builder
 
 def create_mock_character(style: SheetStyle) -> Character:
     return Character(
@@ -39,17 +40,31 @@ def test_builder_factory_returns_correct_instance():
     c_dnd = create_mock_character(SheetStyle.DND5E)
     c_sd = create_mock_character(SheetStyle.SHADOWDARK)
     c_a5e = create_mock_character(SheetStyle.A5E)
+    c_um5 = create_mock_character(SheetStyle.UM5)
 
     assert isinstance(get_builder(c_dnd), DnD2014Builder)
     assert isinstance(get_builder(c_sd), ShadowdarkBuilder)
     assert isinstance(get_builder(c_a5e), A5eBuilder)
+    assert isinstance(get_builder(c_um5), Um5Builder)
 
 
-@pytest.mark.parametrize("style", [SheetStyle.UM5, SheetStyle.GENEFUNK, SheetStyle.CARBON])
+@pytest.mark.parametrize("style", [SheetStyle.GENEFUNK, SheetStyle.CARBON])
 def test_builder_factory_raises_for_unimplemented_styles(style):
     c = create_mock_character(style)
     with pytest.raises(NotImplementedError):
         get_builder(c)
+
+
+def test_um5_builder_inherits_dnd_view_model():
+    """UM5 shares the vanilla-5e view model: it builds cleanly, drops Destiny,
+    uses 'Exhaustion' wording, and suppresses combat maneuvers (all from the
+    DnD2014Builder baseline it extends)."""
+    c_um5 = create_mock_character(SheetStyle.UM5)
+    view_data = get_builder(c_um5).build()
+
+    assert view_data['details']['destiny'] is None
+    assert view_data['combat']['exhaustion_label'] == 'Exhaustion'
+    assert view_data['combat_maneuvers'] is None
 
 def test_shadowdark_builder_nulls_fields():
     c_sd = create_mock_character(SheetStyle.SHADOWDARK)
