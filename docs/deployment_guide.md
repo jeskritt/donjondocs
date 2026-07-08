@@ -102,3 +102,33 @@ Click **Create Web Service**.
 > - ✅ `HSTS_ENABLED=true` forces strict HTTPS encryption.
 > - ✅ Your database connection is encrypted via SSL/TLS (`pooler.supabase.com`).
 > - ✅ Your `.env` secrets are safely stored in Render, not in your code repository.
+
+---
+
+## Updating content after launch (new rule system, gear, etc.)
+
+Your Start Command (`alembic upgrade head && python main.py`) auto-populates the bundled `data/`
+content **only on the very first deploy**, while the Supabase database is still empty. After that,
+the database is no longer empty, so simply pushing new `data/*.csv` files and redeploying will
+**not** load them — the startup auto-ingest is skipped.
+
+When you add new content later (for example a new rule system), run the one-off ingest against the
+production database once. **Where you run it decides whether you need the `DATABASE_URL` prefix**,
+because the CLI reads that variable from the environment:
+
+- **From the Render Shell tab** (if your instance tier has one) — the service environment already
+  has `DATABASE_URL` set, so just run it plain:
+
+  ```bash
+  python -m app.cli.ingest data/
+  ```
+
+- **From your own computer** — your local shell has no prod `DATABASE_URL`, so you must prefix it
+  (this is the free-tier path, since the free tier has no Shell):
+
+  ```bash
+  DATABASE_URL='postgresql+asyncpg://…your-supabase-uri…' python -m app.cli.ingest data/
+  ```
+
+It is idempotent, so it is safe to run any time. See
+[deployment.md → Adding or updating bundled content](deployment.md#adding-or-updating-bundled-content-a-new-rule-system-gear-etc) for the full details and the Supabase direct-connection tip.
