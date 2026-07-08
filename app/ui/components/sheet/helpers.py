@@ -22,6 +22,46 @@ def render_pm_adjuster(on_delta):
     ui.button(icon='add',    on_click=lambda: on_delta(1)).props('flat round dense size=sm')
 
 
+def render_plain_markdown(text) -> None:
+    """Render a markdown description WITHOUT the PHB parchment typography.
+
+    Spell/maneuver/equipment descriptions should read like the rest of the dark
+    UI regardless of the sheet's PHB-style toggle, so this deliberately never
+    attaches the vendored `.phb` class (unlike notes.py/allies.py, which gate on
+    it). No-op for empty text so callers can pass an optional field directly.
+    """
+    if not text:
+        return
+    ui.markdown(str(text)).classes('w-full text-sm text-gray-200 whitespace-normal')
+
+
+def render_detail_pairs(pairs) -> None:
+    """Render a wrap-row of `Label: value` chips, skipping empty values.
+
+    The shared "label: value" block for the expanded (extended) view on the
+    spell, maneuver, and equipment list rows. `pairs` is an iterable of
+    (label, value); a value of None/""/"—" is dropped so absent fields don't
+    clutter the block. Callers pre-format non-string values (e.g. bool → Yes/No).
+    """
+    with ui.row().classes('w-full flex-wrap gap-x-4 gap-y-1'):
+        for label, value in pairs:
+            if value in (None, "", "—"):
+                continue
+            with ui.row().classes('items-baseline gap-1 no-wrap'):
+                ui.label(f"{label}:").classes('text-gray-500 text-xs')
+                ui.label(str(value)).classes('text-gray-300 text-xs')
+
+
+def toggle_element_display(el) -> None:
+    """Flip an element's inline `display` between none/block.
+
+    Backs the DOM-only expand/collapse of the description row on the spell,
+    maneuver, and equipment lists — no server round-trip, no card re-render.
+    """
+    visible = el.style.get('display', 'none') != 'none'
+    el.style('display: none' if visible else 'display: block')
+
+
 def make_toggle_handler(is_editing, display_col, edit_col, edit_btn):
     def _toggle():
         is_editing[0] = not is_editing[0]

@@ -1,3 +1,12 @@
+"""Equipment card — coins plus the weapons / armor / items inventory tabs.
+
+Reads `state["cs"].inventory` directly (not the builder view-model) and splits
+it by `item_type`. Each item row's name toggles an extended view (fields not on
+the display line + a markdown description stored in `InventoryItem.notes`,
+rendered PHB-independent). Add/edit/custom dialogs expose the description as a
+markdown textarea; every write goes through the page `_save`.
+"""
+
 from nicegui import ui
 
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
@@ -8,7 +17,12 @@ from app.services.global_items_service import (
     list_weapons, list_armor, list_items,
     add_custom_weapon, add_custom_armor, add_custom_item,
 )
-from app.ui.components.sheet.helpers import render_pm_adjuster
+from app.ui.components.sheet.helpers import (
+    render_detail_pairs,
+    render_plain_markdown,
+    render_pm_adjuster,
+    toggle_element_display,
+)
 
 
 def _render_equipment(state, char_id, user, _save):
@@ -113,34 +127,46 @@ def _render_equipment(state, char_id, user, _save):
                                     ui.label(h).classes('flex-1')
 
                         for w in weapons:
-                            with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
-                                wname = w.name
-                                async def _toggle_w(v, n=wname):
-                                    updated = []
-                                    for it in cs.inventory:
-                                        if it.item_type == "weapon" and it.name == n:
-                                            d = it.model_dump()
-                                            d["equipped"] = bool(v)
-                                            updated.append(d)
-                                        else:
-                                            updated.append(it.model_dump())
-                                    await _save({"inventory": updated})
-                                ui.checkbox(value=bool(w.equipped),
-                                            on_change=lambda e, n=wname: _toggle_w(e.value, n)
-                                            ).classes('w-8')
-                                ui.label(w.name).classes('flex-1 text-white text-sm')
-                                ui.label(w.damage or "—").classes('flex-1 text-gray-300 text-sm')
-                                ui.label(w.damage_type or "—").classes('flex-1 text-gray-400 text-sm')
-                                ui.label(w.weapon_range or "—").classes('flex-1 text-gray-400 text-sm')
-                                ui.label(w.item_notes or "—").classes('flex-1 text-gray-400 text-xs')
-                                ui.label(str(w.quantity)).classes('w-10 text-center text-white text-sm')
-                                ui.button(icon='edit',
-                                          on_click=lambda n=wname: _open_edit_inventory_dialog(cs, _save, _section, n, "weapon")
-                                          ).props('flat round dense color=primary')
-                                async def _rm_w(n=wname):
-                                    updated = [it for it in cs.inventory if it.name != n or it.item_type != "weapon"]
-                                    await _save({"inventory": [it.model_dump() for it in updated]})
-                                ui.button(icon='delete', on_click=_rm_w).props('flat round dense color=negative')
+                            with ui.column().classes('w-full gap-0'):
+                                with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
+                                    wname = w.name
+                                    async def _toggle_w(v, n=wname):
+                                        updated = []
+                                        for it in cs.inventory:
+                                            if it.item_type == "weapon" and it.name == n:
+                                                d = it.model_dump()
+                                                d["equipped"] = bool(v)
+                                                updated.append(d)
+                                            else:
+                                                updated.append(it.model_dump())
+                                        await _save({"inventory": updated})
+                                    ui.checkbox(value=bool(w.equipped),
+                                                on_change=lambda e, n=wname: _toggle_w(e.value, n)
+                                                ).classes('w-8')
+                                    # Name toggles the extended view (the equip
+                                    # checkbox and edit/delete stay independent).
+                                    name_lbl = ui.label(w.name).classes('flex-1 text-white text-sm cursor-pointer')
+                                    ui.label(w.damage or "—").classes('flex-1 text-gray-300 text-sm')
+                                    ui.label(w.damage_type or "—").classes('flex-1 text-gray-400 text-sm')
+                                    ui.label(w.weapon_range or "—").classes('flex-1 text-gray-400 text-sm')
+                                    ui.label(w.item_notes or "—").classes('flex-1 text-gray-400 text-xs')
+                                    ui.label(str(w.quantity)).classes('w-10 text-center text-white text-sm')
+                                    ui.button(icon='edit',
+                                              on_click=lambda n=wname: _open_edit_inventory_dialog(cs, _save, _section, n, "weapon")
+                                              ).props('flat round dense color=primary')
+                                    async def _rm_w(n=wname):
+                                        updated = [it for it in cs.inventory if it.name != n or it.item_type != "weapon"]
+                                        await _save({"inventory": [it.model_dump() for it in updated]})
+                                    ui.button(icon='delete', on_click=_rm_w).props('flat round dense color=negative')
+                                desc_row = ui.column().classes('w-full pl-8 py-1 gap-1 border-b border-gray-800').style('display: none')
+                                with desc_row:
+                                    render_detail_pairs([
+                                        ("Weight", w.weight),
+                                        ("Value", w.value),
+                                        ("Attuned", "Yes" if w.attuned else "No"),
+                                    ])
+                                    render_plain_markdown(w.notes)
+                                name_lbl.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
                     with ui.row().classes('gap-2 mt-2'):
                         async def _add_w_from_db():
@@ -164,40 +190,50 @@ def _render_equipment(state, char_id, user, _save):
                                 else:
                                     ui.label(h).classes('flex-1')
                         for a in armors:
-                            with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
-                                aname = a.name
-                                aname_is_shield = bool(a.is_shield)
+                            with ui.column().classes('w-full gap-0'):
+                                with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
+                                    aname = a.name
+                                    aname_is_shield = bool(a.is_shield)
 
-                                async def _toggle_a(v, n=aname, shield=aname_is_shield):
-                                    updated = []
-                                    for it in cs.inventory:
-                                        d = it.model_dump()
-                                        if it.item_type == "armor":
-                                            same_kind = bool(it.is_shield) == shield
-                                            if it.name == n:
-                                                d["equipped"] = bool(v)
-                                            elif v and same_kind:
-                                                d["equipped"] = False
-                                        updated.append(d)
-                                    await _save({"inventory": updated})
+                                    async def _toggle_a(v, n=aname, shield=aname_is_shield):
+                                        updated = []
+                                        for it in cs.inventory:
+                                            d = it.model_dump()
+                                            if it.item_type == "armor":
+                                                same_kind = bool(it.is_shield) == shield
+                                                if it.name == n:
+                                                    d["equipped"] = bool(v)
+                                                elif v and same_kind:
+                                                    d["equipped"] = False
+                                            updated.append(d)
+                                        await _save({"inventory": updated})
 
-                                ui.checkbox(value=bool(a.equipped),
-                                            on_change=lambda e, n=aname, s=aname_is_shield: _toggle_a(e.value, n, s)
-                                            ).classes('w-8')
-                                ui.label(a.name).classes('flex-1 text-white text-sm')
-                                ui.label(a.armor_class or "—").classes('flex-1 text-gray-300 text-sm')
-                                ui.label(str(a.base_ac) if a.base_ac is not None else "—").classes('flex-1 text-gray-400 text-sm')
-                                ui.label("∞" if a.dex_cap is None else str(a.dex_cap)).classes('flex-1 text-gray-400 text-sm')
-                                ui.label("Yes" if a.is_shield else "No").classes('flex-1 text-gray-400 text-sm')
-                                ui.label(a.weight or "—").classes('flex-1 text-gray-400 text-sm')
-                                ui.label(str(a.quantity)).classes('w-10 text-center text-white text-sm')
-                                ui.button(icon='edit',
-                                          on_click=lambda n=aname: _open_edit_inventory_dialog(cs, _save, _section, n, "armor")
-                                          ).props('flat round dense color=primary')
-                                async def _rm_a(n=aname):
-                                    updated = [it for it in cs.inventory if it.name != n or it.item_type != "armor"]
-                                    await _save({"inventory": [it.model_dump() for it in updated]})
-                                ui.button(icon='delete', on_click=_rm_a).props('flat round dense color=negative')
+                                    ui.checkbox(value=bool(a.equipped),
+                                                on_change=lambda e, n=aname, s=aname_is_shield: _toggle_a(e.value, n, s)
+                                                ).classes('w-8')
+                                    name_lbl = ui.label(a.name).classes('flex-1 text-white text-sm cursor-pointer')
+                                    ui.label(a.armor_class or "—").classes('flex-1 text-gray-300 text-sm')
+                                    ui.label(str(a.base_ac) if a.base_ac is not None else "—").classes('flex-1 text-gray-400 text-sm')
+                                    ui.label("∞" if a.dex_cap is None else str(a.dex_cap)).classes('flex-1 text-gray-400 text-sm')
+                                    ui.label("Yes" if a.is_shield else "No").classes('flex-1 text-gray-400 text-sm')
+                                    ui.label(a.weight or "—").classes('flex-1 text-gray-400 text-sm')
+                                    ui.label(str(a.quantity)).classes('w-10 text-center text-white text-sm')
+                                    ui.button(icon='edit',
+                                              on_click=lambda n=aname: _open_edit_inventory_dialog(cs, _save, _section, n, "armor")
+                                              ).props('flat round dense color=primary')
+                                    async def _rm_a(n=aname):
+                                        updated = [it for it in cs.inventory if it.name != n or it.item_type != "armor"]
+                                        await _save({"inventory": [it.model_dump() for it in updated]})
+                                    ui.button(icon='delete', on_click=_rm_a).props('flat round dense color=negative')
+                                desc_row = ui.column().classes('w-full pl-8 py-1 gap-1 border-b border-gray-800').style('display: none')
+                                with desc_row:
+                                    render_detail_pairs([
+                                        ("Value", a.value),
+                                        ("Properties", a.item_notes),
+                                        ("Attuned", "Yes" if a.attuned else "No"),
+                                    ])
+                                    render_plain_markdown(a.notes)
+                                name_lbl.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
                     with ui.row().classes('gap-2 mt-2'):
                         ui.button("Add from Library", icon='library_add',
@@ -221,31 +257,41 @@ def _render_equipment(state, char_id, user, _save):
                                 else:
                                     ui.label(h).classes('flex-1')
                         for it in items:
-                            with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
-                                ui.label(it.name).classes('flex-1 text-white text-sm')
-                                ui.label(it.weight or "—").classes('flex-1 text-gray-400 text-sm')
-                                ui.label(it.value or "—").classes('flex-1 text-gray-400 text-sm')
-                                iname = it.name
+                            with ui.column().classes('w-full gap-0'):
+                                with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
+                                    iname = it.name
+                                    name_lbl = ui.label(it.name).classes('flex-1 text-white text-sm cursor-pointer')
+                                    ui.label(it.weight or "—").classes('flex-1 text-gray-400 text-sm')
+                                    ui.label(it.value or "—").classes('flex-1 text-gray-400 text-sm')
 
-                                async def _qty_adjust(delta: int, n=iname):
-                                    updated = []
-                                    for x in cs.inventory:
-                                        d = x.model_dump()
-                                        if x.name == n and x.item_type == "item":
-                                            d["quantity"] = max(0, d["quantity"] + delta)
-                                        updated.append(d)
-                                    await _save({"inventory": updated})
+                                    async def _qty_adjust(delta: int, n=iname):
+                                        updated = []
+                                        for x in cs.inventory:
+                                            d = x.model_dump()
+                                            if x.name == n and x.item_type == "item":
+                                                d["quantity"] = max(0, d["quantity"] + delta)
+                                            updated.append(d)
+                                        await _save({"inventory": updated})
 
-                                with ui.row().classes('w-24 items-center justify-center gap-1 no-wrap'):
-                                    ui.label(str(it.quantity)).classes('text-white text-sm')
-                                    render_pm_adjuster(_qty_adjust)
-                                ui.button(icon='edit',
-                                          on_click=lambda n=iname: _open_edit_inventory_dialog(cs, _save, _section, n, "item")
-                                          ).props('flat round dense color=primary')
-                                async def _rm_i(n=iname):
-                                    updated = [x for x in cs.inventory if x.name != n or x.item_type != "item"]
-                                    await _save({"inventory": [x.model_dump() for x in updated]})
-                                ui.button(icon='delete', on_click=_rm_i).props('flat round dense color=negative')
+                                    with ui.row().classes('w-24 items-center justify-center gap-1 no-wrap'):
+                                        ui.label(str(it.quantity)).classes('text-white text-sm')
+                                        render_pm_adjuster(_qty_adjust)
+                                    ui.button(icon='edit',
+                                              on_click=lambda n=iname: _open_edit_inventory_dialog(cs, _save, _section, n, "item")
+                                              ).props('flat round dense color=primary')
+                                    async def _rm_i(n=iname):
+                                        updated = [x for x in cs.inventory if x.name != n or x.item_type != "item"]
+                                        await _save({"inventory": [x.model_dump() for x in updated]})
+                                    ui.button(icon='delete', on_click=_rm_i).props('flat round dense color=negative')
+                                desc_row = ui.column().classes('w-full pl-8 py-1 gap-1 border-b border-gray-800').style('display: none')
+                                with desc_row:
+                                    render_detail_pairs([
+                                        ("Properties", it.item_notes),
+                                        ("Equipped", "Yes" if it.equipped else "No"),
+                                        ("Attuned", "Yes" if it.attuned else "No"),
+                                    ])
+                                    render_plain_markdown(it.notes)
+                                name_lbl.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
                     with ui.row().classes('gap-2 mt-2'):
                         ui.button("Add from Library", icon='library_add',
@@ -359,6 +405,9 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
             inp_value  = ui.input("Cost").classes('w-full').props('dense')
             inp_effects = ui.input("Effects/Notes").classes('w-full').props('dense')
 
+        # Free-form markdown description, shown in the row's extended view.
+        inp_desc = ui.textarea("Description (markdown)").classes('w-full').props('rows=3')
+
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
 
@@ -366,6 +415,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                 name = inp_name.value.strip()
                 if not name:
                     notify_error("Name is required"); return
+                desc = (inp_desc.value or "").strip()
 
                 async with service_session() as session:
                     if item_type == "weapon":
@@ -379,7 +429,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                             item_type="weapon", name=name, quantity=int(qty_inp.value or 1),
                             damage=dto.damage, damage_type=dto.damage_type,
                             weapon_range=dto.weapon_range, weight=dto.weight,
-                            value=dto.value, item_notes=dto.notes,
+                            value=dto.value, item_notes=dto.notes, notes=desc,
                             is_custom=True,
                         )
                     elif item_type == "armor":
@@ -398,7 +448,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                             armor_class=dto.armor_class,
                             base_ac=base_ac, dex_cap=dex_cap, is_shield=is_shield,
                             weight=dto.weight,
-                            value=dto.value, item_notes=dto.notes,
+                            value=dto.value, item_notes=dto.notes, notes=desc,
                             is_custom=True,
                         )
                     else:
@@ -409,7 +459,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                         await add_custom_item(session, user.id, cs.style, dto)
                         inv_item = InventoryItem(
                             item_type="item", name=name, quantity=int(qty_inp.value or 1),
-                            weight=dto.weight, value=dto.value,
+                            weight=dto.weight, value=dto.value, notes=desc,
                             is_custom=True,
                         )
 
@@ -464,6 +514,9 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
             inp_value  = ui.input("Cost", value=target.value or "").classes('w-full').props('dense')
             inp_notes  = ui.input("Effects/Notes", value=target.item_notes or "").classes('w-full').props('dense')
 
+        # Free-form markdown description, shown in the row's extended view.
+        inp_desc = ui.textarea("Description (markdown)", value=target.notes or "").classes('w-full').props('rows=3')
+
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
 
@@ -472,6 +525,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                 if not new_name:
                     notify_error("Name is required"); return
                 new_qty = max(0, int(qty_inp.value or 0))
+                new_desc = (inp_desc.value or "").strip()
 
                 if item_type == "weapon":
                     new_entry = InventoryItem(
@@ -480,7 +534,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         quantity=new_qty,
                         equipped=target.equipped,
                         attuned=target.attuned,
-                        notes=target.notes,
+                        notes=new_desc,
                         damage=(inp_dmg.value or "").strip() or None,
                         damage_type=(inp_dmgt.value or "").strip() or None,
                         weapon_range=(inp_range.value or "").strip() or None,
@@ -502,7 +556,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         quantity=new_qty,
                         equipped=target.equipped,
                         attuned=target.attuned,
-                        notes=target.notes,
+                        notes=new_desc,
                         armor_class=(inp_ac.value or "").strip() or None,
                         base_ac=base_ac,
                         dex_cap=dex_cap,
@@ -519,7 +573,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         quantity=new_qty,
                         equipped=target.equipped,
                         attuned=target.attuned,
-                        notes=target.notes,
+                        notes=new_desc,
                         weight=(inp_weight.value or "").strip() or None,
                         value=(inp_value.value or "").strip() or None,
                         item_notes=(inp_notes.value or "").strip() or None,

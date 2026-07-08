@@ -4,11 +4,20 @@ Renders the Advanced 5e combat-maneuvers panel: tradition badges,
 exertion tracker, and the per-maneuver list with add/edit dialogs.
 The maneuver-system header (DC, attack bonus, exertion max, known
 traditions) has its own edit dialog inside this module.
+
+Each maneuver row toggles an extended view (label:value block + markdown
+description, PHB-independent) on a whole-row click, matching the spell
+list; the trailing edit/delete buttons sit outside the clickable area.
 """
 
 from nicegui import ui
 
 from app.schemas.char_sheet_specific import CharacterCombatManeuver
+from app.ui.components.sheet.helpers import (
+    render_detail_pairs,
+    render_plain_markdown,
+    toggle_element_display,
+)
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error
 
 
@@ -67,31 +76,37 @@ def _render_maneuvers_tab(state, cs, maneuvers_data, maneuvers, _save):
         for m in sorted_maneuvers:
             mname = m['name']
             orig_idx = next(i for i, cm in enumerate(cs.combat_maneuvers) if cm.name == mname)
-            desc_row = None
             with ui.column().classes('w-full gap-0'):
                 with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
-                    ui.label(str(m['degree'])).classes('w-6 text-center text-xs text-gray-400')
-                    def _toggle_desc(dr=None):
-                        if dr:
-                            vis = dr.style.get('display', 'none') != 'none'
-                            dr.style('display: none' if vis else 'display: block')
-                    name_btn = ui.button(mname, on_click=lambda n=mname: None).props('flat dense no-caps').classes('text-white text-sm flex-1 justify-start')
-                    ui.label(m.get('tradition') or '—').classes('w-20 text-gray-400 text-xs')
-                    ui.label(str(m.get('exertion_cost', 0))).classes('w-8 text-center text-gray-400 text-xs')
-                    ui.label(m.get('action_type') or '—').classes('w-8 text-center text-gray-400 text-xs')
-                    if m.get('stance'):
-                        ui.icon('shield', size='xs').classes('text-amber-400')
-                    else:
-                        ui.label('').classes('w-4')
+                    # Whole info area toggles the extended view; the edit/delete
+                    # buttons sit outside it so their clicks never reach the toggle.
+                    info_row = ui.row().classes('flex-1 items-center gap-2 cursor-pointer no-wrap')
+                    with info_row:
+                        ui.label(str(m['degree'])).classes('w-6 text-center text-xs text-gray-400')
+                        ui.label(mname).classes('text-white text-sm flex-1')
+                        ui.label(m.get('tradition') or '—').classes('w-20 text-gray-400 text-xs')
+                        ui.label(str(m.get('exertion_cost', 0))).classes('w-8 text-center text-gray-400 text-xs')
+                        ui.label(m.get('action_type') or '—').classes('w-8 text-center text-gray-400 text-xs')
+                        if m.get('stance'):
+                            ui.icon('shield', size='xs').classes('text-amber-400')
+                        else:
+                            ui.label('').classes('w-4')
                     ui.button(icon='edit', on_click=lambda n=mname, i=orig_idx: _open_edit_maneuver(cs, _save, n, i)).props('flat round dense color=primary')
                     async def _rm_maneuver(n=mname):
                         updated = [cm for cm in cs.combat_maneuvers if cm.name != n]
                         await _save({"combat_maneuvers": [cm.model_dump() for cm in updated]})
                     ui.button(icon='delete', on_click=_rm_maneuver).props('flat round dense color=negative')
-                desc_row = ui.row().classes('w-full pl-8 py-1 border-b border-gray-800').style('display: none')
+                desc_row = ui.column().classes('w-full pl-8 py-1 gap-1 border-b border-gray-800').style('display: none')
                 with desc_row:
-                    ui.label(m.get('description') or 'No description.').classes('text-gray-400 text-sm whitespace-pre-wrap')
-                name_btn.on('click', lambda dr=desc_row: _toggle_desc(dr))
+                    render_detail_pairs([
+                        ("Degree", str(m['degree'])),
+                        ("Tradition", m.get('tradition')),
+                        ("Exertion Cost", str(m.get('exertion_cost', 0))),
+                        ("Action Type", m.get('action_type')),
+                        ("Stance", "Yes" if m.get('stance') else "No"),
+                    ])
+                    render_plain_markdown(m.get('description'))
+                info_row.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
     tradition_options = [t.strip() for t in cs.known_traditions.split(',') if t.strip()] if cs.known_traditions else []
 

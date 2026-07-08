@@ -703,3 +703,53 @@ def test_details_description_fields_default_empty():
     for key in ('age', 'gender', 'height', 'weight', 'eyes', 'hair', 'skin', 'alignment', 'title', 'deity'):
         assert d[key] == ""
 
+
+# ---------------------------------------------------------------------------
+# Extended-view descriptions: notes/description reach the cards via view-model
+# ---------------------------------------------------------------------------
+
+def test_inventory_notes_roundtrip():
+    """InventoryItem.notes (the equipment markdown description) must survive the builder."""
+    from app.schemas.char_sheet_specific import InventoryItem
+
+    c = create_mock_character(SheetStyle.DND5E)
+    c.inventory = [
+        InventoryItem(item_type="weapon", name="Dagger",
+                      notes="A **wicked** blade.\n\n- keen edge"),
+        InventoryItem(item_type="item", name="Torch"),  # no note
+    ]
+    c = type(c)(**c.model_dump())
+
+    inv = get_builder(c).build()['inventory']
+    by_name = {i['name']: i for i in inv}
+    assert by_name['Dagger']['notes'] == "A **wicked** blade.\n\n- keen edge"
+    assert by_name['Torch']['notes'] == ""
+
+
+def test_magic_spell_description_roundtrips():
+    """CharacterSpell.description must survive the builder for the extended view."""
+    from app.schemas.char_sheet_specific import CharacterSpell
+
+    c = create_mock_character(SheetStyle.DND5E)
+    c.spells = [CharacterSpell(name="Bless", level=1,
+                               description="Up to **three** creatures gain +1d4.")]
+    c = type(c)(**c.model_dump())
+
+    spells = get_builder(c).build()['magic']['spells']
+    assert spells[0]['description'] == "Up to **three** creatures gain +1d4."
+
+
+def test_combat_maneuver_description_roundtrips():
+    """CharacterCombatManeuver.description must survive the builder for the extended view."""
+    from app.schemas.char_sheet_specific import CharacterCombatManeuver
+
+    c = create_mock_character(SheetStyle.A5E)
+    c.combat_maneuvers = [CharacterCombatManeuver(
+        name="Rushing Strike", tradition="Tempest", degree=2,
+        description="Move up to your speed, then *strike*.",
+    )]
+    c = type(c)(**c.model_dump())
+
+    cm = get_builder(c).build()['combat_maneuvers']
+    assert cm['maneuvers'][0]['description'] == "Move up to your speed, then *strike*."
+
