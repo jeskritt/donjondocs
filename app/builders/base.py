@@ -8,8 +8,8 @@ Interactions:
 
 from typing import Dict, Any
 
-from app.schemas.char_sheet_specific import Character, AbilityScore
-from app.schemas.char_sheet_global import SheetStyle
+from app.schemas.char_sheet_specific import Character, AbilityScore, DarkParams
+from app.schemas.char_sheet_global import SheetStyle, MagicType
 
 _PROF_MULT = {0: 0.0, 1: 0.5, 2: 1.0, 3: 2.0}
 
@@ -95,6 +95,9 @@ class BaseSheetBuilder:
             "INT": _score_total(c.int_score),
             "WIS": _score_total(c.wis_score),
             "CHA": _score_total(c.cha_score),
+            # Vigor is always computed (harmless when hidden) so VIG-keyed skills
+            # and actions get the right modifier as soon as the character enables it.
+            "VIG": _score_total(c.vig_score),
         }
 
     def _attr_mods(self) -> dict[str, int]:
@@ -168,6 +171,12 @@ class BaseSheetBuilder:
             ("WIS", c.wis_score),
             ("CHA", c.cha_score),
         ]
+        # Vigor is an optional 7th attribute (UM5): show it only when the
+        # character has opted in. Surfaced as a view flag so UI dropdowns can
+        # gate on it without checking style.
+        self.view_data['vigor_enabled'] = c.vigor_enabled
+        if c.vigor_enabled:
+            scores.append(("VIG", c.vig_score))
 
         attributes = []
         for label, s in scores:
@@ -202,6 +211,10 @@ class BaseSheetBuilder:
         mods = self._attr_mods()
         skills = []
         for sk in c.skills:
+            # Vigor-keyed skills only appear when the character has enabled Vigor
+            # (they may linger in the blob after an enable→disable toggle).
+            if sk.attribute == "VIG" and not c.vigor_enabled:
+                continue
             attr_mod = mods.get(sk.attribute, 0)
             prof_bonus = int(c.prof_bonus * _PROF_MULT.get(sk.proficiency, 0))
             total = attr_mod + prof_bonus + sk.misc
@@ -320,7 +333,7 @@ class BaseSheetBuilder:
             attr_mod = mods.get(r.attribute, 0) if r.attribute else 0
             spell_attack = c.prof_bonus + attr_mod + r.spell_attack_misc
             spell_dc = 8 + c.prof_bonus + attr_mod + r.spell_dc_misc
-            resources_view.append({
+            row = {
                 "name": r.name,
                 "source": r.source,
                 "magic_type": r.magic_type.value if hasattr(r.magic_type, "value") else r.magic_type,
@@ -330,7 +343,24 @@ class BaseSheetBuilder:
                 "current": r.current,
                 "maximum": r.maximum,
                 "extra_resource": r.extra_resource.model_dump() if r.extra_resource else None,
-            })
+            }
+            # DARK (Ultramodern5): derive vessel/river/VR with their misc bonuses.
+            # The pool reuses current[0]=dark, maximum[0]=vessel base; river is the
+            # Vigor modifier plus any bonus.
+            if r.magic_type == MagicType.DARK:
+                dp = r.dark or DarkParams()
+                vessel_base = r.maximum[0] if r.maximum else 0
+                row["dark"] = {
+                    "dark_current": r.current[0] if r.current else 0,
+                    "vessel_total": vessel_base + dp.vessel_misc,
+                    "river_total": mods.get("VIG", 0) + dp.river_misc,
+                    "vr_total": dp.vr_base + dp.vr_misc,
+                    "vessel_misc": dp.vessel_misc,
+                    "vr_base": dp.vr_base,
+                    "vr_misc": dp.vr_misc,
+                    "river_misc": dp.river_misc,
+                }
+            resources_view.append(row)
         self.view_data['magic'] = {
             "resources": resources_view,
             "spells": [s.model_dump() for s in c.spells],

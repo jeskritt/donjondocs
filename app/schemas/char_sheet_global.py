@@ -47,15 +47,18 @@ class MagicType(str, enum.Enum):
     """
     The type of magic system used by the character.
 
-    SLOTS: warlock style 
+    SLOTS: warlock style
     PERLEVEL: Typical caster (ie. wizard/sorcerer) style
     POINTS: spell points style
     SHADOWDARK: Shadowdark RPG style
+    DARK: Ultramodern5 "dark" pool — Vigor-powered spend-to-cast (like POINTS,
+          but with vessel/river/VR presentation)
     """
     SLOTS = "Slots"
     PERLEVEL = "Slots / Level"
     POINTS = "Spell Points"
     SHADOWDARK = "Shadowdark"
+    DARK = "Dark"
     
 
 class SimpleAbility(BaseModel):

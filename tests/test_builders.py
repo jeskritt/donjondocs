@@ -7,8 +7,12 @@ Interactions:
 
 import pytest
 
-from app.schemas.char_sheet_specific import Character, Race, CharacterStat, CharacterProficiency
-from app.schemas.char_sheet_global import SheetStyle
+from app.schemas.char_sheet_specific import (
+    Character, Race, CharacterStat, CharacterProficiency,
+    CharacterSkillSimple, CharacterSavingThrowSimple,
+    AbilityScore, MagicResource, DarkParams,
+)
+from app.schemas.char_sheet_global import SheetStyle, MagicType
 from app.builders import get_builder
 from app.builders.dnd5e import DnD2014Builder
 from app.builders.shadowdark import ShadowdarkBuilder
@@ -65,6 +69,78 @@ def test_um5_builder_inherits_dnd_view_model():
     assert view_data['details']['destiny'] is None
     assert view_data['combat']['exhaustion_label'] == 'Exhaustion'
     assert view_data['combat_maneuvers'] is None
+
+
+def test_um5_vigor_disabled_hides_seventh_attribute_and_vig_skills():
+    """With Vigor off, the builder shows only the six core attributes and hides
+    any VIG-keyed skill that happens to linger in the blob."""
+    c = create_mock_character(SheetStyle.UM5).model_copy(update={
+        "vigor_enabled": False,
+        "skills": [
+            CharacterSkillSimple(name="Athletics", attribute="STR"),
+            CharacterSkillSimple(name="Induce", attribute="VIG"),
+        ],
+    })
+    vd = get_builder(c).build()
+    labels = [a["label"] for a in vd["attributes"]]
+    assert labels == ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+    assert vd["vigor_enabled"] is False
+    skill_names = [s["name"] for s in vd["skills"]]
+    assert "Athletics" in skill_names
+    assert "Induce" not in skill_names  # VIG skill hidden while Vigor is off
+
+
+def test_um5_vigor_enabled_shows_seventh_attribute_and_vig_skills():
+    """With Vigor on, a seventh VIG attribute row (with its save) and the
+    VIG-keyed skills appear."""
+    c = create_mock_character(SheetStyle.UM5).model_copy(update={
+        "vigor_enabled": True,
+        "skills": [
+            CharacterSkillSimple(name="Athletics", attribute="STR"),
+            CharacterSkillSimple(name="Induce", attribute="VIG"),
+        ],
+        "saving_throws": [CharacterSavingThrowSimple(attribute="VIG", proficiency=2)],
+    })
+    vd = get_builder(c).build()
+    labels = [a["label"] for a in vd["attributes"]]
+    assert labels == ["STR", "DEX", "CON", "INT", "WIS", "CHA", "VIG"]
+    assert vd["vigor_enabled"] is True
+    skill_names = [s["name"] for s in vd["skills"]]
+    assert "Induce" in skill_names
+
+
+def test_um5_dark_resource_derivations():
+    """A DARK magic resource derives vessel/river/VR (with misc) and a
+    Vigor-based spell DC."""
+    c = create_mock_character(SheetStyle.UM5).model_copy(update={
+        "vigor_enabled": True,
+        "vig_score": AbilityScore(base=16),   # +3 modifier
+        "magic_resources": [MagicResource(
+            name="Dark", magic_type=MagicType.DARK, attribute="VIG",
+            current=[8], maximum=[12],
+            dark=DarkParams(vessel_misc=2, river_misc=1, vr_base=2, vr_misc=1),
+        )],
+    })
+    res = get_builder(c).build()["magic"]["resources"][0]
+    assert res["magic_type"] == MagicType.DARK.value
+    dk = res["dark"]
+    assert dk["dark_current"] == 8
+    assert dk["vessel_total"] == 14      # 12 base + 2 misc
+    assert dk["river_total"] == 4        # +3 Vigor mod + 1 misc
+    assert dk["vr_total"] == 3           # 2 base + 1 misc
+    # Spell DC = 8 + prof(2) + Vigor mod(3): confirms VIG drives casting.
+    assert res["spell_dc_total"] == 13
+
+
+def test_non_dark_resource_has_no_dark_block():
+    c = create_mock_character(SheetStyle.DND5E).model_copy(update={
+        "magic_resources": [MagicResource(
+            name="Spell Points", magic_type=MagicType.POINTS, attribute="INT",
+            current=[5], maximum=[10],
+        )],
+    })
+    res = get_builder(c).build()["magic"]["resources"][0]
+    assert "dark" not in res
 
 def test_shadowdark_builder_nulls_fields():
     c_sd = create_mock_character(SheetStyle.SHADOWDARK)

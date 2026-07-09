@@ -79,12 +79,15 @@ async def sheet_creator_page():
         async with service_session() as session:
             class_rows = await list_classes(session, style, owner_id=user.id)
         class_names = [c.name for c in class_rows]
+        from app.services.character_seeding import _parse_saving_throws
+        vigor_class_names = {c.name for c in class_rows if "VIG" in _parse_saving_throws(c.saving_throws)}
 
         form = await open_character_editor(
             style=style,
             available_classes=class_names,
             title=f"New {style.value.upper()} Character",
             confirm_label="Create",
+            vigor_class_names=vigor_class_names,
         )
         if form is None:
             return
@@ -101,6 +104,7 @@ async def sheet_creator_page():
                     ancestry=form["ancestry"],
                     culture=form["culture"],
                     background=form["background"],
+                    vigor_enabled=form.get("vigor_enabled", False),
                 )
                 notify_success(f"Created {form['name']}!")
                 ui.navigate.to(f"/character/{new_char.id}")

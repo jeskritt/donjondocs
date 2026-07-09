@@ -38,6 +38,7 @@ _ATTR_ALIAS = {
     "intelligence": "INT", "int": "INT",
     "wisdom": "WIS", "wis": "WIS",
     "charisma": "CHA", "cha": "CHA",
+    "vigor": "VIG", "vig": "VIG",  # Ultramodern5 optional 7th attribute
 }
 
 

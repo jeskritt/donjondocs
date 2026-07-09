@@ -113,6 +113,7 @@ async def create_character(
     ancestry: str = "Human",
     culture: str | None = None,
     background: str = "Peasant",
+    vigor_enabled: bool = False,
 ) -> CharacterRecord:
     """Create a new character for a user, enforcing limits.
 
@@ -129,7 +130,7 @@ async def create_character(
     seeded_classes = await seed_classes_from_db(session, style, current_user.id, classes)
     blank_data = await build_blank_character_data(
         session, name, style, current_user, seeded_classes,
-        ancestry, culture, background,
+        ancestry, culture, background, vigor_enabled=vigor_enabled,
     )
 
     new_char = CharacterRecord(

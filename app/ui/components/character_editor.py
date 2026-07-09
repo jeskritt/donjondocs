@@ -21,8 +21,13 @@ async def open_character_editor(
     initial: dict | None = None,
     title: str = "New Character",
     confirm_label: str = "Create",
+    vigor_class_names: set[str] | None = None,
 ) -> dict | None:
     """Show a modal for editing character identity and return the form values on confirm.
+
+    `vigor_class_names` are class names that grant a Vigor save (e.g. the UM5
+    Magus). Selecting one auto-checks and locks the "Include Vigor" box, since
+    the save flow force-enables Vigor for such classes.
 
     Return value on confirm:
         {
@@ -34,11 +39,13 @@ async def open_character_editor(
                 {"name": str, "archetype": str | None, "level": int},
                 ...
             ],
+            "vigor_enabled": bool,   # UM5 only; always False for other styles
         }
 
     Returns None if the user cancels or closes the dialog.
     """
     initial = initial or {}
+    vigor_casters = vigor_class_names or set()
     initial_classes = initial.get("classes") or [{"name": (available_classes[0] if available_classes else "Fighter"), "archetype": None, "level": 1}]
 
     # Always add a custom sentinel — lets the user hand-type an unknown class.
@@ -56,12 +63,38 @@ async def open_character_editor(
             culture_input = ui.input(label="Culture / Subrace", value=initial.get("culture") or "").classes("flex-1").props("outlined dark")
         background_input = ui.input(label="Background", value=initial.get("background", "Peasant")).classes("w-full mt-2").props("outlined dark")
 
+        # Ultramodern5 only: opt the character into the optional Vigor attribute
+        # (7th ability score powering the DARK magic system). Hidden for other
+        # styles so their editors stay unchanged.
+        vigor_checkbox = None
+        if style == SheetStyle.UM5:
+            vigor_checkbox = ui.checkbox(
+                "Include Vigor (Ultramodern5 magic attribute)",
+                value=bool(initial.get("vigor_enabled", False)),
+            ).classes("mt-2")
+
         ui.separator().classes("my-4")
         ui.label("Classes").classes("text-lg font-semibold")
 
         # Dynamic class list. Each row tracks its own widgets; the outer list holds them.
         class_rows: list[dict] = []
         rows_container = ui.column().classes("w-full gap-2")
+
+        def _sync_vigor_lock():
+            """Lock 'Include Vigor' on when a Vigor-caster class is chosen — the
+            save flow force-enables Vigor for those, so reflect it in the UI."""
+            if vigor_checkbox is None:
+                return
+
+            def _row_name(r):
+                v = r["class_select"].value
+                return (r["custom_name"].value or "").strip() if v == "Custom…" else v
+
+            if any(_row_name(r) in vigor_casters for r in class_rows):
+                vigor_checkbox.value = True
+                vigor_checkbox.disable()
+            else:
+                vigor_checkbox.enable()
 
         def _add_row(entry: dict | None = None):
             entry = entry or {"name": options[0] if options else "Custom…", "archetype": None, "level": 1}
@@ -91,6 +124,8 @@ async def open_character_editor(
                     def _toggle_custom(e=None, cs=class_select, cn=custom_name):
                         cn.visible = (cs.value == "Custom…")
                     class_select.on("update:model-value", _toggle_custom)
+                    class_select.on("update:model-value", lambda: _sync_vigor_lock())
+                    custom_name.on("blur", lambda: _sync_vigor_lock())
                     _toggle_custom()
 
                     remove_btn = ui.button(icon="delete").props("flat round dense")
@@ -109,10 +144,12 @@ async def open_character_editor(
                             return  # Always keep at least one row.
                         class_rows.remove(target)
                         target["row"].delete()
+                        _sync_vigor_lock()
                     remove_btn.on("click", _remove)
 
         for c in initial_classes:
             _add_row(c)
+        _sync_vigor_lock()
 
         with ui.row().classes("w-full mt-2"):
             ui.button("+ Add Class", on_click=lambda: _add_row()).props("flat dense")
@@ -149,4 +186,5 @@ async def open_character_editor(
         "culture": ((culture_input.value or "").strip() or None),
         "background": (background_input.value or "").strip() or "Peasant",
         "classes": classes_out,
+        "vigor_enabled": bool(vigor_checkbox.value) if vigor_checkbox is not None else False,
     }

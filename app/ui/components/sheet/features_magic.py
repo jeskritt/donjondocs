@@ -1,8 +1,10 @@
 """Magic & spells sub-tab — used by the dispatcher in `features.py`.
 
-Renders magic resources (slots / per-level / points / Shadowdark
-casting), an optional extra-resource tracker per resource (e.g.
-Sorcery Points), and the spell list with add/edit dialogs.
+Renders magic resources (slots / per-level / points / Shadowdark /
+Ultramodern5 DARK casting), an optional extra-resource tracker per
+resource (e.g. Sorcery Points), and the spell list with add/edit
+dialogs. POINTS and DARK pools get a +/- spend control; DARK also shows
+its Vigor-derived River capacity and Vigor Regeneration (VR).
 
 Each spell row toggles an extended view (label:value block + markdown
 description, PHB-independent) on a whole-row click; the trailing
@@ -14,6 +16,7 @@ from nicegui import ui
 from app.schemas.char_sheet_global import MagicType
 from app.schemas.char_sheet_specific import (
     CharacterSpell,
+    DarkParams,
     ExtraResource,
     MagicResource,
 )
@@ -21,10 +24,43 @@ from app.ui.components.sheet.helpers import (
     _fmt_bonus,
     _render_slot_checkboxes,
     render_detail_pairs,
+    render_pm_adjuster,
     render_plain_markdown,
     toggle_element_display,
 )
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error
+
+
+def _dark_fields(inp_type, *, vessel=0, current=0, vessel_misc=0,
+                 river_misc=0, vr_base=0, vr_misc=0):
+    """Render the DARK-only inputs (shown only when the type select is 'Dark').
+
+    Returns the six input handles in a stable order:
+    (vessel, current, vessel_misc, river_misc, vr_base, vr_misc).
+    """
+    container = ui.column().classes('w-full gap-1')
+    container.bind_visibility_from(inp_type, 'value', value=MagicType.DARK.value)
+    with container:
+        with ui.row().classes('w-full gap-2'):
+            d_vessel = ui.number("Vessel (base)", value=vessel, min=0, step=1).classes('flex-1').props('dense')
+            d_current = ui.number("Current Dark", value=current, min=0, step=1).classes('flex-1').props('dense')
+        with ui.row().classes('w-full gap-2'):
+            d_vessel_misc = ui.number("Vessel misc", value=vessel_misc, step=1).classes('flex-1').props('dense')
+            d_river_misc = ui.number("River misc", value=river_misc, step=1).classes('flex-1').props('dense')
+        with ui.row().classes('w-full gap-2'):
+            d_vr_base = ui.number("VR base", value=vr_base, step=1).classes('flex-1').props('dense')
+            d_vr_misc = ui.number("VR misc", value=vr_misc, step=1).classes('flex-1').props('dense')
+        ui.label("Dark spends on the sheet. River capacity = Vigor mod + River misc.").classes('text-xs text-gray-500')
+    return d_vessel, d_current, d_vessel_misc, d_river_misc, d_vr_base, d_vr_misc
+
+
+def _dark_params_from(d_vessel_misc, d_vr_base, d_vr_misc, d_river_misc) -> DarkParams:
+    return DarkParams(
+        vessel_misc=int(d_vessel_misc.value or 0),
+        vr_base=int(d_vr_base.value or 0),
+        vr_misc=int(d_vr_misc.value or 0),
+        river_misc=int(d_river_misc.value or 0),
+    )
 
 
 def _render_magic_tab(state, cs, magic, _save):
@@ -47,17 +83,45 @@ def _render_magic_tab(state, cs, magic, _save):
             mtype = r['magic_type']
 
             if isinstance(cur_list, list) and isinstance(max_list, list):
-                if mtype == MagicType.POINTS.value:
-                    ui.label(f"Points: {cur_list[0] if cur_list else 0} / {max_list[0] if max_list else 0}").classes('text-gray-300 text-sm mt-1')
+                # Spend/recover a single-pool resource (POINTS or DARK): clamp
+                # current[0] to [0, cap] and persist.
+                def _pool_adjuster(n, cap):
+                    async def _adj(delta):
+                        updated = []
+                        for mr in cs.magic_resources:
+                            d = mr.model_dump()
+                            if mr.name == n and isinstance(d.get("current"), list) and d["current"]:
+                                d["current"][0] = max(0, min(cap, d["current"][0] + delta))
+                            updated.append(d)
+                        await _save({"magic_resources": updated})
+                    return _adj
+
+                if mtype == MagicType.DARK.value:
+                    dk = r.get('dark') or {}
+                    vessel_total = dk.get('vessel_total', max_list[0] if max_list else 0)
+                    with ui.row().classes('items-center gap-2 mt-1'):
+                        ui.label(f"Dark: {cur_list[0] if cur_list else 0} / {vessel_total}").classes('text-gray-300 text-sm')
+                        render_pm_adjuster(_pool_adjuster(rname, vessel_total))
+                    with ui.row().classes('gap-4 mt-1'):
+                        ui.label(f"River: {dk.get('river_total', 0)} spells").classes('text-gray-400 text-xs')
+                        ui.label(f"VR: {dk.get('vr_total', 0)}").classes('text-gray-400 text-xs')
+                elif mtype == MagicType.POINTS.value:
+                    with ui.row().classes('items-center gap-2 mt-1'):
+                        ui.label(f"Points: {cur_list[0] if cur_list else 0} / {max_list[0] if max_list else 0}").classes('text-gray-300 text-sm')
+                        render_pm_adjuster(_pool_adjuster(rname, max_list[0] if max_list else 0))
                 else:
                     _render_slot_checkboxes(cs, rname, cur_list, max_list, mtype, _save)
 
-                async def _reset_resource(n=rname):
+                # Reset restores the pool to full — for DARK that's vessel_total
+                # (base + misc), otherwise the stored maximum.
+                _dark_cap = (r.get('dark') or {}).get('vessel_total') if mtype == MagicType.DARK.value else None
+
+                async def _reset_resource(n=rname, dark_cap=_dark_cap):
                     updated = []
                     for mr in cs.magic_resources:
                         d = mr.model_dump()
                         if mr.name == n and isinstance(d.get("maximum"), list):
-                            d["current"] = list(d["maximum"])
+                            d["current"] = [dark_cap] if dark_cap is not None else list(d["maximum"])
                         updated.append(d)
                     await _save({"magic_resources": updated})
                 ui.button("Reset", icon='restart_alt', on_click=_reset_resource
@@ -188,12 +252,23 @@ def _open_add_resource(cs, _save, resources):
         inp_name = ui.input("Name", value="Spellcasting").classes('w-full')
         inp_src  = ui.input("Source (class/feat/item)").classes('w-full')
         inp_type = ui.select([t.value for t in MagicType], label="Magic Type", value=MagicType.PERLEVEL.value).classes('w-full')
-        inp_attr = ui.select(["STR","DEX","CON","INT","WIS","CHA", None], label="Attribute", value="INT").classes('w-full')
+        inp_attr = ui.select(["STR","DEX","CON","INT","WIS","CHA"] + (["VIG"] if cs.vigor_enabled else []) + [None], label="Attribute", value="INT").classes('w-full')
         with ui.row().classes('w-full gap-2'):
             inp_atk_misc = ui.number("Attack Misc", value=0, step=1).classes('flex-1').props('dense')
             inp_dc_misc  = ui.number("DC Misc",    value=0, step=1).classes('flex-1').props('dense')
-        inp_slots = ui.input("Slots (comma-separated, e.g. 4,2)", value="").classes('w-full')
-        ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS: leave blank or single.").classes('text-xs text-gray-500')
+        slots_container = ui.column().classes('w-full gap-0')
+        slots_container.bind_visibility_from(inp_type, 'value', backward=lambda v: v != MagicType.DARK.value)
+        with slots_container:
+            inp_slots = ui.input("Slots (comma-separated, e.g. 4,2)", value="").classes('w-full')
+            ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS: leave blank or single.").classes('text-xs text-gray-500')
+
+        d_vessel, d_current, d_vessel_misc, d_river_misc, d_vr_base, d_vr_misc = _dark_fields(inp_type)
+
+        # DARK casters are Vigor-powered: default the attribute to VIG when picked.
+        def _default_dark_attr():
+            if inp_type.value == MagicType.DARK.value and cs.vigor_enabled:
+                inp_attr.value = "VIG"
+        inp_type.on_value_change(_default_dark_attr)
 
         er_check = ui.checkbox("Add extra resource tracker (e.g. Sorcery Points)")
         er_container = ui.column().classes('w-full pl-4')
@@ -235,6 +310,12 @@ def _open_add_resource(cs, _save, resources):
                         maximum=er_m,
                         reset_on=er_reset.value,
                     )
+                if mt == MagicType.DARK:
+                    cur_val = [int(d_current.value or 0)]
+                    max_val = [int(d_vessel.value or 0)]
+                    dark = _dark_params_from(d_vessel_misc, d_vr_base, d_vr_misc, d_river_misc)
+                else:
+                    cur_val, max_val, dark = slots, slots, None
                 entry = MagicResource(
                     name=name,
                     source=(inp_src.value or "").strip(),
@@ -242,9 +323,10 @@ def _open_add_resource(cs, _save, resources):
                     attribute=inp_attr.value,
                     spell_attack_misc=int(inp_atk_misc.value or 0),
                     spell_dc_misc=int(inp_dc_misc.value or 0),
-                    current=slots,
-                    maximum=slots,
+                    current=cur_val,
+                    maximum=max_val,
                     extra_resource=extra,
+                    dark=dark,
                 )
                 updated = [mr.model_dump() for mr in cs.magic_resources] + [entry.model_dump()]
                 await _save({"magic_resources": updated})
@@ -262,18 +344,37 @@ def _open_edit_resource(cs, _save, resource_name):
     old_max = res_obj.maximum
     old_slots_str = ",".join(str(x) for x in old_max) if isinstance(old_max, list) else ""
     has_er = res_obj.extra_resource is not None
+    _dk = res_obj.dark
+    _dark_seed = dict(
+        vessel=(old_max[0] if isinstance(old_max, list) and old_max else 0),
+        current=(res_obj.current[0] if isinstance(res_obj.current, list) and res_obj.current else 0),
+        vessel_misc=(_dk.vessel_misc if _dk else 0),
+        river_misc=(_dk.river_misc if _dk else 0),
+        vr_base=(_dk.vr_base if _dk else 0),
+        vr_misc=(_dk.vr_misc if _dk else 0),
+    )
 
     with ui.dialog() as dialog, ui.card().classes('w-full max-w-md').style(DIALOG_CARD_STYLE):
         ui.label("Edit Magic Resource").classes('text-lg font-bold mb-2 text-white')
         inp_name = ui.input("Name", value=res_obj.name).classes('w-full')
         inp_src  = ui.input("Source (class/feat/item)", value=res_obj.source or "").classes('w-full')
         inp_type = ui.select([t.value for t in MagicType], label="Magic Type", value=res_obj.magic_type.value if hasattr(res_obj.magic_type, 'value') else res_obj.magic_type).classes('w-full')
-        inp_attr = ui.select(["STR","DEX","CON","INT","WIS","CHA", None], label="Attribute", value=res_obj.attribute).classes('w-full')
+        inp_attr = ui.select(["STR","DEX","CON","INT","WIS","CHA"] + (["VIG"] if cs.vigor_enabled else []) + [None], label="Attribute", value=res_obj.attribute).classes('w-full')
         with ui.row().classes('w-full gap-2'):
             inp_atk_misc = ui.number("Attack Misc", value=res_obj.spell_attack_misc, step=1).classes('flex-1').props('dense')
             inp_dc_misc  = ui.number("DC Misc", value=res_obj.spell_dc_misc, step=1).classes('flex-1').props('dense')
-        inp_slots = ui.input("Slots (comma-separated, e.g. 4,2)", value=old_slots_str).classes('w-full')
-        ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS: leave blank or single.").classes('text-xs text-gray-500')
+        slots_container = ui.column().classes('w-full gap-0')
+        slots_container.bind_visibility_from(inp_type, 'value', backward=lambda v: v != MagicType.DARK.value)
+        with slots_container:
+            inp_slots = ui.input("Slots (comma-separated, e.g. 4,2)", value=old_slots_str).classes('w-full')
+            ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS: leave blank or single.").classes('text-xs text-gray-500')
+
+        d_vessel, d_current, d_vessel_misc, d_river_misc, d_vr_base, d_vr_misc = _dark_fields(inp_type, **_dark_seed)
+
+        def _default_dark_attr():
+            if inp_type.value == MagicType.DARK.value and cs.vigor_enabled:
+                inp_attr.value = "VIG"
+        inp_type.on_value_change(_default_dark_attr)
 
         er_check = ui.checkbox("Extra resource tracker", value=has_er)
         er_container = ui.column().classes('w-full pl-4')
@@ -317,7 +418,14 @@ def _open_edit_resource(cs, _save, resource_name):
                         maximum=er_m,
                         reset_on=er_reset.value,
                     )
-                cur_slots = new_slots if new_slots != old_max else res_obj.current
+                if mt == MagicType.DARK:
+                    cur_val = [int(d_current.value or 0)]
+                    max_val = [int(d_vessel.value or 0)]
+                    dark = _dark_params_from(d_vessel_misc, d_vr_base, d_vr_misc, d_river_misc)
+                else:
+                    cur_val = new_slots if new_slots != old_max else res_obj.current
+                    max_val = new_slots
+                    dark = None
                 entry = MagicResource(
                     name=name,
                     source=(inp_src.value or "").strip(),
@@ -325,9 +433,10 @@ def _open_edit_resource(cs, _save, resource_name):
                     attribute=inp_attr.value,
                     spell_attack_misc=int(inp_atk_misc.value or 0),
                     spell_dc_misc=int(inp_dc_misc.value or 0),
-                    current=cur_slots,
-                    maximum=new_slots,
+                    current=cur_val,
+                    maximum=max_val,
                     extra_resource=extra,
+                    dark=dark,
                 )
                 updated = [mr.model_dump() for mr in cs.magic_resources]
                 updated[idx] = entry.model_dump()
