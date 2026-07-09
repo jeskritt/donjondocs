@@ -67,11 +67,24 @@ def _render_magic_tab(state, cs, magic, _save):
     resources = magic.get("resources", [])
     spells = magic.get("spells", [])
 
+    # DARK casters have no "prepared" concept — spells are always prepared and the
+    # meaningful flag is river membership (reusing `prepared`). Relabel accordingly.
+    has_dark = any(r['magic_type'] == MagicType.DARK.value for r in resources)
+    prepared_label = "River" if has_dark else "Prepared"
+
+    # Which resource expansions are open. Bound into page `state` so they survive
+    # the `_save` re-render — otherwise spending a pool with +/- collapses the card
+    # on every click.
+    expanded = state.setdefault("magic_expanded", set())
+
     if not resources:
         ui.label("No magic resources yet. Add one to start tracking spells.").classes('text-gray-500 italic text-sm py-2')
 
     for r in resources:
-        with ui.expansion(f"{r['name']} ({r['magic_type']})", icon='auto_awesome').classes('w-full border border-gray-700 rounded mb-1'):
+        exp = ui.expansion(f"{r['name']} ({r['magic_type']})", icon='auto_awesome',
+                           value=(r['name'] in expanded)).classes('w-full border border-gray-700 rounded mb-1')
+        exp.on_value_change(lambda e, n=r['name']: expanded.add(n) if e.value else expanded.discard(n))
+        with exp:
             with ui.row().classes('gap-6 text-sm'):
                 ui.label(f"Attribute: {r['attribute'] or '—'}").classes('text-gray-400')
                 ui.label(f"Attack: {_fmt_bonus(r['spell_attack_total'])}").classes('text-white')
@@ -176,9 +189,9 @@ def _render_magic_tab(state, cs, magic, _save):
         def _spells_section():
             with ui.row().classes('items-center gap-3 mb-1'):
                 ui.label("Filter:").classes('text-xs text-gray-500')
-                for key, label in (("prepared", "Prepared"),
-                                   ("concentration", "Concentration"),
-                                   ("ritual", "Ritual")):
+                for key, label in ((("prepared", prepared_label),
+                                    ("concentration", "Concentration"),
+                                    ("ritual", "Ritual"))):
                     def _on_change(e, k=key):
                         filt[k] = bool(e.value)
                         _spells_section.refresh()
@@ -236,7 +249,7 @@ def _render_magic_tab(state, cs, magic, _save):
                                     ("Concentration", "Yes" if sp.get('concentration') else "No"),
                                     ("Ritual", "Yes" if sp.get('ritual') else "No"),
                                     ("Resource", sp.get('resource_name')),
-                                    ("Prepared", "Yes" if sp.get('prepared') else "No"),
+                                    (prepared_label, "Yes" if sp.get('prepared') else "No"),
                                 ])
                                 render_plain_markdown(sp.get('description'))
                             info_row.on('click', lambda dr=desc_row: toggle_element_display(dr))
@@ -270,18 +283,23 @@ def _open_add_resource(cs, _save, resources):
                 inp_attr.value = "VIG"
         inp_type.on_value_change(_default_dark_attr)
 
-        er_check = ui.checkbox("Add extra resource tracker (e.g. Sorcery Points)")
-        er_container = ui.column().classes('w-full pl-4')
-        er_container.set_visibility(False)
-        with er_container:
-            er_name = ui.input("Resource Name", placeholder="Sorcery Points").classes('w-full').props('dense')
-            with ui.row().classes('w-full gap-2 items-center'):
-                er_max = ui.number("Maximum", value=0, step=1, min=0).classes('flex-1').props('dense')
-                er_reset = ui.select(["short", "long", "none"], label="Recharges on", value="long").classes('flex-1').props('dense')
+        # extra_resource is a general secondary pool (e.g. Sorcery Points); it is
+        # redundant for DARK (which has its own vessel/river/VR), so hide it there.
+        er_wrap = ui.column().classes('w-full gap-0')
+        er_wrap.bind_visibility_from(inp_type, 'value', backward=lambda v: v != MagicType.DARK.value)
+        with er_wrap:
+            er_check = ui.checkbox("Add extra resource tracker (e.g. Sorcery Points)")
+            er_container = ui.column().classes('w-full pl-4')
+            er_container.set_visibility(False)
+            with er_container:
+                er_name = ui.input("Resource Name", placeholder="Sorcery Points").classes('w-full').props('dense')
+                with ui.row().classes('w-full gap-2 items-center'):
+                    er_max = ui.number("Maximum", value=0, step=1, min=0).classes('flex-1').props('dense')
+                    er_reset = ui.select(["short", "long", "none"], label="Recharges on", value="long").classes('flex-1').props('dense')
 
-        def _toggle_er():
-            er_container.set_visibility(er_check.value)
-        er_check.on_value_change(_toggle_er)
+            def _toggle_er():
+                er_container.set_visibility(er_check.value)
+            er_check.on_value_change(_toggle_er)
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
@@ -376,18 +394,22 @@ def _open_edit_resource(cs, _save, resource_name):
                 inp_attr.value = "VIG"
         inp_type.on_value_change(_default_dark_attr)
 
-        er_check = ui.checkbox("Extra resource tracker", value=has_er)
-        er_container = ui.column().classes('w-full pl-4')
-        er_container.set_visibility(has_er)
-        with er_container:
-            er_name = ui.input("Resource Name", value=res_obj.extra_resource.name if has_er else "", placeholder="Sorcery Points").classes('w-full').props('dense')
-            with ui.row().classes('w-full gap-2 items-center'):
-                er_max = ui.number("Maximum", value=res_obj.extra_resource.maximum if has_er else 0, step=1, min=0).classes('flex-1').props('dense')
-                er_reset = ui.select(["short", "long", "none"], label="Recharges on", value=res_obj.extra_resource.reset_on if has_er else "long").classes('flex-1').props('dense')
+        # extra_resource is redundant for DARK (its vessel/river/VR cover it) — hide there.
+        er_wrap = ui.column().classes('w-full gap-0')
+        er_wrap.bind_visibility_from(inp_type, 'value', backward=lambda v: v != MagicType.DARK.value)
+        with er_wrap:
+            er_check = ui.checkbox("Extra resource tracker", value=has_er)
+            er_container = ui.column().classes('w-full pl-4')
+            er_container.set_visibility(has_er)
+            with er_container:
+                er_name = ui.input("Resource Name", value=res_obj.extra_resource.name if has_er else "", placeholder="Sorcery Points").classes('w-full').props('dense')
+                with ui.row().classes('w-full gap-2 items-center'):
+                    er_max = ui.number("Maximum", value=res_obj.extra_resource.maximum if has_er else 0, step=1, min=0).classes('flex-1').props('dense')
+                    er_reset = ui.select(["short", "long", "none"], label="Recharges on", value=res_obj.extra_resource.reset_on if has_er else "long").classes('flex-1').props('dense')
 
-        def _toggle_er():
-            er_container.set_visibility(er_check.value)
-        er_check.on_value_change(_toggle_er)
+            def _toggle_er():
+                er_container.set_visibility(er_check.value)
+            er_check.on_value_change(_toggle_er)
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
@@ -472,7 +494,8 @@ def _open_add_spell(cs, _save, resources):
             inp_conc   = ui.checkbox("Concentration")
         resource_names = [r['name'] for r in resources]
         inp_res    = ui.select(resource_names + [None], label="Resource", value=resource_names[0] if resource_names else None).classes('w-full')
-        inp_prep   = ui.checkbox("Prepared")
+        _prep_label = "River" if any(r.get('magic_type') == MagicType.DARK.value for r in resources) else "Prepared"
+        inp_prep   = ui.checkbox(_prep_label)
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
@@ -523,7 +546,8 @@ def _open_edit_spell(cs, _save, resources, spell_name, spell_idx):
             options.append(spell_obj.resource_name)
         options.append(None)
         inp_res    = ui.select(options, label="Resource", value=spell_obj.resource_name).classes('w-full')
-        inp_prep   = ui.checkbox("Prepared", value=spell_obj.prepared)
+        _prep_label = "River" if any(r.get('magic_type') == MagicType.DARK.value for r in resources) else "Prepared"
+        inp_prep   = ui.checkbox(_prep_label, value=spell_obj.prepared)
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')

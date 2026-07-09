@@ -2,7 +2,7 @@
 
 **A home for your tabletop characters, and your monsters too.**
 
-DonjonDocs is a self-hosted web app that holds your D&D 5e, Level Up: Advanced 5e, and Shadowdark characters in one tidy place. Run it for your group, sign your friends in, and put the paper sheets and scattered spreadsheets away.
+DonjonDocs is a self-hosted web app that holds your D&D 5e, Level Up: Advanced 5e, Shadowdark, and Ultramodern5 characters in one tidy place. Run it for your group, sign your friends in, and put the paper sheets and scattered spreadsheets away.
 
 ## What it is
 
@@ -19,7 +19,8 @@ It's not a character builder, validator, or generator. It won't walk you through
 ## Highlights
 
 **Character sheets that do the math for you.**
-- Three rule systems supported first-class: D&D 5e, Level Up: Advanced 5e, and Shadowdark RPG. Each gets its own layout. A5e shows Strife and combat maneuvers; Shadowdark hides proficiency bonus; 5e renames Fatigue back to Exhaustion.
+- Four rule systems supported first-class: D&D 5e, Level Up: Advanced 5e, Shadowdark RPG, and Ultramodern5. Each gets its own layout. A5e shows Strife and combat maneuvers; Shadowdark hides proficiency bonus; 5e renames Fatigue back to Exhaustion.
+- **Ultramodern5** (sci-fi/modern 5e): its own modern classes and dollar-priced gear, an **optional 7th "Vigor" attribute** you can opt into per character (auto-enabled by the Magus class), and the Vigor-powered **DARK** magic system — a "dark" resource pool with vessel/river/Vigor-Regeneration tracking and a spend +/- on the sheet.
 - Multiclass-aware. Ability scores propagate to skills, saves, attacks, AC and spell DCs.
 - HP +/- buttons, exhaustion / strife tracks, death-save counters, equipped armor automatically replaces your AC base.
 - Short and long rest mechanics that reset trackers and refill slots.
@@ -174,3 +175,4 @@ If you modify this application and offer it as a service over a network, you mus
 The game mechanics, character class data, items, and rules (located in the CSV files and rendered by the application) are the property of their respective creators and are **NOT** covered by the AGPL-3.0 license.
 - D&D 5e content is provided under the terms of the [Wizards of the Coast Systems Reference Document 5.1](https://dnd.wizards.com/resources/systems-reference-document) (licensed under CC-BY-4.0).
 - Level Up: Advanced 5e content is provided under the terms of its respective open gaming license.
+- Ultramodern5 content is provided under the terms of its respective open gaming license.
