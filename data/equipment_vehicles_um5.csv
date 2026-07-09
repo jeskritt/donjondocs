@@ -1,0 +1,52 @@
+Item,Cost,Weight,Type,Effects
+4-wheel ATV,$500,-,Vehicle,Cap 2; Cargo 100; Speed 30 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1
+APC,"$28,000",-,Vehicle,"Cap 8; Cargo 1,000; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 100; Size H; TL1"
+Armored Truck,"$13,000",-,Vehicle,"Cap 7; Cargo 3,000; Speed 30 ft.; AC 14+ Dex/Int mod (max 2); HP 70; Size L; TL1"
+"Car, Hyper","$300,000",-,Vehicle,Cap 2; Cargo 50; Speed 100 ft.; AC 14+ Dex/Int mod.; HP 40; Size L; TL1
+"Car, Luxury Sedan","$25,000",-,Vehicle,Cap 4; Cargo 500; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 40; Size L; TL1
+"Car, Sedan","$10,000",-,Vehicle,Cap 5; Cargo 500; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 40; Size L; TL1
+"Car, Sporty","$25,000",-,Vehicle,Cap 4; Cargo 200; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1
+"Car, Sports Sedan","$40,000",-,Vehicle,Cap 4; Cargo 500; Speed 60 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1
+"Car, Sports","$60,000",-,Vehicle,Cap 2; Cargo 200; Speed 70 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1
+"Car, Super","$100,000",-,Vehicle,Cap 2; Cargo 100; Speed 90 ft.; AC 14+ Dex/Int mod.; HP 40; Size L; TL1
+Semi-Trailer Truck,"$50,000",-,Vehicle,"Cap 4; Cargo 1,000; Speed 30 ft.; AC 15; HP 100; Size H; TL1"
+Sport Utility Vehicle,"$20,000",-,Vehicle,Cap 6; Cargo 500; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1
+"Sport Utility Vehicle, Luxury","$35,000",-,Vehicle,Cap 6; Cargo 500; Speed 40 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1
+Truck,"$8,000",-,Vehicle,"Cap 4; Cargo 3,500; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1"
+Van,"$10,000",-,Vehicle,Cap 8; Cargo 200; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 55; Size L; TL1
+Chopper,"$15,000",-,Vehicle,Cap 2; Cargo 10; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 25; Size M; TL1
+Cruiser,"$10,000",-,Vehicle,Cap 1; Cargo 20; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 23; Size M; TL1
+Dirt / Motorcross,"$2,000",-,Vehicle,Cap 1; Cargo 0; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1
+Enduro,"$5,000",-,Vehicle,Cap 2; Cargo 50; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 27; Size M; TL1
+Scooter,"$1,000",-,Vehicle,Cap 1; Cargo 5; Speed 20 ft.; AC 13+ Dex/Int mod.; HP 10; Size M; TL1
+Superbike,"$50,000",-,Vehicle,Cap 1; Cargo 10; Speed 100 ft.; AC 13+ Dex/Int mod.; HP 25; Size M; TL1
+Touring / Dual Sports,"$2,500",-,Vehicle,Cap 2; Cargo 30; Speed 60 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1
+Trike,"$9,000",-,Vehicle,Cap 2; Cargo 50; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 30; Size M; TL1
+"Buggy, Wheeled","$1,500",-,Vehicle,Cap 2; Cargo 50; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 30; Size L; TL1
+Earth Crawler,$105,-,Vehicle,"Cap 50; Cargo 30,000; Speed 20 ft.; AC 19; HP 400; Size Titanic; TL3"
+Haul Truck,"$500,000",-,Vehicle,"Cap 10; Cargo 20,000; Speed 20 ft.; AC 19; HP 300; Size Colossal; TL3"
+Hot Tank,"$50,000",-,Vehicle,Cap 4; Cargo 500; Speed 30 ft.; AC 17+ Dex/Int mod. (max 2); HP 75; Size H; TL3
+Hovercar,"$70,000",-,Vehicle,Cap 4; Cargo 50; Speed 70 ft.; AC 14+ Dex/Int mod.; HP 50; Size L; TL4
+Hoverbike,"$60,000",-,Vehicle,Cap 2; Cargo 10; Speed 100 ft.; AC 14+ Dex/Int mod.; HP 30; Size M; TL4
+Hovertruck,"$40,000",-,Vehicle,Cap 6; Cargo 200; Speed 50 ft.; AC 16+ Dex/Int mod. (max 2); HP 60; Size L; TL4
+Land Yacht / Bus,"$400,000",-,Vehicle,Cap 20; Cargo 2000; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 100; Size G; TL3
+Mobile Base,"$500,000",-,Vehicle,Cap 10; Cargo 500; Speed 20 ft.; AC 19; HP 250; Size G; TL4
+"Multi-Ped Vehicle, Light","$75,000",-,Vehicle,Cap 2; Cargo 100; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 70; Size L; TL3
+"Multi-Ped Vehicle, Heavy","$125,000",-,Vehicle,Cap 4; Cargo 500; Speed 20 ft.; AC 17; HP 100; Size H; TL3
+Personal Transporter,$500,-,Vehicle,Cap 1; Cargo 20; Speed 20 ft.; AC 13+ Dex/Int mod.; HP 5; Size M; TL1
+Sprung Train,"$200,000",-,Vehicle,"Cap 50; Cargo 10,000; Speed 20 ft.; AC 16; HP 150; Size G; TL2"
+Tank,"$25,000",-,Vehicle,Cap 4; Cargo 500; Speed 20 ft.; AC 18; HP 125; Size H; TL1
+Advanced Aerial Vehicle,"$100,000",-,Vehicle,"Cap 6; Cargo 1,500; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 100; Size H; TL4"
+Attack Helicopter,"$80,000",-,Vehicle,Cap 2; Cargo 500; Speed 60 ft.; AC 15 + Dex/Int mod. (max 2); HP 90; Size H; TL2
+Blimp,"$25,000",-,Vehicle,Cap 5; Cargo 300; Speed 10 ft.; AC 16; HP 50; Size G; TL2
+Buzzboy,"$25,000",-,Vehicle,Cap 1; Cargo 5; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 30; Size M; TL2
+Flying Supercar,"$3,5000",-,Vehicle,Cap 2; Cargo 50; Speed 60 ft.; AC 14 + Dex/Int mod.; HP 40; Size H; TL5
+Flying Car,"$25,000",-,Vehicle,Cap 4; Cargo 200; Speed 40 ft.; AC 13 + Dex/Int mod.; HP 30; Size H; TL4
+Helicopter (TL2),"$25,000",-,Vehicle,Cap 4; Cargo 500; Speed 50 ft.; AC 14 + Dex/Int mod. (max 2); HP 40; Size H; TL2
+Helicopter (TL3),"$70,000",-,Vehicle,Cap 4; Cargo 500; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 40; Size H; TL3
+Leviathan,"$200,000",-,Vehicle,"Cap 80; Cargo 20,000; Speed 40 ft.; AC 18; HP 200; Size G; TL4"
+Rocket Yacht,"$100,000",-,Vehicle,Cap 8; Cargo 800; Speed 100 ft.; AC 15 + Dex/Int mod. (max 2); HP 50; Size H; TL5
+Swoosh Bike,"$20,000",-,Vehicle,Cap 2; Cargo 100; Speed 80 ft.; AC 13 + Dex/Int mod.; HP 20; Size M; TL5
+Tilt-Fan,"$100,000",-,Vehicle,"Cap 6; Cargo 2,000; Speed 50 ft.; AC 15 + Dex/Int mod. (max 2); HP 100; Size H; TL3"
+Tilt-Rotor,"$100,000",-,Vehicle,"Cap 10; Cargo 3,000; Speed 60 ft.; AC 16; HP 100; Size G; TL2"
+Tilt-Jet,"$125,000",-,Vehicle,"Cap 10; Cargo 5,500; Speed 70 ft.; AC 16; HP 100; Size H; TL3"

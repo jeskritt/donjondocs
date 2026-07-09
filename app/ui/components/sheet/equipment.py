@@ -369,6 +369,9 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
                         item_type="item", name=r.name,
                         quantity=int(qty_inp.value or 1),
                         weight=r.weight, value=r.value,
+                        # Surface the global item's effects (e.g. a UM5 vehicle's
+                        # Cap/Speed/AC/HP or a cybernetic's location) as Properties.
+                        item_notes=r.effects,
                     )
                 updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
                 await _save({"inventory": updated})

@@ -29,3 +29,40 @@ Space Suit (Heavy),Heavy,"$5,000",15,0,-,Disadvantage,40 lb.,Cell M; TL2+
 Tech-Mail,Heavy,"$2,500",18,0,-,Disadvantage,35 lb.,TL3
 Yowie Suit,Heavy,$750,15,0,13,Special,35 lb.,TL0
 "Yowie Suit, Mk2",Heavy,"$5,500",15,0,13,Special,25 lb.,Cell H(20); TL3
+Forced Defense Shield,Shield,$250,+2,-,-,-,12 lb.,TL0
+Shield Brace,Shield,$500,+2,-,-,-,10 lb.,TL0
+Energy Shield,Shield,"$5,000",+2,-,-,-,1 lb.,Cell M(20); TL4
+Energy Envelope,Shield,"$40,000",+1,-,-,-,5 lb.,Cell H; TL5
+Kinetic Baffle,Shield,"$26,000",+3,-,-,-,5 lb.,Special; Cell H; TL4
+Repulsor Engine,Shield,"$15,000",+3,-,-,-,5 lb.,Special; Cell H/H(10); TL4
+Energy Dome (MK1),Shield,"$25,000",+1,-,-,-,10 lb.,Cell M(10); TL4
+Energy Dome (MK2),Shield,"$35,000",+2,-,-,-,10 lb.,Cell M(10); TL5
+Energy Dome (MK3),Shield,"$45,000",+3,-,-,-,10 lb.,Cell M(10); TL5
+Mifune,Shield,"$1,000",+0,-,-,-,2 lb.,"Force shield: 5 HP, regen 5/turn; Cell M; TL4"
+Psycho,Shield,"$1,250",+0,-,-,-,2 lb.,"Force shield: 10 HP, regen 5/turn; Cell M; TL4"
+Viper,Shield,"$1,500",+0,-,-,-,2 lb.,"Force shield: 10 HP, regen 10/turn; Cell M; TL4"
+Moses,Shield,"$1,750",+0,-,-,-,2 lb.,"Force shield: 20 HP, regen 5/turn; Cell H; TL4"
+Taidan,Shield,"$2,000",+0,-,-,-,2 lb.,"Force shield: 20 HP, regen 10/turn; Cell H; TL4"
+Bradbury,Shield,"$3,500",+0,-,-,-,2 lb.,"Force shield: 30 HP, regen 10/turn; Cell H; TL4"
+Sabazios,Shield,"$6,000",+0,-,-,-,2 lb.,"Force shield: 30 HP, regen 15/turn; Cell H; TL4"
+Alphaden,Shield,"$8,500",+0,-,-,-,2 lb.,"Force shield: 20 HP, regen 20/turn; Cell H; TL4"
+Marathon,Shield,"$20,000",+0,-,-,-,2 lb.,"Force shield: 40 HP, regen 10/turn; Cell H; TL4"
+Morita Limited,Shield,"$30,000",+0,-,-,-,2 lb.,"Force shield: 40 HP, regen 20/turn; Cell H; TL4"
+NecroTech,Shield,"$45,000",+0,-,-,-,2 lb.,"Force shield: 30 HP, regen 30/turn; Cell H(x2); TL4"
+Spirit Systems,Shield,"$80,000",+0,-,-,-,2 lb.,"Force shield: 60 HP, regen 20/turn; Cell H(x2); TL4"
+Living Carapace (Light),Heavy,"$40,000",12,-,-,-,400 lb.,Powered exo-armor; TL3
+VR-052F Superlight,Heavy,"$120,000",12,-,-,-,450 lb.,Powered exo-armor; Cell H(10); TL5
+YF-21 Skinsuit,Heavy,"$65,000",12,-,-,-,265 lb.,Powered exo-armor; Cell H; TL4
+Combat Exoskeleton (TL4),Heavy,"$65,000",15,2,-,Disadvantage,"1,950 lb.",Powered exo-armor; Cell H; TL4
+Combat Exoskeleton (TL5),Heavy,"$85,000",15,2,-,Disadvantage,"1,950 lb.",Powered exo-armor; Cell H; TL5
+Living Carapace (Medium),Heavy,"$55,000",15,2,-,-,800 lb.,Powered exo-armor; TL3
+VF-1 Power Suit,Heavy,"$65,000",15,2,-,Disadvantage,650 lb.,Powered exo-armor; Cell H; TL3
+Utility Exoskeleton,Heavy,"$59,000",14,2,-,Disadvantage,"1,500 lb.",Powered exo-armor; Cell H; TL3
+Vulture,Heavy,"$52,000",14,2,-,Disadvantage,350 lb.,Powered exo-armor; Cell H; TL4
+ATAC-01 God Mech,Heavy,"$115,000",18,0,-,Disadvantage,"18,000 lb.",Powered exo-armor; Cell H(10); TL5
+ATH-Q58 Vertical Tank,Heavy,"$85,000",18,0,-,Disadvantage,"8,000 lb.",Powered exo-armor; Cell H; TL4
+AV-98 Mecha,Heavy,"$50,000",18,0,-,Disadvantage,"10,000 lb.",Powered exo-armor; Cell H; TL3
+Living Carapace (Heavy),Heavy,"$65,000",18,0,-,Disadvantage,"1,500 lb.",Powered exo-armor; TL3
+Mobile Motor Armor,Heavy,"$65,000",18,0,-,Disadvantage,"3,950 lb.",Powered exo-armor; Cell H; TL4
+RX-78 Motor Slave,Heavy,"$100,000",18,0,-,Disadvantage,"4,850 lb.",Powered exo-armor; Cell H; TL5
+Unit 01 Power Armor,Heavy,"$70,000",18,0,-,Disadvantage,"4,050 lb.",Powered exo-armor; Cell H; TL4

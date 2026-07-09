@@ -172,6 +172,31 @@ async def test_ingest_equipment_shadowdark(db_session):
 
 
 @pytest.mark.asyncio
+async def test_ingest_equipment_type_and_effects_columns(db_session):
+    """Equipment CSVs may carry Type + Effects columns (used by the UM5 vehicle /
+    cybernetics / ammo gear); they must land on GlobalItem.type / .effects."""
+    csv_content = [
+        ["Item", "Cost", "Weight", "Type", "Effects"],
+        ["4-wheel ATV", "$500", "-", "Vehicle", "Cap 2; Speed 30 ft.; HP 20; Size M"],
+    ]
+    with tempfile.NamedTemporaryFile(mode="w", prefix="equipment_vehicles_", suffix="_um5.csv", delete=False, newline="") as tf:
+        csv.writer(tf).writerows(csv_content)
+        filepath = tf.name
+    try:
+        await ingest_file(db_session, filepath)
+        atv = (await db_session.execute(
+            select(GlobalItem).where(GlobalItem.name == "4-wheel ATV")
+        )).scalars().first()
+        assert atv is not None
+        assert atv.source == "Ultramodern 5e"
+        assert atv.value == "$500"
+        assert atv.type == "Vehicle"
+        assert "Speed 30 ft." in (atv.effects or "")
+    finally:
+        os.remove(filepath)
+
+
+@pytest.mark.asyncio
 async def test_ingest_unknown_file_skipped(db_session, capsys):
     """An unrecognized file prefix should be silently skipped with a print message."""
     with tempfile.NamedTemporaryFile(mode="w", prefix="spells_", suffix="_phb2014.csv", delete=False, newline="") as tf:
