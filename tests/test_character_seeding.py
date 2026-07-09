@@ -165,3 +165,7 @@ class TestDefaultMoney:
     def test_um5_seeds_only_dollars(self):
         # Ultramodern5 uses a modern dollar economy, not fantasy coinage.
         assert default_money(SheetStyle.UM5) == {"$": 0}
+
+    def test_voidrunner_seeds_only_credits(self):
+        # Voidrunner's galaxy runs on credits ('cr'), not fantasy coinage.
+        assert default_money(SheetStyle.VOIDRUNNER) == {"cr": 0}

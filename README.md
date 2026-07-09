@@ -2,7 +2,7 @@
 
 **A home for your tabletop characters, and your monsters too.**
 
-DonjonDocs is a self-hosted web app that holds your D&D 5e, Level Up: Advanced 5e, Shadowdark, and Ultramodern5 characters in one tidy place. Run it for your group, sign your friends in, and put the paper sheets and scattered spreadsheets away.
+DonjonDocs is a self-hosted web app that holds your D&D 5e, Level Up: Advanced 5e, Shadowdark, Ultramodern5, and Voidrunner characters in one tidy place. Run it for your group, sign your friends in, and put the paper sheets and scattered spreadsheets away.
 
 ## What it is
 
@@ -19,8 +19,14 @@ It's not a character builder, validator, or generator. It won't walk you through
 ## Highlights
 
 **Character sheets that do the math for you.**
-- Four rule systems supported first-class: D&D 5e, Level Up: Advanced 5e, Shadowdark RPG, and Ultramodern5. Each gets its own layout. A5e shows Strife and combat maneuvers; Shadowdark hides proficiency bonus; 5e renames Fatigue back to Exhaustion.
+- Five rule systems supported first-class, each with its own layout:
+  - **D&D 5e** — the classic 2014 core ruleset (Fatigue is renamed back to Exhaustion).
+  - **Level Up: Advanced 5e** — deeper, tactical 5e; shows the Strife track and combat maneuvers.
+  - **Shadowdark RPG** — old-school and minimalist; hides proficiency bonus.
+  - **Ultramodern5** — sci-fi/modern expansion of 5e (see below).
+  - **Voidrunner** — sci-fi expansion of Level Up: A5e (see below).
 - **Ultramodern5** (sci-fi/modern 5e): its own modern classes and dollar-priced gear, an **optional 7th "Vigor" attribute** you can opt into per character (auto-enabled by the Magus class), and the Vigor-powered **DARK** magic system — a "dark" resource pool with vessel/river/Vigor-Regeneration tracking and a spend +/- on the sheet.
+- **Voidrunner** (sci-fi expansion of Level Up: A5e): psionic classes (Psion, Psyknight, Scientist, Scout, Trooper), credits instead of coin, and futuristic weapons, armor, gear, cyberware, and vehicles. It runs on the A5e chassis, so Strife and combat maneuvers come along for free. Psionic powers use a dedicated **"Psionics"** magic type — a spend-from-a-pool that rewords the sheet's spell vocabulary to "Powers".
 - Multiclass-aware. Ability scores propagate to skills, saves, attacks, AC and spell DCs.
 - HP +/- buttons, exhaustion / strife tracks, death-save counters, equipped armor automatically replaces your AC base.
 - Short and long rest mechanics that reset trackers and refill slots.
@@ -176,3 +182,4 @@ The game mechanics, character class data, items, and rules (located in the CSV f
 - D&D 5e content is provided under the terms of the [Wizards of the Coast Systems Reference Document 5.1](https://dnd.wizards.com/resources/systems-reference-document) (licensed under CC-BY-4.0).
 - Level Up: Advanced 5e content is provided under the terms of its respective open gaming license.
 - Ultramodern5 content is provided under the terms of its respective open gaming license.
+- Voidrunner content is provided under the terms of its respective open gaming license.
