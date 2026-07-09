@@ -37,6 +37,9 @@ from app.rule_systems import SheetStyle  # noqa: F401
 CREATURE_TYPES: tuple[str, ...] = (
     "Aberration", "Beast", "Celestial", "Construct", "Dragon", "Elemental",
     "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead",
+    # Vehicles/mechs/starships live as stat blocks too (Voidrunner, UM5, airships);
+    # kept in the taxonomy so the parser and catalog filter recognise them.
+    "Vehicle",
 )
 CREATURE_SIZES: tuple[str, ...] = (
     "Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Titanic",

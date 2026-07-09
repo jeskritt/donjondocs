@@ -16,6 +16,7 @@ from pathlib import Path
 from nicegui import app, ui
 
 from app.schemas.ally import Ally, AllyCreate, AllyUpdate
+from app.schemas.char_sheet_global import SheetStyle
 from app.services.ally_service import (
     create_ally,
     delete_ally,
@@ -29,19 +30,33 @@ from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
 
 # Quick-pick suggestions surfaced in the type select. The field is free
 # text on the model — users may type anything; these are just hints.
-ALLY_TYPE_SUGGESTIONS = ["Contact", "Companion", "Pet", "Wildshape", "User Defined"]
+# "Vehicle" is dropped for Shadowdark characters in `_open_editor` (the
+# minimalist OSR system has no vehicle/mech concept); every other system
+# — DND5E, A5E, UM5, Voidrunner, airship-style fantasy — keeps it.
+ALLY_TYPE_SUGGESTIONS = ["Contact", "Companion", "Pet", "Wildshape", "Vehicle", "User Defined"]
 
-# Types whose body field auto-seeds with a homebrewery-style stat-block
-# template. Source lives in stat_block_template.md so a maintainer can
-# tune the placeholder without round-tripping through Python.
-SEEDABLE_TYPES = {"Pet", "Companion", "Wildshape"}
-_TEMPLATE_PATH = Path(__file__).resolve().parent / "stat_block_template.md"
+# Ally types whose body field auto-seeds with a homebrewery-style stat-block
+# template, mapped to the template file to seed. Pet/Companion/Wildshape share
+# the monster template; Vehicle (mechs/starships/airships) gets its own. Sources
+# live in .md files so a maintainer can tune them without touching Python.
+_TEMPLATE_DIR = Path(__file__).resolve().parent
+TYPE_TEMPLATES: dict[str, str] = {
+    "Pet": "stat_block_template.md",
+    "Companion": "stat_block_template.md",
+    "Wildshape": "stat_block_template.md",
+    "Vehicle": "vehicle_stat_block_template.md",
+}
 
 
-def _read_stat_block_template() -> str:
-    """Read the stat-block template fresh on each call so an edit to the
-    .md file shows up without restarting the dev server."""
-    return _TEMPLATE_PATH.read_text(encoding="utf-8")
+def _read_stat_block_template(ally_type: str) -> str | None:
+    """Return the seed template for `ally_type`, or None if it doesn't seed.
+
+    Read fresh on each call so an edit to the .md file shows up without
+    restarting the dev server."""
+    fname = TYPE_TEMPLATES.get(ally_type)
+    if not fname:
+        return None
+    return (_TEMPLATE_DIR / fname).read_text(encoding="utf-8")
 
 
 def _render_allies(state, char_id, user):
@@ -75,9 +90,16 @@ def _render_allies(state, char_id, user):
             ui.label("Edit Ally" if existing else "Add Ally").classes("text-lg font-bold mb-2 text-white")
 
             name_in = ui.input("Name", value=(existing.name if existing else "")).props("dense").classes("w-full")
+            # Shadowdark has no vehicle/mech concept — drop it from the hints.
+            # (The field is still free text, so nothing is truly forbidden.)
+            cs = state.get("cs")
+            is_shadowdark = cs is not None and cs.style == SheetStyle.SHADOWDARK
+            type_options = [
+                t for t in ALLY_TYPE_SUGGESTIONS if t != "Vehicle" or not is_shadowdark
+            ]
             type_in = ui.select(
-                options=ALLY_TYPE_SUGGESTIONS,
-                value=(existing.ally_type if existing else ALLY_TYPE_SUGGESTIONS[0]),
+                options=type_options,
+                value=(existing.ally_type if existing else type_options[0]),
                 with_input=True,
                 new_value_mode="add-unique",
                 label="Type",
@@ -95,8 +117,9 @@ def _render_allies(state, char_id, user):
                     return
                 if (body_in.value or "").strip():
                     return
-                if (e.value or "").strip() in SEEDABLE_TYPES:
-                    body_in.set_value(_read_stat_block_template())
+                template = _read_stat_block_template((e.value or "").strip())
+                if template:
+                    body_in.set_value(template)
 
             type_in.on_value_change(_maybe_seed_template)
 

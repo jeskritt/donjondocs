@@ -35,12 +35,13 @@ It's not a character builder, validator, or generator. It won't walk you through
 **Allies, pets, and wildshape forms.**
 - Each character has an Allies & Stat Blocks tab. Markdown bodies, sorted and edited one at a time.
 - Add an ally of type Pet, Companion, or Wildshape and the body field auto-fills with a homebrewery-flavoured stat block template so you can fill in the blanks.
+- A **Vehicle** ally type seeds a vehicle/mech stat-block template (AC, HP, speed modes, crew, armament) — handy for a Voidrunner starfighter, a Robotech-style mech, or a fantasy airship. Available for every system except Shadowdark.
 
 **Notes that survive the campaign.**
 - Markdown notes for session logs, backstory, plot hooks, faction info, whatever your DM keeps prompting you to write down.
 
 **Creature Catalog**
-- Build your own bestiary alongside your characters. Each entry is a homebrewery-style stat block in Markdown, rendered to look like a page from a 5e monster manual.
+- Build your own bestiary alongside your characters. Each entry is a homebrewery-style stat block in Markdown, rendered to look like a page from a 5e monster manual. New entries seed from a **Monster** or **Vehicle** template.
 - Keep your work private, or flip the **Public** toggle to share with everyone signed in to your instance, handy for the DM who wants to drop polished stat blocks in front of the party, or a player keeping a binder of hirelings and recurring villains.
 - Copy a public creature into your own catalog with one click. The copy lands private and yours to remix.
 - Paste a stat block in, click **Update from stat block** and the parser fills in size / type / challenge rating for you. (Tested against 121 real homebrewery monsters; works on bullet-list and italic field formats, plural "swarm of *aberrations*" types, and slash-separated compound types like *aberration/undead*.)
