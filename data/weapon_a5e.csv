@@ -46,3 +46,17 @@ Garrotte,Martial Melee,3 sp,-,None,—,Two-handed
 Lance,Martial Melee,10 gp,-,Piercing (1d12),6 lbs.,"Defensive (medium), reach"
 Net,Martial Ranged,1 gp,-,None,2 lbs.,Thrown (5/15)
 Spear-thrower,Martial Melee,10 gp,-,Piercing (see description),4 lbs.,"Loading, range (80/320)"
+Assassin's gauntlet,Rare Melee,50 gp,-,1d4 piercing,8 lbs.,"Finesse, stealthy"
+Boot dagger,Rare Melee,75 gp,-,1d4 piercing,4 lbs.,"Finesse, stealthy"
+Ring blade,Rare Melee,10 gp,30/90,1d6 slashing,6 lbs.,Thrown (30/90)
+Double weapon,Rare Melee,150 gp,-,1d8 (two damage types),varies,"Dual-wielding, parrying, two-handed"
+Sword pistol,Rare Melee,200 gp,10/30,1d8 piercing,5 lbs.,"Finesse, loading, range (10/30)"
+Spiked chain,Rare Melee,35 gp,-,2d4 bludgeoning and slashing,20 lbs.,"Heavy, parrying immunity, reach (10 ft.), two-handed"
+Mercurial maul,Rare Melee,150 gp,-,2d6 bludgeoning,15 lbs.,"Breaker, heavy, two-handed"
+Geared slingshot,Rare Ranged,110 gp,60/180,1d6 bludgeoning,25 lbs.,"Bulky, heavy, loading, two-handed"
+Pistol,Rare Ranged,120 gp,20/60,1d10 piercing,3 lbs.,"Loading, range (20/60)"
+Shotgun,Rare Ranged,150 gp,30/90,1d10 piercing,6 lbs.,"Loading, range (30/90); crit if both dice hit on advantage"
+Carbine,Rare Ranged,150 gp,50/150,1d12 piercing,5 lbs.,"Loading, two-handed"
+Ratcheting crossbow,Rare Ranged,125 gp,150/600,1d12 piercing,20 lbs.,"Heavy, loading, two-handed"
+Revolver,Rare Ranged,300 gp,60/180,2d6 piercing,3 lbs.,"Loading (holds 6 bullets)"
+Musket,Rare Ranged,350 gp,60/180,2d8 piercing,10 lbs.,"Heavy, loading, two-handed"

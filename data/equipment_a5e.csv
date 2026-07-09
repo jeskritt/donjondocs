@@ -1,4 +1,4 @@
-Item,Cost,Weight
+Item,Cost,Weight,Type,Effects
 Adderwort roots,10 gp,-
 Antitoxin,75 gp,-
 Bandage,1 sp,-
@@ -160,10 +160,12 @@ Lyre,30 gp,2 lb.
 Harp,35 gp,25 lb.
 Horn,3 gp,2 lb.
 Pan flute,12 gp,2 lb.
-Shawm,2 gp,1 lb.
 Trombone,15 gp,4 lb.
-Viol,30 gp,1 lb.
 Violin,25 gp,1 lb.
+Casaba,2 gp,0.5 lb.
+Castanet,2 gp,0.5 lb.
+Maraca,1 gp,0.5 lb.
+Ocarina,3 gp,1 lb.
 Camel,50 gp,-
 Donkey or mule,8 gp,-
 Draft horse,50 gp,-
@@ -194,3 +196,9 @@ Ballista,500 gp,-
 Cannon,3000 gp,-
 Mangonel,850 gp,-
 Trebuchet,2500 gp,-
+Alchemist's fire (flask),35 gp,1 lb.
+Ball bearings (bag of 1000),1 gp,2 lb.
+Ink (1 ounce bottle),10 gp,-
+Ink pen,2 cp,-
+Helm,12 gp,4 lb.,Helm,"No proficiency required. Expertise die on saves to resist being stunned or rattled; passive Perception -2."
+Visored helm,25 gp,8 lb.,Helm,"No proficiency required. Expertise die on saves to resist being charmed, stunned, or rattled; passive Perception -5; reduce falling damage by 5. Raise visor (object interaction) to function as a helm."
