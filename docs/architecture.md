@@ -74,13 +74,13 @@ The `Character` Pydantic schema is the source of truth for a character. The page
 flowchart LR
   CR[CharacterRecord<br/>character_data: JSON] -->|Character&#40;**dict&#41;| CS[Character schema]
   CS --> GB[get_builder&#40;cs&#41;]
-  GB -->|DnD5e / A5e / Shadowdark / UM5| VD[view_data dict]
+  GB -->|DnD5e / A5e / Shadowdark / UM5 / Voidrunner| VD[view_data dict]
   GB -.->|GeneFunk / Carbon| NI[NotImplementedError]
   VD --> R[card renderers<br/>app/ui/components/sheet/*]
   R --> UI[NiceGUI tree]
 ```
 
-- `app/builders/base.py` defines `BaseSheetBuilder` and the default `build_*` methods. Style-specific builders override only what they need (e.g. Shadowdark suppresses combat maneuvers). `app/builders/__init__.py` provides a `get_builder()` registry that maps `SheetStyle` to the correct builder class. The `SheetStyle` enum has six values (`DND5E`, `A5E`, `UM5`, `SHADOWDARK`, `GENEFUNK`, `CARBON`); DND5E, A5E, SHADOWDARK, and UM5 have concrete builders (`Um5Builder` extends `DnD2014Builder`) — the remaining two raise `NotImplementedError` from `get_builder()`.
+- `app/builders/base.py` defines `BaseSheetBuilder` and the default `build_*` methods. Style-specific builders override only what they need (e.g. Shadowdark suppresses combat maneuvers). `app/builders/__init__.py` provides a `get_builder()` registry that maps `SheetStyle` to the correct builder class. The `SheetStyle` enum has seven values (`DND5E`, `A5E`, `UM5`, `VOIDRUNNER`, `SHADOWDARK`, `GENEFUNK`, `CARBON`); DND5E, A5E, SHADOWDARK, UM5, and VOIDRUNNER have concrete builders (`Um5Builder` extends `DnD2014Builder`; `VoidrunnerBuilder` extends `A5eBuilder`) — the remaining two raise `NotImplementedError` from `get_builder()`.
 - **Ultramodern5 specifics** live in the builder/schema, not the UI: an optional **Vigor** 7th attribute (`vig_score`, gated by `vigor_enabled`, surfaced via `view_data['vigor_enabled']`) and the **DARK** magic system (`MagicType.DARK`). `build_magic` derives spell attack/DC from the resource's `attribute` (which may be `VIG`), and for a DARK resource also derives the `dark` pool's vessel/river/VR totals (base + misc). Spell tier reuses `CharacterSpell.level`.
 - Card renderers live in `app/ui/components/sheet/` (abilities, actions, skills, hp, defenses, proficiencies, description, equipment, plus the `features` dispatcher that routes to `features_abilities`, `features_magic`, and `features_maneuvers`). Each is wrapped in `@ui.refreshable`. The orchestrator in `app/ui/pages/character_sheet.py` collects every refresh handle into `refresh_fns`. The single write path `_save(updates)` calls `update_character` then iterates `refresh_fns` to re-render every card — this is how attribute edits propagate to dependent cards (skills, defenses, magic DC, actions, etc.) without per-card wiring.
 - `_compute_ac(character)` in `base.py` derives total AC from equipped inventory. An equipped armor item's `base_ac` replaces the manual AC base and its `dex_cap` clamps DEX contribution. Shields stack their `base_ac` on top. The breakdown is emitted as `view_data['ac_breakdown']`.

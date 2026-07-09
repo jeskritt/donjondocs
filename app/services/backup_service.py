@@ -1,8 +1,8 @@
 """
 AI Helper Docstring
-Purpose: User-data backup/restore for the whole DB. Snapshots the `users` and `characters` tables plus user-owned rows in the nine `global_*` lookup tables (rows with non-null `owner_id`) into a single versioned JSON envelope, and restores from that envelope in either merge or replace mode.
+Purpose: User-data backup/restore for the whole DB. Snapshots the `users`, `characters`, and `creatures` tables, the per-character `character_allies`/`character_notes` addons, plus user-owned rows in the `global_*` lookup tables (rows with non-null `owner_id`) into a single versioned JSON envelope, and restores from that envelope in either merge or replace mode.
 Interactions:
-- `app.models.user.User`, `app.models.character.CharacterRecord`, `app.models.char_sheet.*`: the source/target tables.
+- `app.models.user.User`, `app.models.character.CharacterRecord`, `app.models.creature.Creature`, `app.models.char_sheet.*`: the source/target tables.
 - `app.services.character_io`: `EXPORT_VERSION` and `migrate_character_data` are reused so each character's `character_data` blob is normalized to the latest version at backup time and re-validated on restore.
 - `app.schemas.char_sheet_specific.Character`: validates each character's blob during restore before any DB writes.
 - `cli.py`: only caller in production. The `backup` and `restore` subcommands wrap these functions.
@@ -33,6 +33,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.models import char_sheet as global_models
 from app.models.character import CharacterRecord
 from app.models.character_addons import CharacterAlly, CharacterNote
+from app.models.creature import Creature
 from app.models.user import User
 from app.rule_systems import SheetStyle
 from app.schemas.char_sheet_specific import Character
@@ -41,9 +42,11 @@ from app.user_roles import UserRole
 
 
 # v2 added the `character_allies` and `character_notes` buckets at envelope
-# level. v1 backups still load — missing keys default to empty lists, so
-# nothing is destroyed by restoring an older artifact.
-BACKUP_VERSION = 2
+# level. v3 added the `creatures` bucket. Older backups still load — missing
+# keys default to empty lists, so nothing is destroyed by restoring an older
+# artifact. Restore compatibility is gated on `alembic_revision`, not this
+# number, so no restore-side version check keys off it.
+BACKUP_VERSION = 3
 
 # Per-character relational addons. These tables have ON DELETE CASCADE on
 # their FK to `characters`, so REPLACE-mode restore wipes them implicitly
@@ -94,6 +97,9 @@ class BackupEnvelope(BaseModel):
     # to {} so v1 envelopes loaded into a v2 codebase parse cleanly with
     # empty addon buckets.
     character_addons: dict[str, list[dict]] = {}
+    # User-owned creature catalog rows (added in BACKUP_VERSION 3). Defaulted
+    # to [] so pre-v3 envelopes parse cleanly with an empty creature bucket.
+    creatures: list[dict] = []
 
 
 class RestoreReport(BaseModel):
@@ -109,6 +115,8 @@ class RestoreReport(BaseModel):
     user_globals_updated: int = 0
     character_addons_inserted: int = 0
     character_addons_updated: int = 0
+    creatures_inserted: int = 0
+    creatures_updated: int = 0
 
 
 def _model_columns(model: type) -> list[str]:
@@ -187,6 +195,12 @@ async def create_backup(session: AsyncSession) -> BackupEnvelope:
         rows = (await session.execute(select(model))).scalars().all()
         character_addons[table_name] = [_row_to_dict(r, cols) for r in rows]
 
+    # Every creature has an owner, so back up all rows (like characters); there
+    # is no owner_id-null "global" variant to filter out.
+    creature_cols = _model_columns(Creature)
+    creature_rows = (await session.execute(select(Creature))).scalars().all()
+    creatures = [_row_to_dict(r, creature_cols) for r in creature_rows]
+
     return BackupEnvelope(
         backup_version=BACKUP_VERSION,
         exported_at=datetime.now(timezone.utc).isoformat(),
@@ -196,6 +210,7 @@ async def create_backup(session: AsyncSession) -> BackupEnvelope:
         characters=characters,
         user_globals=user_globals,
         character_addons=character_addons,
+        creatures=creatures,
     )
 
 
@@ -301,6 +316,9 @@ async def restore_backup(
             for _, model in reversed(USER_GLOBAL_MODELS):
                 await session.execute(delete(model).where(model.owner_id.isnot(None)))
             await session.execute(delete(CharacterRecord))
+            # Creatures reference only `users`; delete them before users so the
+            # FK holds without relying on cascade (portable across backends).
+            await session.execute(delete(Creature))
             await session.execute(delete(User))
             await session.flush()
 
@@ -318,6 +336,17 @@ async def restore_backup(
                 report.characters_inserted += 1
             else:
                 report.characters_updated += 1
+        await session.flush()
+
+        # Creatures only need their owner (users) present, which is now flushed.
+        # Restore preserves every column verbatim, including `is_public` — this
+        # is a faithful snapshot, not an import (import/copy force is_public off).
+        for raw in envelope.creatures:
+            inserted = await _upsert(session, Creature, _prepare_global_row(raw))
+            if inserted:
+                report.creatures_inserted += 1
+            else:
+                report.creatures_updated += 1
         await session.flush()
 
         for table_name, model in USER_GLOBAL_MODELS:

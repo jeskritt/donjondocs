@@ -1,0 +1,24 @@
+Armor Name,Armor Type,Cost,Armor Class (AC),Max Dex,Strength,Stealth,Weight,Notes
+Spacesuit,Light,80 cr,10,2,—,—,30 lbs.,"Spacefaring (2 mod ports); repair DC 10, sewing kit"
+Canvas,Light,5 cr,11,Unlimited,—,—,5 lbs.,"Comfortable; repair DC 5, sewing kit"
+Forcefield,Light,"1,000 cr",13,Unlimited,—,—,5 lbs.,"Hackable, spacefaring, ignores ports; repair DC 20, engineer's toolbox"
+Leather,Light,15 cr,12,Unlimited,—,—,10 lbs.,"Comfortable; repair DC 10, sewing kit"
+Synthweave,Light,30 cr,12,Unlimited,—,—,2 lbs.,"Comfortable; repair DC 10, sewing kit"
+Aramid breastplate,Medium,80 cr,14,2,Str 11,—,8 lbs.,"Repair DC 20, engineer's toolbox"
+Composite mesh,Medium,100 cr,14,2,Str 11,—,20 lbs.,"Spacefaring (2 mod ports); repair DC 20, engineer's toolbox"
+Polymer,Medium,200 cr,15,2,Str 13,Disadvantage,25 lbs.,"Spacefaring (3 mod ports); repair DC 20, engineer's toolbox"
+Hyperweave,Medium,50 cr,13,2,—,—,5 lbs.,"Comfortable; repair DC 15, sewing kit"
+Riot armor,Medium,10 cr,15,2,Str 13,—,30 lbs.,"Repair DC 15, engineer's toolbox"
+Chitin armor,Heavy,150 cr,16,0,Str 13,—,40 lbs.,Not repairable
+Composite,Heavy,450 cr,17,0,Str 14,Disadvantage,35 lbs.,"Spacefaring (4 mod ports); repair DC 20, engineer's toolbox"
+Carbide plate,Heavy,600 cr,18,0,Str 15,Disadvantage,45 lbs.,"Repair DC 20, engineer's toolbox"
+Power armor,Heavy,"4,500 cr",18,0,Str 11,"Disadvantage, speed reduced by 5 feet",90 lbs.,"Spacefaring (6 mod ports); repair DC 15, engineer's toolbox"
+Breaching shield,Shield,75 cr,+2,—,—,—,12 lbs.,Expertise die to maneuver DC for Shoves
+Duranium shield (light),Shield,10 cr,+1,—,—,—,2 lbs.,Light shield
+Duranium shield (medium),Shield,20 cr,+2,—,—,—,4 lbs.,Medium shield
+Duranium shield (heavy),Shield,35 cr,+3,—,—,—,10 lbs.,Heavy shield
+Force shield (light),Shield,30 cr,+0,—,—,—,1 lb.,8 temporary hit points; recharges on a short rest
+Force shield (medium),Shield,60 cr,+0,—,—,—,1 lb.,16 temporary hit points; recharges on a short rest
+Force shield (large),Shield,90 cr,+0,—,—,—,1 lb.,25 temporary hit points; recharges on a short rest
+Force shield (advanced),Shield,As force shield x10,+0,—,—,—,1 lb.,Temporary hit points as force shield x2; recharges on a short rest
+Riot shield,Shield,75 cr,+2,—,—,—,12 lbs.,Expertise die to resist Shoves

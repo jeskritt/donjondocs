@@ -14,6 +14,7 @@ class SheetStyle(str, enum.Enum):
     DND5E = "Dungeons & Dragons 5e"
     A5E = "Level Up: Advanced 5e"
     UM5 = "Ultramodern 5e"
+    VOIDRUNNER = "Voidrunner"
     SHADOWDARK = "Shadowdark RPG"
     GENEFUNK = "GeneFunk 2090"
     CARBON = "Carbon 2185"

@@ -1,10 +1,12 @@
 """Magic & spells sub-tab — used by the dispatcher in `features.py`.
 
 Renders magic resources (slots / per-level / points / Shadowdark /
-Ultramodern5 DARK casting), an optional extra-resource tracker per
-resource (e.g. Sorcery Points), and the spell list with add/edit
-dialogs. POINTS and DARK pools get a +/- spend control; DARK also shows
-its Vigor-derived River capacity and Vigor Regeneration (VR).
+Ultramodern5 DARK casting / Voidrunner PSIONICS), an optional
+extra-resource tracker per resource (e.g. Sorcery Points), and the spell
+list with add/edit dialogs. POINTS, DARK, and PSIONICS pools get a +/-
+spend control; DARK also shows its Vigor-derived River capacity and Vigor
+Regeneration (VR). A PSIONICS resource rewords the card's spell vocabulary
+to "Powers" (Power DC, Manifest Atk).
 
 Each spell row toggles an extended view (label:value block + markdown
 description, PHB-independent) on a whole-row click; the trailing
@@ -72,6 +74,14 @@ def _render_magic_tab(state, cs, magic, _save):
     has_dark = any(r['magic_type'] == MagicType.DARK.value for r in resources)
     prepared_label = "River" if has_dark else "Prepared"
 
+    # PSIONICS (Voidrunner): reword the fantasy-magic vocabulary to "Powers" so
+    # psi-only characters aren't reading "Spell". Whole-card scope, mirroring the
+    # DARK relabel above — fine because Voidrunner sheets are psionics-only.
+    has_psionics = any(r['magic_type'] == MagicType.PSIONICS.value for r in resources)
+    spell_noun = "Power" if has_psionics else "Spell"
+    dc_label = "Power DC" if has_psionics else "Save DC"
+    atk_label = "Manifest Atk" if has_psionics else "Attack"
+
     # Which resource expansions are open. Bound into page `state` so they survive
     # the `_save` re-render — otherwise spending a pool with +/- collapses the card
     # on every click.
@@ -87,8 +97,8 @@ def _render_magic_tab(state, cs, magic, _save):
         with exp:
             with ui.row().classes('gap-6 text-sm'):
                 ui.label(f"Attribute: {r['attribute'] or '—'}").classes('text-gray-400')
-                ui.label(f"Attack: {_fmt_bonus(r['spell_attack_total'])}").classes('text-white')
-                ui.label(f"Save DC: {r['spell_dc_total']}").classes('text-white')
+                ui.label(f"{atk_label}: {_fmt_bonus(r['spell_attack_total'])}").classes('text-white')
+                ui.label(f"{dc_label}: {r['spell_dc_total']}").classes('text-white')
 
             rname = r['name']
             cur_list = r['current']
@@ -118,9 +128,10 @@ def _render_magic_tab(state, cs, magic, _save):
                     with ui.row().classes('gap-4 mt-1'):
                         ui.label(f"River: {dk.get('river_total', 0)} spells").classes('text-gray-400 text-xs')
                         ui.label(f"VR: {dk.get('vr_total', 0)}").classes('text-gray-400 text-xs')
-                elif mtype == MagicType.POINTS.value:
+                elif mtype in (MagicType.POINTS.value, MagicType.PSIONICS.value):
+                    pool_label = "Psi Points" if mtype == MagicType.PSIONICS.value else "Points"
                     with ui.row().classes('items-center gap-2 mt-1'):
-                        ui.label(f"Points: {cur_list[0] if cur_list else 0} / {max_list[0] if max_list else 0}").classes('text-gray-300 text-sm')
+                        ui.label(f"{pool_label}: {cur_list[0] if cur_list else 0} / {max_list[0] if max_list else 0}").classes('text-gray-300 text-sm')
                         render_pm_adjuster(_pool_adjuster(rname, max_list[0] if max_list else 0))
                 else:
                     _render_slot_checkboxes(cs, rname, cur_list, max_list, mtype, _save)
@@ -177,7 +188,7 @@ def _render_magic_tab(state, cs, magic, _save):
 
     if resources or spells:
         ui.separator()
-        ui.label("Spells").classes('text-sm text-gray-400 mt-2 mb-1')
+        ui.label(f"{spell_noun}s").classes('text-sm text-gray-400 mt-2 mb-1')
 
         # Filter selections survive _save re-renders by living on `state`.
         # Local @ui.refreshable lets a checkbox toggle re-render the list
@@ -198,7 +209,7 @@ def _render_magic_tab(state, cs, magic, _save):
                     ui.checkbox(label, value=filt[key], on_change=_on_change).props('dense')
 
             if not spells:
-                ui.label("No spells added yet.").classes('text-gray-500 italic text-sm py-1')
+                ui.label(f"No {spell_noun.lower()}s added yet.").classes('text-gray-500 italic text-sm py-1')
             else:
                 visible_spells = [
                     s for s in spells
@@ -207,7 +218,7 @@ def _render_magic_tab(state, cs, magic, _save):
                     and (not filt["ritual"]        or s.get("ritual"))
                 ]
                 if not visible_spells:
-                    ui.label("No spells match the active filters.").classes('text-gray-500 italic text-sm py-1')
+                    ui.label(f"No {spell_noun.lower()}s match the active filters.").classes('text-gray-500 italic text-sm py-1')
                 else:
                     sorted_spells = sorted(visible_spells, key=lambda s: (s['level'], s['name']))
                     for sp_idx, sp in enumerate(sorted_spells):
@@ -254,7 +265,7 @@ def _render_magic_tab(state, cs, magic, _save):
                                 render_plain_markdown(sp.get('description'))
                             info_row.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
-            ui.button("Add Spell", icon='add', on_click=lambda: _open_add_spell(cs, _save, resources)).props('unelevated color=indigo').classes('mt-2')
+            ui.button(f"Add {spell_noun}", icon='add', on_click=lambda: _open_add_spell(cs, _save, resources)).props('unelevated color=indigo').classes('mt-2')
 
         _spells_section()
 
@@ -273,7 +284,7 @@ def _open_add_resource(cs, _save, resources):
         slots_container.bind_visibility_from(inp_type, 'value', backward=lambda v: v != MagicType.DARK.value)
         with slots_container:
             inp_slots = ui.input("Slots (comma-separated, e.g. 4,2)", value="").classes('w-full')
-            ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS: leave blank or single.").classes('text-xs text-gray-500')
+            ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS/PSIONICS: leave blank or single.").classes('text-xs text-gray-500')
 
         d_vessel, d_current, d_vessel_misc, d_river_misc, d_vr_base, d_vr_misc = _dark_fields(inp_type)
 
@@ -385,7 +396,7 @@ def _open_edit_resource(cs, _save, resource_name):
         slots_container.bind_visibility_from(inp_type, 'value', backward=lambda v: v != MagicType.DARK.value)
         with slots_container:
             inp_slots = ui.input("Slots (comma-separated, e.g. 4,2)", value=old_slots_str).classes('w-full')
-            ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS: leave blank or single.").classes('text-xs text-gray-500')
+            ui.label("SLOTS: one entry. PERLEVEL: per level. SHADOWDARK/POINTS/PSIONICS: leave blank or single.").classes('text-xs text-gray-500')
 
         d_vessel, d_current, d_vessel_misc, d_river_misc, d_vr_base, d_vr_misc = _dark_fields(inp_type, **_dark_seed)
 

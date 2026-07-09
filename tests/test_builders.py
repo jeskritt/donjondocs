@@ -18,6 +18,7 @@ from app.builders.dnd5e import DnD2014Builder
 from app.builders.shadowdark import ShadowdarkBuilder
 from app.builders.a5e import A5eBuilder
 from app.builders.um5 import Um5Builder
+from app.builders.voidrunner import VoidrunnerBuilder
 
 def create_mock_character(style: SheetStyle) -> Character:
     return Character(
@@ -45,11 +46,15 @@ def test_builder_factory_returns_correct_instance():
     c_sd = create_mock_character(SheetStyle.SHADOWDARK)
     c_a5e = create_mock_character(SheetStyle.A5E)
     c_um5 = create_mock_character(SheetStyle.UM5)
+    c_vr = create_mock_character(SheetStyle.VOIDRUNNER)
 
     assert isinstance(get_builder(c_dnd), DnD2014Builder)
     assert isinstance(get_builder(c_sd), ShadowdarkBuilder)
     assert isinstance(get_builder(c_a5e), A5eBuilder)
     assert isinstance(get_builder(c_um5), Um5Builder)
+    # Voidrunner extends A5e, so its builder is also an A5eBuilder instance.
+    assert isinstance(get_builder(c_vr), VoidrunnerBuilder)
+    assert isinstance(get_builder(c_vr), A5eBuilder)
 
 
 @pytest.mark.parametrize("style", [SheetStyle.GENEFUNK, SheetStyle.CARBON])
@@ -141,6 +146,49 @@ def test_non_dark_resource_has_no_dark_block():
     })
     res = get_builder(c).build()["magic"]["resources"][0]
     assert "dark" not in res
+
+
+def test_voidrunner_inherits_a5e_chassis():
+    """Voidrunner runs on the full A5e view model: the Strife track shows, combat
+    maneuvers are present (not nulled), and the A5e detail suppressions apply."""
+    c_vr = create_mock_character(SheetStyle.VOIDRUNNER)
+    vd = get_builder(c_vr).build()
+
+    assert vd['combat']['show_strife'] is True
+    assert vd['combat_maneuvers'] is not None          # A5e keeps maneuvers
+    assert vd['combat']['exhaustion_label'] == 'Fatigue'  # A5e wording, not "Exhaustion"
+    assert vd['details']['alignment_suppressed'] is True
+
+
+def test_voidrunner_psionics_resource_matches_points():
+    """A PSIONICS resource derives spell attack/DC exactly like a POINTS pool of the
+    same ability + proficiency — the psionics label reuses the Spell-Points math."""
+    ability_score = AbilityScore(base=16)  # +3 modifier
+    psionics = create_mock_character(SheetStyle.VOIDRUNNER).model_copy(update={
+        "int_score": ability_score,
+        "magic_resources": [MagicResource(
+            name="Psionics", magic_type=MagicType.PSIONICS, attribute="INT",
+            current=[5], maximum=[10],
+        )],
+    })
+    points = create_mock_character(SheetStyle.VOIDRUNNER).model_copy(update={
+        "int_score": ability_score,
+        "magic_resources": [MagicResource(
+            name="Points", magic_type=MagicType.POINTS, attribute="INT",
+            current=[5], maximum=[10],
+        )],
+    })
+    psi_res = get_builder(psionics).build()["magic"]["resources"][0]
+    pts_res = get_builder(points).build()["magic"]["resources"][0]
+
+    assert psi_res["magic_type"] == MagicType.PSIONICS.value
+    # DC = 8 + prof(2) + INT mod(3) = 13; attack = prof(2) + INT mod(3) = 5.
+    assert psi_res["spell_dc_total"] == 13
+    assert psi_res["spell_attack_total"] == 5
+    # Same derivation as a POINTS pool, and no DARK-only block.
+    assert psi_res["spell_dc_total"] == pts_res["spell_dc_total"]
+    assert psi_res["spell_attack_total"] == pts_res["spell_attack_total"]
+    assert "dark" not in psi_res
 
 def test_shadowdark_builder_nulls_fields():
     c_sd = create_mock_character(SheetStyle.SHADOWDARK)

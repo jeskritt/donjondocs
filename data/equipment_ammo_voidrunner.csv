@@ -1,0 +1,17 @@
+Item,Cost,Weight,Type,Effects
+Caster cell (light/medium/heavy caster; 20),1 cr,1 lb.,Ammunition,20 shots for a caster weapon
+Firearm magazine (pistol/rifle/cannon; 20),1 cr,½ lb.,Ammunition,20 rounds for a firearm
+Darts (10),1 cr,½ lb.,Ammunition,10 darts
+Fuel canister,5 cr,½ lb.,Ammunition,Fuel for flame weapons
+Net cartridge,5 cr,½ lb.,Ammunition,Cartridge for a netcaster
+Concussion grenade,60 cr,½ lb.,Explosive,10 ft. radius
+EMP grenade,80 cr,½ lb.,Explosive,10 ft. radius
+Foam grenade,20 cr,½ lb.,Explosive,10 ft. radius
+Flash grenade,40 cr,½ lb.,Explosive,10 ft. radius
+Frag grenade,30 cr,½ lb.,Explosive,5 ft. radius
+Gas grenade,40 cr,½ lb.,Explosive,10 ft. radius
+Goo grenade,40 cr,½ lb.,Explosive,10 ft. radius
+Incendiary grenade,50 cr,½ lb.,Explosive,10 ft. radius
+Smoke grenade,20 cr,½ lb.,Explosive,10 ft. radius
+Stun grenade,100 cr,½ lb.,Explosive,10 ft. radius
+Remote detonator,25 cr,—,Explosive,Remotely detonates explosives

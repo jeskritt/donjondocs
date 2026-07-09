@@ -37,6 +37,9 @@ from app.rule_systems import SheetStyle  # noqa: F401
 CREATURE_TYPES: tuple[str, ...] = (
     "Aberration", "Beast", "Celestial", "Construct", "Dragon", "Elemental",
     "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead",
+    # Vehicles/mechs/starships live as stat blocks too (Voidrunner, UM5, airships);
+    # kept in the taxonomy so the parser and catalog filter recognise them.
+    "Vehicle",
 )
 CREATURE_SIZES: tuple[str, ...] = (
     "Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Titanic",
@@ -53,12 +56,17 @@ class MagicType(str, enum.Enum):
     SHADOWDARK: Shadowdark RPG style
     DARK: Ultramodern5 "dark" pool — Vigor-powered spend-to-cast (like POINTS,
           but with vessel/river/VR presentation)
+    PSIONICS: Voidrunner psionic powers — mechanically identical to POINTS (a
+          single spend-from-a-pool), but surfaced as an obvious "Psionics" choice
+          and reworded to "Powers" on the sheet so psi-only characters aren't
+          hunting through fantasy-magic options.
     """
     SLOTS = "Slots"
     PERLEVEL = "Slots / Level"
     POINTS = "Spell Points"
     SHADOWDARK = "Shadowdark"
     DARK = "Dark"
+    PSIONICS = "Psionics"
     
 
 class SimpleAbility(BaseModel):

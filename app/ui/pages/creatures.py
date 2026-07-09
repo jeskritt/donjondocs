@@ -45,18 +45,19 @@ from app.ui.theme import DIALOG_CARD_STYLE, apply_global_styles, notify_error, n
 logger = logging.getLogger(__name__)
 
 
-# Same template used to seed the Ally body — the catalog and the in-character
-# stat blocks share authoring conventions, so they share the seed file.
-_TEMPLATE_PATH = (
-    Path(__file__).resolve().parent.parent
-    / "components"
-    / "sheet"
-    / "stat_block_template.md"
-)
+# Same templates used to seed the Ally body — the catalog and the in-character
+# stat blocks share authoring conventions, so they share the seed files.
+# "monster" is the default; "vehicle" seeds a mech/starship/airship stat block.
+_TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "components" / "sheet"
+_TEMPLATES = {
+    "monster": "stat_block_template.md",
+    "vehicle": "vehicle_stat_block_template.md",
+}
 
 
-def _read_template() -> str:
-    return _TEMPLATE_PATH.read_text(encoding="utf-8")
+def _read_template(kind: str = "monster") -> str:
+    fname = _TEMPLATES.get(kind, _TEMPLATES["monster"])
+    return (_TEMPLATE_DIR / fname).read_text(encoding="utf-8")
 
 
 @ui.page("/creatures")
@@ -192,6 +193,25 @@ async def creatures_page():
             ui.label("Body field supports Markdown — homebrewery stat block recommended.").classes(
                 "text-xs text-gray-500 -mt-2"
             )
+
+            # New creatures can seed from a Monster or Vehicle/mech template. Only
+            # swap the body while it's still an untouched seed (or empty) so we
+            # never clobber what the user has typed.
+            if is_new:
+                _seed_bodies = {_read_template(kind).strip() for kind in _TEMPLATES}
+
+                def _swap_template(e):
+                    body = (body_in.value or "").strip()
+                    if body and body not in _seed_bodies:
+                        return
+                    body_in.set_value(_read_template((e.value or "Monster").lower()))
+
+                with ui.row().classes("w-full items-center gap-2 -mt-1"):
+                    ui.label("Seed template:").classes("text-xs text-gray-500")
+                    ui.select(
+                        options=["Monster", "Vehicle"], value="Monster",
+                        on_change=_swap_template,
+                    ).props("dense options-dense").classes("w-40")
 
             async def _apply_parser():
                 """Run the parser against the current textarea content and

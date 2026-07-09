@@ -172,6 +172,9 @@ def default_money(style: SheetStyle) -> dict[str, int]:
     if style == SheetStyle.UM5:
         # Ultramodern5 uses a modern dollar economy, not fantasy coinage.
         return {"$": 0}
+    if style == SheetStyle.VOIDRUNNER:
+        # Voidrunner's galaxy runs on credits ('cr'), not fantasy coinage.
+        return {"cr": 0}
     return {"CP": 0, "SP": 0, "EP": 0, "GP": 0, "PP": 0}
 
 

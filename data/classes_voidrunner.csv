@@ -1,0 +1,6 @@
+name,hit_dice,primary_ability,saving_throws,proficiencies
+Psion,d6,Intelligence,"Constitution, Intelligence","Light & medium armor, simple weapons, medium mauls, tk gauntlets"
+Psyknight,d10,Strength,"Dexterity, Charisma","Light & medium armor, shields, simple weapons, blades, starship weapons"
+Scientist,d6,Intelligence,"Intelligence, Wisdom","Light armor, simple weapons"
+Scout,d8,Dexterity,"Dexterity, Charisma","Light armor, simple weapons, martial weapons, starship weapons"
+Trooper,d10,Strength,"Strength, Constitution","Light, medium & heavy armor, shields, simple weapons, martial weapons, starship weapons"

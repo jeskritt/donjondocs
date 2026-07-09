@@ -71,6 +71,8 @@ def test_get_style_from_filename():
     assert get_style_from_filename("classes_shadowdark.csv") == SheetStyle.SHADOWDARK
     assert get_style_from_filename("classes_um5.csv") == SheetStyle.UM5
     assert get_style_from_filename("weapon_ultramodern.csv") == SheetStyle.UM5
+    assert get_style_from_filename("weapon_voidrunner.csv") == SheetStyle.VOIDRUNNER
+    assert get_style_from_filename("equipment_gear_voidrunner.csv") == SheetStyle.VOIDRUNNER
     assert get_style_from_filename("random.csv") == SheetStyle.DND5E
 
 
@@ -112,6 +114,36 @@ async def test_ingest_armor_a5e(db_session):
         result = await db_session.execute(stmt)
         leather = result.scalars().first()
         assert leather is not None
+    finally:
+        os.remove(filepath)
+
+
+@pytest.mark.asyncio
+async def test_ingest_weapon_voidrunner(db_session):
+    """A `*_voidrunner.csv` file routes to source="Voidrunner" and lands its rows."""
+    csv_content = [
+        ["Weapon Name", "Weapon Type", "Cost", "Range", "Damage", "Weight", "Notes"],
+        ["Laser pistol", "Light Firearm; laser", "70 cr", "40/100", "2d4 radiant", "2 lbs.",
+         "Ammunition (range 40/100), reload (20 shots), simple"],
+    ]
+
+    with tempfile.NamedTemporaryFile(mode="w", prefix="weapon_", suffix="_voidrunner.csv", delete=False, newline="") as tf:
+        writer = csv.writer(tf)
+        writer.writerows(csv_content)
+        filepath = tf.name
+
+    try:
+        await ingest_file(db_session, filepath)
+
+        stmt = select(GlobalWeapon).where(GlobalWeapon.name == "Laser pistol")
+        result = await db_session.execute(stmt)
+        laser = result.scalars().first()
+
+        assert laser is not None
+        assert laser.source == "Voidrunner"
+        assert laser.damage == "2d4 radiant"
+        assert laser.range == "40/100"
+        assert laser.owner_id is None
     finally:
         os.remove(filepath)
 

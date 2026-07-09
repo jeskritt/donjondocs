@@ -74,6 +74,13 @@ async def sheet_creator_page():
                 "rocket_launch",
                 "#22D3EE",
             )
+            system_card(
+                "Voidrunner",
+                "Sci-fi expansion of Level Up: A5e. Psionic classes, credits, and futuristic gear atop A5e's Strife & combat maneuvers.",
+                SheetStyle.VOIDRUNNER,
+                "satellite_alt",
+                "#34D399",
+            )
 
     async def do_create(style: SheetStyle):
         async with service_session() as session:
