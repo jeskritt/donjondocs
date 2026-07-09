@@ -59,6 +59,15 @@ def _read_stat_block_template(ally_type: str) -> str | None:
     return (_TEMPLATE_DIR / fname).read_text(encoding="utf-8")
 
 
+def ally_type_options(style: SheetStyle | None) -> list[str]:
+    """Suggestion list for the ally-type select. `Vehicle` is hidden for
+    Shadowdark (the minimalist OSR system has no vehicle/mech concept); every
+    other system keeps it. The field is still free text, so nothing is truly
+    forbidden — this only tunes the quick-pick hints."""
+    hide_vehicle = style == SheetStyle.SHADOWDARK
+    return [t for t in ALLY_TYPE_SUGGESTIONS if t != "Vehicle" or not hide_vehicle]
+
+
 def _render_allies(state, char_id, user):
     """Render the Allies & Stat Blocks panel.
 
@@ -91,12 +100,8 @@ def _render_allies(state, char_id, user):
 
             name_in = ui.input("Name", value=(existing.name if existing else "")).props("dense").classes("w-full")
             # Shadowdark has no vehicle/mech concept — drop it from the hints.
-            # (The field is still free text, so nothing is truly forbidden.)
             cs = state.get("cs")
-            is_shadowdark = cs is not None and cs.style == SheetStyle.SHADOWDARK
-            type_options = [
-                t for t in ALLY_TYPE_SUGGESTIONS if t != "Vehicle" or not is_shadowdark
-            ]
+            type_options = ally_type_options(cs.style if cs is not None else None)
             type_in = ui.select(
                 options=type_options,
                 value=(existing.ally_type if existing else type_options[0]),

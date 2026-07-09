@@ -15,8 +15,12 @@ Interactions:
 from pathlib import Path
 
 from app.services.creature_parser import parse_stat_block
-from app.schemas.char_sheet_global import CREATURE_TYPES
-from app.ui.components.sheet.allies import TYPE_TEMPLATES, _read_stat_block_template
+from app.schemas.char_sheet_global import CREATURE_TYPES, SheetStyle
+from app.ui.components.sheet.allies import (
+    TYPE_TEMPLATES,
+    _read_stat_block_template,
+    ally_type_options,
+)
 
 _SHEET_DIR = Path(__file__).resolve().parent.parent / "app" / "ui" / "components" / "sheet"
 _VEHICLE_TPL = _SHEET_DIR / "vehicle_stat_block_template.md"
@@ -58,3 +62,14 @@ def test_read_stat_block_template_by_type():
     # Non-seedable / unknown types don't seed anything.
     assert _read_stat_block_template("Contact") is None
     assert _read_stat_block_template("") is None
+
+
+def test_vehicle_hidden_only_for_shadowdark():
+    # Every vehicle-capable system offers the Vehicle ally type…
+    for style in (SheetStyle.DND5E, SheetStyle.A5E, SheetStyle.UM5,
+                  SheetStyle.VOIDRUNNER, None):
+        assert "Vehicle" in ally_type_options(style)
+    # …but Shadowdark drops it from the hints (still free text, just not suggested).
+    sd = ally_type_options(SheetStyle.SHADOWDARK)
+    assert "Vehicle" not in sd
+    assert "Pet" in sd and "Companion" in sd   # the rest are unaffected
