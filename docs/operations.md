@@ -4,6 +4,7 @@
   - [What's in a backup](#whats-in-a-backup)
   - [Backup file format](#backup-file-format)
   - [Creating a backup](#creating-a-backup)
+  - [Backing up a remote DB from a local machine](#backing-up-a-remote-db-from-a-local-machine)
   - [Restoring from a backup](#restoring-from-a-backup)
   - [Schema-version safety](#schema-version-safety)
   - [Production rehearsal](#production-rehearsal)
@@ -73,6 +74,43 @@ Output:
 [OK] wrote backups/donjondocs-20260430T123456Z.json (3 users, 7 characters, 2 custom globals)
 [WARN] Backup contains hashed passwords. Treat the file as a secret.
 ```
+
+### Backing up a remote DB from a local machine
+
+To snapshot **production** from your own workstation, point `DATABASE_URL` at the remote DB before invoking the CLI. The command reads `DATABASE_URL` from the environment; a real environment variable **overrides** anything in `.env`, and if neither is set it falls back to the local SQLite default (`app/config.py`). The single most important thing is to confirm you're actually hitting prod and not silently backing up your empty dev DB.
+
+**Windows / PowerShell.** PowerShell does not support bash's inline `VAR=value command` syntax — that runs the whole string as a command name and errors. Set the variable as its own statement first, then run the CLI (both in the *same* session):
+
+```powershell
+# Single quotes stop PowerShell from interpreting $, ?, @ in the URL.
+$env:DATABASE_URL = 'postgresql+asyncpg://postgres.<ref>:<password>@aws-1-ca-central-1.pooler.supabase.com:6543/postgres'
+python cli.py backup --output donjondocs_prod_20260709.json
+
+# Optional: clear it when you're done so it doesn't linger in the session.
+Remove-Item Env:\DATABASE_URL
+```
+
+(macOS/Linux shells can use the inline form: `DATABASE_URL='...' python cli.py backup`.)
+
+**Confirm you targeted prod, not dev.** Before backing up, resolve the URL through the same code path the CLI uses and print it with the password masked:
+
+```powershell
+python -c "from app.config import get_settings as g; import re; print(re.sub(r':([^:@/]+)@', ':***@', g().DATABASE_URL))"
+```
+
+- Prints `...@...pooler.supabase.com:6543/...` → pointed at prod, proceed.
+- Prints `sqlite+aiosqlite:///./donjondocs.db` → the env var didn't take (wrong session, typo'd name, or broken quoting). Fix it before running the backup.
+
+The backup output is itself proof: the `(N users, M characters, ...)` line should match production's real counts, not your near-empty dev DB. To double-check the written file:
+
+```powershell
+python -c "import json; d=json.load(open('donjondocs_prod_20260709.json', encoding='utf-8')); print(len(d.get('users',[])),'users,',len(d.get('characters',[])),'characters')"
+```
+
+**Supabase connection gotchas.** The example above uses the **transaction pooler** (port `6543`). Two things commonly bite the `asyncpg` driver there:
+
+- **`?ssl=require` may be rejected** by asyncpg (it isn't parsed the way libpq parses it). If you hit an SSL/handshake error, drop the query string and let TLS negotiate: use the bare URL with no `?ssl=...`.
+- **Prepared-statement errors** (`prepared statement "__asyncpg_..." does not exist` / `DuplicatePreparedStatementError`) come from pgbouncer transaction pooling not tolerating asyncpg's statement cache. For a one-off backup, switch to the **Session pooler / direct connection** URI (port `5432`) from Supabase → **Project Settings → Database → Connection string**.
 
 ### Restoring from a backup
 
