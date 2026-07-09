@@ -12,11 +12,25 @@ from app.schemas.char_sheet_global import SheetStyle
 from app.services.character_seeding import (
     _parse_proficiencies,
     _parse_saving_throws,
+    classes_require_vigor,
     default_money,
     prof_bonus_for,
     seed_profs_from_primary,
     seed_saves_from_primary,
 )
+
+
+class TestClassesRequireVigor:
+    def test_true_when_class_grants_vig_save(self):
+        classes = [CharacterClassEntry(name="Magus", saving_throw_grants=["INT", "VIG"])]
+        assert classes_require_vigor(classes) is True
+
+    def test_false_for_non_vigor_class(self):
+        classes = [CharacterClassEntry(name="Fighter", saving_throw_grants=["STR", "CON"])]
+        assert classes_require_vigor(classes) is False
+
+    def test_empty(self):
+        assert classes_require_vigor([]) is False
 
 
 class TestParseSavingThrows:
@@ -87,6 +101,14 @@ class TestSeedSavesFromPrimary:
         assert len(saves) == 6
         assert {s["attribute"] for s in saves} == {"STR", "DEX", "CON", "INT", "WIS", "CHA"}
 
+    def test_include_vigor_adds_seventh_save(self):
+        classes = [CharacterClassEntry(name="Fighter", level=1, saving_throw_grants=["STR", "CON"])]
+        saves = seed_saves_from_primary(classes, include_vigor=True)
+        assert len(saves) == 7
+        assert {s["attribute"] for s in saves} == {"STR", "DEX", "CON", "INT", "WIS", "CHA", "VIG"}
+        # Vigor is not a class-granted save here, so it seeds unproficient.
+        assert next(s for s in saves if s["attribute"] == "VIG")["proficiency"] == 0
+
     def test_only_primary_grants_proficiency(self):
         classes = [
             CharacterClassEntry(name="Fighter", level=1, saving_throw_grants=["STR", "CON"]),
@@ -139,3 +161,7 @@ class TestDefaultMoney:
 
     def test_shadowdark_seeds_only_gp(self):
         assert default_money(SheetStyle.SHADOWDARK) == {"GP": 0}
+
+    def test_um5_seeds_only_dollars(self):
+        # Ultramodern5 uses a modern dollar economy, not fantasy coinage.
+        assert default_money(SheetStyle.UM5) == {"$": 0}

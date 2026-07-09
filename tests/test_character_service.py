@@ -365,6 +365,65 @@ class TestCreateCharacterMulticlass:
             assert char.character_data[key]["base"] == 10
 
 
+class TestCreateCharacterVigor:
+    """Ultramodern5 optional Vigor attribute — seed-gated on the create flag."""
+
+    def _um5_skills(self):
+        from app.models.char_sheet import GlobalSkill
+        return [
+            GlobalSkill(name="Athletics", attribute="STR", source=SheetStyle.UM5.value),
+            GlobalSkill(name="Induce", attribute="VIG", source=SheetStyle.UM5.value),
+        ]
+
+    @pytest.mark.asyncio
+    async def test_vigor_disabled_seeds_no_vig_save_or_skills(self, db_session, standard_user):
+        db_session.add_all(self._um5_skills())
+        await db_session.flush()
+        char = await create_character(
+            db_session, "NoVigor", SheetStyle.UM5, standard_user,
+            classes=_default_classes(), vigor_enabled=False,
+        )
+        data = char.character_data
+        assert data["vigor_enabled"] is False
+        assert {s["attribute"] for s in data["saving_throws"]} == {"STR", "DEX", "CON", "INT", "WIS", "CHA"}
+        names = {s["name"] for s in data["skills"]}
+        assert "Athletics" in names
+        assert "Induce" not in names  # VIG skill not seeded while Vigor is off
+
+    @pytest.mark.asyncio
+    async def test_vigor_enabled_seeds_vig_save_and_skills(self, db_session, standard_user):
+        db_session.add_all(self._um5_skills())
+        await db_session.flush()
+        char = await create_character(
+            db_session, "WithVigor", SheetStyle.UM5, standard_user,
+            classes=_default_classes(), vigor_enabled=True,
+        )
+        data = char.character_data
+        assert data["vigor_enabled"] is True
+        assert "VIG" in {s["attribute"] for s in data["saving_throws"]}
+        assert "Induce" in {s["name"] for s in data["skills"]}
+
+    @pytest.mark.asyncio
+    async def test_vigor_caster_class_forces_vigor(self, db_session, standard_user):
+        """Selecting a class that grants a Vigor save (e.g. the Magus) enables
+        Vigor even when the create flag is explicitly False."""
+        from app.models.char_sheet import GlobalClass
+        db_session.add(GlobalClass(
+            name="Magus", source=SheetStyle.UM5.value, hit_dice="d6",
+            primary_ability="Vigor", saving_throws="Intelligence, Vigor",
+            proficiencies="Simple weapons",
+        ))
+        await db_session.flush()
+        char = await create_character(
+            db_session, "Sparkmage", SheetStyle.UM5, standard_user,
+            classes=[CharacterClassEntry(name="Magus", level=1)],
+            vigor_enabled=False,   # explicitly off — the class must force it on
+        )
+        data = char.character_data
+        assert data["vigor_enabled"] is True
+        assert "VIG" in {s["attribute"] for s in data["saving_throws"]}
+
+
 class TestCreateCharacterSkillSeeding:
     @pytest.mark.asyncio
     async def test_seeds_full_skill_list_for_dnd5e(self, db_session, standard_user):

@@ -8,7 +8,7 @@ from app.builders import get_builder
 from app.schemas.char_sheet_specific import Character
 from app.services.session import service_session
 from app.services.character_service import get_character, update_character, rest_character, CharacterServiceError
-from app.services.global_items_service import list_classes
+from app.services.global_items_service import list_classes, list_skills
 from app.ui.components.character_editor import open_character_editor
 
 from app.ui.components.sheet.abilities import _render_abilities
@@ -155,11 +155,14 @@ async def character_sheet_page(char_id: str):
         async with service_session() as session:
             class_rows = await list_classes(session, cs.style, owner_id=user.id)
         class_names = [c.name for c in class_rows]
+        from app.services.character_seeding import _parse_saving_throws
+        vigor_class_names = {c.name for c in class_rows if "VIG" in _parse_saving_throws(c.saving_throws)}
         initial = {
             "name": cs.name,
             "ancestry": cs.race.ancestry,
             "culture": cs.race.culture,
             "background": cs.background,
+            "vigor_enabled": cs.vigor_enabled,
             "classes": [
                 {"name": ce.name, "archetype": ce.archetype, "level": ce.level}
                 for ce in cs.classes
@@ -171,24 +174,45 @@ async def character_sheet_page(char_id: str):
             initial=initial,
             title="Edit Character",
             confirm_label="Save",
+            vigor_class_names=vigor_class_names,
         )
         if form is None:
             return
         from app.schemas.char_sheet_specific import CharacterClassEntry
         from app.services.character_seeding import (
-            _seed_classes_from_db, _aggregate_saves, _aggregate_proficiencies,
+            _seed_classes_from_db, _aggregate_saves, _aggregate_proficiencies, _ATTR_ALIAS,
+            classes_require_vigor,
         )
+        vigor_enabled = bool(form.get("vigor_enabled", False))
         entries = [CharacterClassEntry(**c) for c in form["classes"]]
+
+        def _norm_attr(a: str | None) -> str:
+            return _ATTR_ALIAS.get((a or "").strip().lower(), (a or "").strip().upper())
+
         async with service_session() as session:
             seeded = await _seed_classes_from_db(session, cs.style, user.id, entries)
+            # A Vigor-caster class (e.g. the Magus) forces Vigor on regardless
+            # of the checkbox.
+            vigor_enabled = vigor_enabled or classes_require_vigor(seeded)
+            # When Vigor is (or has just been) enabled, make sure the character
+            # carries the style's Vigor-keyed skills — this backfills characters
+            # created before they opted in. Idempotent: only adds missing ones.
+            vig_skill_rows = []
+            if vigor_enabled:
+                vig_skill_rows = [
+                    s for s in await list_skills(session, cs.style, owner_id=user.id)
+                    if _norm_attr(s.attribute) == "VIG"
+                ]
         prof = _aggregate_proficiencies(seeded)
         current_prof = cs.proficiency.model_dump()
         current_prof["weapon"] = prof["weapon"]
         current_prof["armor"] = prof["armor"]
 
-        saves = _aggregate_saves(seeded)
+        # Rebuild saves including the Vigor save iff enabled (otherwise the save
+        # list is rebuilt 6-wide and any Vigor save is dropped).
+        saves = _aggregate_saves(seeded, include_vigor=vigor_enabled)
 
-        await _save({
+        updates = {
             "name": form["name"],
             "race": {
                 "ancestry": form["ancestry"],
@@ -201,7 +225,19 @@ async def character_sheet_page(char_id: str):
             "level": sum(c.level for c in seeded),
             "proficiency": current_prof,
             "saving_throws": saves,
-        })
+            "vigor_enabled": vigor_enabled,
+        }
+
+        existing_skill_names = {sk.name for sk in cs.skills}
+        additions = [
+            {"name": s.name, "attribute": "VIG", "proficiency": 0, "misc": 0,
+             "example_uses": s.example_uses}
+            for s in vig_skill_rows if s.name not in existing_skill_names
+        ]
+        if additions:
+            updates["skills"] = [sk.model_dump() for sk in cs.skills] + additions
+
+        await _save(updates)
 
     @ui.refreshable
     def _top_bar_section():

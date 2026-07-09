@@ -30,7 +30,7 @@ async def sheet_creator_page():
         ui.label("Select Game System").classes("text-3xl font-bold text-white mb-2")
         ui.label("Choose the ruleset for your new character sheet.").classes("text-gray-400 mb-8")
 
-        with ui.row().classes("gap-6 justify-center w-full max-w-4xl"):
+        with ui.row().classes("gap-6 justify-center flex-wrap w-full max-w-5xl"):
 
             # Cards share width and a fixed height, then use flex-col + flex-1
             # on the description so the icon/title/button line up exactly across
@@ -67,17 +67,27 @@ async def sheet_creator_page():
                 "nights_stay",
                 "#A855F7",
             )
+            system_card(
+                "Ultramodern5",
+                "Sci-fi/modern expansion of 5e. Modern classes, dollar-priced gear, optional Vigor magic.",
+                SheetStyle.UM5,
+                "rocket_launch",
+                "#22D3EE",
+            )
 
     async def do_create(style: SheetStyle):
         async with service_session() as session:
             class_rows = await list_classes(session, style, owner_id=user.id)
         class_names = [c.name for c in class_rows]
+        from app.services.character_seeding import _parse_saving_throws
+        vigor_class_names = {c.name for c in class_rows if "VIG" in _parse_saving_throws(c.saving_throws)}
 
         form = await open_character_editor(
             style=style,
             available_classes=class_names,
             title=f"New {style.value.upper()} Character",
             confirm_label="Create",
+            vigor_class_names=vigor_class_names,
         )
         if form is None:
             return
@@ -94,6 +104,7 @@ async def sheet_creator_page():
                     ancestry=form["ancestry"],
                     culture=form["culture"],
                     background=form["background"],
+                    vigor_enabled=form.get("vigor_enabled", False),
                 )
                 notify_success(f"Created {form['name']}!")
                 ui.navigate.to(f"/character/{new_char.id}")

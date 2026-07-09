@@ -1,4 +1,4 @@
-"""Equipment card — coins plus the weapons / armor / items inventory tabs.
+"""Equipment card — currency plus the weapons / armor / items inventory tabs.
 
 Reads `state["cs"].inventory` directly (not the builder view-model) and splits
 it by `item_type`. Each item row's name toggles an extended view (fields not on
@@ -43,14 +43,17 @@ def _render_equipment(state, char_id, user, _save):
             ui.separator()
 
             with ui.tabs().classes('w-full').bind_value(state, "equipment_tab") as tabs:
-                tab_c = ui.tab("Coins")
+                # Keep the internal tab name "Coins" (the value bound into
+                # state["equipment_tab"]) stable; only the display label changes
+                # to "Currency" so it reads correctly for gp / $ / credits.
+                tab_c = ui.tab("Coins", label="Currency")
                 tab_w = ui.tab("Weapons")
                 tab_a = ui.tab("Armor")
                 tab_i = ui.tab("Items")
 
             with ui.tab_panels(tabs, value=state["equipment_tab"]).classes('w-full').bind_value(state, "equipment_tab").style('max-height: 400px; overflow-y: auto;'):
 
-                # --- Coins tab ---
+                # --- Currency tab ---
                 with ui.tab_panel(tab_c):
                     money = dict(cs.currency or {})
 
@@ -366,6 +369,9 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
                         item_type="item", name=r.name,
                         quantity=int(qty_inp.value or 1),
                         weight=r.weight, value=r.value,
+                        # Surface the global item's effects (e.g. a UM5 vehicle's
+                        # Cap/Speed/AC/HP or a cybernetic's location) as Properties.
+                        item_notes=r.effects,
                     )
                 updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
                 await _save({"inventory": updated})

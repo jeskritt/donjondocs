@@ -74,7 +74,7 @@ def _render_actions(state, char_id, user, _save):
                 with ui.dialog() as dialog, ui.card().classes('w-full max-w-md').style(DIALOG_CARD_STYLE):
                     ui.label("Add Action").classes('text-lg font-bold mb-2 text-white')
                     inp_name    = ui.input("Name").classes('w-full').props('dense')
-                    inp_attr    = ui.select(["—"] + _ATTRS, label="Attribute", value="—").classes('w-full')
+                    inp_attr    = ui.select(["—"] + _ATTRS + (["VIG"] if state["vd"].get("vigor_enabled") else []), label="Attribute", value="—").classes('w-full')
                     inp_prof    = ui.checkbox("Proficient")
                     inp_dmg     = ui.input("Damage (e.g. 1d8 slashing)").classes('w-full').props('dense')
                     inp_range   = ui.input("Range (e.g. 5 ft or 20/60)").classes('w-full').props('dense')
@@ -114,7 +114,7 @@ def _render_actions(state, char_id, user, _save):
                 with ui.dialog() as dialog, ui.card().classes('w-full max-w-md').style(DIALOG_CARD_STYLE):
                     ui.label("Edit Action").classes('text-lg font-bold mb-2 text-white')
                     inp_name    = ui.input("Name", value=act_obj.name).classes('w-full').props('dense')
-                    inp_attr    = ui.select(["—"] + _ATTRS, label="Attribute", value=act_obj.attribute or "—").classes('w-full')
+                    inp_attr    = ui.select(["—"] + _ATTRS + (["VIG"] if state["vd"].get("vigor_enabled") else []), label="Attribute", value=act_obj.attribute or "—").classes('w-full')
                     inp_prof    = ui.checkbox("Proficient", value=act_obj.proficient)
                     inp_dmg     = ui.input("Damage (e.g. 1d8 slashing)", value=act_obj.damage).classes('w-full').props('dense')
                     inp_range   = ui.input("Range (e.g. 5 ft or 20/60)", value=act_obj.range).classes('w-full').props('dense')

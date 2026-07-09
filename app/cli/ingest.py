@@ -38,6 +38,7 @@ _ATTR_ALIAS = {
     "intelligence": "INT", "int": "INT",
     "wisdom": "WIS", "wis": "WIS",
     "charisma": "CHA", "cha": "CHA",
+    "vigor": "VIG", "vig": "VIG",  # Ultramodern5 optional 7th attribute
 }
 
 
@@ -56,6 +57,8 @@ def get_style_from_filename(filename: str) -> SheetStyle:
         return SheetStyle.A5E
     elif "shadowdark" in filename:
         return SheetStyle.SHADOWDARK
+    elif "um5" in filename or "ultramodern" in filename:
+        return SheetStyle.UM5
     return SheetStyle.DND5E # default
 
 _DEX_CAP_PATTERNS = (

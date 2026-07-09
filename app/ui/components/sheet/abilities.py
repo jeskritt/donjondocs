@@ -40,7 +40,8 @@ def _render_abilities(state, char_id, user, _save):
                             ui.label(_fmt_bonus(a['save_total'])).classes('text-white text-sm')
 
             key_map = {"STR": "str_score", "DEX": "dex_score", "CON": "con_score",
-                       "INT": "int_score", "WIS": "wis_score", "CHA": "cha_score"}
+                       "INT": "int_score", "WIS": "wis_score", "CHA": "cha_score",
+                       "VIG": "vig_score"}
 
             with edit_col:
                 ui.label("Score Breakdown").classes('text-xs text-gray-500 mb-1')
@@ -70,9 +71,17 @@ def _render_abilities(state, char_id, user, _save):
                         save_misc_inputs[key] = ui.number('Save+', value=a['save_misc'], step=1).classes('w-14').props('dense')
 
                 async def _save_abilities():
+                    # Iterate the *displayed* attributes (6, or 7 when Vigor is
+                    # enabled) — the edit inputs only exist for those.
+                    displayed = [a['label'] for a in attrs]
                     score_updates = {}
-                    new_saves = []
-                    for label, field in key_map.items():
+                    # Preserve saves for attributes not currently shown (e.g. a
+                    # dormant VIG save while Vigor is hidden) so an ability edit
+                    # never silently drops them.
+                    new_saves = [st.model_dump() for st in state["cs"].saving_throws
+                                 if st.attribute not in displayed]
+                    for label in displayed:
+                        field = key_map[label]
                         score_updates[field] = {
                             "base":   int(score_inputs[f"{label}_base"].value   or 10),
                             "racial": int(score_inputs[f"{label}_racial"].value or 0),

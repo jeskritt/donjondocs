@@ -195,6 +195,24 @@ class CharacterSpell(BaseModel):
     prepared: bool = False
 
 
+class DarkParams(BaseModel):
+    """Ultramodern5 DARK-system extras attached to a `MagicResource`.
+
+    The dark pool itself reuses the resource's `current`/`maximum` lists
+    (`current=[dark_now]`, `maximum=[vessel_base]`); this model only carries the
+    misc/derived breakdown so class/ladder/feat bonuses are tracked explicitly:
+
+    :param vessel_misc: bonus max dark capacity on top of the base vessel
+    :param vr_base: Vigor Regeneration base value
+    :param vr_misc: bonus to Vigor Regeneration
+    :param river_misc: bonus river capacity beyond the Vigor modifier
+    """
+    vessel_misc: int = 0
+    vr_base: int = 0
+    vr_misc: int = 0
+    river_misc: int = 0
+
+
 class MagicResource(BaseModel):
     """
     A spellcasting resource on a character sheet (e.g. "Wizard Slots", "Warlock Pact Slots").
@@ -217,12 +235,14 @@ class MagicResource(BaseModel):
     name: str
     source: str = ""
     magic_type: MagicType = MagicType.PERLEVEL
-    attribute: Literal["STR", "DEX", "CON", "INT", "WIS", "CHA"] | None = None
+    attribute: Literal["STR", "DEX", "CON", "INT", "WIS", "CHA", "VIG"] | None = None
     spell_attack_misc: int = 0
     spell_dc_misc: int = 0
     current: list[int] | None = None
     maximum: list[int] | None = None
     extra_resource: ExtraResource | None = None
+    # DARK (Ultramodern5) extras — present only on magic_type == DARK resources.
+    dark: DarkParams | None = None
 
 
 class CharacterAction(BaseModel):
@@ -246,7 +266,7 @@ class CharacterAction(BaseModel):
     :param notes: free-form player notes
     """
     name: str
-    attribute: Literal["STR", "DEX", "CON", "INT", "WIS", "CHA"] | None = None
+    attribute: Literal["STR", "DEX", "CON", "INT", "WIS", "CHA", "VIG"] | None = None
     proficient: bool = False
     attack_misc: int = 0
     dc_misc: int = 0
@@ -346,6 +366,13 @@ class Character(BaseModel):
     int_score: AbilityScore = Field(default_factory=AbilityScore)
     wis_score: AbilityScore = Field(default_factory=AbilityScore)
     cha_score: AbilityScore = Field(default_factory=AbilityScore)
+    # Optional 7th attribute — Ultramodern5 "Vigor" (powers the DARK magic system).
+    # Always present structurally (dormant default); surfaced only when `vigor_enabled`.
+    vig_score: AbilityScore = Field(default_factory=AbilityScore)
+
+    # Per-character opt-in for the Vigor attribute (UM5). Off by default → no impact
+    # on existing characters or non-UM5 styles. Gates display/seeding of VIG everywhere.
+    vigor_enabled: bool = False
 
     # --- Inline saves, skills, abilities, actions, and inventory (stored in character JSON blob) ---
     saving_throws: list[CharacterSavingThrowSimple] = Field(default_factory=list)

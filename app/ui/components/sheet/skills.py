@@ -101,8 +101,10 @@ def _render_skills(state, char_id, user, _save):
             ui.separator()
 
             async def _open_add_skill():
-                _ATTRS = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
                 cs = state["cs"]
+                _ATTRS = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+                if cs.vigor_enabled:
+                    _ATTRS = _ATTRS + ["VIG"]
                 async with service_session() as session:
                     global_skills = await list_skills(session, cs.style, owner_id=user.id)
 

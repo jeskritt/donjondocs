@@ -38,6 +38,7 @@ _ATTR_ALIAS = {
     "intelligence": "INT", "int": "INT",
     "wisdom": "WIS", "wis": "WIS",
     "charisma": "CHA", "cha": "CHA",
+    "vigor": "VIG", "vig": "VIG",  # Ultramodern5 optional 7th attribute
 }
 
 
@@ -122,15 +123,34 @@ def prof_bonus_for(total_level: int, style: SheetStyle) -> int:
     return 2 + max(0, (max(1, total_level) - 1) // 4)
 
 
-def seed_saves_from_primary(classes: list[CharacterClassEntry]) -> list[dict]:
+def seed_saves_from_primary(classes: list[CharacterClassEntry],
+                            include_vigor: bool = False) -> list[dict]:
     """5e multiclass rule: only the FIRST class grants save proficiencies.
-    Returns a full 6-entry save list with proficiency=2 on granted attrs.
+    Returns a full save list with proficiency=2 on granted attrs.
+
+    `include_vigor` appends a 7th VIG save (Ultramodern5 optional Vigor
+    attribute). Callers pass the character's `vigor_enabled` here so the save
+    list stays in sync every time it is rebuilt — otherwise the Vigor save
+    would be silently dropped on the next identity/ability edit.
     """
     granted: set[str] = set(classes[0].saving_throw_grants) if classes else set()
+    attrs = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+    if include_vigor:
+        attrs.append("VIG")
     return [
         {"attribute": attr, "proficiency": 2 if attr in granted else 0, "misc": 0}
-        for attr in ("STR", "DEX", "CON", "INT", "WIS", "CHA")
+        for attr in attrs
     ]
+
+
+def classes_require_vigor(classes: list[CharacterClassEntry]) -> bool:
+    """True if any class grants a Vigor (VIG) save — e.g. the Ultramodern5 Magus.
+
+    Such a class is a Vigor caster, so Vigor must be force-enabled on the
+    character regardless of the create/edit toggle. Data-driven (reads the
+    parsed save grants) rather than matching class names.
+    """
+    return any("VIG" in (c.saving_throw_grants or []) for c in classes)
 
 
 def seed_profs_from_primary(classes: list[CharacterClassEntry]) -> dict[str, list[str]]:
@@ -149,6 +169,9 @@ def seed_profs_from_primary(classes: list[CharacterClassEntry]) -> dict[str, lis
 def default_money(style: SheetStyle) -> dict[str, int]:
     if style == SheetStyle.SHADOWDARK:
         return {"GP": 0}
+    if style == SheetStyle.UM5:
+        # Ultramodern5 uses a modern dollar economy, not fantasy coinage.
+        return {"$": 0}
     return {"CP": 0, "SP": 0, "EP": 0, "GP": 0, "PP": 0}
 
 
@@ -170,13 +193,20 @@ async def build_blank_character_data(
     ancestry: str,
     culture: str | None,
     background: str,
+    vigor_enabled: bool = False,
 ) -> dict:
     """Construct the initial `character_data` blob for a fresh character.
 
     Pre-condition: `seeded_classes` must already have hit_dice / save grants
     / proficiency grants populated (call `seed_classes_from_db` first).
+
+    `vigor_enabled` opts the character into the Ultramodern5 Vigor attribute:
+    a VIG save and any Vigor-keyed skills are seeded only when it is True
+    ("don't populate unless enabled"). A Vigor-caster class (e.g. the Magus)
+    force-enables it regardless.
     """
-    saving_throws = seed_saves_from_primary(seeded_classes)
+    vigor_enabled = vigor_enabled or classes_require_vigor(seeded_classes)
+    saving_throws = seed_saves_from_primary(seeded_classes, include_vigor=vigor_enabled)
     prof_aggregate = seed_profs_from_primary(seeded_classes)
     total_level = sum(c.level for c in seeded_classes)
 
@@ -196,9 +226,13 @@ async def build_blank_character_data(
     if style != SheetStyle.SHADOWDARK:
         skill_rows = await list_skills(session, style, owner_id=owner.id)
         for s in skill_rows:
+            attr = _ATTR_ALIAS.get((s.attribute or "").strip().lower(), (s.attribute or "STR").strip().upper())
+            # Vigor-keyed skills only seed when the character opts into Vigor.
+            if attr == "VIG" and not vigor_enabled:
+                continue
             skills_seed.append({
                 "name": s.name,
-                "attribute": _ATTR_ALIAS.get((s.attribute or "").strip().lower(), (s.attribute or "STR").strip().upper()),
+                "attribute": attr,
                 "proficiency": 0,
                 "misc": 0,
                 "example_uses": s.example_uses,
@@ -206,6 +240,7 @@ async def build_blank_character_data(
     _ALIAS_TO_FIELD = {
         "STR": "str_score", "DEX": "dex_score", "CON": "con_score",
         "INT": "int_score", "WIS": "wis_score", "CHA": "cha_score",
+        "VIG": "vig_score",
     }
     aliases = [r.alias for r in attr_rows if r.alias in _ALIAS_TO_FIELD] or list(_ALIAS_TO_FIELD.keys())
     score_defaults = {
@@ -251,6 +286,7 @@ async def build_blank_character_data(
         "hp_temp": 0,
         "exhaustion": 0,
         "strife": 0,
+        "vigor_enabled": vigor_enabled,
         **score_defaults,
         "saving_throws": saving_throws,
         "skills": skills_seed,

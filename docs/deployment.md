@@ -45,7 +45,51 @@ alembic upgrade head
 python -m app.cli.ingest data/        # one-time global content seed
 ```
 
-The `alembic/versions/` directory is empty today (Phase 3 is still SQLite-friendly) — generate the first migration with `alembic revision --autogenerate -m "initial"` before the first prod deploy.
+Alembic owns the schema — a baseline migration lives under `alembic/versions/`. Run `alembic upgrade head` before the first prod boot; generate new migrations with `alembic revision --autogenerate -m "..."` only when you change table columns.
+
+### Adding or updating bundled content (a new rule system, gear, etc.)
+
+The startup auto-ingest is an **empty-database bootstrap only**: `main.py` runs the equivalent of
+`python -m app.cli.ingest data/` automatically *if and only if* at least one of the six core
+global tables (`global_class`, `global_skill`, `global_attribute`, `global_weapon`,
+`global_armor`, `global_item`) is empty. Consequently:
+
+- The **first** deploy against a fresh database auto-populates everything in `data/` — no manual step.
+- Adding new `data/*.csv` (or new rows/sources — e.g. a new rule system) to a database that is
+  **already populated** is **not** picked up automatically. You must run the ingest yourself.
+
+Ingest is idempotent (upsert on `(name, source, owner_id)`), so re-running it is always safe and
+never duplicates rows.
+
+**Local dev (SQLite):**
+
+```bash
+python -m app.cli.ingest data/
+```
+
+**Render production (Supabase Postgres):** run the ingest once against the production database.
+Which command you use depends on *where you run it* — the CLI reads `DATABASE_URL` from the
+environment:
+
+- **Inside the Render environment** (the **Shell** tab, if your instance tier provides one) — the
+  service already has `DATABASE_URL` set, so **no prefix**:
+
+  ```bash
+  python -m app.cli.ingest data/
+  ```
+
+- **From your local machine**, targeting prod — your local shell defaults to the local SQLite DB,
+  so you **must** point it at prod with the connection string prefix (the same pattern used for
+  restore rehearsals in `operations.md`). This is the free-tier-friendly option, since the free
+  tier has no Shell:
+
+  ```bash
+  DATABASE_URL='postgresql+asyncpg://…your-supabase-uri…' python -m app.cli.ingest data/
+  ```
+
+> **Supabase tip:** for one-off migrations/ingest, prefer the **direct** connection (port `5432`)
+> over the transaction **pooler** (port `6543`) if you hit pooler-related errors. The running web
+> service can keep using the pooler.
 
 ## Production sketch
 

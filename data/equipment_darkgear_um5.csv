@@ -1,0 +1,19 @@
+Item,Cost,Weight,Type,Effects
+Vigor Injection (Stock),$25,0.5 lb.,Consumable,Temporarily boosts Vigor score/vessel/VR (Stock tier)
+Vigor Injection (Greater),$50,0.5 lb.,Consumable,Temporarily boosts Vigor score/vessel/VR (Greater tier)
+Vigor Injection (Superior),$250,0.5 lb.,Consumable,Temporarily boosts Vigor score/vessel/VR (Superior tier)
+Vigor Injection (Supreme),"$1,000",0.5 lb.,Consumable,Temporarily boosts Vigor score/vessel/VR (Supreme tier)
+Dark Brew (Stock),$25,0.5 lb.,Consumable,Dark-magic consumable (Stock tier)
+Dark Brew (Superior),$250,0.5 lb.,Consumable,Dark-magic consumable (Superior tier)
+Dark Brew (Supreme),"$1,000",0.5 lb.,Consumable,Dark-magic consumable (Supreme tier)
+Angel River,$500,0.2 lb.,Consumable,Dark consumable
+Libration,$300,0.2 lb.,Consumable,Dark consumable
+Darkephrine,$350,0.2 lb.,Consumable,Dark consumable
+Linked Vessel (Mark 4),"$60,000",-,Cybernetic (magic),Links/expands your dark vessel (Mark 4)
+Implant Vessel (Mark 3),"$6,000",-,Cybernetic (magic),Implanted dark vessel (Mark 3)
+Implant Vessel (Mark 4),"$60,000",-,Cybernetic (magic),Implanted dark vessel (Mark 4)
+Somatic Surrogate,"$1,350",-,Cybernetic (magic),Provides somatic spell components
+Vocal Proxy,"$1,350",-,Cybernetic (magic),Provides verbal spell components
+Permatek,"$3,500",-,Cybernetic (magic),Permanent dark-tech augment
+River Expansion,"$4,500",-,Cybernetic (magic),Expands river (quick-cast spell) capacity
+Darktech Regenerator,"$5,000",-,Cybernetic (magic),Increases Vigor Regeneration (VR)
