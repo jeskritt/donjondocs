@@ -136,6 +136,7 @@ async def _backup(args):
     print(
         f"[OK] wrote {output} "
         f"({len(envelope.users)} users, {len(envelope.characters)} characters, "
+        f"{len(envelope.creatures)} creatures, "
         f"{custom_globals} custom globals, {addons} character addons)"
     )
     print("[WARN] Backup contains hashed passwords. Treat the file as a secret.")
@@ -160,8 +161,8 @@ async def _restore(args):
     mode = RestoreMode(args.mode)
     if mode == RestoreMode.REPLACE and not args.dry_run and not args.yes:
         confirm = input(
-            "REPLACE mode wipes all users, characters, and custom global rows. "
-            "Type 'yes' to continue: "
+            "REPLACE mode wipes all users, characters, creatures, and custom "
+            "global rows. Type 'yes' to continue: "
         ).strip().lower()
         if confirm != "yes":
             print("[ERROR] Aborted.", file=sys.stderr)
@@ -182,6 +183,7 @@ async def _restore(args):
         f"{prefix} mode={report.mode.value} "
         f"users(+{report.users_inserted}/~{report.users_updated}) "
         f"characters(+{report.characters_inserted}/~{report.characters_updated}) "
+        f"creatures(+{report.creatures_inserted}/~{report.creatures_updated}) "
         f"user_globals(+{report.user_globals_inserted}/~{report.user_globals_updated}) "
         f"addons(+{report.character_addons_inserted}/~{report.character_addons_updated})"
     )

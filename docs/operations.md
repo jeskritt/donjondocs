@@ -22,13 +22,14 @@ DonjonDocs ships a CLI for snapshotting and restoring **user-owned data** to a s
 | All rows of `users` | — |
 | All rows of `characters` (with `character_data` migrated to the latest schema) | — |
 | All rows of `character_allies` and `character_notes` (per-character relational addons; added in `BACKUP_VERSION` 2) | — |
+| All rows of `creatures` (the user-owned creature catalog, including each row's `is_public` flag; added in `BACKUP_VERSION` 3) | — |
 | Rows of the nine `global_*` tables where `owner_id IS NOT NULL` (custom items, spells, abilities a user has added) | Bulk rule data — rows in `global_*` tables where `owner_id IS NULL`. That data is reproducible from `data/*.csv` via `python -m app.cli.ingest`. |
 
 ### Backup file format
 
 ```json
 {
-  "backup_version": 2,
+  "backup_version": 3,
   "exported_at": "2026-04-30T12:34:56+00:00",
   "alembic_revision": "f9f7baa647cc",
   "character_data_version": 6,
@@ -49,11 +50,12 @@ DonjonDocs ships a CLI for snapshotting and restoring **user-owned data** to a s
   "character_addons": {
     "character_allies": [ ... ],
     "character_notes":  [ ... ]
-  }
+  },
+  "creatures": [ /* Creature rows */ ]
 }
 ```
 
-`backup_version` 1 (without the `character_addons` bucket) is still accepted by the loader — missing addon buckets default to empty, so older artifacts restore cleanly into a v2 codebase.
+Older backups are still accepted by the loader — missing buckets default to empty, so nothing is destroyed by restoring an older artifact. A `backup_version` 1 file (no `character_addons`) restores with empty addon buckets; a pre-v3 file (no `creatures`) restores with an empty creature bucket.
 
 - `alembic_revision` is read from the source DB's `alembic_version` table. Restore rejects mismatched revisions unless you pass `--force`.
 - `character_data_version` is the version of each character's JSON blob (currently 5). Older blobs are migrated up to this version at backup time, so restored characters always match the current `Character` schema (`app/schemas/char_sheet_specific.py`).

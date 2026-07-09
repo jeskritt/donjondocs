@@ -20,10 +20,12 @@ from app.database import Base
 from app.models import char_sheet as global_models
 from app.models.character import CharacterRecord
 from app.models.character_addons import CharacterAlly, CharacterNote
+from app.models.creature import Creature
 from app.models.user import User
 from app.schemas.ally import AllyCreate
 from app.schemas.char_sheet_global import SheetStyle
 from app.schemas.char_sheet_specific import CharacterClassEntry
+from app.schemas.creature import CreatureCreate
 from app.schemas.note import NoteCreate
 from app.security import hash_password
 from app.services.ally_service import create_ally
@@ -34,6 +36,7 @@ from app.services.backup_service import (
     restore_backup,
 )
 from app.services.character_service import create_character
+from app.services.creature_service import create_creature
 from app.services.note_service import create_note
 from app.user_roles import UserRole
 
@@ -80,6 +83,24 @@ async def seed_custom_item(db_session, seed_user) -> global_models.GlobalItem:
 
 
 @pytest_asyncio.fixture
+async def seed_creature(db_session, seed_user) -> Creature:
+    """A user-owned creature — must appear in the backup (BACKUP_VERSION 3).
+
+    Shipped public with a 2-column layout so restore can assert those
+    columns survive verbatim (backup/restore must not reset is_public the
+    way import/copy do).
+    """
+    return await create_creature(
+        db_session, seed_user,
+        CreatureCreate(
+            name="Ancient Red Dragon", body_md="**AC** 22",
+            creature_type="Dragon", size="Gargantuan", challenge_rating="24",
+            is_public=True, columns=2,
+        ),
+    )
+
+
+@pytest_asyncio.fixture
 async def seed_csv_item(db_session) -> global_models.GlobalItem:
     """A bulk-rule global row (owner_id IS NULL) — must NOT appear in the backup."""
     item = global_models.GlobalItem(
@@ -120,10 +141,11 @@ async def _new_session(engine) -> AsyncSession:
 @pytest.mark.asyncio
 async def test_backup_round_trip(
     db_session, target_engine,
-    seed_user, seed_character, seed_custom_item, seed_csv_item,
+    seed_user, seed_character, seed_custom_item, seed_csv_item, seed_creature,
 ):
     """End-to-end: source → envelope → target. Rows match; CSV globals excluded.
-    Also seeds allies + notes so addon round-trip is covered.
+    Also seeds allies + notes so addon round-trip is covered, and a creature so
+    the BACKUP_VERSION 3 creature bucket is covered.
     """
     # Add per-character addons so the round-trip exercises BACKUP_VERSION 2.
     seeded_ally = await create_ally(
@@ -148,9 +170,13 @@ async def test_backup_round_trip(
     assert not any(row["name"] == "Longsword" for row in backed_items)
 
     # Sanity: addon buckets present and populated.
-    assert envelope.backup_version == 2
+    assert envelope.backup_version == 3
     assert len(envelope.character_addons["character_allies"]) == 1
     assert len(envelope.character_addons["character_notes"]) == 1
+
+    # Sanity: creature bucket present and populated.
+    assert len(envelope.creatures) == 1
+    assert envelope.creatures[0]["name"] == "Ancient Red Dragon"
 
     # Restore into the empty target engine.
     factory = async_sessionmaker(target_engine, class_=AsyncSession, expire_on_commit=False)
@@ -160,6 +186,7 @@ async def test_backup_round_trip(
         assert report.characters_inserted == 1
         assert report.user_globals_inserted == 1
         assert report.character_addons_inserted == 2  # 1 ally + 1 note
+        assert report.creatures_inserted == 1
 
     # Verify in a fresh session so we read committed state.
     async with factory() as verify:
@@ -168,6 +195,7 @@ async def test_backup_round_trip(
         items = (await verify.execute(select(global_models.GlobalItem))).scalars().all()
         allies = (await verify.execute(select(CharacterAlly))).scalars().all()
         notes = (await verify.execute(select(CharacterNote))).scalars().all()
+        creatures = (await verify.execute(select(Creature))).scalars().all()
 
     assert {u.id for u in users} == {seed_user.id}
     assert users[0].email == seed_user.email
@@ -182,6 +210,12 @@ async def test_backup_round_trip(
     assert allies[0].body_md == "**HP** 7"
     assert {n.id for n in notes} == {seeded_note.id}
     assert notes[0].body_md == "Find the **artifact**."
+    # Creature round-trips with its id and is_public/columns preserved verbatim
+    # (backup/restore is a faithful snapshot, unlike import/copy which reset
+    # is_public to False).
+    assert {c.id for c in creatures} == {seed_creature.id}
+    assert creatures[0].is_public is True
+    assert creatures[0].columns == 2
 
 
 @pytest.mark.asyncio
@@ -204,6 +238,28 @@ async def test_v1_backup_envelope_loads_with_empty_addons(
     async with factory() as verify:
         allies = (await verify.execute(select(CharacterAlly))).scalars().all()
     assert allies == []
+
+
+@pytest.mark.asyncio
+async def test_pre_v3_backup_envelope_loads_with_empty_creatures(
+    db_session, target_engine, seed_user, seed_character, seed_creature,
+):
+    """A pre-v3 backup file (no `creatures` key) must restore cleanly — the
+    field defaults to an empty list, so no creatures are inserted."""
+    await db_session.commit()
+    envelope = await create_backup(db_session)
+    # Simulate a pre-v3 backup by stripping the v3-only creature bucket.
+    envelope.backup_version = 2
+    envelope.creatures = []
+
+    factory = async_sessionmaker(target_engine, class_=AsyncSession, expire_on_commit=False)
+    async with factory() as target:
+        report = await restore_backup(target, envelope, mode=RestoreMode.MERGE)
+        assert report.creatures_inserted == 0
+
+    async with factory() as verify:
+        creatures = (await verify.execute(select(Creature))).scalars().all()
+    assert creatures == []
 
 
 @pytest.mark.asyncio
@@ -264,9 +320,9 @@ async def test_restore_merge_preserves_untouched_rows(
 
 @pytest.mark.asyncio
 async def test_restore_replace_wipes_and_loads(
-    db_session, target_engine, seed_user, seed_character,
+    db_session, target_engine, seed_user, seed_character, seed_creature,
 ):
-    """Replace mode wipes user-data tables before loading the envelope."""
+    """Replace mode wipes user-data tables (including creatures) before loading."""
     await db_session.commit()
     envelope = await create_backup(db_session)
 
@@ -280,15 +336,22 @@ async def test_restore_replace_wipes_and_loads(
             role=UserRole.STANDARD,
         )
         target.add(existing)
+        await target.flush()
+        # A creature owned by the prior user must be wiped by REPLACE.
+        target.add(Creature(owner_id=existing.id, name="Stale Goblin"))
         await target.commit()
 
     async with factory() as target:
-        await restore_backup(target, envelope, mode=RestoreMode.REPLACE)
+        report = await restore_backup(target, envelope, mode=RestoreMode.REPLACE)
+        assert report.creatures_inserted == 1
 
     async with factory() as verify:
         users = (await verify.execute(select(User))).scalars().all()
+        creatures = (await verify.execute(select(Creature))).scalars().all()
 
     assert {u.id for u in users} == {seed_user.id}
+    # Only the envelope's creature survives; the prior user's is gone.
+    assert {c.id for c in creatures} == {seed_creature.id}
 
 
 @pytest.mark.asyncio
