@@ -1,0 +1,37 @@
+name: tests
+
+# Run the suite in a clean venv built from the pinned lockfiles. This is also the
+# gate that validates dependency bumps (recompiled requirements*.txt) install
+# cleanly on the production Python before reaching Render.
+#
+# Triggers: pull_request covers PR branches; push is scoped to main so a branch
+# with an open PR isn't checked twice (push + PR synchronize). main still gets a
+# run on merge.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Cancel superseded runs on the same branch/PR when new commits arrive.
+concurrency:
+  group: tests-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      # nox builds the isolated test venv from the pinned lockfiles; keep it in the
+      # outer runner env, not inside the venv it manages.
+      - name: Install nox
+        run: pip install nox
+
+      - name: Run tests (clean venv from pinned lockfiles)
+        run: nox

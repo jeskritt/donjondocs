@@ -92,13 +92,30 @@ flowchart TD
 - **Middleware depends on `nicegui.app`** for storage and lives outside the service stack. It is the only auth guard for UI pages; API routes use the JWT dep in `app/api/deps.py`.
 - **NiceGUI is pinned `>=3.12,<4`** (`requirements.txt`). Bumped from 3.10 for the 3.12 security fix (unauthenticated DoS on dynamic-resource/ESM routes) plus stability fixes that touch our code paths: silent window reloads on WebSocket reconnect (long-lived character sheet), a `ValidationElement.validate()` KeyError (we use `validation=` on login/register/profile), a Windows `PermissionError` during `app.storage.user` cleanup, and unbounded streaming-cookie memory growth. No API breakage applied (audited). Conventions: `docs/nicegui.md`.
 
-## Dependency risks (tracked, not yet actionable)
+## Dependency management (pinned lockfile workflow)
 
-Most of `requirements*.txt` uses version *floors* (only deliberate caps:
-`nicegui>=3.12,<4`, `bcrypt<5`), so installs already resolve to current
-releases — there is no "bump" that removes the standing `DeprecationWarning`s.
-Two of those warnings are upstream Python-3.14 deprecations correctly silenced
-in `pytest.ini`; do **not** treat them as fixable by upgrading:
+Dependencies are managed with **pip-tools**. Intent is authored in `requirements.in`
+/ `requirements-dev.in`; the committed `requirements.txt` / `requirements-dev.txt`
+are **generated, fully-pinned lockfiles — do not hand-edit them.** To change a
+dependency, edit the `.in` and recompile on **Python 3.14** (the Render runtime),
+so resolved versions match production:
+
+```bash
+pip install pip-tools
+pip-compile --strip-extras requirements.in     -o requirements.txt
+pip-compile --strip-extras requirements-dev.in -o requirements-dev.txt
+```
+
+Tests run in a **clean venv** built from those lockfiles via `nox` (and the same
+`nox` session in CI, `.github/workflows/tests.yml`), so a broken or incomplete pin
+fails the test run rather than only surfacing on a Render deploy. Run `nox` for the
+authoritative pass; bare `pytest` is fine for fast local iteration.
+
+## Dependency risks (tracked)
+
+The pinned lockfiles resolve to current releases. Two standing
+`DeprecationWarning`s are upstream Python-3.14 deprecations correctly silenced in
+`pytest.ini`; do **not** treat them as fixable by upgrading:
 
 - **`slowapi` is dormant — forward-incompatible.** Latest is `0.1.9`
   (Feb 2024); the project shows no 2025/2026 activity. `slowapi/extension.py`
@@ -111,10 +128,17 @@ in `pytest.ini`; do **not** treat them as fixable by upgrading:
   `event_loop_policy` fixture; Python 3.14 deprecated those (removal 3.16). No
   released version is silent yet — the `pytest.ini` filter stays until upstream
   ships a 3.14-clean release.
-- **`passlib 1.7.4` (2020, unmaintained)** under the `bcrypt<5` cap with
-  bcrypt 3.2.2. Works today; the cap exists because newer bcrypt trips
-  passlib's `bcrypt.__about__` probe. A future auth-hashing migration
-  (passlib → bcrypt-direct or argon2) is the real fix; keep the cap until then.
+- **Auth hashing migrated off `passlib` (done).** `app/security.py` now hashes
+  new passwords with **argon2id** (`argon2-cffi`) and verifies legacy bcrypt
+  hashes directly via the maintained **`bcrypt`** library. `authenticate_user`
+  calls `needs_rehash()` to transparently upgrade any surviving bcrypt hash to
+  argon2 on the next successful login, so no existing user is locked out. This
+  removed unmaintained `passlib` (and the `bcrypt<5` cap it forced — bcrypt is
+  now unpinned/`5.x`).
+- **JWTs migrated off `python-jose` to `PyJWT` (done).** Dropped the semi-
+  maintained `python-jose` and its `ecdsa`/`rsa` transitive crypto deps
+  (`ecdsa` had an unfixable timing advisory, though the HS256-only code never
+  exercised it).
 
 The httpx per-request `cookies=` deprecation that *was* visible in the test
 run came from our own tests, not a dependency — fixed by standardising on the

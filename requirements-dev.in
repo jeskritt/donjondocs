@@ -1,0 +1,20 @@
+# Human-authored development/test dependency intent.
+# The pinned lockfile `requirements-dev.txt` is GENERATED from this file:
+#
+#   pip-compile requirements-dev.in -o requirements-dev.txt
+#
+# `-c requirements.txt` constrains dev deps to the same versions the production
+# lockfile resolved, so the two lockfiles can be installed together without
+# conflict. Compile on Python 3.14 (matches Render). See docs/dependencies.md.
+#
+# Note: `nox` is intentionally NOT listed here — it manages the test venv from the
+# outside and must live in the outer dev/CI environment, not inside the venv it
+# builds. Install it ad hoc: `pip install nox`.
+
+-c requirements.txt
+
+pytest
+pytest-asyncio
+pytest-cov
+httpx
+pip-tools
