@@ -40,6 +40,9 @@ coverage.xml
 # pytest
 .pytest_cache/
 
+# nox (clean-venv test sessions)
+.nox/
+
 # Alembic auto-generated (optional, uncomment if you want to track migrations)
 # alembic/versions/*.py
 

@@ -7,6 +7,7 @@ Interactions:
 
 """Tests for app.services.auth_service."""
 
+import bcrypt
 import pytest
 import pytest_asyncio
 
@@ -51,6 +52,25 @@ class TestAuthenticateUser:
         result = await authenticate_user(db_session, user.email, "password")
         assert result.last_login is not None
 
+    async def test_login_upgrades_legacy_bcrypt_hash_to_argon2(self, db_session):
+        """A user seeded with a legacy bcrypt hash logs in successfully and has
+        their hash transparently upgraded to argon2 — the migration guarantee."""
+        legacy_hash = bcrypt.hashpw(b"legacy_password", bcrypt.gensalt()).decode()
+        user = User(
+            username="legacy",
+            email="legacy@example.com",
+            hashed_password=legacy_hash,
+            role=UserRole.STANDARD,
+            is_active=True,
+        )
+        db_session.add(user)
+        await db_session.flush()
+
+        result = await authenticate_user(db_session, "legacy@example.com", "legacy_password")
+
+        assert result.hashed_password.startswith("$argon2")
+        assert result.hashed_password != legacy_hash
+
 
 @pytest.mark.asyncio
 class TestRegisterUser:
@@ -67,7 +87,7 @@ class TestRegisterUser:
         data = RegisterRequest(username="newuser", email="new@test.com", password="Password123!")
         user = await register_user(db_session, data)
         assert user.hashed_password != "Password123!"
-        assert user.hashed_password.startswith("$2b$")
+        assert user.hashed_password.startswith("$argon2")
 
     async def test_register_default_role_standard(self, db_session):
         data = RegisterRequest(username="newuser", email="new@test.com", password="Password123!")

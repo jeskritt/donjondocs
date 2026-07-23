@@ -1,0 +1,29 @@
+# Human-authored production dependency intent.
+# The pinned lockfile `requirements.txt` is GENERATED from this file — do not edit
+# requirements.txt by hand. Regenerate after any change here with:
+#
+#   pip-compile requirements.in -o requirements.txt
+#
+# Compile on Python 3.14 (matches the Render runtime) so resolved versions match
+# production. See docs/dependencies.md.
+
+nicegui>=3.12,<4
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]>=2.0
+aiosqlite
+asyncpg
+alembic
+pydantic[email]>=2.0
+pydantic-settings
+email-validator
+
+# Auth: PyJWT for JWTs; argon2-cffi hashes new passwords; bcrypt verifies legacy
+# hashes so existing users are never locked out. (Replaced python-jose + passlib.)
+PyJWT
+argon2-cffi
+bcrypt
+
+python-multipart
+slowapi
+httpx

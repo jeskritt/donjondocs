@@ -1,6 +1,6 @@
 {
   "version": 7,
-  "exported_at": "2026-05-10T15:22:56.011589+00:00",
+  "exported_at": "2026-07-23T14:40:45.579059+00:00",
   "name": "Torak Vermil",
   "style": "Level Up: Advanced 5e",
   "character_data": {
@@ -15,7 +15,7 @@
     "background": "Monster Slayer",
     "destiny": {
       "name": "Victory",
-      "src_inspiration": "Defeat woth foe",
+      "src_inspiration": "Defeat worthy foe",
       "inspiration_feat": "1 hour, expertise on opposed rolls",
       "fullfillment": ""
     },
@@ -47,10 +47,10 @@
         "Dwarven",
         "+ 1 more"
       ],
+      "instrument": [],
       "tool": [
         "Alchemist's Supplies"
       ],
-      "instrument": [],
       "game": []
     },
     "experience_points": 0,
@@ -58,10 +58,10 @@
       {
         "name": "Fighter",
         "archetype": "Eldritch Knight",
-        "level": 3,
+        "level": 4,
         "hit_dice": "d10",
-        "hit_dice_current": 3,
-        "hit_dice_max": 3,
+        "hit_dice_current": 4,
+        "hit_dice_max": 4,
         "saving_throw_grants": [
           "STR",
           "CON"
@@ -79,10 +79,10 @@
       }
     ],
     "character_class": "Fighter",
-    "level": 3,
-    "hp_current": 24,
-    "hp_max": 25,
-    "hp_temp": 5,
+    "level": 4,
+    "hp_current": 32,
+    "hp_max": 32,
+    "hp_temp": 0,
     "exhaustion": 0,
     "cha_score": {
       "base": 14,
@@ -316,7 +316,7 @@
     ],
     "abilities": [
       {
-        "name": "Darkvision 60'",
+        "name": "Darkvision 60' (+30')",
         "source": "Heritage",
         "description": "Your cursed anatomy grants you superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\u2019t discern color in darkness, only shades of gray.",
         "sub_abilities": [],
@@ -329,8 +329,8 @@
         "sub_abilities": [],
         "tracker": {
           "name": "",
-          "current": 3,
-          "maximum": 3,
+          "current": 4,
+          "maximum": 4,
           "reset_on": "long"
         }
       },
@@ -415,7 +415,7 @@
       {
         "name": "Darkwood Magic",
         "source": "Culture",
-        "description": "You know the pestilence cantrip. At 3rd\nlevel, you can cast either fog cloud or inflict wounds once\nbetween long rests. At 5th level, you can cast either acid\narrow or invisibility once between long rests. Your\nspellcasting ability for these is your choice of\nIntelligence, Wisdom, or Charisma.",
+        "description": "You know the pestilence cantrip. At 3rd level, you can cast either fog cloud or inflict wounds once between long rests. At 5th level, you can cast either acid arrow or invisibility once between long rests. Your spellcasting ability for these is your choice of Intelligence, Wisdom, or Charisma.",
         "sub_abilities": [],
         "tracker": null
       },
@@ -444,6 +444,20 @@
         "description": "The bite is a natural weapon, which you can use to make unarmed strikes that deal equal to 1d4 piercing damage. Attack and damage rolls with your bite use your choice of Strength, Dexterity, or Constitution modifiers.\n\nWhile you or your target are bloodied, you gain an expertise die on these attack rolls.",
         "sub_abilities": [],
         "tracker": null
+      },
+      {
+        "name": "Reserves",
+        "source": "Class",
+        "description": "At 4th level your stamina increases, allowing you to engage foes longer without tiring. Your exertion pool increases by 1. At 8th, 12th, and 16th level your exertion pool increases by an additional point.",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Newblood",
+        "source": "Feat",
+        "description": "You have been corrupted with vampirism from exposure to dark forces that unlocked an ancient and unknown power within your blood, or because a vampire has bitten you. In either case your affliction makes you more than mortal, and yet somehow less.\n\nYou gain resistance to necrotic damage (or if you already have it, immunity to necrotic damage) and darkvision to a range of 30 feet (or if you already have it, the range of your darkvision increases by 30 feet). You also gain a bite natural weapon and the Charming Gaze feature.\n\nBite. You gain a bite natural weapon you are proficient with. You are only able to bite grappled , incapacitated , restrained , or willing creatures. On a hit your bite deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest). You can use Dexterity instead of Strength for the attack rolls of your bite. In addition, once per turn you can choose for your bite to also deal 1d6 necrotic damage \u00d7 your proficiency bonus. You regain hit points equal to the amount of necrotic damage dealt to your target. This necrotic damage can only be increased by a critical hit. \n\nCharming Gaze. You magically target a creature within 30 feet, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failure, the target is charmed by you for a number of hours equal to your proficiency bonus. While charmed it regards you as a trusted friend and is a willing target for your bite. The target repeats the saving throw each time it takes damage, ending the effect on itself on a success. If the target\u2019s saving throw is successful or the effect ends for it, it is immune to your charm for 24 hours. Once you have used this feature, you can\u2019t do so again until you finish a long rest.\n\nThis dark gift comes with a price however, making you averse to sunlight. You have disadvantage on attack rolls and on Perception checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight. In addition, you cannot use your Charming Gaze while you are in direct sunlight.",
+        "sub_abilities": [],
+        "tracker": null
       }
     ],
     "actions": [
@@ -455,19 +469,19 @@
         "dc_misc": 0,
         "show_attack_bonus": true,
         "show_attack_dc": false,
-        "damage": "1d4 + 3 P",
+        "damage": "1d6 + 3 P",
         "range": "5 ft",
-        "notes": "with expertise if I'm bloodied"
+        "notes": "with expertise if I'm bloodied. once per turn can do nectrtic dmg and heals me"
       },
       {
         "name": "Longsword",
         "attribute": "STR",
         "proficient": true,
-        "attack_misc": 0,
+        "attack_misc": 1,
         "dc_misc": 0,
         "show_attack_bonus": true,
         "show_attack_dc": false,
-        "damage": "1D8 + 3 S",
+        "damage": "1D8 + 4 S",
         "range": "",
         "notes": ""
       },
@@ -475,11 +489,11 @@
         "name": "Longsword + Elemental Rebound",
         "attribute": "STR",
         "proficient": true,
-        "attack_misc": 0,
+        "attack_misc": 1,
         "dc_misc": 0,
         "show_attack_bonus": true,
         "show_attack_dc": false,
-        "damage": "1d8 + 3 S + 1d6 Element",
+        "damage": "1d8 + 4 S + 1d6 Element",
         "range": "",
         "notes": ""
       },
@@ -487,35 +501,16 @@
         "name": "Longsword + Hoarfrost",
         "attribute": "STR",
         "proficient": true,
-        "attack_misc": 0,
+        "attack_misc": 1,
         "dc_misc": 0,
         "show_attack_bonus": true,
         "show_attack_dc": false,
-        "damage": "1d8 + 3 S + 1d4 cold",
+        "damage": "1d8 + 4 S + 1d4 cold",
         "range": "",
         "notes": ""
       }
     ],
     "inventory": [
-      {
-        "item_type": "armor",
-        "name": "Scale mail (steel)",
-        "quantity": 1,
-        "equipped": true,
-        "attuned": false,
-        "notes": "",
-        "damage": null,
-        "damage_type": null,
-        "weapon_range": null,
-        "armor_class": "14",
-        "base_ac": 14,
-        "dex_cap": 2,
-        "is_shield": false,
-        "weight": "35 lbs.",
-        "value": "50 gp",
-        "item_notes": "Low-maintenance (expertise die)",
-        "is_custom": false
-      },
       {
         "item_type": "armor",
         "name": "Medium Shield",
@@ -537,13 +532,13 @@
       },
       {
         "item_type": "weapon",
-        "name": "Longsword",
+        "name": "Longsword + 1",
         "quantity": 1,
         "equipped": true,
         "attuned": false,
         "notes": "",
-        "damage": "1d8 slashing",
-        "damage_type": null,
+        "damage": "1d8",
+        "damage_type": "slashing",
         "weapon_range": "-",
         "armor_class": null,
         "base_ac": null,
@@ -551,8 +546,8 @@
         "is_shield": false,
         "weight": "3 lbs.",
         "value": "20 gp",
-        "item_notes": "Defensive (medium)",
-        "is_custom": false
+        "item_notes": "Defensive (medium), magic",
+        "is_custom": true
       },
       {
         "item_type": "item",
@@ -857,17 +852,36 @@
         "value": "150 gp",
         "item_notes": null,
         "is_custom": false
+      },
+      {
+        "item_type": "armor",
+        "name": "Half plate (steel)",
+        "quantity": 1,
+        "equipped": true,
+        "attuned": false,
+        "notes": "",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": "15",
+        "base_ac": 15,
+        "dex_cap": 2,
+        "is_shield": false,
+        "weight": "",
+        "value": "750 gp",
+        "item_notes": "Low-maintenance (expertise die)",
+        "is_custom": false
       }
     ],
     "currency": {
       "CP": 0,
       "SP": 0,
       "EP": 0,
-      "GP": 65,
+      "GP": 115,
       "PP": 0
     },
-    "resistances": "Necrotic, Poison, Adv on Poison saves",
-    "immunities": "Disease",
+    "resistances": "Poison, Adv on Poison saves",
+    "immunities": "Disease, Necrotic",
     "vulnerabilities": "Radiant",
     "magic_resources": [
       {
@@ -878,10 +892,10 @@
         "spell_attack_misc": 0,
         "spell_dc_misc": 0,
         "current": [
-          1
+          3
         ],
         "maximum": [
-          2
+          3
         ],
         "extra_resource": null
       },
@@ -908,7 +922,7 @@
         "spell_attack_misc": 0,
         "spell_dc_misc": 0,
         "current": [
-          0
+          1
         ],
         "maximum": [
           1
@@ -917,10 +931,10 @@
       }
     ],
     "known_traditions": "Arcane Knight, Cutting Omens",
-    "exertion_current": 2,
-    "exertion_max": 4,
-    "maneuvers_known": 4,
-    "max_degree": 1,
+    "exertion_current": 5,
+    "exertion_max": 5,
+    "maneuvers_known": 5,
+    "max_degree": 2,
     "maneuver_attack_misc": 0,
     "maneuver_dc_misc": 0,
     "appearance": "",
@@ -972,6 +986,15 @@
         "action_type": "A",
         "stance": false,
         "description": "Target Ally within 15 ft (not self). they gain +2 AC. Lasts unil I can't take actions."
+      },
+      {
+        "name": "Mystic Feint",
+        "degree": 2,
+        "tradition": "Arcane Knight",
+        "exertion_cost": 1,
+        "action_type": "R",
+        "stance": false,
+        "description": "When a creature makes a melee attack roll against you, you can use your reaction to gain an expertise die to your AC against that creature. This increase only applies to the attacking creature and ends at the start of your next turn. Once the attack is resolved, you may choose to switch spaces with the target. This movement does not provoke opportunity attacks ."
       }
     ],
     "spells": [
@@ -992,7 +1015,7 @@
         "name": "Hoarfrost",
         "level": 0,
         "school": "",
-        "description": "+ 2d4 cold damage",
+        "description": "Evocation Cantrip\n\nA melee Weapon you are holding is imbuded with cold. For teh duration, a rime of frost covers the weapon and light vapor rises from it if the teperature is above freezing.  The weapon beomes magical and deals an extra 1d4 cold damageon a successful hit. The spesll ends after 1 minute, or earlier if you make a successful attack or let go of it.\n\nThe spell damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).\n\nDeep Magic Volume 1 page 210",
         "casting_time": "1 BA",
         "duration": "1 min or hit",
         "spell_range": "Self",
@@ -1044,7 +1067,7 @@
         "name": "Shadow Armor",
         "level": 1,
         "school": "",
-        "description": "When attacked to trigger. Attack gets disavantage on the attack. Gain resistance to Radiant damage until end of my turn",
+        "description": "1st Level Abjuration\nTrigger: When targeted by an attack, but before the the roll is made.\n\nYou can siphon energy from the Plane of Shadow to protect yourself from an immediate threat. As a reaction, you pull shadows around yourself to distort reality. The attack against you is made with disadvantage, and you have resistance to radiant damage until yhe start of your next turn.\n\nDeep MAgic Volume 2 Page 216",
         "casting_time": "1 R",
         "duration": "1 round",
         "spell_range": "Self",
@@ -1104,6 +1127,19 @@
         "concentration": false,
         "resource_name": "Winter Magic",
         "prepared": true
+      },
+      {
+        "name": "Calculated Retribution",
+        "level": 1,
+        "school": "",
+        "description": "1st-level (AbjurationForceLawWeaponry)\nComponents:VSM (executioner\u2019s hood)\n\nYou surround yourself with a dampening magical field and collect the energy of a foe\u2019s attack to use against them. When you take damage from a weapon attack, you can end the spell to halve the attack\u2019s damage against you, gaining a retribution charge that lasts until the end of your next turn. By expending the retribution charge when you hit with a melee attack, you deal an additional 2d10 force damage.\n\nCast at Higher Levels\nYou may use your reaction to halve the damage of an attack against you up to a number of times equal to the level of the spell slot used, gaining a retribution charge each time that lasts until 1 round after the spell ends. You must still make Constitution saving throws to maintain your concentration on this spell, but you do so with advantage , or if you already have advantage, you automatically succeed.",
+        "casting_time": "A",
+        "duration": "1 Minute",
+        "spell_range": "Self",
+        "ritual": false,
+        "concentration": true,
+        "resource_name": "Spellcasting (Eldritch Knight)",
+        "prepared": true
       }
     ],
     "death_save_successes": 0,
@@ -1118,26 +1154,26 @@
     {
       "name": "Undead Contact",
       "ally_type": "Contact",
-      "body_md": "From Blightlander"
+      "body_md": "From Blightlander\n\n&nbsp;"
     },
     {
       "name": "Alchemist Contact",
       "ally_type": "Contact",
-      "body_md": "**From Background**\n\nLikes to get me to try experimental compounds"
+      "body_md": "**From Background**\n\nLikes to get me to try experimental compounds\n\n&nbsp;"
     }
   ],
   "notes": [
     {
       "title": "Character Build Sources",
-      "body_md": "* **Herirage:** Unliving/Vampire (MOAR 29-31)\n* **Culture :** blightlander (MOAR)\n* **Background :** [Monster Slayer](https://a5e.tools/node/4170) (GPG)\n* **Destiny :** [Victory](https://a5e.tools/node/4224) (Voidrunner)\n* **Archetype :** [Eldritch Knight (PHB 2014)](https://www.dndbeyond.com/classes/10-fighter#EldritchKnight) adjust to CHA casting stat \n* **Combat Traditions :** Arcane Knight(Martial Artistry / GPG), Cutting Omens (MOAR 205)"
+      "body_md": "* **Herirage:** Unliving/Vampire (MOAR 29-31)\n* **Culture :** blightlander (MOAR)\n* **Background :** [Monster Slayer](https://a5e.tools/node/4170) (GPG)\n* **Destiny :** [Victory](https://a5e.tools/node/4224) (Voidrunner)\n* **Archetype :** [Eldritch Knight (PHB 2014)](https://www.dndbeyond.com/classes/10-fighter#EldritchKnight) adjust to CHA casting stat \n* **Combat Traditions :** Arcane Knight(Martial Artistry / GPG), Cutting Omens (MOAR 205)\n\n&nbsp;"
     },
     {
       "title": "Back Story",
-      "body_md": "## \n\n## Torak's Sire: The General (Alaric). \n\nIn life, the General fell to an onslaught of Chernobog's feral vampires (Draugr). They infected him with their curse, but his own burning will and hatred of the undead allowed him to choose his own fate. He spent decades upon decades recruiting the toughest warriors into service. Those who survived his training were given the chance to join the Einherjar.  He hand-picked Torak and, in a ritual out on the tundra and in the heart of a blizzard, drove a shard of starlight ice into the young soldier's chest, replacing his heart with the Frost of the North. \n\nWhen Hrimm-Kastel fell, Alaric stayed behind to buy time for the others to flee and brought many traitors down. Their bloody, dying screams followed Torak and his family as they fled to Ironcrag Hold. Torak dreams of his sire wandering the Bleak Expanse, a broken spear with an orange-glowing tip in his hand as he hunts the enemy. \n\n## The Widow's Nail\n\nThe fortress your family controlled along the wall is called Hrimm-Kastjel (Rime Bastion) by the dwarves, but it is also known as the \"Widow's Nail\" by the human and giant Jarls. It was a human, Jarl Hlothar Kurgensson, who led the betrayal. He was the leader of a settlement near the wall and provided your family with supplies. A rumour of an ancient artifact in the deep dungeons of the fortress caused him to betray you and your family to get at the relic. You never heard any such rumour. \n\n## The Dwarves\n\nThe survivors fled to Ironcrag Hold. The dwarves there, led by Thane Hreidmar \"Stone-Eye,\" are Clan Bofyr. These dwarves referred to your family as \"Einherjar,\" an important distinction. The north has many undead types, especially on the other side of the Wall, but most vampires are feral Darakhul, lowly beasts little better than ghouls. Einherjar are referred to as the Heroic Dead, who gave up Valhalla to continue the fight in the mortal world. \n\nThane Stone-Eye, who has a carved sapphire in his left eye socket, is said to be able to see through half-truths and illusions. He is a devout follower of Wotan. \n\nOne final secret: one of the ancestors of Clan Bofyr is a dwarven vampire wizard who was the one who recommended the thane ally with your people. You know of this secret, as it was part of why you trusted the thane. He gave you this secret to prove his loyalty and respect.\n\nThe clan is watched over by an Einjerjar, a 1500-year-old vampire named Valdrin Bofyr, Deep-Root of the Mountain, Master of the Old Oaths of Stone and Blood. Valdrin has given Torak a blood oath to protect the remaining members of his family. The elder vampire awoke from torpor when the fortress fell and Alaric was slain. His skin has taken a rough, stone-like texture, and when he slumbers most would mistake him for a statue of a dwarf on a throne in a forgotten chamber high on the mountain.\n\n"
+      "body_md": "## \n\n## Torak's Sire: The General (Alaric). \n\nIn life, the General fell to an onslaught of Chernobog's feral vampires (Draugr). They infected him with their curse, but his own burning will and hatred of the undead allowed him to choose his own fate. He spent decades upon decades recruiting the toughest warriors into service. Those who survived his training were given the chance to join the Einherjar.  He hand-picked Torak and, in a ritual out on the tundra and in the heart of a blizzard, drove a shard of starlight ice into the young soldier's chest, replacing his heart with the Frost of the North. \n\nWhen Hrimm-Kastel fell, Alaric stayed behind to buy time for the others to flee and brought many traitors down. Their bloody, dying screams followed Torak and his family as they fled to Ironcrag Hold. Torak dreams of his sire wandering the Bleak Expanse, a broken spear with an orange-glowing tip in his hand as he hunts the enemy. \n\n## The Widow's Nail\n\nThe fortress your family controlled along the wall is called Hrimm-Kastjel (Rime Bastion) by the dwarves, but it is also known as the \"Widow's Nail\" by the human and giant Jarls. It was a human, Jarl Hlothar Kurgensson, who led the betrayal. He was the leader of a settlement near the wall and provided your family with supplies. A rumour of an ancient artifact in the deep dungeons of the fortress caused him to betray you and your family to get at the relic. You never heard any such rumour. \n\n## The Dwarves\n\nThe survivors fled to Ironcrag Hold. The dwarves there, led by Thane Hreidmar \"Stone-Eye,\" are Clan Bofyr. These dwarves referred to your family as \"Einherjar,\" an important distinction. The north has many undead types, especially on the other side of the Wall, but most vampires are feral Darakhul, lowly beasts little better than ghouls. Einherjar are referred to as the Heroic Dead, who gave up Valhalla to continue the fight in the mortal world. \n\nThane Stone-Eye, who has a carved sapphire in his left eye socket, is said to be able to see through half-truths and illusions. He is a devout follower of Wotan. \n\nOne final secret: one of the ancestors of Clan Bofyr is a dwarven vampire wizard who was the one who recommended the thane ally with your people. You know of this secret, as it was part of why you trusted the thane. He gave you this secret to prove his loyalty and respect.\n\nThe clan is watched over by an Einjerjar, a 1500-year-old vampire named Valdrin Bofyr, Deep-Root of the Mountain, Master of the Old Oaths of Stone and Blood. Valdrin has given Torak a blood oath to protect the remaining members of his family. The elder vampire awoke from torpor when the fortress fell and Alaric was slain. His skin has taken a rough, stone-like texture, and when he slumbers most would mistake him for a statue of a dwarf on a throne in a forgotten chamber high on the mountain.\n\n&nbsp;"
     },
     {
       "title": "Gain Blightlander spells @ level 5",
-      "body_md": "Once I get to level 5 I get more spells from my culture"
+      "body_md": "Once I get to level 5 I get more spells from my culture\n\n&nbsp;"
     }
   ]
 }

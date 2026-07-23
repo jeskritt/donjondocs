@@ -10,7 +10,7 @@ Interactions:
 
 from datetime import datetime, timezone
 
-from jose import JWTError
+import jwt
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
@@ -20,6 +20,7 @@ from app.security import (
     create_access_token,
     decode_token,
     hash_password,
+    needs_rehash,
     verify_password,
 )
 from app.services._errors import ServiceError
@@ -54,6 +55,11 @@ async def authenticate_user(
 
     if not user.is_active:
         raise AuthError("Account is deactivated")
+
+    # Transparently upgrade legacy bcrypt hashes to argon2 on successful login —
+    # this is the only place we hold the plaintext. Persisted by the flush below.
+    if needs_rehash(user.hashed_password):
+        user.hashed_password = hash_password(password)
 
     # Update last_login timestamp
     user.last_login = datetime.now(timezone.utc)
@@ -115,7 +121,7 @@ async def get_user_from_token(
     """
     try:
         payload = decode_token(token)
-    except JWTError:
+    except jwt.PyJWTError:
         raise AuthError("Invalid or expired token")
 
     user_id = payload.get("sub")

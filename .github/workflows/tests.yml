@@ -1,0 +1,27 @@
+name: tests
+
+# Run the suite in a clean venv built from the pinned lockfiles on every push and
+# pull request. This is also the gate that validates dependency bumps (recompiled
+# requirements*.txt) install cleanly on the production Python before reaching Render.
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      # nox builds the isolated test venv from the pinned lockfiles; keep it in the
+      # outer runner env, not inside the venv it manages.
+      - name: Install nox
+        run: pip install nox
+
+      - name: Run tests (clean venv from pinned lockfiles)
+        run: nox
