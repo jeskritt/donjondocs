@@ -391,6 +391,9 @@ class Character(BaseModel):
     maneuver_dc_misc: int = 0
     inventory: list["InventoryItem"] = Field(default_factory=list)
     currency: dict[str, int] = Field(default_factory=dict)
+    # Bonus to the base 5e-family attunement cap of 3 (feats/archetypes can raise it).
+    # In the JSON blob → no migration; ignored by styles that hide attunement (Shadowdark).
+    attunement_bonus: int = 0
 
     # --- Roleplaying description (rendered on the Description card) ---
     personality: str = ""

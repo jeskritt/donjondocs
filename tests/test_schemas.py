@@ -75,3 +75,34 @@ def test_inventory_item_is_custom_defaults_false_and_round_trips():
     # Older inventory JSON without the field should still load cleanly.
     legacy = {"item_type": "item", "name": "Bedroll", "quantity": 1}
     assert InventoryItem.model_validate(legacy).is_custom is False
+
+
+def test_character_attunement_bonus_defaults_zero_and_round_trips():
+    """The attunement-limit bonus defaults to 0 and survives dump/reload; legacy
+    character JSON without the field loads at the default."""
+    from app.schemas.char_sheet_specific import (
+        Character, Race, CharacterStat, CharacterProficiency,
+    )
+
+    base = dict(
+        owner_id="u1", style=SheetStyle.DND5E, name="Hero",
+        race=Race(ancestry="Human", culture=None, lineage=None),
+        background="Sage", prof_bonus=2,
+        ac=CharacterStat(base=10, misc=0),
+        initiative=CharacterStat(base=0, misc=0),
+        inspiration=False, conditions=[], speed=30, size="Medium",
+        proficiency=CharacterProficiency(
+            weapon=[], armor=[], language=[], instrument=[], tool=[], game=[]
+        ),
+    )
+
+    default_char = Character(**base)
+    assert default_char.attunement_bonus == 0
+    assert Character.model_validate(default_char.model_dump()).attunement_bonus == 0
+
+    raised = Character(**base, attunement_bonus=2)
+    assert Character.model_validate(raised.model_dump()).attunement_bonus == 2
+
+    legacy = default_char.model_dump()
+    legacy.pop("attunement_bonus")
+    assert Character.model_validate(legacy).attunement_bonus == 0

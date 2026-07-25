@@ -428,6 +428,7 @@ class BaseSheetBuilder:
         self.view_data['style_flags'] = {
             'has_skills': True,
             'show_prof_bonus': True,
+            'show_attunement': True,
         }
         return self
 

@@ -20,6 +20,11 @@ def _render_abilities_tab(state, cs, features, _save):
     if not features:
         ui.label("No abilities or features added yet.").classes('text-gray-500 italic text-sm py-2')
 
+    # Which ability expansions are open. Bound into page `state` so they survive the
+    # `_save` re-render — otherwise ticking a use tracker collapses the card on every
+    # click. Keyed by `source:name` since ability names aren't enforced-unique.
+    expanded = state.setdefault("abilities_expanded", set())
+
     sources = list(dict.fromkeys(f["source"] or "General" for f in features))
     if sources:
         if state.get("features_source_tab") not in sources:
@@ -30,7 +35,11 @@ def _render_abilities_tab(state, cs, features, _save):
             for src in sources:
                 with ui.tab_panel(tab_objs[src]):
                     for feat in [f for f in features if (f["source"] or "General") == src]:
-                        with ui.expansion(feat["name"], icon='auto_fix_high').classes('w-full border border-gray-700 rounded mb-1'):
+                        key = f"{src}:{feat['name']}"
+                        exp = ui.expansion(feat["name"], icon='auto_fix_high',
+                                           value=(key in expanded)).classes('w-full border border-gray-700 rounded mb-1')
+                        exp.on_value_change(lambda e, k=key: expanded.add(k) if e.value else expanded.discard(k))
+                        with exp:
                             if feat["description"]:
                                 ui.label(feat["description"]).classes('text-gray-300 text-sm whitespace-pre-wrap')
                             for sub in feat.get("sub_abilities", []):

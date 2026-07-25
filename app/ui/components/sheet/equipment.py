@@ -24,6 +24,10 @@ from app.ui.components.sheet.helpers import (
     toggle_element_display,
 )
 
+# Base 5e-family attunement cap; a per-character `attunement_bonus` (feats/archetypes)
+# is added on top. Hidden entirely for styles without attunement (e.g. Shadowdark).
+BASE_ATTUNEMENT_LIMIT = 3
+
 
 def _render_equipment(state, char_id, user, _save):
 
@@ -36,9 +40,32 @@ def _render_equipment(state, char_id, user, _save):
         armors  = [i for i in inventory if i.item_type == "armor"]
         items   = [i for i in inventory if i.item_type == "item"]
 
+        # Attunement is a 5e-family concept; the builder's style flag hides it for
+        # systems that don't use it (Shadowdark, and future non-attunement systems).
+        show_attunement = state["vd"]["style_flags"].get("show_attunement", True)
+        attuned_count = sum(1 for i in inventory if i.attuned)
+        attunement_max = BASE_ATTUNEMENT_LIMIT + (cs.attunement_bonus or 0)
+
+        async def _toggle_attuned(v, name, itype):
+            updated = []
+            for it in cs.inventory:
+                d = it.model_dump()
+                if it.item_type == itype and it.name == name:
+                    d["attuned"] = bool(v)
+                updated.append(d)
+            await _save({"inventory": updated})
+
         with ui.card().classes('w-full'):
             with ui.row().classes('w-full items-center justify-between'):
                 ui.label("Equipment").classes('text-xl font-bold font-serif')
+                if show_attunement:
+                    with ui.row().classes('items-center gap-1'):
+                        ui.label(f"Attuned {attuned_count} / {attunement_max}").classes(
+                            'text-sm font-semibold ' +
+                            ('text-red-400' if attuned_count > attunement_max else 'text-gray-300'))
+                        ui.button(icon='edit',
+                                  on_click=lambda: _open_attunement_limit_dialog(cs, _save)
+                                  ).props('flat round dense size=sm color=primary')
 
             ui.separator()
 
@@ -121,8 +148,8 @@ def _render_equipment(state, char_id, user, _save):
                         ui.label("No weapons carried.").classes('text-gray-500 italic text-sm py-1')
                     else:
                         with ui.row().classes('w-full text-xs text-gray-500 px-1 mb-1 gap-2'):
-                            for h in ["Eq", "Name", "Damage", "Type", "Range", "Properties", "Qty", ""]:
-                                if h == "Eq":
+                            for h in (["Eq"] + (["At"] if show_attunement else []) + ["Name", "Damage", "Type", "Range", "Properties", "Qty", ""]):
+                                if h in ("Eq", "At"):
                                     ui.label(h).classes('w-8 text-center')
                                 elif h in ("Qty", ""):
                                     ui.label(h).classes('w-10 text-center')
@@ -146,6 +173,10 @@ def _render_equipment(state, char_id, user, _save):
                                     ui.checkbox(value=bool(w.equipped),
                                                 on_change=lambda e, n=wname: _toggle_w(e.value, n)
                                                 ).classes('w-8')
+                                    if show_attunement:
+                                        ui.checkbox(value=bool(w.attuned),
+                                                    on_change=lambda e, n=wname: _toggle_attuned(e.value, n, "weapon")
+                                                    ).classes('w-8')
                                     # Name toggles the extended view (the equip
                                     # checkbox and edit/delete stay independent).
                                     name_lbl = ui.label(w.name).classes('flex-1 text-white text-sm cursor-pointer')
@@ -155,7 +186,7 @@ def _render_equipment(state, char_id, user, _save):
                                     ui.label(w.item_notes or "—").classes('flex-1 text-gray-400 text-xs')
                                     ui.label(str(w.quantity)).classes('w-10 text-center text-white text-sm')
                                     ui.button(icon='edit',
-                                              on_click=lambda n=wname: _open_edit_inventory_dialog(cs, _save, _section, n, "weapon")
+                                              on_click=lambda n=wname: _open_edit_inventory_dialog(cs, _save, _section, n, "weapon", show_attunement)
                                               ).props('flat round dense color=primary')
                                     async def _rm_w(n=wname):
                                         updated = [it for it in cs.inventory if it.name != n or it.item_type != "weapon"]
@@ -166,7 +197,6 @@ def _render_equipment(state, char_id, user, _save):
                                     render_detail_pairs([
                                         ("Weight", w.weight),
                                         ("Value", w.value),
-                                        ("Attuned", "Yes" if w.attuned else "No"),
                                     ])
                                     render_plain_markdown(w.notes)
                                 name_lbl.on('click', lambda dr=desc_row: toggle_element_display(dr))
@@ -185,8 +215,8 @@ def _render_equipment(state, char_id, user, _save):
                         ui.label("No armor carried.").classes('text-gray-500 italic text-sm py-1')
                     else:
                         with ui.row().classes('w-full text-xs text-gray-500 px-1 mb-1 gap-2'):
-                            for h in ["Eq", "Name", "AC", "Base", "Dex Cap", "Shield?", "Weight", "Qty", ""]:
-                                if h == "Eq":
+                            for h in (["Eq"] + (["At"] if show_attunement else []) + ["Name", "AC", "Base", "Dex Cap", "Shield?", "Weight", "Qty", ""]):
+                                if h in ("Eq", "At"):
                                     ui.label(h).classes('w-8 text-center')
                                 elif h in ("Qty", ""):
                                     ui.label(h).classes('w-10 text-center')
@@ -214,6 +244,10 @@ def _render_equipment(state, char_id, user, _save):
                                     ui.checkbox(value=bool(a.equipped),
                                                 on_change=lambda e, n=aname, s=aname_is_shield: _toggle_a(e.value, n, s)
                                                 ).classes('w-8')
+                                    if show_attunement:
+                                        ui.checkbox(value=bool(a.attuned),
+                                                    on_change=lambda e, n=aname: _toggle_attuned(e.value, n, "armor")
+                                                    ).classes('w-8')
                                     name_lbl = ui.label(a.name).classes('flex-1 text-white text-sm cursor-pointer')
                                     ui.label(a.armor_class or "—").classes('flex-1 text-gray-300 text-sm')
                                     ui.label(str(a.base_ac) if a.base_ac is not None else "—").classes('flex-1 text-gray-400 text-sm')
@@ -222,7 +256,7 @@ def _render_equipment(state, char_id, user, _save):
                                     ui.label(a.weight or "—").classes('flex-1 text-gray-400 text-sm')
                                     ui.label(str(a.quantity)).classes('w-10 text-center text-white text-sm')
                                     ui.button(icon='edit',
-                                              on_click=lambda n=aname: _open_edit_inventory_dialog(cs, _save, _section, n, "armor")
+                                              on_click=lambda n=aname: _open_edit_inventory_dialog(cs, _save, _section, n, "armor", show_attunement)
                                               ).props('flat round dense color=primary')
                                     async def _rm_a(n=aname):
                                         updated = [it for it in cs.inventory if it.name != n or it.item_type != "armor"]
@@ -233,7 +267,6 @@ def _render_equipment(state, char_id, user, _save):
                                     render_detail_pairs([
                                         ("Value", a.value),
                                         ("Properties", a.item_notes),
-                                        ("Attuned", "Yes" if a.attuned else "No"),
                                     ])
                                     render_plain_markdown(a.notes)
                                 name_lbl.on('click', lambda dr=desc_row: toggle_element_display(dr))
@@ -252,8 +285,10 @@ def _render_equipment(state, char_id, user, _save):
                         ui.label("No equipment carried.").classes('text-gray-500 italic text-sm py-1')
                     else:
                         with ui.row().classes('w-full text-xs text-gray-500 px-1 mb-1 gap-2'):
-                            for h in ["Name", "Weight", "Value", "Qty", ""]:
-                                if h == "Qty":
+                            for h in ((["At"] if show_attunement else []) + ["Name", "Weight", "Value", "Qty", ""]):
+                                if h == "At":
+                                    ui.label(h).classes('w-8 text-center')
+                                elif h == "Qty":
                                     ui.label(h).classes('w-24 text-center')
                                 elif h == "":
                                     ui.label(h).classes('w-10 text-center')
@@ -263,6 +298,10 @@ def _render_equipment(state, char_id, user, _save):
                             with ui.column().classes('w-full gap-0'):
                                 with ui.row().classes('w-full items-center border-b border-gray-800 py-1 gap-2'):
                                     iname = it.name
+                                    if show_attunement:
+                                        ui.checkbox(value=bool(it.attuned),
+                                                    on_change=lambda e, n=iname: _toggle_attuned(e.value, n, "item")
+                                                    ).classes('w-8')
                                     name_lbl = ui.label(it.name).classes('flex-1 text-white text-sm cursor-pointer')
                                     ui.label(it.weight or "—").classes('flex-1 text-gray-400 text-sm')
                                     ui.label(it.value or "—").classes('flex-1 text-gray-400 text-sm')
@@ -280,7 +319,7 @@ def _render_equipment(state, char_id, user, _save):
                                         ui.label(str(it.quantity)).classes('text-white text-sm')
                                         render_pm_adjuster(_qty_adjust)
                                     ui.button(icon='edit',
-                                              on_click=lambda n=iname: _open_edit_inventory_dialog(cs, _save, _section, n, "item")
+                                              on_click=lambda n=iname: _open_edit_inventory_dialog(cs, _save, _section, n, "item", show_attunement)
                                               ).props('flat round dense color=primary')
                                     async def _rm_i(n=iname):
                                         updated = [x for x in cs.inventory if x.name != n or x.item_type != "item"]
@@ -291,7 +330,6 @@ def _render_equipment(state, char_id, user, _save):
                                     render_detail_pairs([
                                         ("Properties", it.item_notes),
                                         ("Equipped", "Yes" if it.equipped else "No"),
-                                        ("Attuned", "Yes" if it.attuned else "No"),
                                     ])
                                     render_plain_markdown(it.notes)
                                 name_lbl.on('click', lambda dr=desc_row: toggle_element_display(dr))
@@ -306,6 +344,25 @@ def _render_equipment(state, char_id, user, _save):
 
     _section()
     return _section
+
+
+def _open_attunement_limit_dialog(cs, _save):
+    """Edit the per-character attunement-limit bonus (feats/archetypes raise the cap)."""
+    with ui.dialog() as dlg, ui.card().classes('w-80').style(DIALOG_CARD_STYLE):
+        ui.label("Attunement Limit").classes('text-lg font-bold text-white mb-1')
+        ui.label(f"Base limit is {BASE_ATTUNEMENT_LIMIT}. Add a bonus from feats or class "
+                 "archetypes.").classes('text-xs text-gray-400 mb-2')
+        bonus_in = ui.number(label="Limit bonus", value=cs.attunement_bonus or 0, step=1
+                             ).props('dense outlined').classes('w-full')
+        with ui.row().classes('w-full justify-end gap-2 mt-2'):
+            ui.button("Cancel", on_click=dlg.close).props('flat').style('color:#94A3B8;')
+
+            async def _apply():
+                await _save({"attunement_bonus": int(bonus_in.value or 0)})
+                dlg.close()
+
+            ui.button("Save", on_click=_apply).props('unelevated color=primary')
+    dlg.open()
 
 
 async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str):
@@ -340,19 +397,22 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
             with_input=True,
         ).classes('w-full')
         qty_inp = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
+        show_attunement = state["vd"]["style_flags"].get("show_attunement", True)
+        attuned_box = ui.checkbox("Attuned", value=False) if show_attunement else None
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
 
             async def _confirm():
                 r = options[selected.value]
+                attuned = bool(attuned_box.value) if attuned_box is not None else False
                 if item_type == "weapon":
                     inv_item = InventoryItem(
                         item_type="weapon", name=r.name,
                         quantity=int(qty_inp.value or 1),
                         damage=r.damage, damage_type=r.damage_type,
                         weapon_range=r.range, weight=r.weight, value=r.value,
-                        item_notes=r.notes,
+                        item_notes=r.notes, attuned=attuned,
                     )
                 elif item_type == "armor":
                     inv_item = InventoryItem(
@@ -362,7 +422,7 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
                         base_ac=r.base_ac, dex_cap=r.dex_cap,
                         is_shield=bool(r.is_shield),
                         weight=r.weight, value=r.value,
-                        item_notes=r.notes,
+                        item_notes=r.notes, attuned=attuned,
                     )
                 else:
                     inv_item = InventoryItem(
@@ -371,7 +431,7 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
                         weight=r.weight, value=r.value,
                         # Surface the global item's effects (e.g. a UM5 vehicle's
                         # Cap/Speed/AC/HP or a cybernetic's location) as Properties.
-                        item_notes=r.effects,
+                        item_notes=r.effects, attuned=attuned,
                     )
                 updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
                 await _save({"inventory": updated})
@@ -389,6 +449,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
         ui.label(f"Add Custom {item_type.title()}").classes('text-lg font-bold mb-2 text-white')
         inp_name = ui.input("Name*").classes('w-full')
         qty_inp  = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
+        show_attunement = state["vd"]["style_flags"].get("show_attunement", True)
 
         if item_type == "weapon":
             inp_type   = ui.input("Type (e.g. Simple Melee)").classes('w-full').props('dense')
@@ -413,6 +474,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
 
         # Free-form markdown description, shown in the row's extended view.
         inp_desc = ui.textarea("Description (markdown)").classes('w-full').props('rows=3')
+        attuned_box = ui.checkbox("Attuned") if show_attunement else None
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
@@ -422,6 +484,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                 if not name:
                     notify_error("Name is required"); return
                 desc = (inp_desc.value or "").strip()
+                attuned = bool(attuned_box.value) if attuned_box is not None else False
 
                 async with service_session() as session:
                     if item_type == "weapon":
@@ -436,7 +499,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                             damage=dto.damage, damage_type=dto.damage_type,
                             weapon_range=dto.weapon_range, weight=dto.weight,
                             value=dto.value, item_notes=dto.notes, notes=desc,
-                            is_custom=True,
+                            is_custom=True, attuned=attuned,
                         )
                     elif item_type == "armor":
                         from app.cli.ingest import parse_armor_stats
@@ -455,7 +518,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                             base_ac=base_ac, dex_cap=dex_cap, is_shield=is_shield,
                             weight=dto.weight,
                             value=dto.value, item_notes=dto.notes, notes=desc,
-                            is_custom=True,
+                            is_custom=True, attuned=attuned,
                         )
                     else:
                         dto = CustomItemInput(
@@ -466,7 +529,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                         inv_item = InventoryItem(
                             item_type="item", name=name, quantity=int(qty_inp.value or 1),
                             weight=dto.weight, value=dto.value, notes=desc,
-                            is_custom=True,
+                            is_custom=True, attuned=attuned,
                         )
 
                 updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
@@ -480,7 +543,7 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
     dialog.open()
 
 
-def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type: str):
+def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type: str, show_attunement: bool = True):
     """Edit an existing inventory entry's display fields and quantity.
 
     Edits the inventory snapshot only — never the underlying GlobalWeapon /
@@ -522,6 +585,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
 
         # Free-form markdown description, shown in the row's extended view.
         inp_desc = ui.textarea("Description (markdown)", value=target.notes or "").classes('w-full').props('rows=3')
+        attuned_box = ui.checkbox("Attuned", value=bool(target.attuned)) if show_attunement else None
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
@@ -532,6 +596,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                     notify_error("Name is required"); return
                 new_qty = max(0, int(qty_inp.value or 0))
                 new_desc = (inp_desc.value or "").strip()
+                new_attuned = bool(attuned_box.value) if attuned_box is not None else target.attuned
 
                 if item_type == "weapon":
                     new_entry = InventoryItem(
@@ -539,7 +604,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         name=new_name,
                         quantity=new_qty,
                         equipped=target.equipped,
-                        attuned=target.attuned,
+                        attuned=new_attuned,
                         notes=new_desc,
                         damage=(inp_dmg.value or "").strip() or None,
                         damage_type=(inp_dmgt.value or "").strip() or None,
@@ -561,7 +626,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         name=new_name,
                         quantity=new_qty,
                         equipped=target.equipped,
-                        attuned=target.attuned,
+                        attuned=new_attuned,
                         notes=new_desc,
                         armor_class=(inp_ac.value or "").strip() or None,
                         base_ac=base_ac,
@@ -578,7 +643,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         name=new_name,
                         quantity=new_qty,
                         equipped=target.equipped,
-                        attuned=target.attuned,
+                        attuned=new_attuned,
                         notes=new_desc,
                         weight=(inp_weight.value or "").strip() or None,
                         value=(inp_value.value or "").strip() or None,
