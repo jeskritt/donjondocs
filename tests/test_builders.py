@@ -57,6 +57,18 @@ def test_builder_factory_returns_correct_instance():
     assert isinstance(get_builder(c_vr), A5eBuilder)
 
 
+@pytest.mark.parametrize("style,expected", [
+    (SheetStyle.DND5E, True),
+    (SheetStyle.A5E, True),
+    (SheetStyle.UM5, True),
+    (SheetStyle.VOIDRUNNER, True),   # inherits the 5e-family cap
+    (SheetStyle.SHADOWDARK, False),  # no attunement concept
+])
+def test_show_attunement_style_flag(style, expected):
+    vd = get_builder(create_mock_character(style)).build()
+    assert vd["style_flags"]["show_attunement"] is expected
+
+
 @pytest.mark.parametrize("style", [SheetStyle.GENEFUNK, SheetStyle.CARBON])
 def test_builder_factory_raises_for_unimplemented_styles(style):
     c = create_mock_character(style)

@@ -34,4 +34,5 @@ class ShadowdarkBuilder(BaseSheetBuilder):
         super().build_style_flags()
         self.view_data['style_flags']['has_skills'] = False
         self.view_data['style_flags']['show_prof_bonus'] = False
+        self.view_data['style_flags']['show_attunement'] = False  # Shadowdark has no attunement
         return self
