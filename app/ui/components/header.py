@@ -7,7 +7,7 @@ Interactions:
 
 """Top navigation header component."""
 
-from nicegui import ui
+from nicegui import app, ui
 
 from app.config import get_settings
 from app.user_roles import UserRole
@@ -58,7 +58,18 @@ def build_header():
                         "Profile",
                         on_click=lambda: ui.navigate.to("/profile"),
                     ).props("dense")
+                    async def _handle_logout():
+                        # POST via browser fetch so the browser receives the
+                        # HttpOnly Set-Cookie deletion without exposing a
+                        # state-changing GET logout endpoint (CSRF hardening).
+                        await ui.run_javascript(
+                            "fetch('/api/auth/logout', {method: 'POST', credentials: 'same-origin'}).catch(() => {})",
+                            timeout=5,
+                        )
+                        app.storage.user.clear()
+                        ui.navigate.to("/login")
+
                     ui.menu_item(
                         "Logout",
-                        on_click=lambda: ui.navigate.to("/api/auth/logout-ui"),
+                        on_click=_handle_logout,
                     ).props("dense")
