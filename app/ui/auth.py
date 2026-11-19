@@ -6,9 +6,31 @@ on every protected page request. Page functions retrieve it through
 and forging an ad-hoc user object.
 """
 
+from urllib.parse import urlsplit
+
 from nicegui import context
 
 from app.user_context import UserContext
+
+
+def sanitize_redirect_target(target: str | None) -> str:
+    """Validate a post-login `redirect_to` query parameter to prevent open redirects.
+
+    Allows only relative same-origin paths beginning with a single `/`. Rejects
+    absolute URLs (`https://...`), protocol-relative URLs (`//evil.com`),
+    backslash tricks (`/\\evil.com`), and control characters (`\\r`, `\\n`).
+    Falls back to `"/"` on anything unsafe.
+    """
+    if not target or not isinstance(target, str):
+        return "/"
+    if any(ord(ch) < 32 or ord(ch) == 127 for ch in target):
+        return "/"
+    if "\\" in target or not target.startswith("/") or target.startswith("//"):
+        return "/"
+    parsed = urlsplit(target)
+    if parsed.scheme or parsed.netloc:
+        return "/"
+    return target
 
 
 def current_user_context() -> UserContext:

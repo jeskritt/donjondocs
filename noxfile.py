@@ -25,3 +25,18 @@ def tests(session: nox.Session) -> None:
     """
     session.install("-r", "requirements.txt", "-r", "requirements-dev.txt")
     session.run("pytest", "tests/", "-v", *session.posargs)
+
+
+@nox.session(python="3.14")
+def e2e(session: nox.Session) -> None:
+    """Install app + E2E browser deps into a separate venv and run Playwright tests.
+
+    Opt-in (`nox -s e2e`) so the default unit/integration run stays fast.
+    """
+    session.install(
+        "-r", "requirements.txt",
+        "-r", "requirements-dev.txt",
+        "-r", "requirements-e2e.txt",
+    )
+    session.run("playwright", "install", "chromium")
+    session.run("pytest", "tests/e2e/", "-v", *session.posargs)

@@ -56,9 +56,12 @@ The `alembic/versions/` directory is currently empty — the dev SQLite database
 ## Running tests
 
 ```bash
-python -m pytest tests/ -v              # all tests
-python -m pytest tests/ -v --cov        # with coverage report
+nox                                         # clean-venv unit/integration tests (CI runs this)
+nox -s e2e                                  # opt-in Playwright browser E2E suite (tests/e2e/)
+python -m pytest tests/ -v                  # fast local unit/integration tests (skips tests/e2e/)
+python -m pytest tests/ -v --cov            # with coverage report
 python -m pytest tests/test_builders.py -v  # single file
+python -m pytest tests/e2e/ -v              # browser E2E tests (needs requirements-e2e.txt + chromium)
 ```
 
-The test suite uses an in-memory SQLite database — no `.env` or data ingest needed.
+The unit/integration suite uses an in-memory SQLite database — no `.env` or data ingest needed. The browser E2E suite under `tests/e2e/` is excluded from the default `pytest tests/` run via `pytest.ini` (`norecursedirs`) and boots an isolated `main.py` server against a temporary Alembic-migrated SQLite database.

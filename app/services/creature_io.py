@@ -12,6 +12,7 @@ in `_MIGRATIONS` so older exports still import cleanly.
 
 """Creature catalog export/import — versioned envelope + migration chain."""
 
+import re
 from typing import Callable
 
 from app.services._errors import CreatureServiceError
@@ -19,15 +20,23 @@ from app.services._errors import CreatureServiceError
 
 EXPORT_VERSION = 1
 
+# Hard cap on uploaded import payloads (shared by REST API and NiceGUI upload
+# dialogs — security audit finding #3).
+MAX_IMPORT_BYTES = 1 * 1024 * 1024
+
+_CTRL_CHARS_RE = re.compile(r"[\x00-\x1f\x7f]")
+
 
 def export_filename_for(name: str) -> str:
     """Sanitize a creature name for use as an export filename stem.
 
-    Same rules as the character helper — strip quotes and path separators
-    — plus a `.creature` suffix so the file is visually distinct from
-    character exports in a download folder.
+    Same rules as the character helper — strip control chars, quotes,
+    semicolons, and path separators — plus a `.creature` suffix so the file
+    is visually distinct from character exports in a download folder.
     """
-    safe = name.replace('"', "").replace("/", "_").strip() or "creature"
+    cleaned = _CTRL_CHARS_RE.sub("", name)
+    cleaned = cleaned.replace('"', "").replace(";", "").replace("/", "_").replace("\\", "_")
+    safe = cleaned.strip() or "creature"
     return f"{safe}.creature"
 
 

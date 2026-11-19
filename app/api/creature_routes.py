@@ -36,6 +36,7 @@ from app.schemas.creature import Creature, CreatureCreate, CreatureUpdate
 from app.services._errors import CreatureServiceError
 from app.services.creature_io import (
     EXPORT_VERSION,
+    MAX_IMPORT_BYTES,
     export_filename_for,
     migrate_creature_data,
 )
@@ -77,9 +78,8 @@ def _to_response(row: CreatureORM, owner_map: dict[str, str]) -> Creature:
     return payload
 
 
-# Same 1 MiB cap as the character import — defence-in-depth against
-# OOM-by-upload (security audit F-03).
-MAX_IMPORT_BYTES = 1 * 1024 * 1024
+# MAX_IMPORT_BYTES is imported from app.services.creature_io (re-exported here
+# for existing callers/tests).
 
 
 def _matches_filters(

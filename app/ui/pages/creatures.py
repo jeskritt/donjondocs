@@ -25,7 +25,12 @@ from nicegui import app, ui
 from app.schemas.char_sheet_global import CREATURE_SIZES, CREATURE_TYPES
 from app.schemas.creature import CreatureCreate, CreatureUpdate
 from app.services._errors import CreatureServiceError
-from app.services.creature_io import EXPORT_VERSION, export_filename_for
+from app.services.creature_io import (
+    EXPORT_VERSION,
+    MAX_IMPORT_BYTES,
+    export_filename_for,
+    migrate_creature_data,
+)
 from app.services.creature_parser import parse_stat_block
 from app.services.creature_service import (
     copy_creature,
@@ -359,6 +364,9 @@ async def creatures_page():
             )
 
             async def _handle_upload(e):
+                if e.file.size() > MAX_IMPORT_BYTES:
+                    notify_error(f"Import file exceeds {MAX_IMPORT_BYTES} bytes.")
+                    return
                 try:
                     envelope = await e.file.json()
                 except (json.JSONDecodeError, UnicodeDecodeError):
@@ -367,7 +375,18 @@ async def creatures_page():
                 if not isinstance(envelope, dict) or "creature_data" not in envelope:
                     notify_error("Missing 'creature_data' in import file.")
                     return
-                data = dict(envelope["creature_data"])
+                version = envelope.get("version", EXPORT_VERSION)
+                if not isinstance(version, int):
+                    notify_error("Envelope 'version' must be an integer.")
+                    return
+                try:
+                    data = migrate_creature_data(dict(envelope["creature_data"]), version)
+                except CreatureServiceError as exc:
+                    notify_error(exc.message)
+                    return
+                except Exception:
+                    notify_error("Creature data failed migration.")
+                    return
                 data["is_public"] = False
                 try:
                     payload = CreatureCreate.model_validate(data)
@@ -386,8 +405,12 @@ async def creatures_page():
 
             ui.upload(
                 on_upload=_handle_upload,
+                on_rejected=lambda _: notify_error(
+                    f"Upload rejected (only .json files up to {MAX_IMPORT_BYTES // (1024 * 1024)} MiB are accepted)."
+                ),
                 auto_upload=True,
                 max_files=1,
+                max_file_size=MAX_IMPORT_BYTES,
             ).props('accept=".json"').classes("w-full")
             with ui.row().classes("w-full justify-end mt-4"):
                 ui.button("Cancel", on_click=dialog.close).props("flat").style("color: #94A3B8;")

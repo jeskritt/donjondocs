@@ -15,6 +15,7 @@ bump `EXPORT_VERSION` and register an `N → N+1` migrator in `_MIGRATIONS`
 so older exports still import cleanly.
 """
 
+import re
 from typing import Callable
 
 from app.services._errors import CharacterServiceError
@@ -22,10 +23,24 @@ from app.services._errors import CharacterServiceError
 
 EXPORT_VERSION = 7
 
+# Hard cap on uploaded import payloads (shared by REST API and NiceGUI upload
+# dialogs). A real character export is a few KB; 1 MiB leaves comfortable
+# headroom while preventing OOM-by-upload DoS (security audit finding #3).
+MAX_IMPORT_BYTES = 1 * 1024 * 1024
+
+_CTRL_CHARS_RE = re.compile(r"[\x00-\x1f\x7f]")
+
 
 def export_filename_for(name: str) -> str:
-    """Sanitize a character name for use as an export filename stem."""
-    return name.replace('"', "").replace("/", "_")
+    """Sanitize a character name for use as an export filename stem.
+
+    Strips HTTP header/control characters (`\\r`, `\\n`, NUL, `;`, `"`), maps
+    path separators (`/` and `\\`) to `_`, and falls back to `"character"` if
+    nothing usable remains.
+    """
+    cleaned = _CTRL_CHARS_RE.sub("", name)
+    cleaned = cleaned.replace('"', "").replace(";", "").replace("/", "_").replace("\\", "_")
+    return cleaned.strip() or "character"
 
 
 def _migrate_v3_to_v4(data: dict) -> dict:
