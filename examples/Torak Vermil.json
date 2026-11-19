@@ -1,6 +1,6 @@
 {
   "version": 7,
-  "exported_at": "2026-07-23T14:40:45.579059+00:00",
+  "exported_at": "2026-11-19T16:05:12.057621+00:00",
   "name": "Torak Vermil",
   "style": "Level Up: Advanced 5e",
   "character_data": {
@@ -19,7 +19,7 @@
       "inspiration_feat": "1 hour, expertise on opposed rolls",
       "fullfillment": ""
     },
-    "prof_bonus": 2,
+    "prof_bonus": 3,
     "ac": {
       "base": 10,
       "misc": 0
@@ -58,10 +58,10 @@
       {
         "name": "Fighter",
         "archetype": "Eldritch Knight",
-        "level": 4,
+        "level": 5,
         "hit_dice": "d10",
-        "hit_dice_current": 4,
-        "hit_dice_max": 4,
+        "hit_dice_current": 5,
+        "hit_dice_max": 5,
         "saving_throw_grants": [
           "STR",
           "CON"
@@ -79,9 +79,9 @@
       }
     ],
     "character_class": "Fighter",
-    "level": 4,
-    "hp_current": 32,
-    "hp_max": 32,
+    "level": 5,
+    "hp_current": 39,
+    "hp_max": 39,
     "hp_temp": 0,
     "exhaustion": 0,
     "cha_score": {
@@ -366,7 +366,7 @@
         }
       },
       {
-        "name": "Soildering Knack: Weather Beaten",
+        "name": "Soldiering Knack: Weather Beaten",
         "source": "Class",
         "description": "Advantage on rolls for weapther, percipitation or adverse conditions due to heat or cold",
         "sub_abilities": [],
@@ -458,6 +458,27 @@
         "description": "You have been corrupted with vampirism from exposure to dark forces that unlocked an ancient and unknown power within your blood, or because a vampire has bitten you. In either case your affliction makes you more than mortal, and yet somehow less.\n\nYou gain resistance to necrotic damage (or if you already have it, immunity to necrotic damage) and darkvision to a range of 30 feet (or if you already have it, the range of your darkvision increases by 30 feet). You also gain a bite natural weapon and the Charming Gaze feature.\n\nBite. You gain a bite natural weapon you are proficient with. You are only able to bite grappled , incapacitated , restrained , or willing creatures. On a hit your bite deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest). You can use Dexterity instead of Strength for the attack rolls of your bite. In addition, once per turn you can choose for your bite to also deal 1d6 necrotic damage \u00d7 your proficiency bonus. You regain hit points equal to the amount of necrotic damage dealt to your target. This necrotic damage can only be increased by a critical hit. \n\nCharming Gaze. You magically target a creature within 30 feet, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failure, the target is charmed by you for a number of hours equal to your proficiency bonus. While charmed it regards you as a trusted friend and is a willing target for your bite. The target repeats the saving throw each time it takes damage, ending the effect on itself on a success. If the target\u2019s saving throw is successful or the effect ends for it, it is immune to your charm for 24 hours. Once you have used this feature, you can\u2019t do so again until you finish a long rest.\n\nThis dark gift comes with a price however, making you averse to sunlight. You have disadvantage on attack rolls and on Perception checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight. In addition, you cannot use your Charming Gaze while you are in direct sunlight.",
         "sub_abilities": [],
         "tracker": null
+      },
+      {
+        "name": "Thurisaz Rune (Thor)",
+        "source": "DM Gift",
+        "description": "Once per day, you can sketch thurisaz in the air (no action required). Upon doing so, your melee weapon attacks deal 1d4 Lightning damage until the end of your next turn. Additionally, if you deal this extra Lightning damage to a target, you can cause a clap of thunder to push the target up to 10 feet away from you.",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Extra Attack",
+        "source": "Class",
+        "description": "At 5th level you can attack twice, instead of once, whenever you take the Attack action on your turn. The number of attacks increases to three when you reach 11th level in this class.",
+        "sub_abilities": [],
+        "tracker": null
+      },
+      {
+        "name": "Soldiering Knack: Extreme Leap",
+        "source": "Class",
+        "description": "When you take the Dash action and make a long jump after moving no less than 20 feet, your jump distance is doubled for the turn. You may spend 1 exertion to triple your jump distance for the turn instead, and may move the full distance of your jump even if it exceeds your Speed.",
+        "sub_abilities": [],
+        "tracker": null
       }
     ],
     "actions": [
@@ -536,7 +557,7 @@
         "quantity": 1,
         "equipped": true,
         "attuned": false,
-        "notes": "",
+        "notes": "killing a creature gives you Strength Modifier + proficiency temp hit points. If you kill a second creature, the temp hit points are refreshed, not stacked.",
         "damage": "1d8",
         "damage_type": "slashing",
         "weapon_range": "-",
@@ -628,10 +649,10 @@
       {
         "item_type": "item",
         "name": "Holy water (flask)",
-        "quantity": 1,
+        "quantity": 2,
         "equipped": false,
         "attuned": false,
-        "notes": "",
+        "notes": "You can use an action to splash the contents of this flask on an adjacent creature. Alternatively, you can throw it up to 20 feet where it shatters on impact. Make a ranged weapon attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage and becomes slowed until the end of your next turn.\n\nA cleric or herald can create holy water by performing a special ritual that takes 1 hour to perform, uses 25 gp worth of powdered silver, and require",
         "damage": null,
         "damage_type": null,
         "weapon_range": null,
@@ -642,7 +663,7 @@
         "weight": "1 lb.",
         "value": "25 gp",
         "item_notes": null,
-        "is_custom": false
+        "is_custom": true
       },
       {
         "item_type": "item",
@@ -783,7 +804,7 @@
         "quantity": 1,
         "equipped": false,
         "attuned": false,
-        "notes": "",
+        "notes": "**Crafting Components:** Giant body part, vial of mimic essence\n\nAfter you drink this potion, for the next hour your Strength score increases to match the giant whose parts were used to create it. The potion has no effect if your Strength is equal to or greater than the giant\u2019s Strength score.\n\n| Giant |\tStrength Score\t| Rarity | \tCost | \tAppearance |\n|--|--|--|--|--|\n| Hill giant | 20 | Uncommon\t| 300 gp  | Muddy, gray\n| Frost giant | 22 |\tRare\t | 800 gp  | Transparent, viscous\n| Stone giant | 23 |\tRare | 800 gp  | Silver, shimmering\n| Fire giant | 25 | Rare | 2,000 gp | Orange, volatile\n| Cloud giant | 27 | Very rare | 5,000 gp | Opaque white\n| Storm giant | 29 | Legendary | 52,500 gp | Swirling black",
         "damage": null,
         "damage_type": null,
         "weapon_range": null,
@@ -791,10 +812,10 @@
         "base_ac": null,
         "dex_cap": null,
         "is_shield": false,
-        "weight": "",
+        "weight": null,
         "value": "300 gp",
         "item_notes": null,
-        "is_custom": false
+        "is_custom": true
       },
       {
         "item_type": "item",
@@ -802,7 +823,7 @@
         "quantity": 1,
         "equipped": false,
         "attuned": false,
-        "notes": "",
+        "notes": "*Potion, Rare (cost 550 gp)*  \n**Crafting Components:** Bottle of fine wine, lustrous pearl, holy water\n\nAfter drinking this glowing white potion, for the next hour you gain 10 temporary hit points and the benefits of the bless spell (but without the need for concentration ).",
         "damage": null,
         "damage_type": null,
         "weapon_range": null,
@@ -810,10 +831,10 @@
         "base_ac": null,
         "dex_cap": null,
         "is_shield": false,
-        "weight": "",
+        "weight": null,
         "value": "550 gp",
         "item_notes": null,
-        "is_custom": false
+        "is_custom": true
       },
       {
         "item_type": "item",
@@ -821,7 +842,7 @@
         "quantity": 1,
         "equipped": false,
         "attuned": false,
-        "notes": "",
+        "notes": "Potion  |\tRarity  |\tHit Points\t|   Cost   | \tCarats needed\n|-------|--------|---------------|--------|------|\n| Healing | Common | 2d4+2 | 50 gp | \t1  |\n|Greater healing\t| Uncommon | 4d4+4 | 150 gp | 2\n|Superior healing |\tRare  |\t8d4+8  | 550 gp\t| 10\n|Supreme healing |\tRare  |\t10d4+20 | 1,500 gp | 50",
         "damage": null,
         "damage_type": null,
         "weapon_range": null,
@@ -832,7 +853,7 @@
         "weight": "0.5 lb.",
         "value": "50 gp",
         "item_notes": null,
-        "is_custom": false
+        "is_custom": true
       },
       {
         "item_type": "item",
@@ -840,7 +861,7 @@
         "quantity": 2,
         "equipped": false,
         "attuned": false,
-        "notes": "",
+        "notes": "Potion  |\tRarity  |\tHit Points\t|   Cost   | \tCarats needed\n|-------|--------|---------------|--------|------|\n| Healing | Common | 2d4+2 | 50 gp | \t1  |\n|Greater healing\t| Uncommon | 4d4+4 | 150 gp | 2\n|Superior healing |\tRare  |\t8d4+8  | 550 gp\t| 10\n|Supreme healing |\tRare  |\t10d4+20 | 1,500 gp | 50",
         "damage": null,
         "damage_type": null,
         "weapon_range": null,
@@ -851,7 +872,7 @@
         "weight": "0.5 lb.",
         "value": "150 gp",
         "item_notes": null,
-        "is_custom": false
+        "is_custom": true
       },
       {
         "item_type": "armor",
@@ -871,6 +892,44 @@
         "value": "750 gp",
         "item_notes": "Low-maintenance (expertise die)",
         "is_custom": false
+      },
+      {
+        "item_type": "item",
+        "name": "Alchemist's fire (flask)",
+        "quantity": 2,
+        "equipped": false,
+        "attuned": false,
+        "notes": "This sticky, adhesive fluid ignites when exposed to air. You can use an action to throw this flask up to 20 feet where it shatters on impact. Make a ranged weapon attack against a creature or object, treating the alchemist\u2019s fire as an improvised weapon. On a hit, the target takes 1d6 ongoing fire damage. This damage persists for 1 minute. A creature can end all ongoing damage being dealt by alchemist\u2019s fires by using its action to either make a DC 14 Dexterity check to extinguish the flames or by dousing the target with at least 1 gallon of water.",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "1 lb.",
+        "value": "35 gp",
+        "item_notes": null,
+        "is_custom": true
+      },
+      {
+        "item_type": "item",
+        "name": "Acid (vial)",
+        "quantity": 2,
+        "equipped": false,
+        "attuned": false,
+        "notes": "You can use an action to splash the contents of this vial onto a target within 5 feet of you, or throw the vial up to 20 feet where it shatters on impact. In either case, make a ranged weapon attack against the target, treating the acid as an improvised weapon. On a hit, the target takes 2d4 ongoing acid damage. This damage persists for 3 rounds. A creature ends all ongoing damage from mundane acid by using its action to wipe away the corrosive liquid.",
+        "damage": null,
+        "damage_type": null,
+        "weapon_range": null,
+        "armor_class": null,
+        "base_ac": null,
+        "dex_cap": null,
+        "is_shield": false,
+        "weight": "1 lb.",
+        "value": "25 gp",
+        "item_notes": null,
+        "is_custom": true
       }
     ],
     "currency": {
@@ -897,7 +956,8 @@
         "maximum": [
           3
         ],
-        "extra_resource": null
+        "extra_resource": null,
+        "dark": null
       },
       {
         "name": "Darkwood Magic",
@@ -907,12 +967,15 @@
         "spell_attack_misc": 0,
         "spell_dc_misc": 0,
         "current": [
+          1,
           1
         ],
         "maximum": [
+          1,
           1
         ],
-        "extra_resource": null
+        "extra_resource": null,
+        "dark": null
       },
       {
         "name": "Winter Magic",
@@ -927,12 +990,13 @@
         "maximum": [
           1
         ],
-        "extra_resource": null
+        "extra_resource": null,
+        "dark": null
       }
     ],
     "known_traditions": "Arcane Knight, Cutting Omens",
-    "exertion_current": 5,
-    "exertion_max": 5,
+    "exertion_current": 7,
+    "exertion_max": 7,
     "maneuvers_known": 5,
     "max_degree": 2,
     "maneuver_attack_misc": 0,
@@ -976,7 +1040,7 @@
         "exertion_cost": 1,
         "action_type": "BA",
         "stance": true,
-        "description": "Can use a BA to mark someone within 15 ft, or as a reaction on an attack.\nWhile marked using a help action against target is a BA"
+        "description": "As a bonus action, you can mark a creature within 15 feet with a sigil. Alternatively, you may activate this stance by expending your reaction after dealing weapon damage, marking the creature you damaged. While a target is marked in this way, any attempt to use the Help action against that target is a bonus action, rather than an action. This stance ends early if you wish to mark another creature or if the target is more than 30 feet away from you."
       },
       {
         "name": "Warding Flourish",
@@ -985,7 +1049,7 @@
         "exertion_cost": 2,
         "action_type": "A",
         "stance": false,
-        "description": "Target Ally within 15 ft (not self). they gain +2 AC. Lasts unil I can't take actions."
+        "description": "Choose an ally within 15 feet that you can see. As long as that ally stays within 15 feet of you, they increase their AC by 2. You can only ward one creature at a time, and cannot use this ward on yourself. This effect ends if you can no longer take actions."
       },
       {
         "name": "Mystic Feint",
@@ -995,6 +1059,15 @@
         "action_type": "R",
         "stance": false,
         "description": "When a creature makes a melee attack roll against you, you can use your reaction to gain an expertise die to your AC against that creature. This increase only applies to the attacking creature and ends at the start of your next turn. Once the attack is resolved, you may choose to switch spaces with the target. This movement does not provoke opportunity attacks ."
+      },
+      {
+        "name": "Transform Weapon",
+        "degree": 2,
+        "tradition": "Cutting Omens",
+        "exertion_cost": 2,
+        "action_type": "BA",
+        "stance": false,
+        "description": "**Requirement:** Unused spell slot of 1st level or higher or at least 2 unspent spell points\n\nYou transform your weapon into something more immediately useful.\n\nYou transform your weapon into another weapon you are proficient with. This change lasts only until the end of your turn. If your weapon has magical properties that could apply to its new form, they are still present. Otherwise, they are suppressed. A ranged weapon such as a bow or sling does not come with ammunition; you must provide it as normal."
       }
     ],
     "spells": [
@@ -1140,10 +1213,24 @@
         "concentration": true,
         "resource_name": "Spellcasting (Eldritch Knight)",
         "prepared": true
+      },
+      {
+        "name": "Acid Arrow",
+        "level": 2,
+        "school": "",
+        "description": "**Target:** Creature or object  \n**Components:** VSM (flint arrowhead)\n\nA jet of acid streaks towards the target like a hissing, green arrow. Make a ranged spell attack . On a hit the target takes 4d4 acid damage and 2d4 ongoing acid damage for 1 round. On a miss the target takes half damage.\n\n**Cast at Higher Levels**\nIncrease this spell\u2019s initial and ongoing damage by 1d4 per slot level above 2nd.",
+        "casting_time": "1A",
+        "duration": "Instantaneous",
+        "spell_range": "120'",
+        "ritual": false,
+        "concentration": false,
+        "resource_name": "Darkwood Magic",
+        "prepared": true
       }
     ],
     "death_save_successes": 0,
-    "death_save_failures": 0
+    "death_save_failures": 0,
+    "vigor_enabled": false
   },
   "allies": [
     {
@@ -1170,10 +1257,6 @@
     {
       "title": "Back Story",
       "body_md": "## \n\n## Torak's Sire: The General (Alaric). \n\nIn life, the General fell to an onslaught of Chernobog's feral vampires (Draugr). They infected him with their curse, but his own burning will and hatred of the undead allowed him to choose his own fate. He spent decades upon decades recruiting the toughest warriors into service. Those who survived his training were given the chance to join the Einherjar.  He hand-picked Torak and, in a ritual out on the tundra and in the heart of a blizzard, drove a shard of starlight ice into the young soldier's chest, replacing his heart with the Frost of the North. \n\nWhen Hrimm-Kastel fell, Alaric stayed behind to buy time for the others to flee and brought many traitors down. Their bloody, dying screams followed Torak and his family as they fled to Ironcrag Hold. Torak dreams of his sire wandering the Bleak Expanse, a broken spear with an orange-glowing tip in his hand as he hunts the enemy. \n\n## The Widow's Nail\n\nThe fortress your family controlled along the wall is called Hrimm-Kastjel (Rime Bastion) by the dwarves, but it is also known as the \"Widow's Nail\" by the human and giant Jarls. It was a human, Jarl Hlothar Kurgensson, who led the betrayal. He was the leader of a settlement near the wall and provided your family with supplies. A rumour of an ancient artifact in the deep dungeons of the fortress caused him to betray you and your family to get at the relic. You never heard any such rumour. \n\n## The Dwarves\n\nThe survivors fled to Ironcrag Hold. The dwarves there, led by Thane Hreidmar \"Stone-Eye,\" are Clan Bofyr. These dwarves referred to your family as \"Einherjar,\" an important distinction. The north has many undead types, especially on the other side of the Wall, but most vampires are feral Darakhul, lowly beasts little better than ghouls. Einherjar are referred to as the Heroic Dead, who gave up Valhalla to continue the fight in the mortal world. \n\nThane Stone-Eye, who has a carved sapphire in his left eye socket, is said to be able to see through half-truths and illusions. He is a devout follower of Wotan. \n\nOne final secret: one of the ancestors of Clan Bofyr is a dwarven vampire wizard who was the one who recommended the thane ally with your people. You know of this secret, as it was part of why you trusted the thane. He gave you this secret to prove his loyalty and respect.\n\nThe clan is watched over by an Einjerjar, a 1500-year-old vampire named Valdrin Bofyr, Deep-Root of the Mountain, Master of the Old Oaths of Stone and Blood. Valdrin has given Torak a blood oath to protect the remaining members of his family. The elder vampire awoke from torpor when the fortress fell and Alaric was slain. His skin has taken a rough, stone-like texture, and when he slumbers most would mistake him for a statue of a dwarf on a throne in a forgotten chamber high on the mountain.\n\n&nbsp;"
-    },
-    {
-      "title": "Gain Blightlander spells @ level 5",
-      "body_md": "Once I get to level 5 I get more spells from my culture\n\n&nbsp;"
     }
   ]
 }
