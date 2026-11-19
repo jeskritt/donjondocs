@@ -84,6 +84,27 @@ async def app_instance(db_engine):
     from main import app  # noqa: E402
     from app.rate_limit import limiter
 
+    # NiceGUI only populates AppConfig run fields inside ui.run(); initialize
+    # them once so unmatched routes hitting NiceGUI's 404 handler render cleanly
+    # under httpx ASGITransport.
+    if not app.config.has_run_config:
+        app.config.add_run_config(
+            reload=False,
+            title="DonjonDocs",
+            viewport="width=device-width, initial-scale=1",
+            favicon=None,
+            dark=False,
+            language=None,
+            binding_refresh_interval=0.1,
+            reconnect_timeout=3.0,
+            message_history_length=1000,
+            tailwind=True,
+            unocss=None,
+            prod_js=True,
+            show_welcome_message=False,
+            markdown=False,
+        )
+
     # Create a test session factory bound to the test engine
     test_session_factory = async_sessionmaker(
         db_engine, class_=AsyncSession, expire_on_commit=False,

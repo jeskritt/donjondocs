@@ -124,6 +124,12 @@ class TestLogoutRoute:
         resp = await client.post("/api/auth/logout")
         assert resp.status_code == 204
 
+    async def test_get_logout_ui_removed_404(self, client, test_user):
+        """State-changing GET /api/auth/logout-ui was removed (CSRF hardening)."""
+        client.cookies = auth_cookies(test_user)
+        resp = await client.get("/api/auth/logout-ui", follow_redirects=False)
+        assert resp.status_code == 404
+
 
 @pytest.mark.asyncio
 class TestMeRoute:

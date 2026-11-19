@@ -13,8 +13,6 @@ Mounts API routers, security middleware, and NiceGUI pages.
 Run with: python main.py
 """
 
-from fastapi import Request
-from fastapi.responses import RedirectResponse
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
@@ -87,19 +85,6 @@ app.include_router(character_routes.router, prefix="/api/characters", tags=["cha
 app.include_router(character_addons_routes.allies_router, prefix="/api/allies", tags=["allies"])
 app.include_router(character_addons_routes.notes_router, prefix="/api/notes", tags=["notes"])
 app.include_router(creature_routes.router, prefix="/api/creatures", tags=["creatures"])
-
-# ---------------------------------------------------------------------------
-# UI Logout redirect (called from header menu)
-# ---------------------------------------------------------------------------
-
-@app.get("/api/auth/logout-ui")
-async def logout_ui():
-    """Logout via GET redirect (for UI navigation)."""
-    app.storage.user.clear()
-    response = RedirectResponse("/login")
-    response.delete_cookie("access_token", path="/")
-    return response
-
 
 # ---------------------------------------------------------------------------
 # Import NiceGUI pages (registering @ui.page routes)

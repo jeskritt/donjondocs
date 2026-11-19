@@ -84,10 +84,11 @@ plus the places we deliberately diverge, so the guidance matches reality.
 These look like anti-patterns but are intentional — do not "fix" them:
 
 - **`ui.run_javascript()` for auth.** `app/ui/pages/{login,register,profile}.py`
-  use `fetch()` via `run_javascript` so the *browser* sets/sends the HttpOnly
-  auth cookie. Python cannot read or set HttpOnly cookies, so the browser must
-  make these requests. This is the correct approach for our cookie-auth model,
-  not a Python-first violation.
+  and `app/ui/components/header.py` (logout) use `fetch()` via `run_javascript`
+  so the *browser* sets/sends/clears the HttpOnly auth cookie over `POST`/`PUT`.
+  Python cannot read or set HttpOnly cookies, so the browser must make these
+  requests. This is the correct approach for our cookie-auth model, not a
+  Python-first violation.
 - **`ui.add_head_html(...)` in `app/ui/theme.py`** injects font preconnect/`<link>`
   tags and the scoped PHB stylesheet link — link/preconnect injection, not CSS
   styling. Global CSS itself goes through `ui.add_css(...)`.

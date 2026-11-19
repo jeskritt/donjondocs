@@ -13,6 +13,7 @@ Interactions:
 
 from __future__ import annotations
 
+import json
 import os
 import socket
 import subprocess
@@ -20,6 +21,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from http.cookies import SimpleCookie
 from pathlib import Path
 from typing import Iterator
 
@@ -193,9 +195,48 @@ def sign_in(page: Page, server: dict[str, str], query: str = "") -> None:
     expect(page).not_to_have_url(f"{server['base_url']}/login{query}")
 
 
+@pytest.fixture(scope="session")
+def e2e_auth_cookies(e2e_server: dict[str, str]) -> list[dict[str, object]]:
+    """Log in once per session and return the browser cookie payload.
+
+    Avoids tripping `/api/auth/login`'s 5/minute SlowAPI rate limit as the E2E
+    suite grows, while keeping real rate limiting active on the E2E server.
+    Interactive login/logout flows still test `/login` directly via `sign_in()`.
+    """
+    payload = json.dumps(
+        {"email": e2e_server["email"], "password": e2e_server["password"]}
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        f"{e2e_server['base_url']}/api/auth/login",
+        data=payload,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=10.0) as resp:
+        assert resp.status == 200
+        cookie = SimpleCookie()
+        for header_val in resp.headers.get_all("Set-Cookie") or []:
+            cookie.load(header_val)
+    assert "access_token" in cookie, "POST /api/auth/login did not set access_token cookie"
+    return [
+        {
+            "name": "access_token",
+            "value": cookie["access_token"].value,
+            "url": e2e_server["base_url"],
+            "httpOnly": True,
+            "sameSite": "Lax",
+        }
+    ]
+
+
 @pytest.fixture
-def authed_page(checked_page: Page, e2e_server: dict[str, str]) -> Page:
+def authed_page(
+    checked_page: Page,
+    e2e_server: dict[str, str],
+    e2e_auth_cookies: list[dict[str, object]],
+) -> Page:
     """Return a logged-in `checked_page` sitting on the dashboard."""
-    sign_in(checked_page, e2e_server)
+    checked_page.context.add_cookies(e2e_auth_cookies)
+    checked_page.goto(f"{e2e_server['base_url']}/")
     expect(checked_page.get_by_text(f"Welcome back, {e2e_server['username']}")).to_be_visible()
     return checked_page

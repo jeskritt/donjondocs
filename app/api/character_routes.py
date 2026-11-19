@@ -32,7 +32,7 @@ from fastapi.responses import Response
 from pydantic import BaseModel, Field
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.deps import get_current_user, get_db
+from app.api.deps import get_current_user, get_db, read_json_upload
 from app.models.user import User
 from app.schemas.ally import Ally, AllyCreate
 from app.schemas.char_sheet_global import SheetStyle
@@ -93,40 +93,6 @@ async def export_endpoint(
     )
 
 
-async def _read_import_file(file: UploadFile) -> bytes:
-    """Validate the upload and return its raw bytes.
-
-    Rejects non-`.json` filenames and any payload exceeding `MAX_IMPORT_BYTES`.
-    Cheap path: trust `Content-Length` when present. Defence in depth:
-    accumulate chunks and bail out the moment we cross the cap, so a chunked
-    upload or a lying header can't sneak past.
-    """
-    if not file.filename or not file.filename.endswith(".json"):
-        raise HTTPException(status_code=400, detail="Only .json files are accepted.")
-
-    declared = file.size if file.size is not None else None
-    if declared is not None and declared > MAX_IMPORT_BYTES:
-        raise HTTPException(
-            status_code=413,
-            detail=f"Import file exceeds {MAX_IMPORT_BYTES} bytes.",
-        )
-
-    chunks: list[bytes] = []
-    total = 0
-    while True:
-        chunk = await file.read(64 * 1024)
-        if not chunk:
-            break
-        total += len(chunk)
-        if total > MAX_IMPORT_BYTES:
-            raise HTTPException(
-                status_code=413,
-                detail=f"Import file exceeds {MAX_IMPORT_BYTES} bytes.",
-            )
-        chunks.append(chunk)
-    return b"".join(chunks)
-
-
 def _parse_envelope(raw: bytes) -> dict[str, Any]:
     """Decode the raw upload as a JSON envelope dict containing character_data."""
     try:
@@ -152,7 +118,7 @@ async def import_endpoint(
     db: Annotated[AsyncSession, Depends(get_db)],
     current_user: Annotated[User, Depends(get_current_user)],
 ):
-    raw = await _read_import_file(file)
+    raw = await read_json_upload(file, MAX_IMPORT_BYTES)
     envelope = _parse_envelope(raw)
 
     name = envelope.get("name", "Imported Character")

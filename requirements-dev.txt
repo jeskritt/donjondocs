@@ -30,13 +30,9 @@ h11==0.16.0
     #   -c requirements.txt
     #   httpcore
 httpcore==1.0.9
-    # via
-    #   -c requirements.txt
-    #   httpx
+    # via httpx
 httpx==0.28.1
-    # via
-    #   -c requirements.txt
-    #   -r requirements-dev.in
+    # via -r requirements-dev.in
 idna==3.20
     # via
     #   -c requirements.txt

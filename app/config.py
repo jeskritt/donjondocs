@@ -56,6 +56,13 @@ class Settings(BaseSettings):
     # is empty or wildcarded.
     ALLOWED_HOSTS: str = "localhost,127.0.0.1"
 
+    # --- Reverse proxy ---
+    # When true (e.g. deployed behind Render/Nginx/Caddy), SlowAPI reads the
+    # rightmost entry of X-Forwarded-For (appended by the trusted edge proxy)
+    # so users don't collapse onto a single shared rate-limit bucket. Leave
+    # false for direct connections so clients cannot spoof X-Forwarded-For.
+    TRUST_PROXY_HEADERS: bool = False
+
     @property
     def allowed_hosts_list(self) -> list[str]:
         return [h.strip() for h in self.ALLOWED_HOSTS.split(",") if h.strip()]

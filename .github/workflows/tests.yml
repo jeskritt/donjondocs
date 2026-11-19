@@ -35,3 +35,9 @@ jobs:
 
       - name: Run tests (clean venv from pinned lockfiles)
         run: nox
+
+      # Audit pinned production dependencies against PyPI / OSV advisories.
+      - name: Audit production dependencies
+        run: |
+          pip install pip-audit
+          pip-audit -r requirements.txt --no-deps --disable-pip

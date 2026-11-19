@@ -55,10 +55,13 @@ def test_auth_flow_and_open_redirect_protection(
     checked_page.goto(f"{base}/login?redirect_to=//evil.example/steal")
     expect(checked_page).to_have_url(f"{base}/")
 
-    # Logout via the header user menu clears the cookie and returns to /login.
+    # Logout via the header user menu POSTs /api/auth/logout, clears the cookie,
+    # and returns to /login; hitting a protected route afterwards must redirect.
     icon_button(checked_page.locator("header"), "account_circle").click()
     checked_page.locator(".q-menu .q-item", has_text="Logout").click()
     expect(checked_page).to_have_url(re.compile(r"/login"))
+    checked_page.goto(f"{base}/characters")
+    expect(checked_page).to_have_url(re.compile(r"/login\?redirect_to=/characters"))
 
 
 # ---------------------------------------------------------------------------
