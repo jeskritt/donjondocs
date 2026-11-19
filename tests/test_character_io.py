@@ -165,3 +165,9 @@ class TestExportFilenameFor:
 
     def test_passes_safe_names_through(self):
         assert export_filename_for("Tharivol") == "Tharivol"
+
+    def test_strips_header_injection_and_control_chars(self):
+        assert export_filename_for("Hero\r\nX-Injected: evil;foo\\bar\x00") == "HeroX-Injected: evilfoo_bar"
+
+    def test_blank_or_control_only_falls_back_to_character(self):
+        assert export_filename_for("   \r\n\t  ") == "character"

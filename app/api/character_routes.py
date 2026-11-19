@@ -38,7 +38,7 @@ from app.schemas.ally import Ally, AllyCreate
 from app.schemas.char_sheet_global import SheetStyle
 from app.schemas.note import Note, NoteCreate
 from app.services.ally_service import create_ally, list_allies
-from app.services.character_io import EXPORT_VERSION, export_filename_for
+from app.services.character_io import EXPORT_VERSION, MAX_IMPORT_BYTES, export_filename_for
 from app.services.character_service import (
     CharacterServiceError,
     export_character,
@@ -52,12 +52,9 @@ from app.user_context import UserContext
 router = APIRouter()
 
 
-# Hard cap on uploaded import payloads. A real character export is a few KB;
-# 1 MiB leaves comfortable headroom while preventing the OOM-by-upload DoS
-# called out in the security audit (finding #3). Enforced both via the
-# Content-Length header (cheap pre-check) and a streaming read with an
-# accumulator (defense for chunked or missing-header uploads).
-MAX_IMPORT_BYTES = 1 * 1024 * 1024
+# MAX_IMPORT_BYTES is imported from app.services.character_io (re-exported here
+# for existing callers/tests) and enforced both via Content-Length and a
+# streaming read accumulator below.
 
 
 class RestRequest(BaseModel):

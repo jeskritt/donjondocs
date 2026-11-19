@@ -319,3 +319,45 @@ async def test_request_state_user_is_a_UserContext():
 
     assert isinstance(captured["ctx"], UserContext)
     assert captured["ctx"].role == UserRole.PREMIUM
+
+
+# ---------------------------------------------------------------------------
+# Open-redirect protection on /login?redirect_to=...
+# ---------------------------------------------------------------------------
+
+class TestSanitizeRedirectTarget:
+    """Ensure login's redirect_to never sends users off-origin (CWE-601)."""
+
+    @pytest.mark.parametrize(
+        "target",
+        [
+            "/",
+            "/characters",
+            "/character/abc-123",
+            "/creatures?type=Beast",
+            "/sheet/new#top",
+        ],
+    )
+    def test_allows_safe_relative_paths(self, target):
+        from app.ui.auth import sanitize_redirect_target
+        assert sanitize_redirect_target(target) == target
+
+    @pytest.mark.parametrize(
+        "target",
+        [
+            "",
+            None,
+            "https://evil.example/phish",
+            "http://evil.example",
+            "//evil.example/phish",
+            "///evil.example",
+            "/\\evil.example",
+            "javascript:alert(1)",
+            "data:text/html,<script>alert(1)</script>",
+            "/characters\r\nSet-Cookie: evil=1",
+            "relative/no-leading-slash",
+        ],
+    )
+    def test_rejects_unsafe_targets_and_falls_back_to_root(self, target):
+        from app.ui.auth import sanitize_redirect_target
+        assert sanitize_redirect_target(target) == "/"

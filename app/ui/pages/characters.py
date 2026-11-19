@@ -12,7 +12,7 @@ from nicegui import ui
 logger = logging.getLogger(__name__)
 
 from app.schemas.char_sheet_global import SheetStyle
-from app.services.character_io import EXPORT_VERSION, export_filename_for
+from app.services.character_io import EXPORT_VERSION, MAX_IMPORT_BYTES, export_filename_for
 from app.services.character_service import (
     CharacterServiceError,
     delete_character,
@@ -104,6 +104,9 @@ async def characters_page():
             ui.label("Upload a .json file exported from DonjonDocs.").classes("text-sm text-gray-400 mb-4")
 
             async def _handle_upload(e):
+                if e.file.size() > MAX_IMPORT_BYTES:
+                    notify_error(f"Import file exceeds {MAX_IMPORT_BYTES} bytes.")
+                    return
                 try:
                     envelope = await e.file.json()
                 except (json.JSONDecodeError, UnicodeDecodeError):
@@ -150,8 +153,12 @@ async def characters_page():
             # ever gets toggled off and the manual upload button shows up.
             ui.upload(
                 on_upload=_handle_upload,
+                on_rejected=lambda _: notify_error(
+                    f"Upload rejected (only .json files up to {MAX_IMPORT_BYTES // (1024 * 1024)} MiB are accepted)."
+                ),
                 auto_upload=True,
                 max_files=1,
+                max_file_size=MAX_IMPORT_BYTES,
             ).props('accept=".json"').classes("w-full")
 
             with ui.row().classes("w-full justify-end mt-4"):

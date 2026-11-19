@@ -18,6 +18,7 @@ import json
 from nicegui import context, ui
 
 from app.config import get_settings
+from app.ui.auth import sanitize_redirect_target
 from app.ui.theme import apply_auth_background, apply_global_styles, notify_error
 
 
@@ -25,13 +26,14 @@ from app.ui.theme import apply_auth_background, apply_global_styles, notify_erro
 async def login_page(redirect_to: str = "/"):
     """Login page with email and password authentication."""
     settings = get_settings()
+    safe_redirect = sanitize_redirect_target(redirect_to)
 
     # Already authenticated? The AuthMiddleware skips /login, so we have
     # to check the cookie ourselves to avoid showing the form to a
     # logged-in user navigating back.
     request = context.client.request
     if request is not None and request.cookies.get("access_token"):
-        ui.navigate.to(redirect_to)
+        ui.navigate.to(safe_redirect)
         return
 
     ui.dark_mode(True)
@@ -91,7 +93,7 @@ async def login_page(redirect_to: str = "/"):
                 """, timeout=10)
 
                 if result and result.get("ok"):
-                    ui.navigate.to(redirect_to)
+                    ui.navigate.to(safe_redirect)
                 else:
                     notify_error((result or {}).get("detail", "Login failed"))
 

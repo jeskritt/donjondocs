@@ -25,6 +25,9 @@ class TestExportFilename:
     def test_blank_becomes_creature(self):
         assert export_filename_for("   ") == "creature.creature"
 
+    def test_strips_header_injection_and_backslashes(self):
+        assert export_filename_for("Dragon\r\nSet-Cookie: a=1;b\\c\x00") == "DragonSet-Cookie: a=1b_c.creature"
+
 
 class TestMigrateCreatureData:
     def test_noop_at_current_version(self):

@@ -66,7 +66,9 @@ async def update_my_profile(
 
 
 @router.post("/me/change-password", status_code=status.HTTP_204_NO_CONTENT)
+@limiter.limit("5/minute")
 async def change_my_password(
+    request: Request,
     data: ChangePasswordRequest,
     current_user: Annotated[User, Depends(get_current_user)],
     db: Annotated[AsyncSession, Depends(get_db)],

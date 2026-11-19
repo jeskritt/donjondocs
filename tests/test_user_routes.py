@@ -147,3 +147,21 @@ class TestSelfServiceRoutes:
             "new_password": "NewTestPass456!",
         })
         assert resp.status_code == 400
+
+    async def test_self_change_password_rate_limit_returns_429(self, client, db_session, test_user):
+        """6th change-password attempt within a minute hits the 5/minute cap."""
+        # Commit the fixture user so the 400 rollback on attempt 1 doesn't wipe it
+        # from the shared in-memory SQLite connection before attempts 2-5.
+        await db_session.commit()
+        client.cookies = auth_cookies(test_user)
+        for _ in range(5):
+            resp = await client.post("/api/users/me/change-password", json={
+                "current_password": "WrongPass!",
+                "new_password": "NewTestPass456!",
+            })
+            assert resp.status_code == 400
+        resp = await client.post("/api/users/me/change-password", json={
+            "current_password": "WrongPass!",
+            "new_password": "NewTestPass456!",
+        })
+        assert resp.status_code == 429

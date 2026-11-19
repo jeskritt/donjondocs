@@ -16,6 +16,8 @@ API routes (`/api/*`) are exempt: they enforce auth via the
 `get_current_user` FastAPI dependency which does its own DB verify.
 """
 
+from urllib.parse import quote
+
 from fastapi import Request
 from fastapi.responses import RedirectResponse
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -39,7 +41,8 @@ def _redirect_to_login(path: str) -> RedirectResponse:
         app.storage.user.clear()
     except Exception:
         pass
-    response = RedirectResponse(f"/login?redirect_to={path}")
+    safe_path = quote(path, safe="/")
+    response = RedirectResponse(f"/login?redirect_to={safe_path}")
     # Ensure a stale/invalid cookie does not trigger a redirect loop when
     # login.py's "already authenticated" guard fires on the next hop.
     response.delete_cookie("access_token", path="/")
