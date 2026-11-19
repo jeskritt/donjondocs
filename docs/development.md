@@ -51,7 +51,7 @@ alembic upgrade head                              # apply all migrations
 alembic revision --autogenerate -m "description"  # create a new migration
 ```
 
-The `alembic/versions/` directory is currently empty — the dev SQLite database is created at startup via `Base.metadata.create_all`. Alembic becomes the system of record when moving to PostgreSQL.
+Alembic owns the database schema via migrations in `alembic/versions/` — run `alembic upgrade head` before first boot against a fresh SQLite or PostgreSQL database. (Only the unit test suite still uses `Base.metadata.create_all` on its in-memory SQLite.)
 
 ## Running tests
 

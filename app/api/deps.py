@@ -10,7 +10,7 @@ Interactions:
 
 from typing import Annotated, Callable
 
-from fastapi import Cookie, Depends, HTTPException, status
+from fastapi import Cookie, Depends, HTTPException, UploadFile, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.database import async_session_factory
@@ -75,3 +75,35 @@ def require_role(*roles: UserRole) -> Callable:
 # Convenience shortcuts
 require_admin = require_role(UserRole.ADMIN)
 require_premium_or_admin = require_role(UserRole.PREMIUM, UserRole.ADMIN)
+
+
+async def read_json_upload(file: UploadFile, max_bytes: int) -> bytes:
+    """Validate a `.json` upload and return its raw bytes up to `max_bytes`.
+
+    Shared between the character and creature import routes so both enforce
+    identical extension checks and two-layer size limits (Content-Length
+    pre-check plus streaming accumulator against lying headers / chunked bodies).
+    """
+    if not file.filename or not file.filename.endswith(".json"):
+        raise HTTPException(status_code=400, detail="Only .json files are accepted.")
+
+    if file.size is not None and file.size > max_bytes:
+        raise HTTPException(
+            status_code=413,
+            detail=f"Import file exceeds {max_bytes} bytes.",
+        )
+
+    chunks: list[bytes] = []
+    total = 0
+    while True:
+        chunk = await file.read(64 * 1024)
+        if not chunk:
+            break
+        total += len(chunk)
+        if total > max_bytes:
+            raise HTTPException(
+                status_code=413,
+                detail=f"Import file exceeds {max_bytes} bytes.",
+            )
+        chunks.append(chunk)
+    return b"".join(chunks)

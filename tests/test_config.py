@@ -51,3 +51,58 @@ class TestConfig:
 
         settings = Settings(SECRET_KEY="test-key", STORAGE_SECRET="test-storage", ALLOW_REGISTRATION=True)
         assert settings.ALLOW_REGISTRATION is True
+
+    def test_trust_proxy_headers_defaults_false(self):
+        settings = Settings(SECRET_KEY="test-key", STORAGE_SECRET="test-storage")
+        assert settings.TRUST_PROXY_HEADERS is False
+
+
+class TestRateLimitClientIP:
+    """Verify proxy-aware client IP resolution for SlowAPI."""
+
+    @staticmethod
+    def _make_request(peer_host: str, xff: str | None = None):
+        from starlette.requests import Request
+
+        headers = []
+        if xff is not None:
+            headers.append((b"x-forwarded-for", xff.encode("latin-1")))
+        scope = {
+            "type": "http",
+            "method": "POST",
+            "path": "/api/auth/login",
+            "headers": headers,
+            "client": (peer_host, 12345),
+        }
+        return Request(scope)
+
+    def test_ignores_forwarded_for_when_proxy_untrusted(self, monkeypatch):
+        from app.rate_limit import get_client_ip
+
+        monkeypatch.setattr(
+            "app.rate_limit.get_settings",
+            lambda: Settings(SECRET_KEY="k", STORAGE_SECRET="s", TRUST_PROXY_HEADERS=False),
+        )
+        req = self._make_request("10.0.0.5", xff="1.2.3.4, 5.6.7.8")
+        assert get_client_ip(req) == "10.0.0.5"
+
+    def test_uses_rightmost_forwarded_for_when_proxy_trusted(self, monkeypatch):
+        from app.rate_limit import get_client_ip
+
+        monkeypatch.setattr(
+            "app.rate_limit.get_settings",
+            lambda: Settings(SECRET_KEY="k", STORAGE_SECRET="s", TRUST_PROXY_HEADERS=True),
+        )
+        # Attacker prepends 1.2.3.4; Render proxy appends the true client IP 203.0.113.9.
+        req = self._make_request("10.0.0.5", xff="1.2.3.4, 203.0.113.9")
+        assert get_client_ip(req) == "203.0.113.9"
+
+    def test_falls_back_to_peer_when_header_missing(self, monkeypatch):
+        from app.rate_limit import get_client_ip
+
+        monkeypatch.setattr(
+            "app.rate_limit.get_settings",
+            lambda: Settings(SECRET_KEY="k", STORAGE_SECRET="s", TRUST_PROXY_HEADERS=True),
+        )
+        req = self._make_request("10.0.0.5")
+        assert get_client_ip(req) == "10.0.0.5"

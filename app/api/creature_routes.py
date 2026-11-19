@@ -29,7 +29,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Response, UploadFi
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.deps import get_current_user, get_db
+from app.api.deps import get_current_user, get_db, read_json_upload
 from app.models.creature import Creature as CreatureORM
 from app.models.user import User
 from app.schemas.creature import Creature, CreatureCreate, CreatureUpdate
@@ -214,36 +214,6 @@ async def export_endpoint(
     )
 
 
-async def _read_import_file(file: UploadFile) -> bytes:
-    """Validate the upload and return its raw bytes — same shape as the
-    character import helper but local to this router so the file stays
-    self-contained."""
-    if not file.filename or not file.filename.endswith(".json"):
-        raise HTTPException(status_code=400, detail="Only .json files are accepted.")
-
-    declared = file.size if file.size is not None else None
-    if declared is not None and declared > MAX_IMPORT_BYTES:
-        raise HTTPException(
-            status_code=413,
-            detail=f"Import file exceeds {MAX_IMPORT_BYTES} bytes.",
-        )
-
-    chunks: list[bytes] = []
-    total = 0
-    while True:
-        chunk = await file.read(64 * 1024)
-        if not chunk:
-            break
-        total += len(chunk)
-        if total > MAX_IMPORT_BYTES:
-            raise HTTPException(
-                status_code=413,
-                detail=f"Import file exceeds {MAX_IMPORT_BYTES} bytes.",
-            )
-        chunks.append(chunk)
-    return b"".join(chunks)
-
-
 def _parse_envelope(raw: bytes) -> dict[str, Any]:
     try:
         envelope = json.loads(raw)
@@ -265,7 +235,7 @@ async def import_endpoint(
     `is_public` from the envelope is always reset to False — the importer
     opts into sharing explicitly after the row exists.
     """
-    raw = await _read_import_file(file)
+    raw = await read_json_upload(file, MAX_IMPORT_BYTES)
     envelope = _parse_envelope(raw)
 
     version = envelope.get("version", EXPORT_VERSION)
