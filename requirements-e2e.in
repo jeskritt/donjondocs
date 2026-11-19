@@ -1,0 +1,15 @@
+# Human-authored E2E (browser) test dependency intent.
+# Kept separate from `requirements-dev.in` so the default unit/integration CI
+# run (`nox`) stays fast and does not download Playwright/browsers.
+#
+# Regenerate the pinned lockfile on Python 3.14:
+#   pip-compile --strip-extras requirements-e2e.in -o requirements-e2e.txt
+#
+# Run the browser suite via:
+#   nox -s e2e
+
+-c requirements.txt
+-c requirements-dev.txt
+
+playwright
+pytest-playwright

@@ -95,8 +95,8 @@ flowchart TD
 ## Dependency management (pinned lockfile workflow)
 
 Dependencies are managed with **pip-tools**. Intent is authored in `requirements.in`
-/ `requirements-dev.in`; the committed `requirements.txt` / `requirements-dev.txt`
-are **generated, fully-pinned lockfiles — do not hand-edit them.** To change a
+/ `requirements-dev.in` / `requirements-e2e.in`; the committed `requirements*.txt`
+files are **generated, fully-pinned lockfiles — do not hand-edit them.** To change a
 dependency, edit the `.in` and recompile on **Python 3.14** (the Render runtime),
 so resolved versions match production:
 
@@ -104,12 +104,14 @@ so resolved versions match production:
 pip install pip-tools
 pip-compile --strip-extras requirements.in     -o requirements.txt
 pip-compile --strip-extras requirements-dev.in -o requirements-dev.txt
+pip-compile --strip-extras requirements-e2e.in -o requirements-e2e.txt
 ```
 
 Tests run in a **clean venv** built from those lockfiles via `nox` (and the same
 `nox` session in CI, `.github/workflows/tests.yml`), so a broken or incomplete pin
 fails the test run rather than only surfacing on a Render deploy. Run `nox` for the
-authoritative pass; bare `pytest` is fine for fast local iteration.
+authoritative pass; bare `pytest` is fine for fast local iteration. Browser E2E
+tests live in `tests/e2e/` and run separately via `nox -s e2e`.
 
 ## Dependency risks (tracked)
 
