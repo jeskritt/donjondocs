@@ -90,7 +90,7 @@ flowchart TD
 - **UI depends on services + builders.** The character sheet orchestrator (`app/ui/pages/character_sheet.py`) delegates rendering to card components in `app/ui/components/sheet/`. Each card's `_section` refresh handle is collected and re-rendered on save (the "refresh-all" pattern). The single write path is `_save(updates)` in `character_sheet.py`.
 - **Models depend on the database layer only.** They never import schemas or services.
 - **Middleware depends on `nicegui.app`** for storage and lives outside the service stack. It is the only auth guard for UI pages; API routes use the JWT dep in `app/api/deps.py`.
-- **NiceGUI is pinned `>=3.12,<4`** (`requirements.txt`). Bumped from 3.10 for the 3.12 security fix (unauthenticated DoS on dynamic-resource/ESM routes) plus stability fixes that touch our code paths: silent window reloads on WebSocket reconnect (long-lived character sheet), a `ValidationElement.validate()` KeyError (we use `validation=` on login/register/profile), a Windows `PermissionError` during `app.storage.user` cleanup, and unbounded streaming-cookie memory growth. No API breakage applied (audited). Conventions: `docs/nicegui.md`.
+- **NiceGUI is pinned `>=4.0,<5`** (`requirements.in`). Upgraded from 3.15 to 4.0.0 (removes 3.x deprecations, updates bundled Quasar to 2.35, narrows text input values to `str`, drops `lxml`/`lxml-html-clean`, cuts per-client memory ~14%, adds `httpx2`). Recompiling the lockfiles alongside the bump also resolved `pyjwt` CVE-2026-102265 (`2.13.0` → `2.15.1`) and `aiohttp` CVE-2026-128125/128126 (`3.14.3` → `3.14.5`). Full unit/integration (408 tests) and Playwright E2E (5 browser flows) suites verified against 4.0.0. Conventions: `docs/nicegui.md`.
 
 ## Dependency management (pinned lockfile workflow)
 
@@ -119,17 +119,20 @@ The pinned lockfiles resolve to current releases. Two standing
 `DeprecationWarning`s are upstream Python-3.14 deprecations correctly silenced in
 `pytest.ini`; do **not** treat them as fixable by upgrading:
 
-- **`slowapi` is dormant — forward-incompatible.** Latest is `0.1.9`
-  (Feb 2024); the project shows no 2025/2026 activity. `slowapi/extension.py`
-  calls `asyncio.iscoroutinefunction`, which Python **3.14 deprecates and 3.16
-  removes**. On 3.16 the rate limiter would *break*, not just warn, and no
-  newer slowapi exists. **Action when 3.16 nears:** vendor a one-line patch
-  (`inspect.iscoroutinefunction`), swap the limiter, or hold Python `<3.16`.
-- **`pytest-asyncio` event-loop-policy warning is upstream, not stale.**
-  `1.3.0` (current) still calls `asyncio.get/set_event_loop_policy` for its
-  `event_loop_policy` fixture; Python 3.14 deprecated those (removal 3.16). No
-  released version is silent yet — the `pytest.ini` filter stays until upstream
-  ships a 3.14-clean release.
+- **`slowapi` Python 3.16 compatibility.** Currently at `0.1.10` (June 2026).
+  `slowapi/extension.py` still calls `asyncio.iscoroutinefunction`, which Python
+  **3.14 deprecates and 3.16 removes**. On 3.16 the rate limiter would *break*,
+  not just warn, unless upstream ships a fix. **Action when 3.16 nears:** vendor
+  a one-line patch (`inspect.iscoroutinefunction`), swap the limiter, or hold
+  Python `<3.16`.
+- **`markdown2` (`2.5.5`, transitive via `nicegui`).** Advisory CVE-2026-118694
+  (quadratic ReDoS on unclosed `[a](` sequences) affects `<=2.5.5`, and `2.5.5`
+  is currently the latest release on PyPI (`pip-audit` reports zero fixable
+  advisories). Recompile `requirements.txt` as soon as upstream publishes a
+  patched `markdown2` release.
+- **`pytest-asyncio` (`1.5.0`)** moved to loop factories; `pytest.ini` sets
+  `asyncio_default_fixture_loop_scope = function` and keeps the
+  `event_loop_policy` warning filters until Python 3.14 warnings are fully gone.
 - **Auth hashing migrated off `passlib` (done).** `app/security.py` now hashes
   new passwords with **argon2id** (`argon2-cffi`) and verifies legacy bcrypt
   hashes directly via the maintained **`bcrypt`** library. `authenticate_user`

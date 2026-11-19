@@ -28,9 +28,11 @@ plus the places we deliberately diverge, so the guidance matches reality.
   Per-user state belongs in `app.storage.user`; request-scoped state stays
   local to the `@ui.page` function or in the page `state` dict.
 - **One shared async event loop.** Blocking it freezes the whole app. All I/O is
-  async; push CPU work to `await asyncio.to_thread(...)`; use
-  `nicegui.background_tasks.create()` (not bare `asyncio.create_task()`) for
-  fire-and-forget work so the task keeps a reference and routes exceptions.
+  async; offload blocking I/O or CPU work via `await run.io_bound(...)` /
+  `await run.cpu_bound(...)` (from `nicegui import run`, so NiceGUI manages pool
+  lifecycle and shutdown); use `nicegui.background_tasks.create()` (not bare
+  `asyncio.create_task()`) for fire-and-forget work so the task keeps a reference
+  and routes exceptions.
 
 ## Storage scopes
 
