@@ -1,22 +1,31 @@
+from typing import Protocol
+
 from app.builders.base import BaseSheetBuilder
 from app.builders.dnd5e import DnD2014Builder
 from app.builders.a5e import A5eBuilder
 from app.builders.shadowdark import ShadowdarkBuilder
+from app.builders.shadowrun_anarchy import ShadowrunAnarchyBuilder
 from app.builders.um5 import Um5Builder
 from app.builders.voidrunner import VoidrunnerBuilder
 from app.schemas.char_sheet_global import SheetStyle
-from app.schemas.char_sheet_specific import Character
+from app.schemas.registry import CharacterModel
 
-_BUILDERS: dict[SheetStyle, type[BaseSheetBuilder]] = {
+
+class SheetBuilder(Protocol):
+    def build(self) -> dict: ...
+
+
+_BUILDERS: dict[SheetStyle, type] = {
     SheetStyle.DND5E: DnD2014Builder,
     SheetStyle.A5E: A5eBuilder,
     SheetStyle.SHADOWDARK: ShadowdarkBuilder,
     SheetStyle.UM5: Um5Builder,
     SheetStyle.VOIDRUNNER: VoidrunnerBuilder,
+    SheetStyle.SHADOWRUN_ANARCHY_2: ShadowrunAnarchyBuilder,
 }
 
 
-def get_builder(character: Character) -> BaseSheetBuilder:
+def get_builder(character: CharacterModel) -> SheetBuilder:
     try:
         cls = _BUILDERS[character.style]
     except KeyError as e:

@@ -298,3 +298,112 @@ async def build_blank_character_data(
         "inventory": [],
         "currency": default_money(style),
     }
+
+
+# Canonical 14 skills in Shadowrun: Anarchy 2.0 (category, default attr, alt attrs).
+SRA2_DEFAULT_SKILLS: list[dict[str, object]] = [
+    {"name": "Athletics", "category": "General", "attribute": "STR", "alt_attributes": ["AGI"]},
+    {"name": "Perception", "category": "General", "attribute": "LOG", "alt_attributes": []},
+    {"name": "Piloting", "category": "General", "attribute": "AGI", "alt_attributes": []},
+    {"name": "Stealth", "category": "General", "attribute": "AGI", "alt_attributes": ["LOG"]},
+    {"name": "Survival", "category": "General", "attribute": "LOG", "alt_attributes": ["CHA", "WIL"]},
+    {"name": "Close Combat", "category": "Fighting", "attribute": "AGI", "alt_attributes": ["WIL"]},
+    {"name": "Ranged Weapons", "category": "Fighting", "attribute": "AGI", "alt_attributes": []},
+    {"name": "Cracking", "category": "Technical", "attribute": "LOG", "alt_attributes": ["WIL"]},
+    {"name": "Electronics", "category": "Technical", "attribute": "LOG", "alt_attributes": []},
+    {"name": "Engineering", "category": "Technical", "attribute": "LOG", "alt_attributes": []},
+    {"name": "Influence", "category": "Social", "attribute": "CHA", "alt_attributes": []},
+    {"name": "Network", "category": "Social", "attribute": "CHA", "alt_attributes": []},
+    {"name": "Conjuring", "category": "Magic", "attribute": "LOG", "alt_attributes": ["CHA"]},
+    {"name": "Sorcery", "category": "Magic", "attribute": "WIL", "alt_attributes": []},
+]
+
+
+async def build_blank_anarchy_character_data(
+    session: AsyncSession,
+    name: str,
+    owner: UserContext,
+    metatype: str = "Human",
+    keywords: list[str] | None = None,
+) -> dict:
+    """Construct the initial `character_data` blob for a Shadowrun: Anarchy 2.0 runner."""
+    from app.schemas.shadowrun_anarchy import METATYPE_RULES, Metatype
+    from app.services.global_items_service import list_skills
+
+    try:
+        meta_enum = Metatype(metatype)
+    except ValueError:
+        meta_enum = Metatype.HUMAN
+
+    meta_info = METATYPE_RULES[meta_enum]
+    edge_base = int(meta_info["edge_base"])
+
+    # Normalize to exactly 5 keyword slots (defaulting slot 0 to the metatype if blank).
+    kw_list = [str(k).strip() for k in (keywords or [])][:5]
+    while len(kw_list) < 5:
+        kw_list.append("")
+    if not kw_list[0]:
+        kw_list[0] = meta_enum.value
+
+    # Pull example_uses from ingested GlobalSkill rows when present; fall back to
+    # the canonical 14-skill list so creation never fails on an unseeded DB.
+    skill_rows = await list_skills(session, SheetStyle.SHADOWRUN_ANARCHY_2, owner_id=owner.id)
+    by_name = {s.name.strip().lower(): s for s in skill_rows}
+    skills_seed: list[dict] = []
+    for base in SRA2_DEFAULT_SKILLS:
+        row = by_name.get(str(base["name"]).lower())
+        skills_seed.append({
+            "name": base["name"],
+            "category": base["category"],
+            "rating": 0,
+            "attribute": base["attribute"],
+            "alt_attributes": list(base["alt_attributes"]),
+            "specializations": [],
+            "example_uses": row.example_uses if row is not None else None,
+        })
+
+    return {
+        "name": name,
+        "style": SheetStyle.SHADOWRUN_ANARCHY_2.value,
+        "owner_id": owner.id,
+        "metatype": meta_enum.value,
+        "strength": 2,
+        "agility": 2,
+        "willpower": 2,
+        "logic": 2,
+        "charisma": 2,
+        "edge_current": edge_base,
+        "edge_base": edge_base,
+        "keywords": kw_list,
+        "dispositions": ["", "", "", ""],
+        "cues": ["", "", "", ""],
+        "knowledge_skills": [],
+        "skills": skills_seed,
+        "shadow_amps": [],
+        "weapons": [
+            {
+                "name": "Unarmed",
+                "weapon_type": "Unarmed",
+                "dv": "STR",
+                "range_close": "OK",
+                "range_short": "—",
+                "range_medium": "—",
+                "range_long": "—",
+                "skill": "Close Combat",
+                "specialization": "unarmed",
+                "notes": "",
+                "is_custom": False,
+            }
+        ],
+        "spells": [],
+        "armor": [],
+        "equipment": [],
+        "wounds": {
+            "light": [False, False],
+            "serious": [False],
+            "incapacitated": False,
+            "stim_patch_active": False,
+        },
+        "nuyen": 0,
+        "bio": "",
+    }

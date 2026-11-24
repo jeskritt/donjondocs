@@ -18,6 +18,7 @@ so older exports still import cleanly.
 import re
 from typing import Callable
 
+from app.rule_systems import SheetStyle, SystemFamily, system_family_for
 from app.services._errors import CharacterServiceError
 
 
@@ -103,17 +104,41 @@ _MIGRATIONS: dict[int, Callable[[dict], dict]] = {
 }
 
 
-def migrate_character_data(data: dict, from_version: int) -> dict:
-    """Apply migrators to bring character_data from from_version to EXPORT_VERSION."""
+_SRA2_MIGRATIONS: dict[int, Callable[[dict], dict]] = {
+    # Shadowrun: Anarchy 2.0 introduced at EXPORT_VERSION 7; future SRA2
+    # schema migrations register here independently of 5e-family migrators.
+}
+
+
+def migrate_character_data(
+    data: dict,
+    from_version: int,
+    style: SheetStyle | None = None,
+) -> dict:
+    """Apply migrators to bring character_data from from_version to EXPORT_VERSION.
+
+    Dispatches by `SystemFamily` so non-5e systems (like Shadowrun: Anarchy 2.0)
+    are never mutated by 5e-specific field migrations.
+    """
     if from_version > EXPORT_VERSION:
         raise CharacterServiceError(
             f"Import version {from_version} is newer than supported "
             f"(expected <= {EXPORT_VERSION}). Upgrade the app to import this file."
         )
+    family = system_family_for(style) if style is not None else SystemFamily.DND5E
+    if family == SystemFamily.SHADOWRUN_ANARCHY_2:
+        table = _SRA2_MIGRATIONS
+        if from_version < 7:
+            raise CharacterServiceError(
+                f"Shadowrun: Anarchy 2.0 exports require version >= 7 (got {from_version})."
+            )
+    else:
+        table = _MIGRATIONS
+
     current = data
     version = from_version
     while version < EXPORT_VERSION:
-        migrator = _MIGRATIONS.get(version)
+        migrator = table.get(version)
         if migrator is None:
             raise CharacterServiceError(
                 f"No migration available from character_data version {version} "
