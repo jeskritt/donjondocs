@@ -1,0 +1,294 @@
+{
+  "style": "Shadowrun: Anarchy 2.0",
+  "kind": "spells",
+  "items": [
+    {
+      "name": "Manabolt",
+      "school": "Combat",
+      "level": "Direct",
+      "duration": "I",
+      "casting_time": "Area-based (0 single, +1/3m)",
+      "description": "Simple Sorcery + WIL Test. Lethal mental damage, DV = Net hits. Living/astral targets only.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Stunbolt",
+      "school": "Combat",
+      "level": "Direct",
+      "duration": "I",
+      "casting_time": "Area-based (0 single, +1/3m)",
+      "description": "Simple Sorcery + WIL Test. Stun mental damage, DV = Net hits. Living/astral targets only.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Blast",
+      "school": "Combat",
+      "level": "Indirect",
+      "duration": "I",
+      "casting_time": "Opposed + Area",
+      "description": "Opposed vs Athletics (ranged defense) + AGI. Physical DV = WIL + Net hits. 1 Edge: knock target down.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Flamestrike",
+      "school": "Combat",
+      "level": "Indirect",
+      "duration": "I",
+      "casting_time": "Opposed + Area",
+      "description": "Opposed vs defense. Physical fire DV = WIL + Net hits. 1 Edge: ignite target.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Ice Spear",
+      "school": "Combat",
+      "level": "Indirect",
+      "duration": "I",
+      "casting_time": "Opposed + Area",
+      "description": "Opposed vs defense. Physical cold DV = WIL + Net hits. 1 Edge: slow target.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Lightning Bolt",
+      "school": "Combat",
+      "level": "Indirect",
+      "duration": "I",
+      "casting_time": "Opposed + Area",
+      "description": "Opposed vs defense. Physical electrical DV = WIL + Net hits. 1 Edge: target loses 1 action.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Acid Stream",
+      "school": "Combat",
+      "level": "Indirect",
+      "duration": "I",
+      "casting_time": "Opposed + Area",
+      "description": "Opposed vs defense. Physical acid DV = WIL + Net hits. 1 Edge: degrade target armor.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Analyze Magic",
+      "school": "Detection",
+      "level": "Analysis",
+      "duration": "I",
+      "casting_time": "Threshold 4",
+      "description": "Instantly identifies active spells, foci, spirits, or magical phenomena.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Analyze Truth",
+      "school": "Detection",
+      "level": "Analysis",
+      "duration": "S",
+      "casting_time": "Target WIL + CHA",
+      "description": "Reveals whether the target believes their spoken statements are true.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Mind Probe",
+      "school": "Detection",
+      "level": "Analysis",
+      "duration": "I",
+      "casting_time": "Target WIL + CHA",
+      "description": "Touch target to extract one known fact per Spellcasting Test.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Borrow Senses",
+      "school": "Detection",
+      "level": "Enhancement",
+      "duration": "S",
+      "casting_time": "Threshold 5",
+      "description": "Touched subject perceives through a visible target's senses.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Combat Sense",
+      "school": "Detection",
+      "level": "Enhancement",
+      "duration": "S",
+      "casting_time": "Threshold 5",
+      "description": "Subject gains Advantage on Close Combat and Athletics (ranged defense) Tests.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Detect Enemies",
+      "school": "Detection",
+      "level": "Enhancement",
+      "duration": "S",
+      "casting_time": "0 (hits = range)",
+      "description": "Senses living beings with hostile intent (2/4/6/8 hits = Close/Short/Med/Long).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Detect Life",
+      "school": "Detection",
+      "level": "Enhancement",
+      "duration": "S",
+      "casting_time": "0 (hits = range)",
+      "description": "Senses living creatures mouse-sized or larger (hits set range band).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Detect Magic",
+      "school": "Detection",
+      "level": "Enhancement",
+      "duration": "S",
+      "casting_time": "0 (hits = range)",
+      "description": "Senses active astral forms and dual-natured entities (hits set range band).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Heal",
+      "school": "Health",
+      "level": "Healing",
+      "duration": "I",
+      "casting_time": "3 Light / 5 Serious / 6 Incap / 3 Stab.",
+      "description": "Heals one wound box or stabilizes a dying target (one spell attempt per box).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Increase Reflexes",
+      "school": "Health",
+      "level": "Enhancement",
+      "duration": "S",
+      "casting_time": "3 / 5 / 7 hits",
+      "description": "3 hits: +1 Edge/scene & unlimited extra actions; 5 hits: +1 action/narration; 7 hits: +2 Edge/scene.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Chimera",
+      "school": "Illusion",
+      "level": "Indirect",
+      "duration": "S",
+      "casting_time": "Size-based (0/1/2+)",
+      "description": "Multi-sensory illusion in an area affecting both living observers and sensors.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Confusion",
+      "school": "Illusion",
+      "level": "Direct",
+      "duration": "S",
+      "casting_time": "Area-based",
+      "description": "Targets with WIL+LOG <= net hits suffer Disadvantage on all Tests.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Invisibility",
+      "school": "Illusion",
+      "level": "Indirect",
+      "duration": "S",
+      "casting_time": "Size-based",
+      "description": "Renders subject invisible to eyes and sensors; Perception + LOG vs net hits to see through.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Mask",
+      "school": "Illusion",
+      "level": "Indirect",
+      "duration": "S",
+      "casting_time": "Size-based",
+      "description": "Alters subject's appearance to another similarly sized look.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Silence",
+      "school": "Illusion",
+      "level": "Indirect",
+      "duration": "S",
+      "casting_time": "Size-based",
+      "description": "Suppresses all sounds emitted by the subject.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Phantasm",
+      "school": "Illusion",
+      "level": "Direct",
+      "duration": "S",
+      "casting_time": "Area-based",
+      "description": "Creates a realistic multi-sensory mental illusion (sensors immune).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Control Thoughts",
+      "school": "Manipulation",
+      "level": "Mental",
+      "duration": "S",
+      "casting_time": "Area-based",
+      "description": "Targets with WIL+LOG <= hits suffer Disadvantage on social Tests and act on implanted suggestion.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Armor",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "0",
+      "description": "Grants +1 physical Armor per 3 hits.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Astral Armor",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "0",
+      "description": "Grants +1 Armor against magical/astral attacks per 3 hits.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Mystic Armor",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "0",
+      "description": "Grants +1 Armor against both physical and magical attacks per 4 hits.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Elemental Aura",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "0",
+      "description": "Melee attackers dealing physical damage suffer elemental damage equal to net hits.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Levitate",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "Size-based",
+      "description": "Lifts and moves target at walking pace just above the ground.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Physical Barrier",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "0",
+      "description": "Creates a solid translucent wall blocking physical attacks and movement.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Magic Fingers",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "0",
+      "description": "Telekinetic manipulation of objects at range using Sorcery hits.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Shaping",
+      "school": "Manipulation",
+      "level": "Physical",
+      "duration": "S",
+      "casting_time": "0",
+      "description": "Reshapes raw physical materials (stone, earth, metal, water) within line of sight.",
+      "reference": "SRA2 Core"
+    }
+  ]
+}

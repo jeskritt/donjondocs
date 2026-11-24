@@ -58,7 +58,7 @@ router = APIRouter()
 
 
 class RestRequest(BaseModel):
-    kind: Literal["short", "long"]
+    kind: Literal["short", "long", "new_run", "heal_all"]
     options: dict = Field(default_factory=dict)
 
 
@@ -70,6 +70,12 @@ async def rest_endpoint(
     current_user: Annotated[User, Depends(get_current_user)],
 ):
     rec = await rest_character(db, character_id, body.kind, body.options, UserContext.from_user(current_user))
+    if rec.style == SheetStyle.SHADOWRUN_ANARCHY_2:
+        return {
+            "id": rec.id,
+            "edge_current": rec.character_data.get("edge_current"),
+            "wounds": rec.character_data.get("wounds"),
+        }
     return {
         "id": rec.id,
         "hp_current": rec.character_data.get("hp_current"),

@@ -12,8 +12,9 @@ Interactions:
 Usage:
     python cli.py create-user --username admin --email admin@example.com --password "Pass123!" --role admin
     python cli.py list-users
+    python cli.py set-role --email user@example.com --role admin
     python cli.py reset-password --email admin@example.com --new-password "NewPass456!"
-    python cli.py backup [--output backups/donjondocs-<UTC>.json]
+    python cli.py backup [--output backups/donjondocs-<UTC>.json] [--exclude-passwords]
     python cli.py restore --input <file> [--mode {merge,replace}] [--dry-run] [--force] [--yes]
 """
 
@@ -27,7 +28,7 @@ from pathlib import Path
 from app.config import get_settings
 from app.database import async_session_factory, engine, Base
 from app.models import User, UserRole  # noqa: F401
-from app.schemas.user import UserCreate
+from app.schemas.user import UserCreate, UserUpdate
 from app.services.backup_service import (
     BackupEnvelope,
     BackupServiceError,
@@ -41,6 +42,7 @@ from app.services.user_service import (
     get_user_by_email,
     list_users,
     reset_password,
+    update_user,
 )
 
 
@@ -95,6 +97,23 @@ async def _list_users(args):
         print(f"\nTotal: {total} user(s)")
 
 
+async def _set_role(args):
+    """Promote or change an existing user's role."""
+    await _ensure_tables()
+
+    new_role = UserRole(args.role)
+    async with async_session_factory() as session:
+        try:
+            user = await get_user_by_email(session, args.email)
+            old_role = user.role.value
+            await update_user(session, user.id, UserUpdate(role=new_role))
+            await session.commit()
+            print(f"[OK] Role updated for {user.username} ({user.email}): {old_role} -> {new_role.value}")
+        except UserServiceError as e:
+            print(f"[ERROR] {e.message}", file=sys.stderr)
+            sys.exit(1)
+
+
 async def _reset_password(args):
     """Reset a user's password."""
     await _ensure_tables()
@@ -123,9 +142,10 @@ async def _backup(args):
     output = Path(args.output) if args.output else _default_backup_path()
     output.parent.mkdir(parents=True, exist_ok=True)
 
+    include_passwords = not getattr(args, "exclude_passwords", False)
     async with async_session_factory() as session:
         try:
-            envelope = await create_backup(session)
+            envelope = await create_backup(session, include_passwords=include_passwords)
         except BackupServiceError as e:
             print(f"[ERROR] {e}", file=sys.stderr)
             sys.exit(1)
@@ -139,7 +159,10 @@ async def _backup(args):
         f"{len(envelope.creatures)} creatures, "
         f"{custom_globals} custom globals, {addons} character addons)"
     )
-    print("[WARN] Backup contains hashed passwords. Treat the file as a secret.")
+    if include_passwords:
+        print("[WARN] Backup contains hashed passwords. Treat the file as a secret.")
+    else:
+        print("[INFO] Password hashes excluded; newly inserted users on restore will require a password reset.")
 
 
 async def _restore(args):
@@ -220,6 +243,16 @@ def main():
     # list-users
     subparsers.add_parser("list-users", help="List all users")
 
+    # set-role
+    role_parser = subparsers.add_parser("set-role", help="Change an existing user's role")
+    role_parser.add_argument("--email", required=True, help="User's email address")
+    role_parser.add_argument(
+        "--role",
+        choices=["admin", "standard", "premium"],
+        required=True,
+        help="New role for the user",
+    )
+
     # reset-password
     reset_parser = subparsers.add_parser("reset-password", help="Reset a user's password")
     reset_parser.add_argument("--email", required=True, help="User's email address")
@@ -234,6 +267,11 @@ def main():
         "--output",
         default=None,
         help="Output file path. Default: ./backups/donjondocs-<UTC-timestamp>.json",
+    )
+    backup_parser.add_argument(
+        "--exclude-passwords",
+        action="store_true",
+        help="Omit hashed_password from exported users (restored new users must reset passwords).",
     )
 
     # restore
@@ -273,6 +311,7 @@ def main():
     command_map = {
         "create-user": _create_user,
         "list-users": _list_users,
+        "set-role": _set_role,
         "reset-password": _reset_password,
         "backup": _backup,
         "restore": _restore,

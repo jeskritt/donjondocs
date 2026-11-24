@@ -15,9 +15,10 @@ from sqlalchemy import select, or_
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.char_sheet import (
+    GlobalAbility,
     GlobalWeapon, GlobalArmor, GlobalItem,
     GlobalClass, GlobalSkill, GlobalAttribute,
-    GlobalDestiny,
+    GlobalDestiny, GlobalSpell,
 )
 from app.schemas.char_sheet_global import SheetStyle, CustomWeaponInput, CustomArmorInput, CustomItemInput
 
@@ -66,6 +67,14 @@ async def list_attributes(session: AsyncSession, style: SheetStyle, owner_id: st
 
 async def list_destinies(session: AsyncSession, style: SheetStyle, owner_id: str | None = None) -> Sequence[GlobalDestiny]:
     return await _list_global(session, GlobalDestiny, style, owner_id)
+
+
+async def list_spells(session: AsyncSession, style: SheetStyle, owner_id: str | None = None) -> Sequence[GlobalSpell]:
+    return await _list_global(session, GlobalSpell, style, owner_id)
+
+
+async def list_abilities(session: AsyncSession, style: SheetStyle, owner_id: str | None = None) -> Sequence[GlobalAbility]:
+    return await _list_global(session, GlobalAbility, style, owner_id)
 
 
 async def add_custom_weapon(

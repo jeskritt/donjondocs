@@ -19,6 +19,12 @@ from nicegui import ui
 from app.services.session import service_session
 from app.user_roles import UserRole
 from app.schemas.user import UserCreate, UserUpdate
+from app.services.admin_service import (
+    AdminServiceError,
+    create_verified_admin_backup,
+    get_global_table_stats,
+    reseed_global_data,
+)
 from app.services.user_service import (
     UserServiceError,
     create_user,
@@ -28,7 +34,7 @@ from app.services.user_service import (
     update_user,
 )
 from app.ui.auth import current_user_context
-from app.ui.theme import apply_global_styles, notify_error, notify_success
+from app.ui.theme import DIALOG_CARD_STYLE, apply_global_styles, notify_error, notify_success
 from app.ui.components.header import build_header
 from app.ui.components.sidebar import build_sidebar
 
@@ -48,7 +54,15 @@ async def admin_users_page():
     build_sidebar()
 
     # State
+    me = current_user_context()
     users_data = []
+    global_stats_data: list[dict] = []
+
+    async def load_global_stats():
+        nonlocal global_stats_data
+        async with service_session() as session:
+            global_stats_data = await get_global_table_stats(session, me)
+        global_stats_table.refresh()
 
     # -----------------------------------------------------------------------
     # Data loading — direct service call
@@ -334,5 +348,128 @@ async def admin_users_page():
 
         users_table()
 
+        # -------------------------------------------------------------------
+        # System & Rule Data Management (Reseed + Guardrailed Backup)
+        # -------------------------------------------------------------------
+        ui.separator().classes("my-8")
+        with ui.row().classes("w-full items-center justify-between flex-wrap gap-3 mb-4"):
+            with ui.column().classes("gap-0"):
+                ui.label("Rule Data & Database Backup").classes("text-2xl font-bold").style("color: #E2E8F0;")
+                ui.label("Reseed bundled rulebook tables from data/ or export a password-verified backup.").classes("text-xs text-gray-400")
+            with ui.row().classes("gap-2"):
+                def show_reseed_dialog():
+                    with ui.dialog() as dlg, ui.card().classes("w-full max-w-md").style(DIALOG_CARD_STYLE):
+                        ui.label("Reseed Global Rule Data").classes("text-lg font-bold text-white mb-2")
+                        ui.label(
+                            "Re-ingests bundled CSV and JSON rule catalogs from the server's data/ directory "
+                            "using idempotent upserts. User accounts, characters, creatures, and user-owned custom "
+                            "items are never modified."
+                        ).classes("text-sm text-gray-300")
+                        with ui.row().classes("w-full justify-end gap-2 mt-4"):
+                            ui.button("Cancel", on_click=dlg.close).props("flat").style("color:#94A3B8;")
+
+                            async def _do_reseed():
+                                async with service_session() as session:
+                                    try:
+                                        report = await reseed_global_data(session, me)
+                                    except AdminServiceError as exc:
+                                        notify_error(exc.message)
+                                        return
+                                    except Exception as exc:
+                                        notify_error(f"Reseed failed: {exc}")
+                                        return
+                                notify_success(
+                                    f"Reseeded {report['files']} files "
+                                    f"(+{report['inserted']} inserted, ~{report['updated']} updated)."
+                                )
+                                dlg.close()
+                                await load_global_stats()
+
+                            ui.button("Reseed Now", icon="sync", on_click=_do_reseed).props("unelevated color=primary")
+                    dlg.open()
+
+                def show_backup_dialog():
+                    with ui.dialog() as dlg, ui.card().classes("w-full max-w-md").style(DIALOG_CARD_STYLE):
+                        ui.label("Download Database Backup").classes("text-lg font-bold text-white mb-1")
+                        ui.label(
+                            "Exports all users, characters, allies, notes, creatures, and custom global items as JSON. "
+                            "Re-enter your admin password to authorize this download (max 2/hour; restore remains CLI-only)."
+                        ).classes("text-xs text-gray-300 mb-3")
+                        pw_in = ui.input(label="Confirm Admin Password", password=True).props("outlined dark dense").classes("w-full")
+                        exclude_pw = ui.checkbox(
+                            "Exclude password hashes (recommended — reset passwords after restore)",
+                            value=True,
+                        ).classes("mt-2 text-xs text-gray-200")
+                        with ui.row().classes("w-full justify-end gap-2 mt-4"):
+                            ui.button("Cancel", on_click=dlg.close).props("flat").style("color:#94A3B8;")
+
+                            async def _do_backup():
+                                async with service_session() as session:
+                                    try:
+                                        filename, payload, summary = await create_verified_admin_backup(
+                                            session,
+                                            me,
+                                            pw_in.value or "",
+                                            include_passwords=not bool(exclude_pw.value),
+                                        )
+                                    except AdminServiceError as exc:
+                                        notify_error(exc.message)
+                                        return
+                                    except Exception as exc:
+                                        notify_error(f"Backup failed: {exc}")
+                                        return
+                                ui.download(payload, filename=filename)
+                                notify_success(
+                                    f"Backup ready ({summary['users']} users, {summary['characters']} chars, "
+                                    f"{summary['creatures']} creatures)."
+                                )
+                                dlg.close()
+
+                            ui.button("Download Backup", icon="download", on_click=_do_backup).props("unelevated").style(
+                                "background: #0F766E !important; border-radius: 8px;"
+                            )
+                    dlg.open()
+
+                ui.button(
+                    "Reseed Global Data",
+                    on_click=show_reseed_dialog,
+                    icon="sync",
+                ).props("unelevated").style(
+                    "background: #4F46E5 !important; border-radius: 8px;"
+                )
+                ui.button(
+                    "Download Backup",
+                    on_click=show_backup_dialog,
+                    icon="download",
+                ).props("unelevated").style(
+                    "background: #0F766E !important; border-radius: 8px;"
+                )
+
+        @ui.refreshable
+        def global_stats_table():
+            if not global_stats_data:
+                ui.label("No seeded global rule data found yet. Click 'Reseed Global Data' to populate.").classes("text-sm text-gray-400 italic")
+                return
+            cols = [
+                {"name": "source", "label": "Rule System", "field": "source", "align": "left", "sortable": True},
+                {"name": "attributes", "label": "Attrs", "field": "attributes", "align": "center"},
+                {"name": "skills", "label": "Skills", "field": "skills", "align": "center"},
+                {"name": "classes", "label": "Classes", "field": "classes", "align": "center"},
+                {"name": "weapons", "label": "Weapons", "field": "weapons", "align": "center"},
+                {"name": "armor", "label": "Armor", "field": "armor", "align": "center"},
+                {"name": "items", "label": "Gear", "field": "items", "align": "center"},
+                {"name": "spells", "label": "Spells", "field": "spells", "align": "center"},
+                {"name": "abilities", "label": "Amps/Abilities", "field": "abilities", "align": "center"},
+                {"name": "total", "label": "Total", "field": "total", "align": "center", "sortable": True},
+            ]
+            ui.table(
+                columns=cols,
+                rows=global_stats_data,
+                row_key="source",
+            ).classes("w-full").props("dense flat bordered dark hide-bottom")
+
+        global_stats_table()
+
     # Load data on page load
     await load_users()
+    await load_global_stats()

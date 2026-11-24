@@ -5,7 +5,8 @@ from app.ui.theme import DIALOG_CARD_STYLE, apply_global_styles, notify_success
 from app.ui.components.header import build_header
 from app.ui.components.sidebar import build_sidebar
 from app.builders import get_builder
-from app.schemas.char_sheet_specific import Character
+from app.rule_systems import SystemFamily, system_family_for
+from app.schemas.registry import parse_character
 from app.services.session import service_session
 from app.services.character_service import get_character, update_character, rest_character, CharacterServiceError
 from app.services.global_items_service import list_classes, list_skills
@@ -22,6 +23,14 @@ from app.ui.components.sheet.proficiencies import _render_proficiencies
 from app.ui.components.sheet.description import _render_description
 from app.ui.components.sheet.features import _render_features
 from app.ui.components.sheet.equipment import _render_equipment
+
+from app.ui.components.sheet_anarchy.top_bar import _render_anarchy_top_bar
+from app.ui.components.sheet_anarchy.attributes import _render_anarchy_attributes
+from app.ui.components.sheet_anarchy.wounds import _render_anarchy_wounds
+from app.ui.components.sheet_anarchy.skills import _render_anarchy_skills
+from app.ui.components.sheet_anarchy.shadow_amps import _render_anarchy_shadow_amps
+from app.ui.components.sheet_anarchy.weapons_spells import _render_anarchy_weapons_spells
+from app.ui.components.sheet_anarchy.identity_gear import _render_anarchy_identity_gear
 
 
 # Tab labels are constants so the panel-name lookup never silently desyncs
@@ -45,7 +54,7 @@ async def character_sheet_page(char_id: str):
     try:
         async with service_session() as session:
             char_record = await get_character(session, char_id, user)
-            char_schema = Character(**char_record.character_data)
+            char_schema = parse_character(char_record.style, char_record.character_data)
             builder = get_builder(char_schema)
             view_data = builder.build()
     except CharacterServiceError as e:
@@ -55,6 +64,9 @@ async def character_sheet_page(char_id: str):
         ui.label("Error loading character.").classes("text-red-500 font-bold p-8 text-xl")
         print(f"Error parsing character {char_id}: {e}")
         return
+
+    family = system_family_for(char_record.style)
+    is_anarchy = family == SystemFamily.SHADOWRUN_ANARCHY_2
 
     state = {
         "vd": view_data,
@@ -82,7 +94,7 @@ async def character_sheet_page(char_id: str):
     async def _save(updates: dict):
         async with service_session() as session:
             rec = await update_character(session, char_id, updates, user)
-        new_schema = Character(**rec.character_data)
+        new_schema = parse_character(rec.style, rec.character_data)
         state["cs"] = new_schema
         state["vd"] = get_builder(new_schema).build()
         for fn in data_refresh_fns:
@@ -95,7 +107,7 @@ async def character_sheet_page(char_id: str):
     async def _apply_rest(kind: str, options: dict):
         async with service_session() as session:
             rec = await rest_character(session, char_id, kind, options, user)
-        new_schema = Character(**rec.character_data)
+        new_schema = parse_character(rec.style, rec.character_data)
         state["cs"] = new_schema
         state["vd"] = get_builder(new_schema).build()
         for fn in data_refresh_fns:
@@ -103,7 +115,10 @@ async def character_sheet_page(char_id: str):
                 fn.refresh()
             except Exception:
                 pass
-        notify_success(f"{kind.title()} rest complete")
+        label = {"new_run": "Edge reset for new run", "heal_all": "All wounds cleared"}.get(
+            kind, f"{kind.title()} rest complete"
+        )
+        notify_success(label)
 
     def _open_rest_dialog(kind: str):
         cs = state["cs"]
@@ -285,9 +300,14 @@ async def character_sheet_page(char_id: str):
                         on_change=_toggle_phb,
                     ).props('dense').classes('text-xs text-gray-300')
 
-    _top_bar_section()
-    data_refresh_fns.append(_top_bar_section)
-    style_refresh_fns.append(_top_bar_section)
+    if is_anarchy:
+        _top_bar_handle = _render_anarchy_top_bar(state, char_id, user, _save, _apply_rest)
+        data_refresh_fns.append(_top_bar_handle)
+        style_refresh_fns.append(_top_bar_handle)
+    else:
+        _top_bar_section()
+        data_refresh_fns.append(_top_bar_section)
+        style_refresh_fns.append(_top_bar_section)
 
     def _track(section, *, data: bool = True):
         """Register a refreshable. ``data=False`` keeps it off the
@@ -314,27 +334,41 @@ async def character_sheet_page(char_id: str):
 
     with ui.tab_panels(page_tabs, value=state["active_page"]).bind_value(state, "active_page").classes("w-full bg-transparent"):
         # -------------------------------------------------------------------
-        # Character page (the existing card grid)
+        # Character page (dispatched by SystemFamily)
         # -------------------------------------------------------------------
         with ui.tab_panel(PAGE_CHARACTER):
             with ui.column().classes("w-full max-w-7xl mx-auto p-4 gap-4"):
+                if is_anarchy:
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_anarchy_attributes(state, char_id, user, _save))
+                        _track(_render_anarchy_wounds(state, char_id, user, _save))
 
-                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-                    _track(_render_abilities(state, char_id, user, _save))
-                    _track(_render_actions(state, char_id, user, _save))
-                    _track(_render_skills(state, char_id, user, _save))
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_anarchy_skills(state, char_id, user, _save))
+                        _track(_render_anarchy_weapons_spells(state, char_id, user, _save))
 
-                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-                    _track(_render_hp(state, char_id, user, _save))
-                    _track(_render_defenses(state, char_id, user, _save))
-                    _track(_render_proficiencies(state, char_id, user, _save))
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_anarchy_shadow_amps(state, char_id, user, _save))
 
-                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-                    _track(_render_description(state, char_id, user, _save))
-                    _track(_render_features(state, char_id, user, _save))
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_anarchy_identity_gear(state, char_id, user, _save))
+                else:
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_abilities(state, char_id, user, _save))
+                        _track(_render_actions(state, char_id, user, _save))
+                        _track(_render_skills(state, char_id, user, _save))
 
-                with ui.row().classes("w-full gap-4 items-start flex-wrap"):
-                    _track(_render_equipment(state, char_id, user, _save))
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_hp(state, char_id, user, _save))
+                        _track(_render_defenses(state, char_id, user, _save))
+                        _track(_render_proficiencies(state, char_id, user, _save))
+
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_description(state, char_id, user, _save))
+                        _track(_render_features(state, char_id, user, _save))
+
+                    with ui.row().classes("w-full gap-4 items-start flex-wrap"):
+                        _track(_render_equipment(state, char_id, user, _save))
 
         # -------------------------------------------------------------------
         # Allies & Stat Blocks

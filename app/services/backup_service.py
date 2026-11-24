@@ -36,9 +36,15 @@ from app.models.character_addons import CharacterAlly, CharacterNote
 from app.models.creature import Creature
 from app.models.user import User
 from app.rule_systems import SheetStyle
-from app.schemas.char_sheet_specific import Character
+from app.schemas.registry import parse_character
 from app.services.character_io import EXPORT_VERSION, migrate_character_data
 from app.user_roles import UserRole
+
+# Sentinel written into `users.hashed_password` when inserting a user from a
+# passwordless backup (`include_passwords=False`). `verify_password()` rejects
+# any non-`$argon2`/`$2` string, so the account stays locked until an admin
+# runs `reset-password` (CLI or Admin UI).
+LOCKED_PASSWORD_SENTINEL = "!LOCKED-PASSWORD-RESET-REQUIRED!"
 
 
 # v2 added the `character_allies` and `character_notes` buckets at envelope
@@ -100,6 +106,8 @@ class BackupEnvelope(BaseModel):
     # User-owned creature catalog rows (added in BACKUP_VERSION 3). Defaulted
     # to [] so pre-v3 envelopes parse cleanly with an empty creature bucket.
     creatures: list[dict] = []
+    # False when exported via Admin UI with "Exclude password hashes" enabled.
+    includes_passwords: bool = True
 
 
 class RestoreReport(BaseModel):
@@ -158,16 +166,27 @@ async def _get_alembic_revision(session: AsyncSession) -> str | None:
         return None
 
 
-async def create_backup(session: AsyncSession) -> BackupEnvelope:
+async def create_backup(
+    session: AsyncSession,
+    *,
+    include_passwords: bool = True,
+) -> BackupEnvelope:
     """Read all user-owned rows from the bound DB and return an envelope.
 
     Read-only — does not commit or rollback. Each character's
     `character_data` is migrated up to `EXPORT_VERSION` so the envelope
     is always at the latest version and round-trips cleanly on restore.
+
+    When `include_passwords=False` (used by Admin UI downloads when the admin
+    chooses not to export credential hashes), `hashed_password` is omitted from
+    exported `users` rows. On restore, MERGE preserves existing passwords and
+    new inserts receive `LOCKED_PASSWORD_SENTINEL` until reset.
     """
     revision = await _get_alembic_revision(session)
 
     user_cols = _model_columns(User)
+    if not include_passwords:
+        user_cols = [c for c in user_cols if c != "hashed_password"]
     user_rows = (await session.execute(select(User))).scalars().all()
     users = [_row_to_dict(u, user_cols) for u in user_rows]
 
@@ -178,7 +197,7 @@ async def create_backup(session: AsyncSession) -> BackupEnvelope:
         d = _row_to_dict(c, char_cols)
         # Bring the blob up to the current schema before snapshotting.
         d["character_data"] = migrate_character_data(
-            dict(c.character_data or {}), EXPORT_VERSION
+            dict(c.character_data or {}), EXPORT_VERSION, style=c.style
         )
         characters.append(d)
 
@@ -211,6 +230,7 @@ async def create_backup(session: AsyncSession) -> BackupEnvelope:
         user_globals=user_globals,
         character_addons=character_addons,
         creatures=creatures,
+        includes_passwords=include_passwords,
     )
 
 
@@ -222,6 +242,10 @@ def _prepare_user_row(raw: dict) -> dict:
     role = out.get("role")
     if role is not None and not isinstance(role, UserRole):
         out["role"] = UserRole(role)
+    # Drop explicit None/empty hashed_password so _upsert_user preserves an
+    # existing hash on MERGE and falls back to LOCKED_PASSWORD_SENTINEL on insert.
+    if not out.get("hashed_password"):
+        out.pop("hashed_password", None)
     return out
 
 
@@ -232,9 +256,10 @@ def _prepare_character_row(raw: dict, source_version: int) -> dict:
             out[k] = _parse_iso(out.get(k))
     style = out.get("style")
     if style is not None and not isinstance(style, SheetStyle):
-        out["style"] = SheetStyle(style)
+        style = SheetStyle(style)
+        out["style"] = style
     out["character_data"] = migrate_character_data(
-        dict(out.get("character_data") or {}), source_version
+        dict(out.get("character_data") or {}), source_version, style=style
     )
     return out
 
@@ -256,6 +281,8 @@ async def _upsert(session: AsyncSession, model: type, row: dict) -> bool:
     pk = row["id"]
     existing = await session.get(model, pk)
     if existing is None:
+        if model is User and "hashed_password" not in row:
+            row = {**row, "hashed_password": LOCKED_PASSWORD_SENTINEL}
         session.add(model(**row))
         return True
     for k, v in row.items():
@@ -295,7 +322,7 @@ async def restore_backup(
     for idx, raw in enumerate(envelope.characters):
         try:
             prepped = _prepare_character_row(raw, envelope.character_data_version)
-            Character(**prepped["character_data"])
+            parse_character(prepped["style"], prepped["character_data"])
         except Exception as e:
             raise BackupServiceError(
                 f"Invalid character_data at characters[{idx}] "

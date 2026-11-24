@@ -1,0 +1,143 @@
+{
+  "version": 7,
+  "exported_at": "2026-11-24T00:00:00+00:00",
+  "name": "Kestrel",
+  "style": "Shadowrun: Anarchy 2.0",
+  "character_data": {
+    "name": "Kestrel",
+    "style": "Shadowrun: Anarchy 2.0",
+    "metatype": "Ork",
+    "strength": 3,
+    "agility": 3,
+    "willpower": 2,
+    "logic": 4,
+    "charisma": 2,
+    "edge_current": 3,
+    "edge_base": 3,
+    "keywords": [
+      "Ork",
+      "Seattle / Tacoma Docks",
+      "Combat Decker",
+      "Former Security Tech",
+      "Middle Lifestyle"
+    ],
+    "dispositions": [
+      "Protective of the crew",
+      "Overconfident on the Grid",
+      "Distrusts megacorps",
+      "Always has an exit plan"
+    ],
+    "cues": [
+      "Give me three seconds and that maglock is ours.",
+      "Never jack in without a hardline backup.",
+      "Chrome doesn't bleed, omae.",
+      "We're burning daylight—move!"
+    ],
+    "knowledge_skills": [
+      "Seattle Dockyards",
+      "Matrix Security Architecture",
+      "Language: Japanese"
+    ],
+    "skills": [
+      {
+        "name": "Athletics",
+        "category": "General",
+        "rating": 2,
+        "attribute": "STR",
+        "alt_attributes": ["AGI"],
+        "specializations": [
+          {"name": "ranged defense", "attribute": "AGI", "bonus": 2}
+        ]
+      },
+      {"name": "Perception", "category": "General", "rating": 3, "attribute": "LOG", "alt_attributes": [], "specializations": [{"name": "Matrix", "attribute": "LOG", "bonus": 2}]},
+      {"name": "Piloting", "category": "General", "rating": 2, "attribute": "AGI", "alt_attributes": [], "specializations": [{"name": "bikes", "attribute": "AGI", "bonus": 2}]},
+      {"name": "Stealth", "category": "General", "rating": 2, "attribute": "AGI", "alt_attributes": ["LOG"], "specializations": [{"name": "Matrix sneaking", "attribute": "LOG", "bonus": 2}]},
+      {"name": "Survival", "category": "General", "rating": 1, "attribute": "LOG", "alt_attributes": ["CHA", "WIL"], "specializations": []},
+      {"name": "Close Combat", "category": "Fighting", "rating": 1, "attribute": "AGI", "alt_attributes": ["WIL"], "specializations": []},
+      {"name": "Ranged Weapons", "category": "Fighting", "rating": 4, "attribute": "AGI", "alt_attributes": [], "specializations": [{"name": "pistols", "attribute": "AGI", "bonus": 2}]},
+      {"name": "Cracking", "category": "Technical", "rating": 5, "attribute": "LOG", "alt_attributes": ["WIL"], "specializations": [{"name": "backdoor", "attribute": "LOG", "bonus": 2}, {"name": "cybercombat", "attribute": "WIL", "bonus": 2}]},
+      {"name": "Electronics", "category": "Technical", "rating": 4, "attribute": "LOG", "alt_attributes": [], "specializations": [{"name": "Matrix search", "attribute": "LOG", "bonus": 2}]},
+      {"name": "Engineering", "category": "Technical", "rating": 2, "attribute": "LOG", "alt_attributes": [], "specializations": []},
+      {"name": "Influence", "category": "Social", "rating": 1, "attribute": "CHA", "alt_attributes": [], "specializations": []},
+      {"name": "Network", "category": "Social", "rating": 2, "attribute": "CHA", "alt_attributes": [], "specializations": [{"name": "Matrix", "attribute": "CHA", "bonus": 2}]},
+      {"name": "Conjuring", "category": "Magic", "rating": 0, "attribute": "LOG", "alt_attributes": ["CHA"], "specializations": []},
+      {"name": "Sorcery", "category": "Magic", "rating": 0, "attribute": "WIL", "alt_attributes": [], "specializations": []}
+    ],
+    "shadow_amps": [
+      {
+        "id": "amp-cyberjack",
+        "name": "Cyberjack MCT Decker-Pro",
+        "amp_type": "Cyberware",
+        "rating": 7,
+        "essence_cost": 1.0,
+        "effects": [],
+        "body_md": "DNI; cold-sim & hot-sim VR; +1 Edge/scene, +1 action/narration, and unlimited extra actions while in VR.",
+        "is_custom": false
+      },
+      {
+        "id": "amp-bone-lacing",
+        "name": "Aluminum Bone Lacing",
+        "amp_type": "Cyberware",
+        "rating": 5,
+        "essence_cost": 1.0,
+        "effects": [
+          {"kind": "unarmed_dv_bonus", "target": "unarmed", "value": 1, "note": "Unarmed DV +1"},
+          {"kind": "light_wound_box", "target": "light", "value": 1, "note": "+1 Light wound box"}
+        ],
+        "body_md": "Metallic skeletal reinforcement granting Unarmed DV +1 and +1 Light wound box.",
+        "is_custom": false
+      },
+      {
+        "id": "amp-deck",
+        "name": "MCT 360 (Cyberdeck)",
+        "amp_type": "Cyberdeck",
+        "rating": 11,
+        "essence_cost": 0.0,
+        "effects": [
+          {"kind": "rr_skill", "target": "Cracking", "value": 1, "note": "RR 1 Cracking"}
+        ],
+        "body_md": "### MCT 360 *(Cyberdeck — Rating 11, 55,000¥)*\n| Attack | Firewall | Light | Serious | Incap. |\n|:---:|:---:|:---:|:---:|:---:|\n| 3 | 3 | 3 | 6 | 9 |\n\n**Matrix Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Effects:** RR 1 on Cracking Tests  \n**Custom Notes:** Matte-black gauntlet chassis with retractable fiber-optic tap.",
+        "is_custom": true
+      },
+      {
+        "id": "amp-bike",
+        "name": "Harley-Davidson Centaur",
+        "amp_type": "Vehicle or Drone",
+        "rating": 4,
+        "essence_cost": 0.0,
+        "effects": [],
+        "body_md": "### Harley-Davidson Centaur *(Combat Bike — Vehicle Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 5 | 2 | 5 | 3 |\n\n**Damage Thresholds:** Light `8` · Serious `13` · Incap. `18`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing — *(empty)*  \n**Custom Notes:** Stored in a Tacoma lockup with hidden tool compartment.",
+        "is_custom": true
+      }
+    ],
+    "weapons": [
+      {"id": "w-unarmed", "name": "Unarmed", "weapon_type": "Unarmed", "dv": "STR", "range_close": "OK", "range_short": "—", "range_medium": "—", "range_long": "—", "skill": "Close Combat", "specialization": "unarmed", "notes": "", "is_custom": false},
+      {"id": "w-pistol", "name": "Browning Ultra Power", "weapon_type": "Weapon", "dv": "5", "range_close": "OK", "range_short": "OK", "range_medium": "Dis.", "range_long": "—", "skill": "Ranged Weapons", "specialization": "pistols", "notes": "Heavy pistol", "is_custom": false}
+    ],
+    "spells": [],
+    "armor": [
+      {"id": "a-vest", "name": "Kevlar Vest", "rating": 3, "slot": "main", "notes": "Standard runner light armor", "is_custom": false},
+      {"id": "a-clothes", "name": "Armored Clothes", "rating": 1, "slot": "alternate", "notes": "Discreet club/corp wear", "is_custom": false}
+    ],
+    "equipment": [
+      {"id": "e-sin", "name": "Fake SIN & Licenses", "category": "Identity", "cost": 2500, "notes": "Registered as 'Marcus Vance, Network Contractor'", "is_custom": true},
+      {"id": "e-commlink", "name": "Commlink", "category": "Electronics", "cost": 2500, "notes": "Burner AR unit", "is_custom": false},
+      {"id": "e-medkit", "name": "Medkit", "category": "Medical", "cost": 2500, "notes": "1 Edge -> Advantage on First Aid", "is_custom": false}
+    ],
+    "wounds": {
+      "light": [false, false, false],
+      "serious": [false],
+      "incapacitated": false,
+      "stim_patch_active": false
+    },
+    "nuyen": 5000,
+    "bio": "Former dockside security technician turned freelance combat decker operating out of Tacoma."
+  },
+  "allies": [],
+  "notes": [
+    {
+      "title": "Run Checklist",
+      "body_md": "- Verify hardline tap before cracking host\n- Keep burner commlink synced with team PAN"
+    }
+  ]
+}

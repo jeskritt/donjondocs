@@ -23,10 +23,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.models.character import CharacterRecord
 from app.models.character_addons import CharacterAlly, CharacterNote
 from app.models.user import User
+from app.rule_systems import SystemFamily, system_family_for
 from app.schemas.ally import AllyCreate
 from app.schemas.char_sheet_global import SheetStyle
 from app.schemas.char_sheet_specific import Character, CharacterClassEntry
 from app.schemas.note import NoteCreate
+from app.schemas.registry import parse_character
 from app.services._errors import CharacterServiceError
 from app.services.character_io import (
     EXPORT_VERSION,
@@ -35,6 +37,7 @@ from app.services.character_io import (
 )
 from app.services.character_mechanics import apply_rest
 from app.services.character_seeding import (
+    build_blank_anarchy_character_data,
     build_blank_character_data,
     prof_bonus_for,
     seed_classes_from_db,
@@ -109,29 +112,38 @@ async def create_character(
     name: str,
     style: SheetStyle,
     current_user: UserContext,
-    classes: list[CharacterClassEntry],
+    classes: list[CharacterClassEntry] | None = None,
     ancestry: str = "Human",
     culture: str | None = None,
     background: str = "Peasant",
     vigor_enabled: bool = False,
+    *,
+    metatype: str = "Human",
+    keywords: list[str] | None = None,
 ) -> CharacterRecord:
     """Create a new character for a user, enforcing limits.
 
-    Each entry in `classes` has its metadata (hit_dice, save grants,
-    proficiencies) seeded from `GlobalClass`. Per 5e multiclass rules, only the
-    FIRST class grants save and weapon/armor proficiencies; subsequent classes
-    contribute hit dice only. `classes` must contain at least one entry.
+    Dispatches by `SystemFamily`:
+    - 5e family: requires at least one `CharacterClassEntry`, seeds hit dice,
+      saves, and weapon/armor proficiencies from `GlobalClass`.
+    - Shadowrun: Anarchy 2.0: seeds attributes, metatype starting Edge, the 14
+      Anarchy skills, and an Unarmed attack entry (no classes required).
     """
-    if not classes:
-        raise CharacterServiceError("At least one class is required.")
-
-    await _assert_within_character_limit(session, current_user)
-
-    seeded_classes = await seed_classes_from_db(session, style, current_user.id, classes)
-    blank_data = await build_blank_character_data(
-        session, name, style, current_user, seeded_classes,
-        ancestry, culture, background, vigor_enabled=vigor_enabled,
-    )
+    family = system_family_for(style)
+    if family == SystemFamily.DND5E:
+        if not classes:
+            raise CharacterServiceError("At least one class is required.")
+        await _assert_within_character_limit(session, current_user)
+        seeded_classes = await seed_classes_from_db(session, style, current_user.id, classes)
+        blank_data = await build_blank_character_data(
+            session, name, style, current_user, seeded_classes,
+            ancestry, culture, background, vigor_enabled=vigor_enabled,
+        )
+    else:
+        await _assert_within_character_limit(session, current_user)
+        blank_data = await build_blank_anarchy_character_data(
+            session, name, current_user, metatype=metatype, keywords=keywords,
+        )
 
     new_char = CharacterRecord(
         name=name,
@@ -161,9 +173,9 @@ async def rest_character(
     options: dict | None,
     current_user: UserContext,
 ) -> CharacterRecord:
-    """Authorize and apply a rest. Persists the updated character_data blob."""
+    """Authorize and apply a rest/reset. Persists the updated character_data blob."""
     char = await get_character(session, character_id, current_user)
-    new_data = apply_rest(char.character_data, kind, options)
+    new_data = apply_rest(char.character_data, kind, options, style=char.style)
     char.character_data = new_data
     await session.commit()
     await session.refresh(char)
@@ -173,7 +185,7 @@ async def rest_character(
 async def update_character(session: AsyncSession, character_id: str, update_data: dict, current_user: UserContext) -> CharacterRecord:
     """Update a character's internal data representation.
 
-    When `classes` is part of the update:
+    For 5e-family sheets, when `classes` is part of the update:
       - prof_bonus is re-derived from the new total level
       - saves and weapon/armor proficiencies are re-seeded from the (new)
         primary class (classes[0]). Language/tool/instrument/game entries are
@@ -186,7 +198,7 @@ async def update_character(session: AsyncSession, character_id: str, update_data
     current_data = dict(char.character_data)
     current_data.update(update_data)
 
-    if "classes" in update_data:
+    if "classes" in update_data and system_family_for(char.style) == SystemFamily.DND5E:
         style = SheetStyle(current_data.get("style", SheetStyle.DND5E.value))
         raw_entries = [CharacterClassEntry(**c) for c in current_data.get("classes", [])]
         # Always re-seed from GlobalClass so save/prof grants stay correct even
@@ -291,13 +303,13 @@ async def import_character(
     """
     await _assert_within_character_limit(session, current_user)
 
-    character_data = migrate_character_data(character_data, version)
+    character_data = migrate_character_data(character_data, version, style=style)
 
     character_data["owner_id"] = str(current_user.id)
     character_data["style"] = style.value
     character_data["name"] = name
 
-    Character(**character_data)
+    parse_character(style, character_data)
 
     # Validate addon payloads up front so we don't half-create the character.
     ally_payloads = [AllyCreate(**a) for a in (allies or [])]

@@ -15,6 +15,7 @@ the post-rest dict. No DB, no RBAC — `character_service.rest_character`
 wraps this in the persistence + authorization layer.
 """
 
+from app.rule_systems import SheetStyle, SystemFamily, system_family_for
 from app.services._errors import CharacterServiceError
 
 
@@ -117,9 +118,44 @@ def _reset_trackers(data: dict, kind: str) -> None:
     data["exertion_current"] = data.get("exertion_max", 0)
 
 
-def apply_rest(character_data: dict, kind: str, options: dict | None = None) -> dict:
+def _apply_anarchy_reset(data: dict, kind: str) -> dict:
+    """Apply Shadowrun: Anarchy 2.0 session/downtime resets."""
+    wounds = dict(data.get("wounds") or {})
+    if kind == "new_run":
+        data["edge_current"] = int(data.get("edge_base", 3))
+        wounds["stim_patch_active"] = False
+        data["wounds"] = wounds
+        return data
+    if kind == "heal_all":
+        wounds["light"] = [False for _ in (wounds.get("light") or [False, False])]
+        wounds["serious"] = [False for _ in (wounds.get("serious") or [False])]
+        wounds["incapacitated"] = False
+        wounds["stim_patch_active"] = False
+        data["wounds"] = wounds
+        return data
+    raise CharacterServiceError(
+        f"Rest kind {kind!r} is not supported for Shadowrun: Anarchy 2.0 (expected 'new_run' or 'heal_all')."
+    )
+
+
+def apply_rest(
+    character_data: dict,
+    kind: str,
+    options: dict | None = None,
+    style: SheetStyle | None = None,
+) -> dict:
     options = options or {}
     data = dict(character_data)
+
+    resolved_style = style
+    if resolved_style is None and data.get("style"):
+        try:
+            resolved_style = SheetStyle(data["style"])
+        except ValueError:
+            resolved_style = None
+
+    if resolved_style is not None and system_family_for(resolved_style) == SystemFamily.SHADOWRUN_ANARCHY_2:
+        return _apply_anarchy_reset(data, kind)
 
     con_mod = _attr_mod(data.get("con_score", {}))
     classes = [dict(c) for c in data.get("classes", [])]

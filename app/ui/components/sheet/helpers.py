@@ -13,13 +13,22 @@ def _fmt_bonus(n: int) -> str:
     return f"+{n}" if n >= 0 else str(n)
 
 
-def render_pm_adjuster(on_delta):
+def render_pm_adjuster(
+    on_delta,
+    *,
+    minus_tooltip: str | None = None,
+    plus_tooltip: str | None = None,
+):
     """Render minus/plus buttons that call on_delta(±1).
 
     on_delta is an async callable; clamping is the caller's job.
     """
-    ui.button(icon='remove', on_click=lambda: on_delta(-1)).props('flat round dense size=sm')
-    ui.button(icon='add',    on_click=lambda: on_delta(1)).props('flat round dense size=sm')
+    btn_m = ui.button(icon='remove', on_click=lambda: on_delta(-1)).props('flat round dense size=sm')
+    btn_p = ui.button(icon='add',    on_click=lambda: on_delta(1)).props('flat round dense size=sm')
+    if minus_tooltip:
+        btn_m.tooltip(minus_tooltip)
+    if plus_tooltip:
+        btn_p.tooltip(plus_tooltip)
 
 
 def render_plain_markdown(text) -> None:

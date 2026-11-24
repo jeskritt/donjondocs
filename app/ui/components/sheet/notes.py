@@ -171,10 +171,8 @@ def _render_notes(state, char_id, user):
             if is_open:
                 ui.separator()
                 if note.body_md.strip():
-                    # When PHB is on, drop text-gray-200 so the vendored
-                    # parchment-friendly colors win cleanly. Off → keep the
-                    # Tailwind utility for legible dark-mode text.
-                    color_class = "phb" if app.storage.user.get("phb_style") else "text-gray-200"
+                    use_phb = bool(app.storage.user.get("phb_style")) and state.get("vd", {}).get("style_flags", {}).get("show_phb_toggle", True)
+                    color_class = "phb" if use_phb else "text-gray-200"
                     ui.markdown(note.body_md).classes(f"w-full px-2 py-1 {color_class}")
                 else:
                     ui.label("(empty)").classes("text-gray-500 italic px-2 py-1")
