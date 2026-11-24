@@ -1,0 +1,104 @@
+{
+  "style": "Shadowrun: Anarchy 2.0",
+  "kind": "skills",
+  "items": [
+    {
+      "name": "Athletics",
+      "attribute": "STR",
+      "specialties": "climbing (+STR), parkour (+AGI), ranged defense (+AGI), running (+STR), swimming (+STR)",
+      "example_uses": "Running, climbing, swimming, parkour, lifting, and ranged defense (AGI).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Close Combat",
+      "attribute": "AGI",
+      "specialties": "unarmed (+AGI), blades (+AGI), clubs (+AGI), defense (+AGI), astral combat (+WIL)",
+      "example_uses": "Hand-to-hand attacks, melee weapons, melee defense, and astral combat (WIL).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Conjuring",
+      "attribute": "LOG",
+      "specialties": "banishing (+LOG/CHA), spirits of air (+LOG/CHA), spirits of beasts (+LOG/CHA), spirits of earth (+LOG/CHA), spirits of fire (+LOG/CHA), spirits of kin (+LOG/CHA), spirits of plants (+LOG/CHA), spirits of water (+LOG/CHA)",
+      "example_uses": "Summoning and banishing spirits (Awakened only; LOG for Hermetic/UMT, CHA for Shamans).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Cracking",
+      "attribute": "LOG",
+      "specialties": "backdoor (+LOG), brute force (+LOG), cybercombat (+WIL)",
+      "example_uses": "Illegal Matrix access via brute force or backdoors (LOG) and cybercombat (WIL). Requires cyberdeck.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Electronics",
+      "attribute": "LOG",
+      "specialties": "Matrix protection (+LOG), Matrix search (+LOG), personal electronics (+LOG)",
+      "example_uses": "Legal Matrix searches, hardening devices against intrusion, and software/commlink work.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Engineering",
+      "attribute": "LOG",
+      "specialties": "cybernetics B&R (+LOG), drones B&R (+LOG), electronics B&R (+LOG), mechanical B&R (+LOG), vehicles B&R (+LOG), electronic warfare (+LOG), demolitions (+LOG), remote-controlled weapons (+LOG)",
+      "example_uses": "Building/repairing gear, jamming/EW, explosives, and firing remote-mounted weapons.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Influence",
+      "attribute": "CHA",
+      "specialties": "bluff (+CHA), etiquette (+CHA), impersonation (+CHA), intimidation (+CHA), negotiation (+CHA)",
+      "example_uses": "Social engineering, blending in, lying, disguising identity, bargaining, and intimidation.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Network",
+      "attribute": "CHA",
+      "specialties": "academic (+CHA), corporate (+CHA), criminal (+CHA), engineering (+CHA), government (+CHA), magic (+CHA), Matrix (+CHA), media (+CHA), medical (+CHA), street (+CHA)",
+      "example_uses": "Tapping social circles and acquaintances for legwork, favors, and black-market sourcing.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Perception",
+      "attribute": "LOG",
+      "specialties": "astral (+LOG), Matrix (+LOG), physical (+LOG), social (+LOG)",
+      "example_uses": "Spotting hidden details, reading intent, astral assensing, Matrix spotting, and memory recall.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Piloting",
+      "attribute": "AGI",
+      "specialties": "bikes (+AGI), cars (+AGI), trucks (+AGI), water vehicles (+AGI), flying vehicles (+AGI), ground drones (+AGI), water drones (+AGI), flying drones (+AGI)",
+      "example_uses": "Driving vehicles, piloting drones (manual, remote, or jumped-in), chases, and vehicle evasion.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Ranged Weapons",
+      "attribute": "AGI",
+      "specialties": "throwing weapons (+AGI), archery (+AGI), pistols (+AGI), submachine guns (+AGI), rifles (+AGI), grenade launchers (+AGI), heavy weapons (+AGI), mounted weapons (+AGI)",
+      "example_uses": "Firing hand-held or mounted ranged weapons, bows, and thrown weapons.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Sorcery",
+      "attribute": "WIL",
+      "specialties": "counterspelling (+WIL), combat spells (+WIL), detection spells (+WIL), health spells (+WIL), illusion spells (+WIL), manipulation spells (+WIL)",
+      "example_uses": "Casting and countering spells (Awakened only).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Stealth",
+      "attribute": "AGI",
+      "specialties": "astral sneaking (+AGI), Matrix sneaking (+LOG), physical sneaking (+AGI), palming (+AGI), lockpicking (+AGI/LOG)",
+      "example_uses": "Sneaking across physical/astral/Matrix realms, sleight of hand, and defeating locks.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Survival",
+      "attribute": "LOG",
+      "specialties": "animals (+CHA), composure (+WIL), first aid (+LOG), navigation (+LOG), wilderness (+LOG)",
+      "example_uses": "First aid and stabilization, wilderness survival, navigation, animal handling, and composure.",
+      "reference": "SRA2 Core"
+    }
+  ]
+}

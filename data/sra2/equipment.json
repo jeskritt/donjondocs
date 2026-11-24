@@ -1,0 +1,93 @@
+{
+  "style": "Shadowrun: Anarchy 2.0",
+  "kind": "equipment",
+  "items": [
+    {
+      "name": "Commlink",
+      "type": "Electronics",
+      "value": "2,500¥",
+      "description": "Personal AR communication device, Matrix terminal, and PAN hub.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Fake SIN & Licenses",
+      "type": "Identity",
+      "value": "2,500¥",
+      "description": "Forged System Identification Number with matching gear/carry licenses.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Medkit",
+      "type": "Medical",
+      "value": "2,500¥",
+      "effects": "Spend 1 Edge for Advantage on Survival (first aid) + LOG Tests to heal wounds.",
+      "description": "Portable diagnostic and emergency trauma treatment kit.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Stim Patches",
+      "type": "Medical",
+      "value": "2,500¥",
+      "effects": "Suppresses Serious wound Disadvantage; inflicts 1 Light wound after 15 minutes.",
+      "description": "Adrenaline/painkiller patches for pushing through combat injuries.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Trauma Patch",
+      "type": "Medical",
+      "value": "2,500¥",
+      "effects": "Spend 1 Edge for Advantage on Survival (first aid) + LOG Test to stabilize a dying character.",
+      "description": "Emergency stabilization patch for critical trauma.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Small Infiltration Kit",
+      "type": "Infiltration",
+      "value": "2,500¥",
+      "description": "Lockpicks, maglock passkey, card copier, and basic bypass tools.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Disguise / Con Artist Kit",
+      "type": "Social",
+      "value": "2,500¥",
+      "description": "Cosmetics, voice modulator, forged credentials, and wardrobe props.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Magic Lodge",
+      "type": "Magic",
+      "value": "2,500¥",
+      "description": "Dedicated ritual space and reagents supporting spellcraft and conjuring.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Satellite Relay / Signal Booster",
+      "type": "Electronics",
+      "value": "2,500¥",
+      "description": "Portable uplink mitigating remote Matrix noise or dead zones.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Repair Toolkit (B&R)",
+      "type": "Technical",
+      "value": "2,500¥",
+      "description": "Tools required for Engineering B&R Tests on vehicles, drones, or electronics.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Jazz / Cram / Kamikaze (Combat Stim)",
+      "type": "Drug",
+      "value": "2,500¥",
+      "description": "Short-term chemical combat enhancer with post-scene crash risk.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Narcoject / Neuro-Stun (Toxin)",
+      "type": "Toxin",
+      "value": "2,500¥",
+      "description": "Non-lethal incapacitating chemical payload for darts or gas grenades.",
+      "reference": "SRA2 Core"
+    }
+  ]
+}

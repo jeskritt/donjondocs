@@ -1,0 +1,216 @@
+{
+  "style": "Shadowrun: Anarchy 2.0",
+  "kind": "weapons",
+  "items": [
+    {
+      "name": "Unarmed",
+      "type": "Unarmed",
+      "damage": "STR",
+      "range": "OK/—/—/—",
+      "value": "0¥",
+      "notes": "Close Combat (unarmed)",
+      "description": "Bare-handed strikes or grappling.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Short Melee Weapon (Knife / Brass Knuckles)",
+      "type": "Weapon",
+      "damage": "STR+1",
+      "range": "OK/—/—/—",
+      "value": "2,500¥",
+      "notes": "Close Combat (blades / unarmed)",
+      "description": "Compact melee weapon such as a combat knife, brass knuckles, or cyber blades.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Long Melee Weapon (Katana / Sword / Baton)",
+      "type": "Weapon",
+      "damage": "STR+2",
+      "range": "OK/—/—/—",
+      "value": "2,500¥",
+      "notes": "Close Combat (blades / clubs)",
+      "description": "Full-length melee weapon: katana, sword, combat axe, polearm, or extendable baton.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Stun Baton / Stun Gloves",
+      "type": "Weapon",
+      "damage": "5",
+      "range": "OK/—/—/—",
+      "value": "2,500¥",
+      "notes": "Close Combat (clubs / unarmed)",
+      "description": "Advanced close-quarter shock weapon delivering fixed electrical DV.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Throwing Weapon (Knives / Shuriken)",
+      "type": "Weapon",
+      "damage": "STR+1",
+      "range": "OK/OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (throwing weapons)",
+      "description": "Silent thrown blades, shuriken, or tomahawks.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Bow",
+      "type": "Weapon",
+      "damage": "STR+1",
+      "range": "OK/OK/OK/—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (archery)",
+      "description": "Silent mechanical bow scaling with wielder Strength.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Crossbow",
+      "type": "Weapon",
+      "damage": "4",
+      "range": "OK/OK/OK/—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (archery)",
+      "description": "Silent mechanical launcher with fixed DV.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Taser (Defiance Super Shock)",
+      "type": "Weapon",
+      "damage": "5",
+      "range": "OK/OK/—/—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (pistols)",
+      "description": "Concealable non-lethal dart taser effective at close and short range.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Hold-out Pistol (Streetline Special / Walther Palm)",
+      "type": "Weapon",
+      "damage": "3",
+      "range": "OK/OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (pistols)",
+      "description": "Palm-sized discreet pistol built for maximum concealability.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Light Pistol (Ares Light Fire / Beretta 101T)",
+      "type": "Weapon",
+      "damage": "4",
+      "range": "OK/OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (pistols)",
+      "description": "Standard concealable sidearm (Ares Light Fire, Colt America L36, Fichetti Security 600).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Machine Pistol (Ares Crusader II / Steyr TMP)",
+      "type": "Weapon",
+      "damage": "4",
+      "range": "OK/OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (pistols)",
+      "description": "Compact automatic sidearm capable of rapid/suppressing fire.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Heavy Pistol (Browning Ultra Power / Colt Manhunter)",
+      "type": "Weapon",
+      "damage": "5",
+      "range": "OK/OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (pistols)",
+      "description": "High-caliber runner sidearm (Colt Manhunter, Browning Ultra Power, Ares Viper Slivergun).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Submachine Gun (HK-227 / Colt Cobra / Uzi V)",
+      "type": "Weapon",
+      "damage": "5",
+      "range": "Dis./OK/OK/—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (submachine guns)",
+      "description": "Compact automatic weapon effective across short and medium range.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Assault Rifle (AK-97 / Colt M23 / FN HAR)",
+      "type": "Weapon",
+      "damage": "7",
+      "range": "Dis./OK/OK/Dis.",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (rifles)",
+      "description": "Versatile automatic rifle with strong stopping power across engagement ranges.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Shotgun (Defiance T-250 / Mossberg CMDT)",
+      "type": "Weapon",
+      "damage": "8",
+      "range": "Dis./OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (rifles)",
+      "description": "Heavy close-to-short range scattergun with devastating DV.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Sniper Rifle (Ares Desert Strike / Remington 900)",
+      "type": "Spec. weapon",
+      "damage": "10",
+      "range": "—/Dis./Dis./OK",
+      "value": "5,000¥",
+      "notes": "Ranged Weapons (rifles)",
+      "description": "Long-range precision rifle requiring specialist weapon cost.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Machine Gun (Ingram Valiant / Stoner-Ares M202)",
+      "type": "Spec. weapon",
+      "damage": "9",
+      "range": "—/OK/OK/OK",
+      "value": "5,000¥",
+      "notes": "Ranged Weapons (heavy weapons)",
+      "description": "Sustained-fire heavy support weapon effective from short through long range.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Grenades (Frag / High Explosive)",
+      "type": "Weapon",
+      "damage": "7",
+      "range": "OK/OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (throwing weapons)",
+      "description": "Thrown area explosives.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Gas Grenades",
+      "type": "Weapon",
+      "damage": "Toxin",
+      "range": "OK/OK/Dis./—",
+      "value": "2,500¥",
+      "notes": "Ranged Weapons (throwing weapons)",
+      "description": "Area-dispersal grenades delivering a chosen inhalation/contact toxin.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Grenade Launcher (ArmTech MGL-12 / Ares Antioch II)",
+      "type": "Spec. weapon",
+      "damage": "7",
+      "range": "—/Dis./OK/OK",
+      "value": "5,000¥",
+      "notes": "Ranged Weapons (grenade launchers)",
+      "description": "Multi-shot explosive launcher for medium and long engagements.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Rocket Launcher (Aztechnology Striker)",
+      "type": "Spec. weapon",
+      "damage": "12 (AV 16)",
+      "range": "—/—/Dis./OK",
+      "value": "5,000¥",
+      "notes": "Ranged Weapons (heavy weapons)",
+      "description": "Heavy ordnance launcher; DV 12 standard, DV 16 vs vehicles/drones.",
+      "reference": "SRA2 Core"
+    }
+  ]
+}

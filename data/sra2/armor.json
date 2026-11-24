@@ -1,0 +1,61 @@
+{
+  "style": "Shadowrun: Anarchy 2.0",
+  "kind": "armor",
+  "items": [
+    {
+      "name": "Armored Clothes",
+      "type": "Clothing",
+      "armor_class": "1",
+      "base_ac": 1,
+      "value": "2,500¥",
+      "notes": "Discreet everyday reinforcement suitable for social/corporate settings.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Armored Clothing with Heavy Coat",
+      "type": "Clothing",
+      "armor_class": "2",
+      "base_ac": 2,
+      "value": "5,000¥",
+      "notes": "Layered street wear offering modest protection without drawing attention.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Light Armor (Kevlar Vest / Lined Coat)",
+      "type": "Light Armor",
+      "armor_class": "3",
+      "base_ac": 3,
+      "value": "7,500¥",
+      "notes": "Standard runner protection (armored vest, Kevlar vest, lined coat).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Heavy Armor (Full Body / SWAT Armor)",
+      "type": "Heavy Armor",
+      "armor_class": "4",
+      "base_ac": 4,
+      "value": "10,000¥",
+      "notes": "Conspicuous tactical full-body armor with helmet.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Military Armor",
+      "type": "Military Armor",
+      "armor_class": "5",
+      "base_ac": 5,
+      "value": "12,500¥",
+      "notes": "Restricted heavy combat armor; draws immediate law-enforcement response.",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Ballistic Shield",
+      "type": "Shield",
+      "armor_class": "+1",
+      "base_ac": 1,
+      "is_shield": true,
+      "value": "2,500¥",
+      "notes": "Stacks +1 with worn armor; bulky to carry.",
+      "reference": "SRA2 Core"
+    }
+  ]
+}

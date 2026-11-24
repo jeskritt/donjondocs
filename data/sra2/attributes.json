@@ -1,0 +1,36 @@
+{
+  "style": "Shadowrun: Anarchy 2.0",
+  "kind": "attributes",
+  "items": [
+    {
+      "name": "Strength",
+      "alias": "STR",
+      "description": "Physical power and resilience. Sets physical wound thresholds and melee weapon DV (Human/Elf/Dwarf 1–4, Ork 1–5, Troll 1–6).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Agility",
+      "alias": "AGI",
+      "description": "Coordination, precision, and physical speed. Linked to most physical combat, stealth, piloting, and ranged defense Tests (1–4).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Willpower",
+      "alias": "WIL",
+      "description": "Mental resilience and focus. Sets mental wound thresholds and powers Sorcery, astral combat, and cybercombat (Dwarf 1–5, others 1–4).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Logic",
+      "alias": "LOG",
+      "description": "Reasoning, technical aptitude, and perception. Linked to Electronics, Cracking, Engineering, Perception, and Hermetic Conjuring (1–4).",
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Charisma",
+      "alias": "CHA",
+      "description": "Presence, persuasion, and social pull. Linked to Influence, Network, and Shamanic Conjuring (Elf 1–5, others 1–4).",
+      "reference": "SRA2 Core"
+    }
+  ]
+}
