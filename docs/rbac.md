@@ -11,9 +11,19 @@ Defined in `app/models/user.py` as `UserRole`:
 
 | Role | Capabilities |
 | --- | --- |
-| `admin` | Full access. Read/write any character; manage all users (`/admin/users`) |
+| `admin` | Full access. Read/write any character; manage all users, reseed global rule data, and export password-verified backups (`/admin/users`) |
 | `premium` | Standard rights + reserved for future quota expansion |
 | `standard` | Own characters only. Hard cap of 25 characters per `create_character` |
+
+### Promoting an existing user to Admin via CLI
+
+To promote an existing `standard` or `premium` account to `admin` (for example on a local DB or Render shell):
+
+```bash
+python cli.py set-role --email you@example.com --role admin
+```
+
+Verify with `python cli.py list-users`. The user should sign out and back in if their active browser session cached an older role.
 
 ## Authentication
 
