@@ -34,25 +34,39 @@ from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
 # minimalist OSR system has no vehicle/mech concept); every other system
 # — DND5E, A5E, UM5, Voidrunner, airship-style fantasy — keeps it.
 ALLY_TYPE_SUGGESTIONS = ["Contact", "Companion", "Pet", "Wildshape", "Vehicle", "User Defined"]
+SRA2_ALLY_TYPE_SUGGESTIONS = ["Contact", "Spirit", "Drone", "Vehicle", "NPC / Threat", "User Defined"]
 
-# Ally types whose body field auto-seeds with a homebrewery-style stat-block
-# template, mapped to the template file to seed. Pet/Companion/Wildshape share
-# the monster template; Vehicle (mechs/starships/airships) gets its own. Sources
-# live in .md files so a maintainer can tune them without touching Python.
+# Ally types whose body field auto-seeds with a stat-block template, mapped to
+# the template file to seed. Pet/Companion/Wildshape share the 5e monster
+# template; Vehicle (mechs/starships/airships) gets its own. Shadowrun: Anarchy
+# 2.0 characters use dedicated Anarchy Markdown templates.
 _TEMPLATE_DIR = Path(__file__).resolve().parent
+_SRA2_TEMPLATE_DIR = _TEMPLATE_DIR.parent / "sheet_anarchy" / "templates"
 TYPE_TEMPLATES: dict[str, str] = {
     "Pet": "stat_block_template.md",
     "Companion": "stat_block_template.md",
     "Wildshape": "stat_block_template.md",
     "Vehicle": "vehicle_stat_block_template.md",
 }
+SRA2_TYPE_TEMPLATES: dict[str, str] = {
+    "Contact": "contact_template.md",
+    "Spirit": "spirit_template.md",
+    "Drone": "vehicle_drone_template.md",
+    "Vehicle": "vehicle_drone_template.md",
+    "NPC / Threat": "npc_threat_template.md",
+}
 
 
-def _read_stat_block_template(ally_type: str) -> str | None:
+def _read_stat_block_template(ally_type: str, style: SheetStyle | None = None) -> str | None:
     """Return the seed template for `ally_type`, or None if it doesn't seed.
 
     Read fresh on each call so an edit to the .md file shows up without
     restarting the dev server."""
+    if style == SheetStyle.SHADOWRUN_ANARCHY_2:
+        fname = SRA2_TYPE_TEMPLATES.get(ally_type)
+        if not fname:
+            return None
+        return (_SRA2_TEMPLATE_DIR / fname).read_text(encoding="utf-8")
     fname = TYPE_TEMPLATES.get(ally_type)
     if not fname:
         return None
@@ -60,10 +74,9 @@ def _read_stat_block_template(ally_type: str) -> str | None:
 
 
 def ally_type_options(style: SheetStyle | None) -> list[str]:
-    """Suggestion list for the ally-type select. `Vehicle` is hidden for
-    Shadowdark (the minimalist OSR system has no vehicle/mech concept); every
-    other system keeps it. The field is still free text, so nothing is truly
-    forbidden — this only tunes the quick-pick hints."""
+    """Suggestion list for the ally-type select."""
+    if style == SheetStyle.SHADOWRUN_ANARCHY_2:
+        return list(SRA2_ALLY_TYPE_SUGGESTIONS)
     hide_vehicle = style == SheetStyle.SHADOWDARK
     return [t for t in ALLY_TYPE_SUGGESTIONS if t != "Vehicle" or not hide_vehicle]
 
@@ -122,7 +135,10 @@ def _render_allies(state, char_id, user):
                     return
                 if (body_in.value or "").strip():
                     return
-                template = _read_stat_block_template((e.value or "").strip())
+                template = _read_stat_block_template(
+                    (e.value or "").strip(),
+                    style=cs.style if cs is not None else None,
+                )
                 if template:
                     body_in.set_value(template)
 
@@ -247,10 +263,9 @@ def _render_allies(state, char_id, user):
             if is_open:
                 ui.separator()
                 if ally.body_md.strip():
-                    # When PHB is on, drop text-gray-200 so the vendored
-                    # parchment-friendly colors win cleanly. Off → keep the
-                    # Tailwind utility for legible dark-mode text.
-                    color_class = "phb" if app.storage.user.get("phb_style") else "text-gray-200"
+                    # Shadowrun: Anarchy 2.0 sheets never use 5e PHB parchment styling.
+                    use_phb = bool(app.storage.user.get("phb_style")) and state.get("vd", {}).get("style_flags", {}).get("show_phb_toggle", True)
+                    color_class = "phb" if use_phb else "text-gray-200"
                     ui.markdown(ally.body_md).classes(f"w-full px-2 py-1 {color_class}")
                 else:
                     ui.label("(empty)").classes("text-gray-500 italic px-2 py-1")

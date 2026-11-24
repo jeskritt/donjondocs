@@ -12,6 +12,8 @@ from app.ui.theme import apply_global_styles, notify_error, notify_success
 from app.ui.components.header import build_header
 from app.ui.components.sidebar import build_sidebar
 from app.ui.components.character_editor import open_character_editor
+from app.ui.components.anarchy_editor import open_anarchy_character_editor
+from app.rule_systems import SystemFamily, system_family_for
 
 
 @ui.page("/sheet/new")
@@ -81,8 +83,40 @@ async def sheet_creator_page():
                 "satellite_alt",
                 "#34D399",
             )
+            system_card(
+                "Shadowrun: Anarchy 2.0",
+                "Narrative cyberpunk-fantasy d6 dice-pool system. Metatypes, Shadow Amps, Essence, Risk Reduction, and Condition Monitors.",
+                SheetStyle.SHADOWRUN_ANARCHY_2,
+                "memory",
+                "#EC4899",
+            )
 
     async def do_create(style: SheetStyle):
+        if system_family_for(style) == SystemFamily.SHADOWRUN_ANARCHY_2:
+            form = await open_anarchy_character_editor(
+                title="New Shadowrun: Anarchy 2.0 Runner",
+                confirm_label="Create",
+            )
+            if form is None:
+                return
+            async with service_session() as session:
+                try:
+                    new_char = await create_character(
+                        session,
+                        form["name"],
+                        style,
+                        user,
+                        metatype=form["metatype"],
+                        keywords=form["keywords"],
+                    )
+                    notify_success(f"Created {form['name']}!")
+                    ui.navigate.to(f"/character/{new_char.id}")
+                except CharacterServiceError as e:
+                    notify_error(e.message)
+                except Exception as e:
+                    notify_error(f"Failed to create character: {str(e)}")
+            return
+
         async with service_session() as session:
             class_rows = await list_classes(session, style, owner_id=user.id)
         class_names = [c.name for c in class_rows]
