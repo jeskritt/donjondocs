@@ -185,9 +185,18 @@ async def test_admin_service_reseed_stats_and_verified_backup_guardrails(
     with pytest.raises(AdminServiceError):
         await create_verified_admin_backup(db_session, std_ctx, "TestPass123!")
 
-    # Admin reseed & stats work cleanly.
-    report = await reseed_global_data(db_session, admin_ctx, data_dir=REPO_DATA_DIR / "sra2")
+    # Admin reseed & stats work cleanly, streaming progress callbacks per file.
+    progress_events: list[tuple[int, int, str]] = []
+    report = await reseed_global_data(
+        db_session,
+        admin_ctx,
+        data_dir=REPO_DATA_DIR / "sra2",
+        on_progress=lambda c, t, lbl, _rep: progress_events.append((c, t, lbl)),
+    )
     assert report["inserted"] > 80
+    # 7 JSON files + 1 final "Committing to database…" tick
+    assert len(progress_events) == report["files"] + 1
+    assert progress_events[-1][0] == report["files"]
     stats = await get_global_table_stats(db_session, admin_ctx)
     sra2_row = next(r for r in stats if r["source"] == SheetStyle.SHADOWRUN_ANARCHY_2.value)
     assert sra2_row["skills"] == 14

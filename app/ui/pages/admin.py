@@ -358,26 +358,61 @@ async def admin_users_page():
                 ui.label("Reseed bundled rulebook tables from data/ or export a password-verified backup.").classes("text-xs text-gray-400")
             with ui.row().classes("gap-2"):
                 def show_reseed_dialog():
-                    with ui.dialog() as dlg, ui.card().classes("w-full max-w-md").style(DIALOG_CARD_STYLE):
+                    with ui.dialog().props("persistent") as dlg, ui.card().classes("w-full max-w-md").style(DIALOG_CARD_STYLE):
                         ui.label("Reseed Global Rule Data").classes("text-lg font-bold text-white mb-2")
                         ui.label(
                             "Re-ingests bundled CSV and JSON rule catalogs from the server's data/ directory "
                             "using idempotent upserts. User accounts, characters, creatures, and user-owned custom "
                             "items are never modified."
                         ).classes("text-sm text-gray-300")
+
+                        progress_box = ui.column().classes("w-full gap-2 mt-4")
+                        progress_box.set_visibility(False)
+                        with progress_box:
+                            with ui.row().classes("w-full items-center gap-2"):
+                                ui.spinner("dots", size="sm", color="indigo")
+                                status_lbl = ui.label("Preparing reseed…").classes("text-xs text-indigo-200")
+                            progress_bar = ui.linear_progress(value=0.0, show_value=False).props(
+                                "color=indigo rounded size=8px"
+                            ).classes("w-full")
+
                         with ui.row().classes("w-full justify-end gap-2 mt-4"):
-                            ui.button("Cancel", on_click=dlg.close).props("flat").style("color:#94A3B8;")
+                            cancel_btn = ui.button("Cancel", on_click=dlg.close).props("flat").style("color:#94A3B8;")
+                            reseed_btn = ui.button("Reseed Now", icon="sync").props("unelevated color=primary")
+
+                            def _on_progress(completed: int, total: int, label: str, rep: dict):
+                                pct = (completed / total) if total > 0 else 1.0
+                                progress_bar.set_value(pct)
+                                status_lbl.set_text(
+                                    f"({completed}/{total}) {label}  [+{rep['inserted']} / ~{rep['updated']}]"
+                                )
 
                             async def _do_reseed():
-                                async with service_session() as session:
-                                    try:
-                                        report = await reseed_global_data(session, me)
-                                    except AdminServiceError as exc:
-                                        notify_error(exc.message)
-                                        return
-                                    except Exception as exc:
-                                        notify_error(f"Reseed failed: {exc}")
-                                        return
+                                cancel_btn.disable()
+                                reseed_btn.disable()
+                                reseed_btn.props("loading")
+                                status_lbl.set_text("Starting reseed…")
+                                progress_bar.set_value(0.0)
+                                progress_box.set_visibility(True)
+                                try:
+                                    async with service_session() as session:
+                                        report = await reseed_global_data(
+                                            session, me, on_progress=_on_progress
+                                        )
+                                except AdminServiceError as exc:
+                                    notify_error(exc.message)
+                                    progress_box.set_visibility(False)
+                                    reseed_btn.props(remove="loading")
+                                    reseed_btn.enable()
+                                    cancel_btn.enable()
+                                    return
+                                except Exception as exc:
+                                    notify_error(f"Reseed failed: {exc}")
+                                    progress_box.set_visibility(False)
+                                    reseed_btn.props(remove="loading")
+                                    reseed_btn.enable()
+                                    cancel_btn.enable()
+                                    return
                                 notify_success(
                                     f"Reseeded {report['files']} files "
                                     f"(+{report['inserted']} inserted, ~{report['updated']} updated)."
@@ -385,7 +420,7 @@ async def admin_users_page():
                                 dlg.close()
                                 await load_global_stats()
 
-                            ui.button("Reseed Now", icon="sync", on_click=_do_reseed).props("unelevated color=primary")
+                            reseed_btn.on_click(_do_reseed)
                     dlg.open()
 
                 def show_backup_dialog():

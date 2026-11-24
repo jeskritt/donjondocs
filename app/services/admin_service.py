@@ -111,6 +111,7 @@ async def reseed_global_data(
     current_user: UserContext,
     *,
     data_dir: Path | None = None,
+    on_progress=None,
 ) -> dict[str, int]:
     """Re-ingest bundled `data/` CSV and JSON rulebooks idempotently.
 
@@ -126,7 +127,11 @@ async def reseed_global_data(
         raise AdminServiceError("A data reseed is already in progress. Please wait.", status_code=409)
 
     async with _INGEST_LOCK:
-        report = await run_ingestion_in_session(session, str(target_dir))
+        report = await run_ingestion_in_session(
+            session,
+            str(target_dir),
+            on_progress=on_progress,
+        )
 
     logger.info(
         "Admin reseed completed by %s: files=%d inserted=%d updated=%d",

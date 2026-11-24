@@ -161,23 +161,38 @@ _JSON_KIND_TO_MODEL = {
 }
 
 
-async def _upsert_global_row(session, ModelCls, style: SheetStyle, parsed_row: dict) -> str:
-    """Upsert one seeded (`owner_id IS NULL`) row; returns `'inserted'` or `'updated'`."""
-    name = parsed_row["name"]
+async def _load_existing_by_name(session, ModelCls, style: SheetStyle) -> dict[str, object]:
+    """Preload all seeded (`owner_id IS NULL`) rows for a (Model, style) in one query.
+
+    Avoids issuing one SELECT per CSV/JSON row (hundreds of remote DB round-trips
+    when reseeding against hosted Postgres like Supabase).
+    """
     stmt = select(ModelCls).where(
-        ModelCls.name == name,
         ModelCls.source == style.value,
         ModelCls.owner_id.is_(None),
-    ).limit(1)
-    result = await session.execute(stmt)
-    obj = result.scalars().first()
-    if obj:
+    )
+    rows = (await session.execute(stmt)).scalars().all()
+    return {row.name: row for row in rows}
+
+
+def _upsert_cached_row(
+    session,
+    ModelCls,
+    style: SheetStyle,
+    parsed_row: dict,
+    existing_by_name: dict[str, object],
+) -> str:
+    """Upsert one seeded row using the preloaded `existing_by_name` cache."""
+    name = parsed_row["name"]
+    obj = existing_by_name.get(name)
+    if obj is not None:
         for k, v in parsed_row.items():
             setattr(obj, k, v)
         return "updated"
     parsed_row["source"] = style.value
     obj = ModelCls(**parsed_row)
     session.add(obj)
+    existing_by_name[name] = obj
     return "inserted"
 
 
@@ -203,6 +218,7 @@ async def ingest_json_file(session, filepath: str) -> dict[str, int]:
         return {"inserted": 0, "updated": 0}
 
     valid_cols = {c.name: c for c in ModelCls.__table__.columns}
+    existing_by_name = await _load_existing_by_name(session, ModelCls, style)
     counts = {"inserted": 0, "updated": 0}
     print(f"Ingesting {os.path.basename(filepath)} ({kind}) as {style.value}...")
 
@@ -232,7 +248,7 @@ async def ingest_json_file(session, filepath: str) -> dict[str, int]:
             parsed_row["dex_cap"] = dex_cap
             parsed_row["is_shield"] = is_shield
 
-        status = await _upsert_global_row(session, ModelCls, style, parsed_row)
+        status = _upsert_cached_row(session, ModelCls, style, parsed_row, existing_by_name)
         counts[status] += 1
 
     return counts
@@ -264,6 +280,7 @@ async def ingest_file(session, filepath: str) -> dict[str, int]:
     print(f"Ingesting {filename} as {style.value}...")
 
     valid_keys = [c.name for c in ModelCls.__table__.columns]
+    existing_by_name = await _load_existing_by_name(session, ModelCls, style)
     counts = {"inserted": 0, "updated": 0}
 
     with open(filepath, 'r', encoding='utf-8-sig') as f:
@@ -295,26 +312,41 @@ async def ingest_file(session, filepath: str) -> dict[str, int]:
                 parsed_row['is_shield'] = is_shield
 
             if 'name' not in parsed_row: continue
-            status = await _upsert_global_row(session, ModelCls, style, parsed_row)
+            status = _upsert_cached_row(session, ModelCls, style, parsed_row, existing_by_name)
             counts[status] += 1
 
     return counts
 
 
-async def run_ingestion_in_session(session, data_dir: str) -> dict[str, int]:
-    """Ingest all `*.csv` and `**/*.json` catalogs under `data_dir` using an existing session."""
+async def run_ingestion_in_session(session, data_dir: str, *, on_progress=None) -> dict[str, int]:
+    """Ingest all `*.csv` and `**/*.json` catalogs under `data_dir` using an existing session.
+
+    Optional `on_progress(completed: int, total: int, label: str, report: dict)` callback
+    is invoked after each file (and right before commit) so callers like the Admin UI
+    can stream live progress bars over WebSocket.
+    """
     csv_files = sorted(glob.glob(os.path.join(data_dir, "*.csv")))
     json_files = sorted(glob.glob(os.path.join(data_dir, "**", "*.json"), recursive=True))
     files = csv_files + json_files
-    report = {"files": len(files), "inserted": 0, "updated": 0}
+    total = len(files)
+    report = {"files": total, "inserted": 0, "updated": 0}
     if not files:
         print(f"No CSV or JSON files found in {data_dir}")
         return report
 
-    for f in files:
+    for idx, f in enumerate(files, start=1):
+        rel_name = os.path.relpath(f, data_dir).replace("\\", "/")
         c = await ingest_file(session, f)
         report["inserted"] += c["inserted"]
         report["updated"] += c["updated"]
+        if on_progress is not None:
+            on_progress(idx, total, rel_name, dict(report))
+            await asyncio.sleep(0)
+
+    if on_progress is not None:
+        on_progress(total, total, "Committing to database…", dict(report))
+        await asyncio.sleep(0)
+
     await session.commit()
     return report
 
