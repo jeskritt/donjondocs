@@ -17,6 +17,20 @@ def test_shadowrun_anarchy_creation_controls_and_markdown_templates(
     authed_page.goto(f"{e2e_server['base_url']}/sheet/new")
     expect(authed_page.get_by_text("Select Game System")).to_be_visible()
 
+    # Regression check: every system card's Select button must stay strictly
+    # inside its own card bounds (prevents Quasar flex-wrap horizontal overflow).
+    cards = authed_page.locator(".q-card")
+    expect(cards).to_have_count(6)
+    for i in range(6):
+        card = cards.nth(i)
+        btn = card.get_by_role("button", name="Select")
+        c_box = card.bounding_box()
+        b_box = btn.bounding_box()
+        assert c_box is not None and b_box is not None
+        assert b_box["x"] >= c_box["x"] - 1
+        assert b_box["x"] + b_box["width"] <= c_box["x"] + c_box["width"] + 1
+        assert b_box["y"] + b_box["height"] <= c_box["y"] + c_box["height"] + 1
+
     authed_page.locator(".q-card").filter(has_text="Shadowrun: Anarchy 2.0").click()
     dlg = authed_page.locator(".q-dialog")
     expect(dlg.get_by_text("New Shadowrun: Anarchy 2.0 Runner")).to_be_visible()

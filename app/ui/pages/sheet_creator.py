@@ -34,18 +34,19 @@ async def sheet_creator_page():
 
         with ui.row().classes("gap-6 justify-center flex-wrap w-full max-w-5xl"):
 
-            # Cards share width and a fixed height, then use flex-col + flex-1
-            # on the description so the icon/title/button line up exactly across
-            # all three regardless of the description text length.
+            # Cards share width and a fixed height with `flex-nowrap` so a
+            # taller title/description can never wrap the Select button into a
+            # second column outside the card. `flex-1` on the description pins
+            # every Select button cleanly to the bottom edge.
             def system_card(title: str, description: str, style: SheetStyle, icon: str, color: str):
                 with ui.card().classes(
-                    "w-64 h-72 flex flex-col cursor-pointer hover:scale-105 transition-transform duration-200"
+                    "w-64 h-80 flex flex-col flex-nowrap justify-between cursor-pointer hover:scale-105 transition-transform duration-200"
                 ).style(
                     f"background: #1E1E2E; border-top: 4px solid {color};"
                 ).on('click', lambda s=style: do_create(s)):
-                    ui.icon(icon, size="3xl").classes("w-full text-center mt-4").style(f"color: {color};")
-                    ui.label(title).classes("text-xl font-bold text-white w-full text-center mt-4")
-                    ui.label(description).classes("text-xs text-gray-400 text-center mt-2 mb-4 flex-1")
+                    ui.icon(icon, size="3xl").classes("w-full text-center mt-2").style(f"color: {color};")
+                    ui.label(title).classes("text-xl font-bold text-white w-full text-center mt-2 leading-tight")
+                    ui.label(description).classes("text-xs text-gray-400 text-center mt-2 mb-3 flex-1")
                     ui.button("Select").props("unelevated outline").classes("w-full").style(f"color: {color};")
 
             system_card(
@@ -85,7 +86,7 @@ async def sheet_creator_page():
             )
             system_card(
                 "Shadowrun: Anarchy 2.0",
-                "Narrative cyberpunk-fantasy d6 dice-pool system. Metatypes, Shadow Amps, Essence, Risk Reduction, and Condition Monitors.",
+                "Narrative cyberpunk-fantasy d6 dice pools. Metatypes, Shadow Amps, Essence, and Condition Monitors.",
                 SheetStyle.SHADOWRUN_ANARCHY_2,
                 "memory",
                 "#EC4899",
