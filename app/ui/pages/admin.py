@@ -424,7 +424,7 @@ async def admin_users_page():
                     dlg.open()
 
                 def show_backup_dialog():
-                    with ui.dialog() as dlg, ui.card().classes("w-full max-w-md").style(DIALOG_CARD_STYLE):
+                    with ui.dialog().props("persistent") as dlg, ui.card().classes("w-full max-w-md").style(DIALOG_CARD_STYLE):
                         ui.label("Download Database Backup").classes("text-lg font-bold text-white mb-1")
                         ui.label(
                             "Exports all users, characters, allies, notes, creatures, and custom global items as JSON. "
@@ -435,24 +435,50 @@ async def admin_users_page():
                             "Exclude password hashes (recommended — reset passwords after restore)",
                             value=True,
                         ).classes("mt-2 text-xs text-gray-200")
+
+                        busy_row = ui.row().classes("w-full items-center gap-2 mt-3")
+                        busy_row.set_visibility(False)
+                        with busy_row:
+                            ui.spinner("dots", size="sm", color="teal")
+                            ui.label("Verifying password and generating backup…").classes("text-xs text-teal-200")
+
                         with ui.row().classes("w-full justify-end gap-2 mt-4"):
-                            ui.button("Cancel", on_click=dlg.close).props("flat").style("color:#94A3B8;")
+                            cancel_btn = ui.button("Cancel", on_click=dlg.close).props("flat").style("color:#94A3B8;")
+                            backup_btn = ui.button("Download Backup", icon="download").props("unelevated").style(
+                                "background: #0F766E !important; border-radius: 8px;"
+                            )
+
+                            def _reset_controls():
+                                busy_row.set_visibility(False)
+                                backup_btn.props(remove="loading")
+                                backup_btn.enable()
+                                cancel_btn.enable()
+                                pw_in.enable()
+                                exclude_pw.enable()
 
                             async def _do_backup():
-                                async with service_session() as session:
-                                    try:
+                                cancel_btn.disable()
+                                backup_btn.disable()
+                                backup_btn.props("loading")
+                                pw_in.disable()
+                                exclude_pw.disable()
+                                busy_row.set_visibility(True)
+                                try:
+                                    async with service_session() as session:
                                         filename, payload, summary = await create_verified_admin_backup(
                                             session,
                                             me,
                                             pw_in.value or "",
                                             include_passwords=not bool(exclude_pw.value),
                                         )
-                                    except AdminServiceError as exc:
-                                        notify_error(exc.message)
-                                        return
-                                    except Exception as exc:
-                                        notify_error(f"Backup failed: {exc}")
-                                        return
+                                except AdminServiceError as exc:
+                                    notify_error(exc.message)
+                                    _reset_controls()
+                                    return
+                                except Exception as exc:
+                                    notify_error(f"Backup failed: {exc}")
+                                    _reset_controls()
+                                    return
                                 ui.download(payload, filename=filename)
                                 notify_success(
                                     f"Backup ready ({summary['users']} users, {summary['characters']} chars, "
@@ -460,9 +486,7 @@ async def admin_users_page():
                                 )
                                 dlg.close()
 
-                            ui.button("Download Backup", icon="download", on_click=_do_backup).props("unelevated").style(
-                                "background: #0F766E !important; border-radius: 8px;"
-                            )
+                            backup_btn.on_click(_do_backup)
                     dlg.open()
 
                 ui.button(
