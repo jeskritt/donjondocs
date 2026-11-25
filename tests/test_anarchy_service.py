@@ -101,7 +101,7 @@ async def test_create_update_reset_and_export_import_anarchy(db_session, test_us
 
 async def test_ingest_sra2_json_catalogs_is_idempotent(db_session, test_user):
     report1 = await run_ingestion_in_session(db_session, str(REPO_DATA_DIR / "sra2"))
-    assert report1["files"] == 7
+    assert report1["files"] == 8
     assert report1["inserted"] > 80
 
     # Second run updates in place with zero duplicates.
@@ -194,7 +194,7 @@ async def test_admin_service_reseed_stats_and_verified_backup_guardrails(
         on_progress=lambda c, t, lbl, _rep: progress_events.append((c, t, lbl)),
     )
     assert report["inserted"] > 80
-    # 7 JSON files + 1 final "Committing to database…" tick
+    # 8 JSON files + 1 final "Committing to database…" tick
     assert len(progress_events) == report["files"] + 1
     assert progress_events[-1][0] == report["files"]
     stats = await get_global_table_stats(db_session, admin_ctx)

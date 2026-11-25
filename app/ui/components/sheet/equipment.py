@@ -10,9 +10,13 @@ markdown textarea; every write goes through the page `_save`.
 from nicegui import ui
 
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
+from app.rule_systems import SheetStyle
+from app.schemas.ally import AllyCreate
 from app.schemas.char_sheet_specific import InventoryItem
 from app.schemas.char_sheet_global import CustomWeaponInput, CustomArmorInput, CustomItemInput
+from app.services.ally_service import create_ally
 from app.services.session import service_session
+from app.services.stat_block_library import extract_item_stat_block
 from app.services.global_items_service import (
     list_weapons, list_armor, list_items,
     add_custom_weapon, add_custom_armor, add_custom_item,
@@ -203,7 +207,7 @@ def _render_equipment(state, char_id, user, _save):
 
                     with ui.row().classes('gap-2 mt-2'):
                         async def _add_w_from_db():
-                            await _open_picker_dialog(cs, state, user, _save, _section, "weapon")
+                            await _open_picker_dialog(cs, state, char_id, user, _save, _section, "weapon")
                         def _add_w_custom():
                             _open_custom_dialog(cs, state, user, _save, _section, "weapon")
                         ui.button("Add from Library", icon='library_add', on_click=_add_w_from_db).props('flat dense').classes('text-indigo-400')
@@ -273,7 +277,7 @@ def _render_equipment(state, char_id, user, _save):
 
                     with ui.row().classes('gap-2 mt-2'):
                         ui.button("Add from Library", icon='library_add',
-                                  on_click=lambda: _open_picker_dialog(cs, state, user, _save, _section, "armor")
+                                  on_click=lambda: _open_picker_dialog(cs, state, char_id, user, _save, _section, "armor")
                                   ).props('flat dense').classes('text-indigo-400')
                         ui.button("Add Custom", icon='add',
                                   on_click=lambda: _open_custom_dialog(cs, state, user, _save, _section, "armor")
@@ -303,6 +307,12 @@ def _render_equipment(state, char_id, user, _save):
                                                     on_change=lambda e, n=iname: _toggle_attuned(e.value, n, "item")
                                                     ).classes('w-8')
                                     name_lbl = ui.label(it.name).classes('flex-1 text-white text-sm cursor-pointer')
+                                    if it.ally_id and callable(state.get("open_ally")):
+                                        ui.button(
+                                            "Stat Block",
+                                            icon="open_in_new",
+                                            on_click=lambda aid=it.ally_id: state["open_ally"](aid),
+                                        ).props('flat dense size=sm').classes('text-cyan-300 text-xs')
                                     ui.label(it.weight or "—").classes('flex-1 text-gray-400 text-sm')
                                     ui.label(it.value or "—").classes('flex-1 text-gray-400 text-sm')
 
@@ -336,7 +346,7 @@ def _render_equipment(state, char_id, user, _save):
 
                     with ui.row().classes('gap-2 mt-2'):
                         ui.button("Add from Library", icon='library_add',
-                                  on_click=lambda: _open_picker_dialog(cs, state, user, _save, _section, "item")
+                                  on_click=lambda: _open_picker_dialog(cs, state, char_id, user, _save, _section, "item")
                                   ).props('flat dense').classes('text-indigo-400')
                         ui.button("Add Custom", icon='add',
                                   on_click=lambda: _open_custom_dialog(cs, state, user, _save, _section, "item")
@@ -365,7 +375,7 @@ def _open_attunement_limit_dialog(cs, _save):
     dlg.open()
 
 
-async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str):
+async def _open_picker_dialog(cs, state, char_id, user, _save, refresh_fn, item_type: str):
     # Invoked from a button-click handler: the client is already connected and a
     # slot context is active, so load the library rows and build the dialog
     # inline. (Do NOT defer this onto a background task — defer_load runs without
@@ -400,6 +410,36 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
         show_attunement = state["vd"]["style_flags"].get("show_attunement", True)
         attuned_box = ui.checkbox("Attuned", value=False) if show_attunement else None
 
+        # Stat-block seeding checkbox for Vehicle/Drone/Mount/Pet items.
+        seed_ally_box = None
+        if item_type == "item":
+            seed_ally_box = ui.checkbox(
+                "Also create stat block in Allies & Stat Blocks",
+                value=False,
+            ).classes('mt-1 text-xs text-cyan-300')
+            seed_ally_box.set_visibility(False)
+
+            def _sync_item_stat_block(_=None):
+                row = options.get(selected.value)
+                if row is None:
+                    seed_ally_box.set_value(False)
+                    seed_ally_box.set_visibility(False)
+                    return
+                info = extract_item_stat_block(row)
+                ally_type = info["ally_type"]
+                if ally_type and info["stat_block_md"] and not (
+                    cs.style == SheetStyle.SHADOWDARK and ally_type == "Vehicle"
+                ):
+                    seed_ally_box.set_text(f"Also create {ally_type} stat block in Allies & Stat Blocks")
+                    seed_ally_box.set_value(True)
+                    seed_ally_box.set_visibility(True)
+                else:
+                    seed_ally_box.set_value(False)
+                    seed_ally_box.set_visibility(False)
+
+            selected.on_value_change(_sync_item_stat_block)
+            _sync_item_stat_block()
+
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
 
@@ -412,7 +452,8 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
                         quantity=int(qty_inp.value or 1),
                         damage=r.damage, damage_type=r.damage_type,
                         weapon_range=r.range, weight=r.weight, value=r.value,
-                        item_notes=r.notes, attuned=attuned,
+                        item_notes=r.notes, notes=r.description or "",
+                        attuned=attuned,
                     )
                 elif item_type == "armor":
                     inv_item = InventoryItem(
@@ -422,16 +463,42 @@ async def _open_picker_dialog(cs, state, user, _save, refresh_fn, item_type: str
                         base_ac=r.base_ac, dex_cap=r.dex_cap,
                         is_shield=bool(r.is_shield),
                         weight=r.weight, value=r.value,
-                        item_notes=r.notes, attuned=attuned,
+                        item_notes=r.notes, notes=r.description or "",
+                        attuned=attuned,
                     )
                 else:
+                    info = extract_item_stat_block(r)
+                    linked_ally_id = None
+                    if (
+                        seed_ally_box is not None
+                        and seed_ally_box.visible
+                        and seed_ally_box.value
+                        and info["ally_type"]
+                        and info["stat_block_md"]
+                    ):
+                        async with service_session() as session:
+                            created = await create_ally(
+                                session,
+                                char_id,
+                                AllyCreate(
+                                    name=r.name,
+                                    ally_type=info["ally_type"],
+                                    body_md=info["stat_block_md"],
+                                ),
+                                user,
+                            )
+                        linked_ally_id = created.id
+                        reload_allies = state.get("reload_allies")
+                        if callable(reload_allies):
+                            await reload_allies()
                     inv_item = InventoryItem(
                         item_type="item", name=r.name,
                         quantity=int(qty_inp.value or 1),
                         weight=r.weight, value=r.value,
-                        # Surface the global item's effects (e.g. a UM5 vehicle's
-                        # Cap/Speed/AC/HP or a cybernetic's location) as Properties.
-                        item_notes=r.effects, attuned=attuned,
+                        item_notes=info["summary"] or None,
+                        notes=info["description"] or "",
+                        ally_id=linked_ally_id,
+                        attuned=attuned,
                     )
                 updated = [it.model_dump() for it in cs.inventory] + [inv_item.model_dump()]
                 await _save({"inventory": updated})
@@ -612,6 +679,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         weight=(inp_weight.value or "").strip() or None,
                         value=(inp_value.value or "").strip() or None,
                         item_notes=(inp_notes.value or "").strip() or None,
+                        ally_id=target.ally_id,
                         is_custom=True,
                     )
                 elif item_type == "armor":
@@ -635,6 +703,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         weight=(inp_weight.value or "").strip() or None,
                         value=(inp_value.value or "").strip() or None,
                         item_notes=(inp_notes.value or "").strip() or None,
+                        ally_id=target.ally_id,
                         is_custom=True,
                     )
                 else:
@@ -648,6 +717,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         weight=(inp_weight.value or "").strip() or None,
                         value=(inp_value.value or "").strip() or None,
                         item_notes=(inp_notes.value or "").strip() or None,
+                        ally_id=target.ally_id,
                         is_custom=True,
                     )
 

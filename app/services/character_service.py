@@ -315,6 +315,24 @@ async def import_character(
     ally_payloads = [AllyCreate(**a) for a in (allies or [])]
     note_payloads = [NoteCreate(**n) for n in (notes or [])]
 
+    # Pre-assign fresh ally UUIDs so any soft `ally_id` links on Shadow Amps
+    # or Inventory items can be relinked by name on import (or cleared if the
+    # referenced ally isn't present in the imported envelope).
+    ally_rows_to_add: list[tuple[str, AllyCreate]] = [
+        (str(uuid.uuid4()), payload) for payload in ally_payloads
+    ]
+    ally_id_by_name = {
+        payload.name.strip().lower(): aid for aid, payload in ally_rows_to_add
+    }
+    for list_key in ("shadow_amps", "inventory"):
+        entries = character_data.get(list_key)
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            if isinstance(entry, dict) and entry.get("ally_id"):
+                match_name = str(entry.get("name") or "").strip().lower()
+                entry["ally_id"] = ally_id_by_name.get(match_name)
+
     new_char = CharacterRecord(
         id=str(uuid.uuid4()),
         name=name,
@@ -325,8 +343,9 @@ async def import_character(
     session.add(new_char)
     await session.flush()
 
-    for payload in ally_payloads:
+    for aid, payload in ally_rows_to_add:
         session.add(CharacterAlly(
+            id=aid,
             character_id=new_char.id,
             name=payload.name,
             ally_type=payload.ally_type,

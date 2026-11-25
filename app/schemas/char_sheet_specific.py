@@ -496,6 +496,9 @@ class InventoryItem(BaseModel):
     weight: str | None = None
     value: str | None = None
     item_notes: str | None = None
+    # Optional soft link to a `CharacterAlly.id` on the Allies & Stat Blocks tab
+    # (used by Vehicles, Drones, Mounts, Pets seeded at add-time).
+    ally_id: str | None = None
     is_custom: bool = False
 
 

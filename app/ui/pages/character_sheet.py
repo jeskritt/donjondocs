@@ -79,6 +79,16 @@ async def character_sheet_page(char_id: str):
         "active_page": PAGE_CHARACTER,
     }
 
+    def _open_ally(ally_id: str) -> None:
+        """Switch to the Allies & Stat Blocks tab and expand `ally_id`."""
+        state.setdefault("allies_expanded", set()).add(ally_id)
+        state["active_page"] = PAGE_ALLIES
+        refresh_fn = state.get("refresh_allies_view")
+        if callable(refresh_fn):
+            refresh_fn()
+
+    state["open_ally"] = _open_ally
+
     # Two refresh lists, split by *what changed*, not lumped together:
     #   data_refresh_fns  — re-render on a character_data change (_save /
     #                       _apply_rest). The top bar + every Character-tab card.

@@ -24,6 +24,7 @@ from app.services.ally_service import (
     update_ally,
 )
 from app.services.session import service_session
+from app.services.stat_block_library import list_ally_presets
 from app.ui.async_helpers import defer_load
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
 
@@ -100,6 +101,8 @@ def _render_allies(state, char_id, user):
         state["allies"] = [Ally.model_validate(r) for r in rows]
         _section.refresh()
 
+    state["reload_allies"] = _reload
+
     def _sorted_allies() -> list[Ally]:
         key = state["allies_sort"]
         return sorted(
@@ -107,14 +110,29 @@ def _render_allies(state, char_id, user):
             key=lambda a: (a.ally_type.lower() if key == "type" else a.name.lower()),
         )
 
-    def _open_editor(existing: Ally | None = None):
+    async def _open_editor(existing: Ally | None = None):
+        cs = state.get("cs")
+        style = cs.style if cs is not None else None
+        presets = []
+        if existing is None and style is not None:
+            async with service_session() as session:
+                presets = await list_ally_presets(session, style, user)
+
         with ui.dialog() as dialog, ui.card().classes("w-full max-w-lg").style(DIALOG_CARD_STYLE):
             ui.label("Edit Ally" if existing else "Add Ally").classes("text-lg font-bold mb-2 text-white")
 
+            preset_select = None
+            preset_map = {p.label: p for p in presets}
+            if existing is None and presets:
+                preset_select = ui.select(
+                    options=["Blank / Custom…"] + list(preset_map.keys()),
+                    value="Blank / Custom…",
+                    with_input=True,
+                    label="Seed from Library or Creature Catalog (optional)",
+                ).props("dense outlined dark").classes("w-full mb-2")
+
             name_in = ui.input("Name", value=(existing.name if existing else "")).props("dense").classes("w-full")
-            # Shadowdark has no vehicle/mech concept — drop it from the hints.
-            cs = state.get("cs")
-            type_options = ally_type_options(cs.style if cs is not None else None)
+            type_options = ally_type_options(style)
             type_in = ui.select(
                 options=type_options,
                 value=(existing.ally_type if existing else type_options[0]),
@@ -128,6 +146,20 @@ def _render_allies(state, char_id, user):
             ).props("dense outlined autogrow").classes("w-full")
             ui.label("Body field supports Markdown.").classes("text-xs text-gray-500 -mt-2")
 
+            if preset_select is not None:
+                def _apply_preset(_=None):
+                    chosen = preset_map.get(preset_select.value)
+                    if chosen is None:
+                        return
+                    name_in.set_value(chosen.name)
+                    if chosen.ally_type not in type_in.options:
+                        type_in.options = list(type_in.options) + [chosen.ally_type]
+                        type_in.update()
+                    type_in.set_value(chosen.ally_type)
+                    body_in.set_value(chosen.body_md)
+
+                preset_select.on_value_change(_apply_preset)
+
             def _maybe_seed_template(e):
                 # Only seed on Add (existing is None) and only when the body
                 # is still empty — never clobber what the player has typed.
@@ -137,7 +169,7 @@ def _render_allies(state, char_id, user):
                     return
                 template = _read_stat_block_template(
                     (e.value or "").strip(),
-                    style=cs.style if cs is not None else None,
+                    style=style,
                 )
                 if template:
                     body_in.set_value(template)
@@ -271,6 +303,7 @@ def _render_allies(state, char_id, user):
                     ui.label("(empty)").classes("text-gray-500 italic px-2 py-1")
 
     _section()
+    state["refresh_allies_view"] = _section.refresh
 
     # Background-load the initial list so the panel populates without
     # blocking the rest of the page.

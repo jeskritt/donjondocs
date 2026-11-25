@@ -427,6 +427,7 @@ class ShadowrunAnarchyBuilder:
                     "essence_display": f"{amp.essence_cost:g}" if amp.essence_cost else "—",
                     "effects": [e.model_dump() for e in amp.effects],
                     "body_md": amp.body_md,
+                    "ally_id": amp.ally_id,
                     "is_custom": amp.is_custom,
                 }
                 for idx, amp in enumerate(self.c.shadow_amps)
