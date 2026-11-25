@@ -1,0 +1,2027 @@
+{
+  "style": "Level Up: Advanced 5e",
+  "kind": "equipment",
+  "items": [
+    {
+      "name": "Adderwort roots",
+      "type": "Medicinal",
+      "value": "10 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Chewing these dark roots bolsters your body's natural defenses, and after you eat it you gain an expertise die on Constitution saving throws for 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Antitoxin",
+      "type": "Medicinal",
+      "value": "75 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Consuming the dark bitter liquid in this vial removes the poisoned condition and you gain advantage on saving throws against poison for 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Bandage",
+      "type": "Medicinal",
+      "value": "1 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "These strips of sterilized cloth staunch bleeding and cover wounds. You can use an action to apply a bandage to yourself or another creature to end ongoing piercing or slashing damage. When using improvised bandages there is a 50% chance of exposure to a disease (see Chapter 6: Maladies, in Trials & Treasures).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Dried yewclaw bark",
+      "type": "Medicinal",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Eating strips of this dried yellow bark calms and clarifies the mind, and after consuming this bark you gain an expertise die on Intelligence saving throws for 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Fairy cap",
+      "type": "Medicinal",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Consuming this small red mushroom cap removes inhibitions and creates confidence, and after you eat it you gain an expertise die on Charisma saving throws for 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Healer's satchel (10 uses)",
+      "type": "Medicinal",
+      "value": "5 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "This leather pouch contains medical implements used to patch up wounds. As an action, you can expend one use of this item to stabilize a creature that has 0 hit points, without needing to make a Medicine check.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Healing potion (basic)",
+      "type": "Medicinal",
+      "value": "50 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "These potions have auras of evocation magic invisible to mundane eyes.\n\nBasic: When you drink the bright red liquid in this flask, you regain 2d4 + 2 hit points.\n\nGreater: When you drink the pure red concoction in this flask, you regain 4d4 + 4 hit points.\n\nSuperior: Requiring rare ingredients, the recipes for these potions are jealously guarded by master herbalists. When you drink the glowing crimson liquid in this vial, you regain 8d4 + 8 hit points.\n\nSupreme: Only a few herbalists every generation master the precise artistry required to brew these serums. When you drink the iridescent liquid in this vial you regain 10d4 + 20 hit points.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Healing potion (greater)",
+      "type": "Medicinal",
+      "value": "150 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "These potions have auras of evocation magic invisible to mundane eyes.\n\nBasic: When you drink the bright red liquid in this flask, you regain 2d4 + 2 hit points.\n\nGreater: When you drink the pure red concoction in this flask, you regain 4d4 + 4 hit points.\n\nSuperior: Requiring rare ingredients, the recipes for these potions are jealously guarded by master herbalists. When you drink the glowing crimson liquid in this vial, you regain 8d4 + 8 hit points.\n\nSupreme: Only a few herbalists every generation master the precise artistry required to brew these serums. When you drink the iridescent liquid in this vial you regain 10d4 + 20 hit points.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Healing potion (superior)",
+      "type": "Medicinal",
+      "value": "550 gp",
+      "weight": "0.25 lb.",
+      "effects": "",
+      "description": "These potions have auras of evocation magic invisible to mundane eyes.\n\nBasic: When you drink the bright red liquid in this flask, you regain 2d4 + 2 hit points.\n\nGreater: When you drink the pure red concoction in this flask, you regain 4d4 + 4 hit points.\n\nSuperior: Requiring rare ingredients, the recipes for these potions are jealously guarded by master herbalists. When you drink the glowing crimson liquid in this vial, you regain 8d4 + 8 hit points.\n\nSupreme: Only a few herbalists every generation master the precise artistry required to brew these serums. When you drink the iridescent liquid in this vial you regain 10d4 + 20 hit points.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Healing potion (supreme)",
+      "type": "Medicinal",
+      "value": "1500 gp",
+      "weight": "0.25 lb.",
+      "effects": "",
+      "description": "These potions have auras of evocation magic invisible to mundane eyes.\n\nBasic: When you drink the bright red liquid in this flask, you regain 2d4 + 2 hit points.\n\nGreater: When you drink the pure red concoction in this flask, you regain 4d4 + 4 hit points.\n\nSuperior: Requiring rare ingredients, the recipes for these potions are jealously guarded by master herbalists. When you drink the glowing crimson liquid in this vial, you regain 8d4 + 8 hit points.\n\nSupreme: Only a few herbalists every generation master the precise artistry required to brew these serums. When you drink the iridescent liquid in this vial you regain 10d4 + 20 hit points.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ironwood acorn",
+      "type": "Medicinal",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "This tough acorn must be swallowed whole to fortify your muscles and sinews, and after you eat it you gain an expertise die on Strength saving throws for 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Jar of leeches (5 uses)",
+      "type": "Medicinal",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "This jar contains bloodthirsty medicinal worms useful for curing many maladies. You can expend one use of this jar during a short rest to administer leeches to yourself or a willing creature. A creature who has leeches administered to them cannot regain hit points during this short rest due to blood loss, but it may repeat a saving throw to remove the poisoned condition or a blood-borne disease (DC equal to the original effect).\n\nAlternatively, as an action you can throw this jar up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the jar as an improvised weapon. On a hit, if the target is a Large or smaller creature it takes 1d4 ongoing damage. A creature can end this damage by using its action to remove the leeches.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Laudanum",
+      "type": "Medicinal",
+      "value": "35 gp",
+      "weight": "0.25 lb.",
+      "effects": "",
+      "description": "This mixture of ambergris, saffron, and other rare ingredients can calm the nerves and ease mental pain. When you drink the bitter reddish-brown concoction in this vial you recover a level of strife. Roll 1d10. On a 1, you gain a short-term mental stress effect. Once a creature benefits from laudanum, it cannot do so again until it finishes a long rest.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Lavender paste (5 uses)",
+      "type": "Medicinal",
+      "value": "10 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "Mixing lavender petals with herbs creates a natural insect repellent. You can use an action to apply the paste to yourself or a willing creature, granting immunity to insectbased hazards in swampy terrain. In addition, the creature gains benefits equivalent to mosquito netting (page 330) for the next 24 hours.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Medicinal salve (3 uses)",
+      "type": "Medicinal",
+      "value": "75 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "Made from herbal ingredients, this tin of soothing salve can help mend grievous injuries. You can apply medicinal salve to your or a willing creature's wounds during a short rest. A creature treated with medicinal salve rolls a bonus hit die and adds the result to the total number of hit points regained during the short rest. When used with a bandage, the bonus hit die from a medicinal salve restores the maximum amount of hit points. Once a creature benefits from a medicinal salve, it cannot do so again until it finishes a long rest.\n\nPressed Spiderbulb. Consuming this dried flower grants you energy and tightens your reflexes, and after you eat it you gain an expertise die on Dexterity saving throws for 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Pressed spiderbulb",
+      "type": "Medicinal",
+      "value": "10 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sycamore petal poultice",
+      "type": "Medicinal",
+      "value": "10 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Consumption of these pulped petals heightens your senses, and after you eat it you gain an expertise die on Wisdom saving throws for 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Amulet",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Censer",
+      "type": "Spellcasting Focus",
+      "value": "15 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Crystal",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Emblem",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Focus tattoo",
+      "type": "Spellcasting Focus",
+      "value": "75 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Some spellcasters permanently mark their bodies with symbols of their deity, eldritch runes, or ritualistic symbols. You can apply a focus tattoo over the course of a long rest, after which it functions as a spellcasting focus. Focus tattoos draw on a bearer's own magics, and must be attuned like a magic item in order to function and require an attunement slot (information on attunement is in Trials & Treasures). When you cast spells with a focus tattoo in this way, you must briefly touch your focus tattoo with your free hand.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Grimoire",
+      "type": "Spellcasting Focus",
+      "value": "25 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "These large and imposing tomes can function both as a spellbook and as a spellcasting focus.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Orb",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Reliquary",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Rod",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Staff",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "In addition to its use as a spellcasting focus, a staff can also be used as a quarterstaff (page 310).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Totem",
+      "type": "Spellcasting Focus",
+      "value": "1 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Wand",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A spellcasting focus that can be used in place of non-costly, non-consumed material components for your spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Wonder",
+      "type": "Spellcasting Focus",
+      "value": "30 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "A wonder is an unusual spellcasting focus such as a sacred flower that never wilts, a prismatic crystalized skull, or a polished burl that whispers with the language of the trees. If you lose a wonder, you can replace it as a ritual that takes 10 minutes and requires 5 gold worth of rare materials. You must be able to cast ritual spells to restore a lost wonder in this way. When you do so, any previous wonders created this way are destroyed.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Curare (vial)",
+      "type": "Poison",
+      "value": "100 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "You can use the poison in this vial to coat one slashing or piercing weapon, or up to three pieces of ammunition. The poison retains its potency for 1 minute or until you hit with the weapon or ammunition. When a creature takes damage from the coated weapon or ammunition, it makes a DC 13 Constitution saving throw or is stunned until the end of its next turn.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ether (flask)",
+      "type": "Poison",
+      "value": "20 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "You can use the chemicals in this flask to soak a rag or other small cloth item. An open flask of ether or an ether-soaked rag retains its potency for 1 minute or until you hit with it. While you are grappling a creature, you may make a special melee weapon attack against it using ether. On a hit, the creature makes a DC 12 Constitution saving throw or fall unconscious. The creature remains unconscious for 1 minute, until it takes damage, or until an action is used to shake or slap the creature awake.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Poison basic (vial)",
+      "type": "Poison",
+      "value": "25 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "You can use the poison in these vials to coat one slashing or piercing weapon or up to three pieces of ammunition. The poison retains its potency for 1 minute or until you hit with the weapon or ammunition.\n\nBasic: When a creature takes damage from the coated weapon or ammunition, it makes a DC 12 Constitution saving throw or takes 2d4 poison damage and is poisoned until the end of your next turn.\n\nAdvanced: When a creature takes damage from the coated weapon or ammunition, it makes a DC 13 Constitution saving throw or takes 2d6 poison damage and is poisoned until the end of your next turn.\n\nPotent: When a creature takes damage from the coated weapon or ammunition, it makes a DC 14 Constitution saving throw or takes 2d8 poison damage and is poisoned until the end of your next turn.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Poison advanced (vial)",
+      "type": "Poison",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "You can use the poison in these vials to coat one slashing or piercing weapon or up to three pieces of ammunition. The poison retains its potency for 1 minute or until you hit with the weapon or ammunition.\n\nBasic: When a creature takes damage from the coated weapon or ammunition, it makes a DC 12 Constitution saving throw or takes 2d4 poison damage and is poisoned until the end of your next turn.\n\nAdvanced: When a creature takes damage from the coated weapon or ammunition, it makes a DC 13 Constitution saving throw or takes 2d6 poison damage and is poisoned until the end of your next turn.\n\nPotent: When a creature takes damage from the coated weapon or ammunition, it makes a DC 14 Constitution saving throw or takes 2d8 poison damage and is poisoned until the end of your next turn.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Poison potent (vial)",
+      "type": "Poison",
+      "value": "100 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "You can use the poison in these vials to coat one slashing or piercing weapon or up to three pieces of ammunition. The poison retains its potency for 1 minute or until you hit with the weapon or ammunition.\n\nBasic: When a creature takes damage from the coated weapon or ammunition, it makes a DC 12 Constitution saving throw or takes 2d4 poison damage and is poisoned until the end of your next turn.\n\nAdvanced: When a creature takes damage from the coated weapon or ammunition, it makes a DC 13 Constitution saving throw or takes 2d6 poison damage and is poisoned until the end of your next turn.\n\nPotent: When a creature takes damage from the coated weapon or ammunition, it makes a DC 14 Constitution saving throw or takes 2d8 poison damage and is poisoned until the end of your next turn.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Bedroll",
+      "type": "Survival Gear",
+      "value": "1 gp",
+      "weight": "7 lb.",
+      "effects": "",
+      "description": "This essential commodity provides insulation and comfortable sleep on  rocky, wet, or uneven terrain.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Blanket",
+      "type": "Survival Gear",
+      "value": "5 sp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "Provides warmth while resting in cold environments.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Climbing gear",
+      "type": "Survival Gear",
+      "value": "25 gp",
+      "weight": "12 lb.",
+      "effects": "",
+      "description": "A set of climbing gear includes special pitons, boot tips, gloves, and a harness. You can use the climbing gear as an action to anchor yourself; when you do, you can't fall more than 25 feet from the anchor point, and you can't climb more than 25 feet away from that point without undoing the anchor.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cold weather gear",
+      "type": "Survival Gear",
+      "value": "15 gp",
+      "weight": "12 lb.",
+      "effects": "",
+      "description": "Cold weather gear includes special boots, gloves, warm padding, and face protection. This gear can be worn over or under any armor and takes 5 minutes to don or remove. While wearing cold weather gear you automatically succeed on saving throws against effects caused by an environment of extreme cold, but have disadvantage on saving throws against effects from environments of extreme heat and spells or effects that deal fire damage. This gear can also be worn to provide warmth while resting in cold environments.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Compass",
+      "type": "Survival Gear",
+      "value": "60 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "This device has a free-turning needle that always points towards the magnetic north.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Fishing trap",
+      "type": "Survival Gear",
+      "value": "5 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Whenever you retrieve this arrangement of netting, wires, and weights from a body of water with aquatic life, roll a d20 and add a bonus equal to the number of hours the trap has been set. On a 21 or higher the trap has captured fish or other aquatic animals totaling 1d4 Supply.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Hunting snare",
+      "type": "Survival Gear",
+      "value": "5 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "This simple arrangement of stakes, wires, and ropes can be set for catching small game in woodlands, forests, or other hunting grounds. Whenever you retrieve the snare, roll a d20 and add a bonus equal to the number of hours the snare has been set. On a 21 or higher the snare has captured and killed a Tiny game animal with 1d4 Supply.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Hunting trap",
+      "type": "Survival Gear",
+      "value": "5 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "Once you use your action to set it, this trap forms a saw-toothed steel ring that snaps shut when a creature steps on a pressure plate in the center. The trap is affixed by a heavy chain to an immobile object, such as a tree or a spike driven into the ground. A creature that steps on the plate makes a DC 13 Dexterity saving throw or it takes 2d4 piercing damage and stops moving. On a failed save, until the creature breaks free of the trap its movement is limited by the length of the chain (typically 3 feet long). A creature can use its action to make a DC 13 Strength check, freeing itself or another creature within its reach on a success. Each failed check deals 1d4 piercing damage to the trapped creature. Hunting traps of higher quality are more complex and effective, increasing the DC of each saving throw and ability check (by 2 for fine hunting traps, or by 4 for masterwork hunting traps).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Map (local)",
+      "type": "Survival Gear",
+      "value": "20 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "When using a map, you may travel at a fast pace without taking a penalty to your passive Perception while within the area it depicts. If you also use a compass in conjunction with a map, you gain an expertise die on checks made to avoid becoming lost.\n\nLocal: This map depicts an area that is well known to its makers and shows the full details as well as routes within the realm, including the names of hamlets, villages, and towns.\n\nDistant: This map depicts a region far-flung from those that made it, and it only shows the major geographical features and best known routes within the realm.\n\nFrontier: This map depicts an area only recently explored by those that made it and the information is often incorrect or incomplete. When consulting this map, the Narrator rolls a secret d20. On a result of 5 or less, the outdated or false information wastes travel time turning around and doubling back and the party only progresses half as much distance towards their destination.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Map (distant)",
+      "type": "Survival Gear",
+      "value": "75 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "When using a map, you may travel at a fast pace without taking a penalty to your passive Perception while within the area it depicts. If you also use a compass in conjunction with a map, you gain an expertise die on checks made to avoid becoming lost.\n\nLocal: This map depicts an area that is well known to its makers and shows the full details as well as routes within the realm, including the names of hamlets, villages, and towns.\n\nDistant: This map depicts a region far-flung from those that made it, and it only shows the major geographical features and best known routes within the realm.\n\nFrontier: This map depicts an area only recently explored by those that made it and the information is often incorrect or incomplete. When consulting this map, the Narrator rolls a secret d20. On a result of 5 or less, the outdated or false information wastes travel time turning around and doubling back and the party only progresses half as much distance towards their destination.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Map (frontier)",
+      "type": "Survival Gear",
+      "value": "200 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "When using a map, you may travel at a fast pace without taking a penalty to your passive Perception while within the area it depicts. If you also use a compass in conjunction with a map, you gain an expertise die on checks made to avoid becoming lost.\n\nLocal: This map depicts an area that is well known to its makers and shows the full details as well as routes within the realm, including the names of hamlets, villages, and towns.\n\nDistant: This map depicts a region far-flung from those that made it, and it only shows the major geographical features and best known routes within the realm.\n\nFrontier: This map depicts an area only recently explored by those that made it and the information is often incorrect or incomplete. When consulting this map, the Narrator rolls a secret d20. On a result of 5 or less, the outdated or false information wastes travel time turning around and doubling back and the party only progresses half as much distance towards their destination.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Marshland gear",
+      "type": "Survival Gear",
+      "value": "10 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "Marshland gear includes special boots, gloves, and clothes designed to repel moisture and muck. This gear can be worn over light armor and takes 5 minutes to don or remove. While you are wearing marshland gear, you can move at a normal pace through nonmagical swamps and marshes, but you have disadvantage on Dexterity checks and saving throws made on dry or rocky terrain.\n\nBulky. A bulky item weighs 40 pounds or more (for example a bag with 2,000 or more gold coins) or is greater than 4 feet in any direction (like a large ornate rug). Any creature can carry one bulky item plus one additional bulky item for every point of its Strength modifier. When a creature is not carrying any Supply, it can carry one additional bulky item.\n\nCarrying Things. A Medium-sized creature's carrying capacity equals its Strength score × 15 pounds. Aside from its gear, a Medium-sized creature can carry Supply equal to its Strength score.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Mosquito netting",
+      "type": "Survival Gear",
+      "value": "2 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "This thin mesh cloth provides protection from small insects while sleeping in jungles, swamps, or similar environments.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Rations (1 Supply)",
+      "type": "Survival Gear",
+      "value": "5 sp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Rations can vary wildly depending on the culture, but they usually consist of a day's worth of water and dry foods suitable for extended travel like jerky, dried fruit, hardtack, or nuts. One unit of rations provides 1 Supply.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Tent (one person)",
+      "type": "Survival Gear",
+      "value": "1 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "These stitched together canvases, hides, or tarps provide protection from the elements so long as there is a flat space for them to be deployed.\n\nOne Person: Suitable for a Medium-sized creature. Occupies a 5-foot by 10-foot space when set up.\n\nTwo Person: Suitable for up to 2 Medium-sized creatures. Occupies a 10-foot by 10-foot space when set up. Communal: Suitable for up to 6 Medium-sized creatures. Occupies a 15-foot by 15-foot space when set up.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Tent (two person)",
+      "type": "Survival Gear",
+      "value": "2 gp",
+      "weight": "20 lb.",
+      "effects": "",
+      "description": "These stitched together canvases, hides, or tarps provide protection from the elements so long as there is a flat space for them to be deployed.\n\nOne Person: Suitable for a Medium-sized creature. Occupies a 5-foot by 10-foot space when set up.\n\nTwo Person: Suitable for up to 2 Medium-sized creatures. Occupies a 10-foot by 10-foot space when set up. Communal: Suitable for up to 6 Medium-sized creatures. Occupies a 15-foot by 15-foot space when set up.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Tent (communal)",
+      "type": "Survival Gear",
+      "value": "15 gp",
+      "weight": "40 lb.",
+      "effects": "",
+      "description": "These stitched together canvases, hides, or tarps provide protection from the elements so long as there is a flat space for them to be deployed.\n\nOne Person: Suitable for a Medium-sized creature. Occupies a 5-foot by 10-foot space when set up.\n\nTwo Person: Suitable for up to 2 Medium-sized creatures. Occupies a 10-foot by 10-foot space when set up. Communal: Suitable for up to 6 Medium-sized creatures. Occupies a 15-foot by 15-foot space when set up.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Torch",
+      "type": "Survival Gear",
+      "value": "1 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. When you use a burning torch as a club to make a melee attack, it deals an extra 1 fire damage on a hit.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Torch (alchemical)",
+      "type": "Survival Gear",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "The rough, sticky tar at the end of this torch burns through even the most adverse conditions. An alchemical torch burns for 1 hour even in heavy rains, strong winds, and underwater (albeit poorly when submerged, shedding only dim light in a 5-foot radius). Dimmer than a normal torch, it sheds bright light in a 10-foot radius and dim light for an additional 10 feet.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Abacus",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Acid (vial)",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "You can use an action to splash the contents of this vial onto a target within 5 feet of you, or throw the vial up to 20 feet where it shatters on impact. In either case, make a ranged weapon attack against the target, treating the acid as an improvised weapon. On a hit, the target takes 2d4 ongoing acid damage. This damage persists for 3 rounds. A creature ends all ongoing damage from mundane acid by using its action to wipe away the corrosive liquid.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Black powder charge",
+      "type": "Adventuring Gear",
+      "value": "35 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A pound of black powder inside a wooden shell with a fuse can make a simple but potent explosive. You can use an action to set and light one or more black powder charges which explode at the beginning of your next turn. Any creatures or objects within 10 feet of the exploding charge must make a DC 14 Dexterity saving throw, taking 1d6 force damage and 1d6 fire damage on a failed save or half damage on a success. Increase the explosion's damage by 1d6 force and 1d6 fire for each doubling of the number of charges set beyond the first. For example, 4 black powder charges deal 3d6 force and 3d6 fire damage, 8 black powder charges deal 4d6 force and 4d6 fire damage, 32 black powder charges deal 6d6 force damage and 6d6 fire damage, and so on.\n\nFor each charge beyond the first, the area increases as follows: 2 charges—20-foot radius, 4 charges—30-foot radius, 8 charges— 40-foot radius, 16 charges—50-foot radius, 32 charges— 60-foot radius. Black powder charges become useless and are destroyed when submerged in water or left exposed to rain.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Block and tackle",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "A set of pulleys with a cable threaded through them and a hook to attach to objects, a block and tackle along with a length of rope allows you to hoist up to four times the weight you can normally lift.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Book",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented using text or pictures. A book of spells is a spellbook (described later in this section). Any book of masterwork quality covers in detail one specialty (see Specialties on page 408 in Chapter 6: Using Ability Scores). You gain an expertise die on checks made regarding the specialty detailed in the last masterwork book you've read.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cage (Medium)",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "This metal cage can comfortably contain a creature of the size it is designed to hold. The cage has a simple door held with a latch that requires an Intelligence score of 5 or more to open.\n\nMedium: The cage (AC 16, 25 hit points) can be burst open with a DC 22 Strength check.\n\nLarge: The cage (AC 17, 40 hit points) can be burst open with a DC 24 Strength check.\n\nHuge: The cage (AC 18, 55 hit points) can be burst open with a DC 26 Strength check.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cage (Large)",
+      "type": "Adventuring Gear",
+      "value": "20 gp",
+      "weight": "100 lb.",
+      "effects": "",
+      "description": "This metal cage can comfortably contain a creature of the size it is designed to hold. The cage has a simple door held with a latch that requires an Intelligence score of 5 or more to open.\n\nMedium: The cage (AC 16, 25 hit points) can be burst open with a DC 22 Strength check.\n\nLarge: The cage (AC 17, 40 hit points) can be burst open with a DC 24 Strength check.\n\nHuge: The cage (AC 18, 55 hit points) can be burst open with a DC 26 Strength check.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cage (Huge)",
+      "type": "Adventuring Gear",
+      "value": "120 gp",
+      "weight": "500 lb.",
+      "effects": "",
+      "description": "This metal cage can comfortably contain a creature of the size it is designed to hold. The cage has a simple door held with a latch that requires an Intelligence score of 5 or more to open.\n\nMedium: The cage (AC 16, 25 hit points) can be burst open with a DC 22 Strength check.\n\nLarge: The cage (AC 17, 40 hit points) can be burst open with a DC 24 Strength check.\n\nHuge: The cage (AC 18, 55 hit points) can be burst open with a DC 26 Strength check.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Caltrops (bag of 20)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "You can use an action to spread a bag of caltrops that covers a square area 5 feet on a side. Any creature that enters the area makes a DC 15 Dexterity saving throw or it stops moving this turn and takes 1d4 piercing damage. Taking this damage reduces the creature's walking speed by 10 feet until it regains at least 1 hit point. A creature moving through the area at half speed doesn't need to make the save.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Candle",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "A lit candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet for up to 1 hour.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Chain (10 feet)",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "A chain (AC 16, 10 hit points) can be burst with a DC 20 Strength check.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Chalk (1 piece)",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Clothes (common)",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Clothes (costume)",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Clothes (fine)",
+      "type": "Adventuring Gear",
+      "value": "15 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Clothes (traveler's)",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Component pouch",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Crowbar",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "You gain advantage on Strength checks when you are able to apply leverage with this hooked metal bar.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Eyepatch",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "Eyepatches can be used to prepare one eye for lower light vision, especially for working on deck and in the relative darkness of a ship. When you are wearing an eyepatch and enter an area of darkness or dim light from a brightly lit area, you can use a bonus action to swap it from one eye to the other to gain an expertise die on Perception checks until you enter an area of bright light or for the next 10 minutes.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Fishing tackle",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "This includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Flash bomb",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "You can use an action to throw this glass bauble, making a ranged weapon attack against a creature within 20 feet and treating the flash bomb as an improvised weapon. The target makes a DC 14 Constitution saving throw or it is blinded until the end of your next turn.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Grappling hook",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Hammer",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Hook hand",
+      "type": "Adventuring Gear",
+      "value": "15 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Prosthetic hook hands are common replacements for missing hands. You cannot gain advantage or expertise dice on Sleight of Hand checks made with a hook hand. In addition, a hook is a natural weapon which you can use to make unarmed strikes that deal piercing damage equal to 1d6 + your Strength modifier.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Holy water (flask)",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "You can use an action to splash the contents of this flask on an adjacent creature. Alternatively, you can throw it up to 20 feet where it shatters on impact. Make a ranged weapon attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage and becomes slowed until the end of your next turn.\n\nA cleric or herald can create holy water by performing a special ritual that takes 1 hour to perform, uses 25 gp worth of powdered silver, and requires the caster to expend a 1st-level spell slot.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Hourglass",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Incense (block)",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ladder (10 foot)",
+      "type": "Adventuring Gear",
+      "value": "1 sp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Lantern (standard)",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).\n\nStandard: Casts bright light in a 15-foot radius and dim light for an additional 30 feet.\n\nBullseye: Casts bright light in a 60-foot cone and dim light for an additional 60 feet.\n\nHooded: Casts bright light in a 30-foot radius and dim light for an additional 30 feet. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Lantern (bullseye)",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).\n\nStandard: Casts bright light in a 15-foot radius and dim light for an additional 30 feet.\n\nBullseye: Casts bright light in a 60-foot cone and dim light for an additional 60 feet.\n\nHooded: Casts bright light in a 30-foot radius and dim light for an additional 30 feet. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Lantern (hooded)",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).\n\nStandard: Casts bright light in a 15-foot radius and dim light for an additional 30 feet.\n\nBullseye: Casts bright light in a 60-foot cone and dim light for an additional 60 feet.\n\nHooded: Casts bright light in a 30-foot radius and dim light for an additional 30 feet. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Lock",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A key is provided with the lock. Without the key, a DC 15 thieves' tools check can pick this lock. At the Narrator's discretion, there may be better locks available for higher prices.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Magnifying glass",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "This lens allows a closer look at small objects. When you use a magnifying glass to appraise or inspect an item that is Tiny or highly detailed, you gain an expertise die. A magnifying glass is also useful for starting fires. Lighting a fire with a magnifying glass requires light as bright as sunlight to focus, tinder to ignite, and 5 minutes of remaining stationary.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Manacles",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "These metal restraints (AC 16, 20 hit points) can restrain a Small or Medium creature. You can restrain an unwilling creature which requires an action, and for the creature to be either restrained, or both grappled and prone. Escaping the manacles requires a DC 20 Dexterity check, and breaking them requires a DC 20 Strength check. Each set of manacles comes with one key. Without the key, a DC 15 thieves' tools check can pick this lock.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Merchant's scale",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "A scale includes a small balance, pans, and a suitable assortment of weights up to 2 pounds. You can use a scale to measure the exact weight of Tiny objects, such as raw precious metals or trade goods, to help determine their worth.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Mess tin",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan while the other is used as a plate or shallow bowl.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Mirror, steel",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Oil (flask)",
+      "type": "Adventuring Gear",
+      "value": "1 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask up to 20 feet, shattering it on impact. Make a ranged weapon attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute) it takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square level area. When lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Paint pot",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "0.25 lb.",
+      "effects": "",
+      "description": "This small clay pot contains about a pint of a single color of paint, enough to cover 50 square feet. Alternatively, as an action, you can splash the contents of this pot up to 20 feet, shattering it on impact. Make a ranged weapon attack against a creature within 20 feet, treating the paint pot as an improvised weapon. On a hit, the target is covered in bright paint. The paint can only be removed with at least 1 minute of vigorous scrubbing. While covered in paint, a creature has disadvantage on Stealth checks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Paper (one sheet)",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Parchment (one sheet)",
+      "type": "Adventuring Gear",
+      "value": "1 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Perfume (vial)",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Pick, miner's",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Piton",
+      "type": "Adventuring Gear",
+      "value": "5 cp",
+      "weight": "0.25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Pole (10-foot)",
+      "type": "Adventuring Gear",
+      "value": "5 cp",
+      "weight": "7 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Portable ram",
+      "type": "Adventuring Gear",
+      "value": "4 gp",
+      "weight": "35 lb.",
+      "effects": "",
+      "description": "You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. When another creature helps you use the ram, you gain an expertise die (as well as advantage, as normal).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Prosthetic (arm/hand)",
+      "type": "Adventuring Gear",
+      "value": "125 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "Prosthetics are usually metal and custom made to replace whatever portion of a limb has been lost.\n\nArm or Hand: You cannot gain advantage or expertise dice on Sleight of Hand checks made with this prosthetic. However, prosthetics can provide an unexpected block, and when you use it defensively you gain a +1 bonus to your AC as if you were wielding a hands-free light shield with the prosthetic. Prosthetics used defensively in this way cannot wield weapons.\n\nLeg or Foot: While you are standing on your prosthetic, you cannot gain advantage or expertise dice on saving throws made to resist being knocked prone, and you take half damage from caltrops, spikes, and difficult terrain that deals damage. Depending on how your prosthetic is constructed, you can use it to store up to one concealed Tiny item (DC 15 Investigation or Perception check to notice).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Prosthetic (leg/foot)",
+      "type": "Adventuring Gear",
+      "value": "75 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Prosthetics are usually metal and custom made to replace whatever portion of a limb has been lost.\n\nArm or Hand: You cannot gain advantage or expertise dice on Sleight of Hand checks made with this prosthetic. However, prosthetics can provide an unexpected block, and when you use it defensively you gain a +1 bonus to your AC as if you were wielding a hands-free light shield with the prosthetic. Prosthetics used defensively in this way cannot wield weapons.\n\nLeg or Foot: While you are standing on your prosthetic, you cannot gain advantage or expertise dice on saving throws made to resist being knocked prone, and you take half damage from caltrops, spikes, and difficult terrain that deals damage. Depending on how your prosthetic is constructed, you can use it to store up to one concealed Tiny item (DC 15 Investigation or Perception check to notice).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Robes",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Rope, hempen (50 feet)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Rope, whether made of hemp or silk, has an AC of 10, 2 hit points, and can be burst with a DC 17 Strength check.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Rope, silk (50 feet)",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Rope, whether made of hemp or silk, has an AC of 10, 2 hit points, and can be burst with a DC 17 Strength check.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sand bag",
+      "type": "Adventuring Gear",
+      "value": "2 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sealing wax",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Shovel",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Signal whistle",
+      "type": "Adventuring Gear",
+      "value": "5 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Signet ring",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sledgehammer",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Smoke bomb",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "This metal sphere's casing is pockmarked with holes and capped with a thick fuse. When lit, it spews suffocating black smoke that heavily obscures a 10-foot cube for 1 minute. Air-breathing creatures within the smoke must make a DC 10 Constitution saving throw, or have disadvantage on ability checks, attack rolls, and saving throws made while breathing the fumes. A wind of moderate or greater speed suppresses the smoke effect for 1 round.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Soap",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Spellbook",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "Essential for wizards, a spellbook is a leather bound tome with 100 blank vellum pages suitable for recording spells.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Spikes, iron (10)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Spyglass",
+      "type": "Adventuring Gear",
+      "value": "150 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Objects viewed through a spyglass are magnified to twice their size. You can use a spyglass to make Perception checks on areas you can see that are more than a quarter mile away.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "String (10 feet)",
+      "type": "Adventuring Gear",
+      "value": "1 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Tanglefoot bag",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "Unguents and adhesives fill this airtight sack. You can use an action to throw this bag at a target within 20 feet, treating it as a ranged weapon attack with an improvised weapon. On a hit, rapidly hardening sap covers the target and it makes a DC 13 Strength check or becomes grappled. At the start of each of its turns, the target repeats the check, ending the effect on itself on a success. The sap can also be destroyed (AC 13, 6 hit points).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Tinderbox",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch—or anything else with abundant, exposed fuel—takes an action. Lighting any other fire takes 1 minute.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Travel enclosure (Tiny)",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "This fine wire mesh bag is reinforced with metal beams, making a durable but flexible enclosure. Creatures of an appropriate size can comfortably reside within the enclosure if provided with some appropriate substrate (soft bedding for rodents, loamy soil for toads, and so on).\n\nTiny: A single Tiny creature residing within the enclosure has total cover while inside it and automatically succeeds on saving throws to resist area effects.\n\nSmall: Up to 3 Tiny creatures or a single Small creature residing with the enclosure have total cover while inside it and automatically succeed on saving throws to resist area effects.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Travel enclosure (Small)",
+      "type": "Adventuring Gear",
+      "value": "35 gp",
+      "weight": "15 lb.",
+      "effects": "",
+      "description": "This fine wire mesh bag is reinforced with metal beams, making a durable but flexible enclosure. Creatures of an appropriate size can comfortably reside within the enclosure if provided with some appropriate substrate (soft bedding for rodents, loamy soil for toads, and so on).\n\nTiny: A single Tiny creature residing within the enclosure has total cover while inside it and automatically succeeds on saving throws to resist area effects.\n\nSmall: Up to 3 Tiny creatures or a single Small creature residing with the enclosure have total cover while inside it and automatically succeed on saving throws to resist area effects.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Unstable arcanum",
+      "type": "Adventuring Gear",
+      "value": "120 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Vestments",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Wheelchair",
+      "type": "Adventuring Gear",
+      "value": "100 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "This durable device provides tactical mobility without requiring use of the legs. While mounted on a wheelchair you are considered to be wearing the wheelchair as a piece of gear. The wheelchair is mechanically complex, and can ascend stairs and ramps slowly, or provide a boost of speed on the descent. You have a movement speed of 30 feet while mounted on a wheelchair and treat inclines and stairs as difficult terrain, but while moving down slopes, stairs, or other significant declines you may take the Dash action as a bonus action. At the Narrator's discretion, more advanced and tactical wheelchairs may be available. Equipment Packs The starting equipment gained from your class includes a collection of useful adventuring gear put together in a pack. If you are buying your starting equipment, you can purchase a pack for the price shown, which might be cheaper than buying the items individually.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Whetstone",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Alchemist's supplies",
+      "type": "Artisan's Tools",
+      "value": "50 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Brewer's supplies",
+      "type": "Artisan's Tools",
+      "value": "20 gp",
+      "weight": "9 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Calligrapher's supplies",
+      "type": "Artisan's Tools",
+      "value": "10 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Carpenter's tools",
+      "type": "Artisan's Tools",
+      "value": "8 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cartographer's tools",
+      "type": "Artisan's Tools",
+      "value": "15 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cobbler's tools",
+      "type": "Artisan's Tools",
+      "value": "5 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cook's utensils",
+      "type": "Artisan's Tools",
+      "value": "1 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Glassblower's tools",
+      "type": "Artisan's Tools",
+      "value": "30 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Jeweler's tools",
+      "type": "Artisan's Tools",
+      "value": "25 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Leatherworker's tools",
+      "type": "Artisan's Tools",
+      "value": "5 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Mason's tools",
+      "type": "Artisan's Tools",
+      "value": "10 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Painter's supplies",
+      "type": "Artisan's Tools",
+      "value": "10 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Potter's tools",
+      "type": "Artisan's Tools",
+      "value": "10 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Tinker's tools",
+      "type": "Artisan's Tools",
+      "value": "50 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Weaver's tools",
+      "type": "Artisan's Tools",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Woodcarver's tools",
+      "type": "Artisan's Tools",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with these artisan's tools lets you add your proficiency bonus to ability checks made to craft, appraise, or repair items of this trade.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Dice set",
+      "type": "Gaming Set",
+      "value": "1 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "Proficiency with a gaming set lets you add your proficiency bonus to ability checks made to play a game with that set.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Board game set",
+      "type": "Gaming Set",
+      "value": "1 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "Proficiency with a gaming set lets you add your proficiency bonus to ability checks made to play a game with that set.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Playing card set",
+      "type": "Gaming Set",
+      "value": "5 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "Proficiency with a gaming set lets you add your proficiency bonus to ability checks made to play a game with that set.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Disguise kit",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "This pouch of props, costuming, and cosmetics lets you change your physical appearance. A creature observing you after you make a disguise kit check must make a Perception check (DC equal to the result of your disguise kit check) in order to see through your disguise.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Forgery kit",
+      "type": "Tool",
+      "value": "15 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "This small box contains a wide variety of papers, inks, and sealing waxes needed to create convincing forgeries of specific documents. A creature examining a false document made using a forgery kit must make an Investigation check (DC equal to the result of your forgery kit check) in order to realize it is a fake.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Herbalism kit",
+      "type": "Tool",
+      "value": "5 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "This kit contains the tools needed to carefully harvest and process rare herbs into remedies. You can attempt to harvest rare herbs from areas with abundant flora by spending an hour searching and making an herbalism kit check. You randomly obtain one of the following medicinals on a result of 16–22: adderwort roots, dried yewclaw bark, fairy cap, ironwood acorn, pressed spiderbulb, sycamore petal poultice. On a result of 23–27 you instead obtain one rare herb, and on a result of 28 or higher you obtain 2 rare herbs. With 1 minute of preparation a rare herb can be quickly processed into a basic healing potion, 2 rare herbs can be made into an antitoxin, or 3 rare herbs can be made into a greater healing potion.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Navigator's tools",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "These precision instruments allow you to relate your position to the position of the stars. So long as you are on the Material Plane and can freely observe the stars, once per night you can make a navigator's tools check. On a result of 15–19 you learn one of the following pieces of information, or two pieces of information on a result of 20 or higher:\n\n- The approximate time of year.\n\n- Your approximate distance from the equator\n\n(assuming the world has a known axis).\n\n- Your approximate distance from the place\n\nyou last made this check.\n\n- Your current distance from a major landmark and the approximate amount of time\n\nit will take to reach it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Poisoner's kit",
+      "type": "Tool",
+      "value": "50 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Everything necessary for carefully harvesting and processing natural poisons and venoms can be found in this kit. You can attempt to harvest poisons from areas with abundant flora by spending an hour searching and making a poisoner's kit check. On a result of 1–14 you accidentally poison yourself and suffer the effects of a basic poison. On a result of 15–19 you obtain a vial's worth of basic poison. On a result of 20–24 you obtain a vial's worth of advanced poison, and on a result of 25 or higher you obtain a vial's worth of potent poison.\n\nAlternatively, with 10 minutes of work you can use a poisoner's kit to harvest poison from the fresh corpse of a creature that naturally contained poisons. Make a poisoner's kit check against a DC equal to the DC of the creature's poison (if the creature's poison has no saving throw, use 8 + the creature's CR). On a failed check you suffer the effects of the creature's poison, and on a success you harvest a vial's worth of poison. You can use the creature's poison to coat one slashing or piercing weapon or up to 3 pieces of ammunition as an action. The poison retains its potency for 1 minute or until you hit with the weapon or ammunition. Weapons or ammunition you coat in a creature's poison inflict the same effects as shown in the creature's statistics. Once you harvest the poison of a creature, that corpse cannot be harvested from again.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sewing kit",
+      "type": "Tool",
+      "value": "2 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "This kit of threads, thimbles, buttons, and scissors is primarily used to mend clothing. With 1 hour of work you can use a sewing kit to mend clothing and some suits of armor. The DC of a sewing kit check is determined by the material being worked (pages 322–323).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Smith's tools",
+      "type": "Tool",
+      "value": "20 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "These hammers and clamps are a poor replacement for a full forge but can be instrumental for repairing metal items. With 1 hour of work you can use smith's tools to mend many weapons and armors. The DC of a smith's tools check is determined by the material being worked (pages 322-323).",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Thieves' tools",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "This set of often sharp and slender metal instruments are needed to crack locks and carefully spy into mechanisms. You can use an action to open a lock by making a thieves' tools check against a DC determined by the quality of the lock being picked.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Bagpipes",
+      "type": "Musical Instrument",
+      "value": "30 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Drum",
+      "type": "Musical Instrument",
+      "value": "6 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Dulcimer",
+      "type": "Musical Instrument",
+      "value": "25 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Flute",
+      "type": "Musical Instrument",
+      "value": "2 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Lute",
+      "type": "Musical Instrument",
+      "value": "35 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Lyre",
+      "type": "Musical Instrument",
+      "value": "30 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Harp",
+      "type": "Musical Instrument",
+      "value": "35 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Horn",
+      "type": "Musical Instrument",
+      "value": "3 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Pan flute",
+      "type": "Musical Instrument",
+      "value": "12 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Trombone",
+      "type": "Musical Instrument",
+      "value": "15 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Violin",
+      "type": "Musical Instrument",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Casaba",
+      "type": "Musical Instrument",
+      "value": "2 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Castanet",
+      "type": "Musical Instrument",
+      "value": "2 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Maraca",
+      "type": "Musical Instrument",
+      "value": "1 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ocarina",
+      "type": "Musical Instrument",
+      "value": "3 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to Performance checks made to play it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Camel",
+      "type": "Mount",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Beast — AC 10, HP 15 (2d10 + 4; bloodied 7), Speed 50 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Camel\n> *Large Beast (CR 1/8)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 15 (2d10 + 4; bloodied 7)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|10 (+0)|14 (+2)|2 (-4)|8 (-1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Senses** passive Perception 9\n> - **Languages** —\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+      },
+      "description": "Large Beast — AC 10, HP 15 (2d10 + 4; bloodied 7), Speed 50 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Donkey or mule",
+      "type": "Mount",
+      "value": "8 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Medium Beast — AC 10, HP 11 (2d8 + 2; bloodied 5), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mule\n> *Medium Beast (CR 1/8)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2; bloodied 5)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|10 (+0)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Saving Throws** Str +3\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ***Beast of Burden.*** The mule is considered Large when calculating its carrying capacity.\n>\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage."
+      },
+      "description": "Medium Beast — AC 10, HP 11 (2d8 + 2; bloodied 5), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Draft horse",
+      "type": "Mount",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Beast — AC 10, HP 22 (3d10 + 6; bloodied 11), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Draft Horse\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 22 (3d10 + 6; bloodied 11)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|10 (+0)|14 (+2)|2 (-4)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 14\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage."
+      },
+      "description": "Large Beast — AC 10, HP 22 (3d10 + 6; bloodied 11), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Elephant",
+      "type": "Mount",
+      "value": "500 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Huge Beast — AC 12 (natural armor), HP 76 (8d12 + 24; bloodied 38), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Elephant\n> *Huge Beast (CR 4)*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 76 (8d12 + 24; bloodied 38)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|8 (-1)|16 (+3)|4 (-3)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 16\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Gore.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) piercing damage. If the elephant moves at least 20 feet straight towards the target before the attack, the target makes a DC 16 Strength saving throw, falling prone on a failure.\n>\n> ***Stomp.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 22 (3d10 + 6) bludgeoning damage.\n>\n> ### Bonus Actions\n> ***Trample Underfoot.*** The elephant makes a stomp attack against a prone creature."
+      },
+      "description": "Huge Beast — AC 12 (natural armor), HP 76 (8d12 + 24; bloodied 38), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Mastiff",
+      "type": "Mount",
+      "value": "25 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Medium Beast — AC 12, HP 9 (2d8; bloodied 4), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mastiff\n> *Medium Beast (CR 1/8)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 9 (2d8; bloodied 4)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|14 (+2)|10 (+0)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Hearing and Smell.*** The mastiff has advantage on Perception checks that rely on hearing and smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage. If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure."
+      },
+      "description": "Medium Beast — AC 12, HP 9 (2d8; bloodied 4), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Pony",
+      "type": "Mount",
+      "value": "30 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Medium Beast — AC 10, HP 11 (2d8 + 2; bloodied 5), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Pony\n> *Medium Beast (CR 1/8)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2; bloodied 5)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|10 (+0)|12 (+1)|2 (-4)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+      },
+      "description": "Medium Beast — AC 10, HP 11 (2d8 + 2; bloodied 5), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Riding horse",
+      "type": "Mount",
+      "value": "75 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Beast — AC 10, HP 19 (3d10 + 3; bloodied 9), Speed 60 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Riding Horse\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 19 (3d10 + 3; bloodied 9)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|12 (+1)|12 (+1)|2 (-4)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage"
+      },
+      "description": "Large Beast — AC 10, HP 19 (3d10 + 3; bloodied 9), Speed 60 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Warhorse",
+      "type": "Mount",
+      "value": "400 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Beast — AC 11, HP 30 (4d10 + 8; bloodied 15), Speed 50 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Warhorse\n> *Large Beast (CR 1/2)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 30 (4d10 + 8; bloodied 15)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|12 (+1)|14 (+2)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 14\n> - **Senses** passive Perception 11\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) bludgeoning damage. If the horse moves at least 20 feet straight towards the target before the attack, the target makes a DC 14 Strength saving throw, falling prone on a failure."
+      },
+      "description": "Large Beast — AC 11, HP 30 (4d10 + 8; bloodied 15), Speed 50 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Barding",
+      "type": "Mount Gear",
+      "value": "x4",
+      "weight": "x2",
+      "effects": "",
+      "description": "Barding is armor designed to fit an animal. Any type of armor (as shown on Table: Armor, page 319) can be purchased as barding, but it costs 4 times as much as the equivalent humanoid armor and it weighs twice as much.\n\n12.\t Devil-touched. The mount has some devilish blood, given away by its red eyes. It has resistance to fire damage.\n\n13.\t Vertigo. The mount is afraid of heights. Taking the mount across high places (like on a ledge with a 10 foot drop below it) requires coaxing with a DC 10 Animal Handling check.\n\n14.\t Fey-touched. The mount has some fey blood. It and its rider gain advantage when making saving throws against enchantment spells.\n\n15.\t Greedy. The mount chows down on unattended food, and requires double the normal Supply.\n\n16.\t Fearful. The mount is afraid of fire and will not move with 10 feet of it without a DC 10 Animal Handling check.\n\n17.\t Willing. The mount is eager to please, and lowers itself to assist when being mounted. Mounting this mount is a free action.\n\n18.\t Jump-shy. The mount will not attempt jumps of any kind.\n\n19.\t Spirited. The mount and its rider gain +1 to initiative checks.\n\n20.\t Protective. The mount can stand watch and alert the party if it detects approaching creatures.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Saddle (regular)",
+      "type": "Mount Gear",
+      "value": "10 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Saddle (exotic)",
+      "type": "Mount Gear",
+      "value": "50 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Saddlebags",
+      "type": "Mount Gear",
+      "value": "4 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Saddlebags allow you to pack items onto a creature beside the saddle. You cannot use a mount to carry Supply or bulky items without saddlebags.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Carriage",
+      "type": "Vehicle",
+      "value": "100 gp",
+      "weight": "1800 lb.",
+      "effects": {
+        "summary": "Large Land Vehicle — AC 15, HP 120, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Carriage\n> *Large Land Vehicle (Cost: 100 gp)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 120 (malfunction check at 60 HP)\n> - **Speed** Drawn\n> - **Crew** 1 · **Supply Capacity** 40\n> - **Special** Drawn\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Large Land Vehicle — AC 15, HP 120, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cart",
+      "type": "Vehicle",
+      "value": "15 gp",
+      "weight": "1000 lb.",
+      "effects": {
+        "summary": "Large Land Vehicle — AC 11, HP 30, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Cart\n> *Large Land Vehicle (Cost: 15 gp)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 30 (malfunction check at 15 HP)\n> - **Speed** Drawn\n> - **Crew** 1 · **Supply Capacity** 40\n> - **Special** Drawn\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Large Land Vehicle — AC 11, HP 30, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Chariot",
+      "type": "Vehicle",
+      "value": "250 gp",
+      "weight": "60 lb.",
+      "effects": {
+        "summary": "Large Land Vehicle — AC 16, HP 50, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Chariot\n> *Large Land Vehicle (Cost: 250 gp)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 50 (malfunction check at 25 HP)\n> - **Speed** Drawn\n> - **Crew** 1 · **Supply Capacity** 40\n> - **Special** Drawn, personal\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Large Land Vehicle — AC 16, HP 50, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Dog sled",
+      "type": "Vehicle",
+      "value": "20 gp",
+      "weight": "100 lb.",
+      "effects": {
+        "summary": "Large Land Vehicle — AC 12, HP 40, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Dog sled\n> *Large Land Vehicle (Cost: 20 gp)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 40 (malfunction check at 20 HP)\n> - **Speed** Drawn\n> - **Crew** 1 · **Supply Capacity** 40\n> - **Special** Drawn, personal\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Large Land Vehicle — AC 12, HP 40, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Wagon",
+      "type": "Vehicle",
+      "value": "35 gp",
+      "weight": "1300 lb.",
+      "effects": {
+        "summary": "Huge Land Vehicle — AC 12, HP 80, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Wagon\n> *Huge Land Vehicle (Cost: 35 gp)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 80 (malfunction check at 40 HP)\n> - **Speed** Drawn\n> - **Crew** 1 · **Supply Capacity** 80\n> - **Special** Drawn\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Huge Land Vehicle — AC 12, HP 80, Speed Drawn, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Canoe",
+      "type": "Vehicle",
+      "value": "25 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Water Vehicle — AC 12, HP 30, Speed 30 ft. / 3 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Canoe\n> *Large Water Vehicle (Cost: 25 gp)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 30 (malfunction check at 15 HP)\n> - **Speed** 30 ft. / 3 mph\n> - **Crew** 1 · **Supply Capacity** 40\n> - **Special** Personal\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Large Water Vehicle — AC 12, HP 30, Speed 30 ft. / 3 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Galley",
+      "type": "Vehicle",
+      "value": "30000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Gargantuan Water Vehicle — AC 15, HP 500, Speed 40 ft. / 4 mph, Crew 60. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Galley\n> *Gargantuan Water Vehicle (Cost: 30000 gp)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 500 (malfunction check at 250 HP)\n> - **Speed** 40 ft. / 4 mph\n> - **Crew** 60 · **Supply Capacity** 800\n> - **Special** Armed (Ballista ×2), transport\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Gargantuan Water Vehicle — AC 15, HP 500, Speed 40 ft. / 4 mph, Crew 60. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Rowboat",
+      "type": "Vehicle",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Water Vehicle — AC 11, HP 50, Speed 20 ft. / 2 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Rowboat\n> *Large Water Vehicle (Cost: 50 gp)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 50 (malfunction check at 25 HP)\n> - **Speed** 20 ft. / 2 mph\n> - **Crew** 1 · **Supply Capacity** 40\n> - **Special** —\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Large Water Vehicle — AC 11, HP 50, Speed 20 ft. / 2 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sailing ship",
+      "type": "Vehicle",
+      "value": "10000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Gargantuan Water Vehicle — AC 15, HP 300, Speed 50 ft. / 5 mph, Crew 30. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Sailing ship\n> *Gargantuan Water Vehicle (Cost: 10000 gp)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 300 (malfunction check at 150 HP)\n> - **Speed** 50 ft. / 5 mph\n> - **Crew** 30 · **Supply Capacity** 800\n> - **Special** Armed (Ballista ×2)\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Gargantuan Water Vehicle — AC 15, HP 300, Speed 50 ft. / 5 mph, Crew 30. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Warship",
+      "type": "Vehicle",
+      "value": "25000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Gargantuan Water Vehicle — AC 16, HP 600, Speed 40 ft. / 4 mph, Crew 50. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Warship\n> *Gargantuan Water Vehicle (Cost: 25000 gp)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 600 (malfunction check at 300 HP)\n> - **Speed** 40 ft. / 4 mph\n> - **Crew** 50 · **Supply Capacity** 800\n> - **Special** Armed (Cannon ×4)\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Gargantuan Water Vehicle — AC 16, HP 600, Speed 40 ft. / 4 mph, Crew 50. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cloud galleon",
+      "type": "Vehicle",
+      "value": "40000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Gargantuan Air Vehicle — AC 14, HP 300, Speed 40 ft. / 4 mph, Crew 15. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Cloud galleon\n> *Gargantuan Air Vehicle (Cost: 40000 gp)*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 300 (malfunction check at 150 HP)\n> - **Speed** 40 ft. / 4 mph\n> - **Crew** 15 · **Supply Capacity** 800\n> - **Special** Transport, Three-Dimensional\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Gargantuan Air Vehicle — AC 14, HP 300, Speed 40 ft. / 4 mph, Crew 15. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Hot-air balloon",
+      "type": "Vehicle",
+      "value": "7500 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Air Vehicle — AC 10, HP 40, Speed 20 ft. / 2 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hot-air balloon\n> *Large Air Vehicle (Cost: 7500 gp)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 40 (malfunction check at 20 HP)\n> - **Speed** 20 ft. / 2 mph\n> - **Crew** 1 · **Supply Capacity** 40\n> - **Special** Three-Dimensional\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Large Air Vehicle — AC 10, HP 40, Speed 20 ft. / 2 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sky skiff",
+      "type": "Vehicle",
+      "value": "12000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Huge Air Vehicle — AC 12, HP 60, Speed 50 ft. / 5 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Sky skiff\n> *Huge Air Vehicle (Cost: 12000 gp)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 60 (malfunction check at 30 HP)\n> - **Speed** 50 ft. / 5 mph\n> - **Crew** 2 · **Supply Capacity** 80\n> - **Special** Three-Dimensional\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Huge Air Vehicle — AC 12, HP 60, Speed 50 ft. / 5 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Wind raider",
+      "type": "Vehicle",
+      "value": "20000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Gargantuan Air Vehicle — AC 15, HP 180, Speed 50 ft. / 5 mph, Crew 5. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Wind raider\n> *Gargantuan Air Vehicle (Cost: 20000 gp)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 180 (malfunction check at 90 HP)\n> - **Speed** 50 ft. / 5 mph\n> - **Crew** 5 · **Supply Capacity** 800\n> - **Special** Armed (Ballista ×2), Three-Dimensional\n> ___\n> ### Notes & Modifications\n> *At half HP or less, roll 1d6 on the A5e Vehicle Malfunctions table (1: Movement, 2: Integrity -25% HP, 3: Brakes, 4: Steering, 5: Cargo -50% Supply, 6: Superficial).*"
+      },
+      "description": "Gargantuan Air Vehicle — AC 15, HP 180, Speed 50 ft. / 5 mph, Crew 5. Full stat block in Allies & Stat Blocks.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ballista",
+      "type": "Siege Weapon",
+      "value": "500 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Siege Weapon — AC 15, HP 50, Range 140/480 ft., Damage 3d10 piercing.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Ballista\n> *Large Siege Weapon (Cost: 500 gp)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 50\n> - **Range** 140/480 ft.\n> - **Damage** 3d10 piercing (one target)"
+      },
+      "description": "Large Siege Weapon — AC 15, HP 50, Range 140/480 ft., Damage 3d10 piercing.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cannon",
+      "type": "Siege Weapon",
+      "value": "3000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Siege Weapon — AC 19, HP 75, Range 600/2,400 ft., Damage 8d10 bludgeoning.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Cannon\n> *Large Siege Weapon (Cost: 3000 gp)*\n> ___\n> - **Armor Class** 19\n> - **Hit Points** 75\n> - **Range** 600/2,400 ft.\n> - **Damage** 8d10 bludgeoning (one target)"
+      },
+      "description": "Large Siege Weapon — AC 19, HP 75, Range 600/2,400 ft., Damage 8d10 bludgeoning.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Mangonel",
+      "type": "Siege Weapon",
+      "value": "850 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large Siege Weapon — AC 15, HP 100, Range 200/800 ft. (min 60 ft.), Damage 5d10 bludgeoning.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Mangonel\n> *Large Siege Weapon (Cost: 850 gp)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 100\n> - **Range** 200/800 ft. (min 60 ft.)\n> - **Damage** 5d10 bludgeoning (one target)"
+      },
+      "description": "Large Siege Weapon — AC 15, HP 100, Range 200/800 ft. (min 60 ft.), Damage 5d10 bludgeoning.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Trebuchet",
+      "type": "Siege Weapon",
+      "value": "2500 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Huge Siege Weapon — AC 15, HP 150, Range 300/1,200 ft. (min 60 ft.), Damage 8d10 bludgeoning.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Trebuchet\n> *Huge Siege Weapon (Cost: 2500 gp)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 150\n> - **Range** 300/1,200 ft. (min 60 ft.)\n> - **Damage** 8d10 bludgeoning (one target)"
+      },
+      "description": "Huge Siege Weapon — AC 15, HP 150, Range 300/1,200 ft. (min 60 ft.), Damage 8d10 bludgeoning.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Alchemist's fire (flask)",
+      "type": "Adventuring Gear",
+      "value": "35 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "This sticky, adhesive fluid ignites when exposed to air. You can use an action to throw this flask up to 20 feet where it shatters on impact. Make a ranged weapon attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d6 ongoing fire damage. This damage persists for 1 minute. A creature can end all ongoing damage being dealt by alchemist's fires by using its action to either make a DC 14 Dexterity check to extinguish the flames or by dousing the target with at least 1 gallon of water.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ball bearings (bag of 1000)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "You can use an action to spill these tiny metal balls from their pouch and cover a level, square area that is 10 feet on each side. A creature moving across the covered area makes a DC 12 Dexterity saving throw or falls prone. A creature moving through the area at half speed doesn't need to make the save.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ink (1 ounce bottle)",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ink pen",
+      "type": "Adventuring Gear",
+      "value": "2 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Helm",
+      "type": "Helm",
+      "value": "12 gp",
+      "weight": "4 lb.",
+      "effects": "No proficiency required. Expertise die on saves to resist being stunned or rattled; passive Perception -2.",
+      "description": "No proficiency required. Expertise die on saves to resist being stunned or rattled; passive Perception -2.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Visored helm",
+      "type": "Helm",
+      "value": "25 gp",
+      "weight": "8 lb.",
+      "effects": "No proficiency required. Expertise die on saves to resist being charmed, stunned, or rattled; passive Perception -5; reduce falling damage by 5. Raise visor (object interaction) to function as a helm.",
+      "description": "No proficiency required. Expertise die on saves to resist being charmed, stunned, or rattled; passive Perception -5; reduce falling damage by 5. Raise visor (object interaction) to function as a helm.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Assassin's Pack",
+      "type": "Equipment Pack",
+      "value": "175 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a chest, a vial of advanced poison, 3 vials of basic poison, a set of fine clothes, a bottle of ink, an ink pen, a lantern, 2 flasks of oil, 5 sheets of paper, a vial of perfume, a costume, and a flash bomb.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Burglar's Pack",
+      "type": "Equipment Pack",
+      "value": "16 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 Supply, a tinderbox, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Demolitions Pack",
+      "type": "Equipment Pack",
+      "value": "250 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a vial of unstable arcanum, 10 feet of string, a bell, 5 candles, 3 black powder charges, a hooded lantern, 3 flasks of oil, a tinderbox, and 10 sand bags.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Diplomat's Pack",
+      "type": "Equipment Pack",
+      "value": "39 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lantern, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Dungeoneer's Pack",
+      "type": "Equipment Pack",
+      "value": "12 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 Supply, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Entertainer's Pack",
+      "type": "Equipment Pack",
+      "value": "40 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 Supply, a waterskin, and a disguise kit.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Explorer's Pack",
+      "type": "Equipment Pack",
+      "value": "10 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a bedroll, a mess tin, a tinderbox, 10 torches, 10 Supply, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Pirate's Pack",
+      "type": "Equipment Pack",
+      "value": "70 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a bedroll, an eyepatch, a compass, a distant map, 10 Supply, and a waterskin.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Priest's Pack",
+      "type": "Equipment Pack",
+      "value": "19 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 Supply, and a waterskin.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Scholar's Pack",
+      "type": "Equipment Pack",
+      "value": "40 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.",
+      "reference": "A5e AG"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "style": "Level Up: Advanced 5e",
+  "kind": "classes",
+  "items": [
+    {
+      "name": "Adept",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Dexterity, Wisdom",
+      "proficiencies": "Simple weapons, shortswords",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Artificer",
+      "hit_dice": "d8",
+      "primary_ability": "Intelligence",
+      "saving_throws": "Intelligence, Constitution",
+      "proficiencies": "Light & medium armor, shield, simple weapons, darts, geared slingshots, hand crossbows, heavy crossbows, light crossbows, light hammers, throwing daggers",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Bard",
+      "hit_dice": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": "Dexterity, Charisma",
+      "proficiencies": "Light armor, simple weapons, hand crossbows, longswords, rapiers, shortswords",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Berserker",
+      "hit_dice": "d12",
+      "primary_ability": "Strength",
+      "saving_throws": "Strength, Constitution",
+      "proficiencies": "Light armor, medium armor, shields, simple weapons, martial weapons",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Cleric",
+      "hit_dice": "d8",
+      "primary_ability": "Wisdom",
+      "saving_throws": "Wisdom, Charisma",
+      "proficiencies": "Light armor, medium armor, shields, simple weapons",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Druid",
+      "hit_dice": "d8",
+      "primary_ability": "Wisdom",
+      "saving_throws": "Intelligence, Wisdom",
+      "proficiencies": "Light armor, medium armor, shields, simple weapons",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Fighter",
+      "hit_dice": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": "Strength, Constitution",
+      "proficiencies": "All armor, shields, simple weapons, martial weapons",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Herald",
+      "hit_dice": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": "Wisdom, Charisma",
+      "proficiencies": "All armor, shields, simple weapons, martial weapons",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Marshal",
+      "hit_dice": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": "Wisdom, Charisma",
+      "proficiencies": "Light & medium armor, shields, simple weapons, martial weapons",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Ranger",
+      "hit_dice": "d10",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Strength, Dexterity",
+      "proficiencies": "Light armor, medium armor, shields, simple weapons, martial weapons",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Rogue",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Dexterity, Intelligence",
+      "proficiencies": "Light armor, simple weapons, hand crossbows, longswords, rapiers, shortswords",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Sorcerer",
+      "hit_dice": "d6",
+      "primary_ability": "Charisma",
+      "saving_throws": "Constitution, Charisma",
+      "proficiencies": "Daggers, darts, slings, quarterstaffs, light crossbows",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Warlock",
+      "hit_dice": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": "Wisdom, Charisma",
+      "proficiencies": "Light armor, simple weapons, hand crossbows, longswords, rapiers, shortswords",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Wizard",
+      "hit_dice": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": "Intelligence, Wisdom",
+      "proficiencies": "Daggers, darts, slings, quarterstaffs, light crossbows",
+      "reference": "A5e AG"
+    }
+  ]
+}

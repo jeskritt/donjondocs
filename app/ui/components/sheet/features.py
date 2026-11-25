@@ -40,11 +40,11 @@ def _render_features(state, char_id, user, _save):
                     _render_abilities_tab(state, cs, features, _save)
 
                 with ui.tab_panel(tab_magic):
-                    _render_magic_tab(state, cs, magic, _save)
+                    _render_magic_tab(state, cs, magic, _save, user=user)
 
                 if tab_maneuvers is not None:
                     with ui.tab_panel(tab_maneuvers):
-                        _render_maneuvers_tab(state, cs, maneuvers_data, maneuvers, _save)
+                        _render_maneuvers_tab(state, cs, maneuvers_data, maneuvers, _save, user=user)
 
     _section()
     return _section

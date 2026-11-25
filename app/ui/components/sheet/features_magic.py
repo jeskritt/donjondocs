@@ -22,6 +22,8 @@ from app.schemas.char_sheet_specific import (
     ExtraResource,
     MagicResource,
 )
+from app.services.global_items_service import list_spells
+from app.services.session import service_session
 from app.ui.components.sheet.helpers import (
     _fmt_bonus,
     _render_slot_checkboxes,
@@ -65,7 +67,7 @@ def _dark_params_from(d_vessel_misc, d_vr_base, d_vr_misc, d_river_misc) -> Dark
     )
 
 
-def _render_magic_tab(state, cs, magic, _save):
+def _render_magic_tab(state, cs, magic, _save, user=None):
     resources = magic.get("resources", [])
     spells = magic.get("spells", [])
 
@@ -265,7 +267,7 @@ def _render_magic_tab(state, cs, magic, _save):
                                 render_plain_markdown(sp.get('description'))
                             info_row.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
-            ui.button(f"Add {spell_noun}", icon='add', on_click=lambda: _open_add_spell(cs, _save, resources)).props('unelevated color=indigo').classes('mt-2')
+            ui.button(f"Add {spell_noun}", icon='add', on_click=lambda: _open_add_spell(cs, _save, resources, user=user)).props('unelevated color=indigo').classes('mt-2')
 
         _spells_section()
 
@@ -490,9 +492,32 @@ def _open_edit_resource(cs, _save, resource_name):
     dialog.open()
 
 
-def _open_add_spell(cs, _save, resources):
+async def _open_add_spell(cs, _save, resources, user=None):
+    lib_rows = []
+    async with service_session() as session:
+        lib_rows = await list_spells(session, cs.style, owner_id=user.id if user else None)
+
+    selected_school = {"value": ""}
+
     with ui.dialog() as dialog, ui.card().classes('w-full max-w-md').style(DIALOG_CARD_STYLE):
         ui.label("Add Spell").classes('text-lg font-bold mb-2 text-white')
+
+        lib_select = None
+        lib_map = {}
+        if lib_rows:
+            for r in lib_rows:
+                lvl_tag = "Cantrip" if str(r.level or "0").strip() in {"0", "Cantrip", "cantrip"} else f"Lvl {r.level}"
+                school_tag = r.school or ""
+                meta = " · ".join(p for p in (lvl_tag, school_tag) if p)
+                lbl = f"{r.name} ({meta})" if meta else r.name
+                lib_map[lbl] = r
+            lib_select = ui.select(
+                options=["Custom…"] + list(lib_map.keys()),
+                value="Custom…",
+                with_input=True,
+                label="Pick from Library (optional)",
+            ).props('dense outlined dark').classes('w-full mb-2')
+
         inp_name   = ui.input("Name").classes('w-full')
         inp_level  = ui.number("Level (0=cantrip)", value=0, min=0, max=9, step=1).classes('w-full').props('dense')
         inp_desc   = ui.textarea("Description").classes('w-full').props('rows=3')
@@ -508,6 +533,29 @@ def _open_add_spell(cs, _save, resources):
         _prep_label = "River" if any(r.get('magic_type') == MagicType.DARK.value for r in resources) else "Prepared"
         inp_prep   = ui.checkbox(_prep_label)
 
+        if lib_select is not None:
+            def _on_lib_pick(_=None):
+                row = lib_map.get(lib_select.value)
+                if row is None:
+                    selected_school["value"] = ""
+                    return
+                inp_name.set_value(row.name)
+                raw_lvl = str(row.level or "0").strip().lower()
+                try:
+                    lvl_num = 0 if raw_lvl.startswith("cantrip") else int(raw_lvl)
+                except ValueError:
+                    lvl_num = 0
+                inp_level.set_value(max(0, min(9, lvl_num)))
+                selected_school["value"] = (row.school or "").strip()
+                inp_desc.set_value(row.description or "")
+                inp_cast.set_value(row.casting_time or "")
+                inp_range.set_value(row.range or "")
+                inp_dur.set_value(row.duration or "")
+                inp_ritual.set_value(bool(row.ritual))
+                inp_conc.set_value(bool(row.concentration))
+
+            lib_select.on_value_change(_on_lib_pick)
+
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
 
@@ -518,6 +566,7 @@ def _open_add_spell(cs, _save, resources):
                 entry = CharacterSpell(
                     name=name,
                     level=int(inp_level.value or 0),
+                    school=selected_school["value"],
                     description=(inp_desc.value or "").strip(),
                     casting_time=(inp_cast.value or "").strip(),
                     spell_range=(inp_range.value or "").strip(),
