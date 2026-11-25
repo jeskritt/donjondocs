@@ -71,7 +71,10 @@ async def test_full_data_dir_json_only_ingestion_all_six_systems_and_idempotency
     vr_items = await list_items(db_session, SheetStyle.VOIDRUNNER, owner_id=test_user.id)
     vr_presets = await list_ally_presets(db_session, SheetStyle.VOIDRUNNER, owner)
     assert len(vr_powers) >= 70
-    assert len(vr_maneuvers) >= 40
+    assert len(vr_maneuvers) >= 200
+    vr_maneuver_names = {m.name for m in vr_maneuvers}
+    assert "Bombing Formation" in vr_maneuver_names  # Voidrunner-specific
+    assert "Catch Your Breath" in vr_maneuver_names  # Core A5e tradition
     assert len(vr_destinies) == 12
     drone = next(i for i in vr_items if i.name == "Combat drone")
     assert extract_item_stat_block(drone)["ally_type"] == "Drone"
