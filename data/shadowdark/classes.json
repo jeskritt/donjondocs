@@ -1,0 +1,38 @@
+{
+  "style": "Shadowdark RPG",
+  "kind": "classes",
+  "items": [
+    {
+      "name": "Fighter",
+      "hit_dice": "d8",
+      "primary_ability": "Strength",
+      "saving_throws": "-",
+      "proficiencies": "All weapons, All armor and shields",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Priest",
+      "hit_dice": "d6",
+      "primary_ability": "Wisdom",
+      "saving_throws": "-",
+      "proficiencies": "Club, crossbow, dagger, mace, longsword, staff, warhammer, All armor and shields",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Wizard",
+      "hit_dice": "d4",
+      "primary_ability": "Intelligence",
+      "saving_throws": "-",
+      "proficiencies": "Dagger, staff, no armor",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Thief",
+      "hit_dice": "d4",
+      "primary_ability": "Dexterity",
+      "saving_throws": "-",
+      "proficiencies": "Club, crossbow, dagger, shortbow, shortsword, Leather armor, mithral chainmail",
+      "reference": "Shadowdark RPG"
+    }
+  ]
+}

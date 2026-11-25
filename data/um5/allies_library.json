@@ -1,0 +1,66 @@
+{
+  "style": "Ultramodern 5e",
+  "kind": "abilities",
+  "items": [
+    {
+      "name": "Emperor",
+      "description": "Large construct, neutral evil (9 (5,000 XP)) — AC 17 (natural armor), HP 157 (15d8+75), Speed 30ft., Fly 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Emperor\n> *Large construct, neutral evil*\n> ___\n> - **Armor Class** 17 (natural armor)\n> - **Hit Points** 157 (15d8+75)\n> - **Speed** 30ft., Fly 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|16 (+3)|21 (+5)|15 (+2)|16 (+3)|12 (+1)|\n> ___\n> - **Saving Throws** Str +10, Con +9\n> - **Skills** Acrobatics +7, Athletics +10\n> - **Damage Immunities** lightning, poison; bludgeoning, piercing,\n> - **Condition Immunities** charmed, exhaustion, frightened,\n> - **Senses** Darkvision 200 ft., passive Perception 13\n> - **Languages** Common\n> - **Challenge** 9 (5,000 XP)\n> ___\n> and slashing from non magical weapons that aren't adamantine paralyzed, petrified, poisoned\n>\n> ### Actions\n> ***Multiattack.*** The emperor makes any other four attacks, passive Perception 13 makes any other four attacks, e a railgun attacks. 6). The emperor uses the multiattack action. though only two can be a railgun attacks. Alpha Strike (recharge 5,6). The emperor uses the Disengage, Dash, and multiattack action.\n>\n> ***Slam.*** Melee Weapon Attack: +9 to hit, reach 5 : +9 to hit, reach 5 2d8+6) bludgeoning is knocked prone. ft., one target. Hit: 14 (2d8+6) bludgeoning damage, and the target is knocked prone.\n>\n> ***Arm-Mounted Dual Railguns.*** Ranged Weapon Attack: +8 to hit, range 300/1,200 ft. Hit: 14 (2d8+6) piercing damage, and the target is pushed 10 feet. This weapon has the AP property.\n>\n> ***Shoulder-Mounted Missiles.*** Ranged Weapon Attack: +8 to hit (this attack has advantage), range 100/400 ft. (min 20 ft.)\n>\n> ***Hit:*** 26 (4d10+6) bludgeoning damage. Note: 10 capacity.\n>\n> ### Reactions\n> ***Ablative Armor (once).*** Once the emperor is reduced to half hit points (or 80), it loses its damage immunities, both ground and fly speed increase by 5 feet, and it is healed to full hit points. MINOTAUR BATTLE ARMOR"
+      },
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Minotaur Battle Armor",
+      "description": "Large construct/vehicle, unaligned (5 (1 ,800 XP)) — AC 13 (natural armor), HP 78 (12d8+24), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Minotaur Battle Armor\n> *Large construct/vehicle, unaligned*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 78 (12d8+24)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|18 (+4)|17 (+3)|15 (+2)|11 (+0)|5 (-3)|\n> ___\n> - **Saving Throws** Str +9, Dex +7\n> - **Damage Resistances** lightning, poison; bludgeoning, piercing,\n> - **Condition Immunities** charmed, exhaustion, frightened,\n> - **Senses** Darkvision 120 ft., passive Perception 10\n> - **Languages** Common\n> - **Challenge** 5 (1 ,800 XP)\n> ___\n> 11(+0) 5(-3) poison; bludgeoning, piercing, weapons that aren't and slashing from non magical weapons that aren't adamantine d, exhaustion, frightened, paralyzed, petrified, poisoned\n>\n> ***Minotaur Rush.*** The minotaur cannot be targeted by Perception 10 annot be targeted by e minotaur moves, it ignores opportunity attacks. When the minotaur moves, it ignores difficult terrain. The minotaur cannot be knocked prone. cannot be knocked prone.\n>\n> ### Actions\n> ***Iron Onslaught (Recharge 6).*** The minotaur makes a slam he minotaur makes a slam attack against each enemy in reach during its movement. On a hit, the target is knocked prone. The minotaur can only attack each target once.\n>\n> ***Slam.*** Melee Weapon Attack: +9 to hit, reach 10 ft., one target. each during its movement. d prone. The minotaur can hit, reach 10 ft., one target. amage.\n>\n> ***Hit:*** 24 (4d8+6) bludgeoning damage.\n>\n> ***Shoulder-Mounted Micromissiles.*** Ranged Weapon Attack: s. Ranged Weapon Attack:\n>\n> ***Hit:*** 19 (1d10+14) piercing +7 to hit, range 300/1,200 ft., Hit: 19 (1d10+14) piercing damage. This weapon has the AP property. AP property.\n>\n> ### Reactions\n> ***Eruption.*** When the minotaur is reduced below half hit points (or 47), as a reaction, the minotaur recovers from all conditions it suffers from and makes an iron onslaught attack. SHELL"
+      },
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Shell",
+      "description": "Large construct, unaligned (11 (7,200 XP)) — AC 18 (natural armor), HP 178 (17d8+55), Speed 30ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Shell\n> *Large construct, unaligned*\n> ___\n> - **Armor Class** 18 (natural armor)\n> - **Hit Points** 178 (17d8+55)\n> - **Speed** 30ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |29 (+9)|17 (+3)|21 (+5)|12 (+1)|16 (+3)|8 (-1)|\n> ___\n> - **Saving Throws** Str +10, Dex +7, Wis +7\n> - **Damage Immunities** lightning, poison; bludgeoning, piercing,\n> - **Condition Immunities** charmed, exhaustion, frightened,\n> - **Senses** darkvision 120 ft., passive Perception 13\n> - **Languages** Common\n> - **Challenge** 11 (7,200 XP)\n> ___\n> and slashing from non magical weapons that aren't adamantine paralyzed, petrified, poisoned Is That Seriously a Chainsaw? When the shell misses an enemy with either its scissor-clamp or buzz-saw by 2 or less, the target's speed is reduced to 0 until the end of the shell's next turn.\n>\n> ***Second Wind.*** If the shell is reduced below 60 hit points, it gains a +2 bonus to all saving throws and AC.\n>\n> ***Clamped Down.*** The shell has advantage against target it is grappling.\n>\n> ### Actions\n> ***Multiattack.*** The shell makes any other 3 attacks.\n>\n> ***Scissor Clamp.*** Melee Weapon Attack: +13 to hit, reach 10ft., one target. Hit: 17 (2d8+9) bludgeoning damage and the target is grappled (Escape DC 19). The shell can only grapple one target at a time.\n>\n> ***Buzz-Saw.*** Melee Weapon Attack: +13 to hit, reach 5ft., one target. Hit: 17 (2d8+9) slashing damage. This weapon has the AP property.\n>\n> ***Slam.*** Melee Weapon Attack: +13 to hit, reach 5ft., one target.\n>\n> ***Hit:*** 21 (3d8+9) bludgeoning damage.\n>\n> ***Hit:*** 21 (3d8+9) bludgeoning damage. JAGANNATH"
+      },
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Jagannath",
+      "description": "Large construct, neutral (15 (13,000 XP)) — AC 19 (natural armor), HP 189 (18d8+90), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Jagannath\n> *Large construct, neutral*\n> ___\n> - **Armor Class** 19 (natural armor)\n> - **Hit Points** 189 (18d8+90)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|18 (+4)|15 (+2)|16 (+3)|15 (+2)|15 (+2)|\n> ___\n> - **Saving Throws** Str +11, Dex +9, Con +10\n> - **Skills** Perception +7\n> - **Damage Immunities** lightning, poison; bludgeoning, piercing,\n> - **Condition Immunities** charmed, exhaustion, frightened,\n> - **Senses** darkvision 120 ft., passive Perception 17\n> - **Languages** Common\n> - **Challenge** 15 (13,000 XP)\n> ___\n> and slashing from non magical weapons that aren't adamantine paralyzed, petrified, poisoned\n>\n> ***Direct Attack.*** The jagannath can use 20 ft. and make either a nuclear caster or a metal fists attack.\n>\n> ***Phase Shield.*** The jagannath can spend 30 ft. of movement to erect the phase shield, which lasts until the beginning of its next turn. When the shield is up, the jagannath gains a +1 bonus to AC and can Disengage taking no action.\n>\n> ### Actions\n> ***Multiattack.*** The jagannath makes two attacks from either the nuclear caster or its metal fists.\n>\n> ***Nuclear Caster.*** Ranged Weapon Attack: +9 to hit, range 300/1,200 ft., Hit: 19 (1d10+14) energy damage, and the target suffers 10 energy damage at the end of its next turn. This weapon has the AP property.\n>\n> ***Metal Fists.*** Melee Weapon Attack: +11 to hit, reach 5ft., one target. Hit: 17 (2d10+6) bludgeoning damage LEGENDARY ACTIONS The jagannath can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The jagannath regains spent legendary actions at the start of its turn.\n>\n> ***Nano-Reconstruction.*** The jagannath regains 10 hit points.\n>\n> ***Topographical Analysis.*** The jagannath can take the Disengage action and move up to 20 feet.\n>\n> ***Caster Surge.*** The jagannath makes a nuclear caster attack. g j g STRONGPOINT PLATFORM"
+      },
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Strongpoint Platform",
+      "description": "Huge construct, unaligned (12 (8,400 XP)) — AC 19 (armor), HP 200 (20d10+100), Speed 40ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Strongpoint Platform\n> *Huge construct, unaligned*\n> ___\n> - **Armor Class** 19 (armor)\n> - **Hit Points** 200 (20d10+100)\n> - **Speed** 40ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |24 (+7)|20 (+5)|20 (+5)|3 (-4)|14 (+2)|1 (-5)|\n> ___\n> - **Saving Throws** Str +10\n> - **Skills** Persuasion +7\n> - **Damage Immunities** bludgeoning, piercing, and slashing\n> - **Condition Immunities** exhaustion, frightened, petrified,\n> - **Senses** darkvision 120 ft., Passive Perception 17\n> - **Languages** none\n> - **Challenge** 16 (15,000 XP)\n> - **Challenge** 12 (8,400 XP)\n> ___\n> from nonmagical weapons. poisoned.\n>\n> ***Cargo Space.*** The strongpoint can carry 500 lb. of gear or carry up to 2 passengers.\n>\n> ***Platform.*** The platform can mount two heavy weapons or one super-heavy weapon. As the platform is Huge, a super-heavy is counted as two-handed small arm and a heavy weapon as a one-handed small arm for the purposes of movement and attack penalties. I can carry three clips for each weapon.\n>\n> ***Sturdy Legs.*** The platform does not reduce it's speed when moving through difficult terrain. Variations of the mobile platform are designed so they can support one person atop if needed.\n>\n> ### Actions\n> ***Multiattack.*** The strongpoint makes six attacks if it has heavy weapons or four attacks with a super heavy weapon.\n>\n> ***Ranged Weapon.*** Ranged Weapon Attack: +12 to hit, range based on weapon, one target. Hit: Weapon damage +7.\n>\n> ***Slam.*** Melee Weapon Attack: +7 (+12) to hit, reach 10 ft., one target. Hit: 19 (3d8+7) bludgeoning damage, and the target is pushed 10 feet. ft., Hit: 11 (1d10+6) piercing damage. ft., Hit: 11 (1d10+6) piercing damage. XR-0 BODYGUARD ANDROID"
+      },
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "XR-0 Bodyguard Android",
+      "description": "Medium humanoid construct, unaligned (12 (8,400 XP)) — AC 20 (armor), HP 120 (16d8+48), Speed 30ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## XR-0 Bodyguard Android\n> *Medium humanoid construct, unaligned*\n> ___\n> - **Armor Class** 20 (armor)\n> - **Hit Points** 120 (16d8+48)\n> - **Speed** 30ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|22 (+6)|16 (+3)|10 (+0)|14 (+2)|7 (-2)|\n> ___\n> - **Damage Resistances** bludgeoning, piercing, and slashing\n> - **Condition Immunities** exhaustion, frightened, petrified,\n> - **Skills** Perception +6\n> - **Saving Throws** Dex +10\n> - **Senses** darkvision 120 ft., Passive Perception 16\n> - **Languages** One language (usually English)\n> - **Challenge** 12 (8,400 XP)\n> ___\n> from nonmagical weapons. poisoned\n>\n> ***Programmed Protector.*** As a bonus action, the XR-O can target one ally within five feet. Both the XR-0 and the target share the android's AC and Dexterity bonus (unless the ally's is higher). Any damage from successful attacks on either target is taken by the XR-0. The only way for the target to take direct damage is for either the target or the bodyguard android to move more than five feet away. The XR-0's defense includes area attacks.\n>\n> ***To Safety.*** If the XR-0 moves, it call pull one ally within five feet of it with it. This movement does not provoke an opportunity attack.\n>\n> ### Actions\n> ***Multiattack.*** The XR-O makes any combination of six attacks of its slam or pistol attacks.\n>\n> ***Slam.*** Melee Weapon Attack: +6 (+10) to hit, reach 5ft., one target. Hit: 11 (1d10+6) bludgeoning damage.\n>\n> ***Pistol.*** Ranged Weapon Attack: +6 (+10) to hit, range 200/800"
+      },
+      "reference": "UM5 OGL"
+    }
+  ]
+}

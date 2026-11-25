@@ -1,0 +1,4 @@
+OPEN GAME LICENSE Version 1.0a
+
+The JSON catalog files in this directory (`data/voidrunner/*.json`) contain Open Game Content derived from
+Level Up: Advanced 5th Edition — Voidrunner's Codex (EN Publishing, a5esrd.com) under the Open Game License v 1.0a.

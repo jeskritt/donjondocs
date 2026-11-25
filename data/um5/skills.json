@@ -1,0 +1,181 @@
+{
+  "style": "Ultramodern 5e",
+  "kind": "skills",
+  "items": [
+    {
+      "name": "Acrobatics",
+      "attribute": "Dexterity",
+      "example_uses": "Stay on your feet in a tricky situation, or perform an acrobatic stunt.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Animal Handling",
+      "attribute": "Wisdom",
+      "example_uses": "Calm or train an animal, or get an animal to behave in a certain way.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Arcana",
+      "attribute": "Intelligence",
+      "example_uses": "Recall lore about spells, magic items, and the planes of existence.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Athletics",
+      "attribute": "Strength",
+      "example_uses": "Jump farther than normal, stay afloat in rough water, or break something.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Commune",
+      "attribute": "Vigor",
+      "example_uses": "Establish a psychic connection to communicate silently with someone you have met.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Computer Use",
+      "attribute": "Intelligence",
+      "example_uses": "Modify or repair hardware, circumvent security, create programs, or research online.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Deception",
+      "attribute": "Charisma",
+      "example_uses": "Tell a convincing lie, or wear a disguise convincingly.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Demolitions",
+      "attribute": "Intelligence",
+      "example_uses": "Set or disarm explosives and detonators; wire charges for best effect.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Detection",
+      "attribute": "Vigor",
+      "example_uses": "Sense fluctuations in dark (magic) nearby — like Perception, narrowed to magical energy.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Engineering",
+      "attribute": "Intelligence",
+      "example_uses": "Craft, modify, or repair devices, machines, exo-armor, and vehicles; disarm electronic locks.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "History",
+      "attribute": "Intelligence",
+      "example_uses": "Recall lore about historical events, people, nations, and cultures.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Induce",
+      "attribute": "Vigor",
+      "example_uses": "Channel and manipulate dark energy — e.g. break magical locks or influence dark effects.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Insight",
+      "attribute": "Wisdom",
+      "example_uses": "Discern a person's mood and intentions.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Intimidation",
+      "attribute": "Charisma",
+      "example_uses": "Awe or threaten someone into doing what you want.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Investigation",
+      "attribute": "Intelligence",
+      "example_uses": "Find obscure information in records, or deduce how something works.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Medicine",
+      "attribute": "Wisdom",
+      "example_uses": "Diagnose an illness, or determine what killed the recently slain.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Nature",
+      "attribute": "Intelligence",
+      "example_uses": "Recall lore about terrain, plants, animals, and weather.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Perception",
+      "attribute": "Wisdom",
+      "example_uses": "Using a combination of senses, notice something that's easy to miss.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Performance",
+      "attribute": "Charisma",
+      "example_uses": "Act, tell a story, perform music, or dance.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Persuasion",
+      "attribute": "Charisma",
+      "example_uses": "Honestly and graciously convince someone of something.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Religion",
+      "attribute": "Intelligence",
+      "example_uses": "Recall lore about faiths, rites, cults, and sacred traditions.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sciences",
+      "attribute": "Intelligence",
+      "example_uses": "Recall or apply scientific knowledge across physics, chemistry, biology, and related fields.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sleight of Hand",
+      "attribute": "Dexterity",
+      "example_uses": "Pick a pocket, conceal a handheld object, or perform legerdemain.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Stealth",
+      "attribute": "Dexterity",
+      "example_uses": "Escape notice by moving quietly and hiding behind things.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Survival",
+      "attribute": "Wisdom",
+      "example_uses": "Follow tracks, forage, find a trail, or avoid natural hazards.",
+      "specialties": "-",
+      "reference": "UM5 OGL"
+    }
+  ]
+}

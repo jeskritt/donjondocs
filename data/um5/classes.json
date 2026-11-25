@@ -1,0 +1,102 @@
+{
+  "style": "Ultramodern 5e",
+  "kind": "classes",
+  "items": [
+    {
+      "name": "Civilian",
+      "hit_dice": "d8",
+      "primary_ability": "Any",
+      "saving_throws": "Any two",
+      "proficiencies": "Light armor; all simple weapons",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Face",
+      "hit_dice": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": "Intelligence, Wisdom, Charisma",
+      "proficiencies": "Light armor; all simple weapons, one-handed small arms; disguise kit, all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Grounder",
+      "hit_dice": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": "Strength, Dexterity",
+      "proficiencies": "All armor, shields; simple weapons, one-handed and two-handed small arms, heavy weapons, super heavy weapons; all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Gunslinger",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Dexterity, Wisdom",
+      "proficiencies": "Light and medium armor; simple weapons, one-handed and two-handed small arms; all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Heavy",
+      "hit_dice": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": "Strength, Constitution",
+      "proficiencies": "All armor, shields; simple weapons, one-handed and two-handed small arms, heavy weapons, super heavy weapons; all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Infiltrator",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Dexterity, Wisdom",
+      "proficiencies": "Light armor; simple weapons, one-handed small arms, any two melee martial weapons; disguise kit or poisoner's kit, all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Magus",
+      "hit_dice": "d6",
+      "primary_ability": "Vigor",
+      "saving_throws": "Intelligence, Vigor",
+      "proficiencies": "Simple weapons; all ground vehicles",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Marshal",
+      "hit_dice": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": "Intelligence, Charisma",
+      "proficiencies": "Light armor, medium armor; simple weapons, one-handed and two-handed small arms, heavy weapons; all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Martial Artist",
+      "hit_dice": "d10",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Strength, Dexterity",
+      "proficiencies": "Light armor; all simple melee weapons, all one-handed small arms, four martial melee weapons; all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Medic",
+      "hit_dice": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": "Intelligence, Wisdom",
+      "proficiencies": "Light armor; simple weapons, one-handed small arms; poisoner's kit, all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sniper",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Dexterity, Wisdom",
+      "proficiencies": "Light armor; simple weapons, one-handed small arms, two-handed small arms, all sniper weapons; all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Techie",
+      "hit_dice": "d8",
+      "primary_ability": "Intelligence",
+      "saving_throws": "Intelligence, Wisdom",
+      "proficiencies": "Light and medium armor; simple weapons, one-handed small arms; tinker's tools, all ground vehicles and aircraft",
+      "reference": "UM5 OGL"
+    }
+  ]
+}

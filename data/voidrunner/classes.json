@@ -1,0 +1,46 @@
+{
+  "style": "Voidrunner",
+  "kind": "classes",
+  "items": [
+    {
+      "name": "Psion",
+      "hit_dice": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": "Constitution, Intelligence",
+      "proficiencies": "Light & medium armor, simple weapons, medium mauls, tk gauntlets",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Psyknight",
+      "hit_dice": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": "Dexterity, Charisma",
+      "proficiencies": "Light & medium armor, shields, simple weapons, blades, starship weapons",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Scientist",
+      "hit_dice": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": "Intelligence, Wisdom",
+      "proficiencies": "Light armor, simple weapons",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Scout",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Dexterity, Charisma",
+      "proficiencies": "Light armor, simple weapons, martial weapons, starship weapons",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Trooper",
+      "hit_dice": "d10",
+      "primary_ability": "Strength",
+      "saving_throws": "Strength, Constitution",
+      "proficiencies": "Light, medium & heavy armor, shields, simple weapons, martial weapons, starship weapons",
+      "reference": "Voidrunner's Codex"
+    }
+  ]
+}

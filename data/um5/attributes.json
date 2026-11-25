@@ -1,0 +1,48 @@
+{
+  "style": "Ultramodern 5e",
+  "kind": "attributes",
+  "items": [
+    {
+      "name": "Strength",
+      "alias": "STR",
+      "description": "Strength is the measure of your physical power and might.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Dexterity",
+      "alias": "DEX",
+      "description": "Dexterity is the measure of your agility, reflexes, and balance.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Constitution",
+      "alias": "CON",
+      "description": "Constitution is the measure of your health, stamina, and resilience.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Intelligence",
+      "alias": "INT",
+      "description": "Intelligence is the measure of your reasoning, memory, and analytical skill.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Wisdom",
+      "alias": "WIS",
+      "description": "Wisdom is the measure of your perception, intuition, and insight.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Charisma",
+      "alias": "CHA",
+      "description": "Charisma is the measure of your force of personality, persuasiveness, and leadership.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Vigor",
+      "alias": "VIG",
+      "description": "Vigor measures your connection to dark — the resource that powers the Ultramodern5 (DARK) magic system. Optional; only used in games with magic.",
+      "reference": "UM5 OGL"
+    }
+  ]
+}

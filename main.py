@@ -99,7 +99,7 @@ from app.ui.pages import login, register, dashboard, profile, admin, character_s
 
 @app.on_startup
 async def startup():
-    """Auto-ingest the bundled `data/` CSVs if any of the global lookup
+    """Auto-ingest the bundled `data/` catalogs if any of the global lookup
     tables are empty. Schema creation is owned by Alembic — run
     ``alembic upgrade head`` before first boot.
     """

@@ -1,0 +1,429 @@
+{
+  "style": "Voidrunner",
+  "kind": "combat_maneuvers",
+  "items": [
+    {
+      "name": "Bombing Formation",
+      "tier": "1",
+      "tradition": "Ace Starfighter",
+      "exertion": "1",
+      "activation": "BA (Stance)",
+      "description": "You form up and coordinate your salvos into a single devastating bombing run.\n\nWhen you fire a weapon with the salvo property while in this formation, any other ships in the formation can use their reaction to fire one weapon with the salvo property. Any effects that can shoot down or block weapons with the salvo property treat all munitions fired in this way as a single salvo.\n\nLock On (1 point)\n\nAction Dogfighting is all about putting your enemy in your sights and staying out of theirs, taking the best shots while staying on target.\n\nChoose a target in your combat zone. The target makes a Dexterity or Strength saving throw (it's choice) or you lock on to it. While locked on a target you have advantage on attacks against it. This lock on ends if you attack a different target or attempt to lock onto a different target.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Scouting Formation",
+      "tier": "1",
+      "tradition": "Ace Starfighter",
+      "exertion": "1",
+      "activation": "BA (Stance)",
+      "description": "You position yourselves to put active eyes on as much of the area as possible.\n\nStarfighter pilots in this formation gain an expertise die on Perception checks and when rolling for initiative.\n\nFormations Starfighter pilots are also able to lead formations, which are a type of combat stance. Only the formation leader needs to know the requisite combat ability, and is able to grant benefits to any allied ships in the same combat zone who use a bonus action to join that formation.\n\nWhile acting as a formation leader:  You and any allied ships in your formation gain the benefits of your formation.  You and all the ships in your formation move at your initiative but cannot move during their own turns.  Any ships in your formation may break off from your formation during their turn as a bonus action, losing any formation bonuses but reverting to its normal movement.  You may break your formation or switch to a different one during your turn as a bonus action. When switching in this way allied ships in your formation may choose to remain in the new formation or break off.  Unless broken, a formation lasts indefinitely.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Shake Them Off",
+      "tier": "1",
+      "tradition": "Ace Starfighter",
+      "exertion": "1",
+      "activation": "A",
+      "description": "The end of many a good pilot has been a turret or enemy starfighter that stayed locked on for just a bit too long. It's best to shake them off with some evasive flying.\n\nOne ship of your choice that is locked on to you makes a Dexterity saving throw or loses its lock on you.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "A Game of Chicken",
+      "tier": "2",
+      "tradition": "Ace Starfighter",
+      "exertion": "1",
+      "activation": "A",
+      "description": "You fly head on against another starfighter, daring them to blink first and swerve out of the way.\n\nChoose another starfighter operating in the same combat zone and make an opposed Charisma check against it. On a success that starfighter's pilot becomes rattled for the next 1d6 rounds. On a tied result you instead ram the chosen ship (@@ see Star Captain's Manual).",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Barrel Roll",
+      "tier": "2",
+      "tradition": "Ace Starfighter",
+      "exertion": "1",
+      "activation": "R",
+      "description": "Your starfighter spins and jukes in response to oncoming fire.\n\nAs a reaction to being targeted by an attack, you force the attack to suffer disadvantage.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Escort Formation",
+      "tier": "2",
+      "tradition": "Ace Starfighter",
+      "exertion": "1",
+      "activation": "BA",
+      "description": "(formation)\n\nThe squadron forms up around a single member to protect them from fire.\n\nWhen you enter this formation, choose one of the starfighters in the formation. Until the start of your next turn, any attacks made against the chosen ship have disadvantage and attacks made against any other ships in the formation have advantage.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Lose Them",
+      "tier": "2",
+      "tradition": "Ace Starfighter",
+      "exertion": "1",
+      "activation": "A",
+      "description": "You break direct line of sight with your enemies by flying into an area that's dangerous or obscured.\n\nYou may only perform this starship maneuver while operating in a combat zone with the obscuring property. Any ships with a lock on you must make a Wisdom saving throw or lose their lock.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Targeted Fire",
+      "tier": "2",
+      "tradition": "Ace Starfighter",
+      "exertion": "2",
+      "activation": "A",
+      "description": "Lining up the shots, you carefully pick out your target along a ship's massive frame.\n\nChoose a deck or weapon system on a capital ship in your combat zone and make an attack targeting that ship. These attacks have disadvantage if the chosen deck is a bridge or engines deck. Every time you hit with an attack made this way, the target ship makes a Constitution saving throw with a -2 penalty for every 10 damage dealt by the attack. On a failed save a deck suffers the deck damaged critical malfunction, or a weapon system suffers the weapon system damaged critical malfunction. A deck that already has the deck damage critical malfunction suffers the deck disabled critical malfunction instead.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Dive Bomb",
+      "tier": "3",
+      "tradition": "Ace Starfighter",
+      "exertion": "2",
+      "activation": "A",
+      "description": "Throwing personal safety by the wayside, you dive directly at your target to ensure the hit regardless of what little time there is to pull away afterward.\n\nMake an attack with advantage against a target in the same combat zone. After the attack make a DC 15 Strength or Dexterity saving throw (your choice). On a failed save you ram the target of your attack (@@ see Star Captain's Manual) unless your target can successfully save to avoid you.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Interceptor Formation",
+      "tier": "3",
+      "tradition": "Ace Starfighter",
+      "exertion": "2",
+      "activation": "BA (Stance)",
+      "description": "You and your wingmen corral your targets to keep them from escaping.\n\nWhenever you successfully lock on to a starfighter, any other ships in the formation can use their reaction to lock on to that same target. While locked on ships in the formation have advantage on attacks against it. If you lose the lock on a target other ships in the formation lose that lock as well.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Pull Up",
+      "tier": "3",
+      "tradition": "Ace Starfighter",
+      "exertion": "2",
+      "activation": "R",
+      "description": "Suddenly the empty space in front of you is occupied and you desperately try to pull your ship out of a collision course!\n\nWhen you fail a saving throw to avoid a collision or attempted ramming, use your reaction to reroll the failed saving throw, taking the new result.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Stealth Formation",
+      "tier": "3",
+      "tradition": "Ace Starfighter",
+      "exertion": "3",
+      "activation": "BA (Stance)",
+      "description": "You mask each other's energy signatures and try to fly under the radar.\n\nStarfighter pilots in this formation gain an expertise die on Stealth checks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Ace Maneuvering",
+      "tier": "4",
+      "tradition": "Ace Starfighter",
+      "exertion": "3",
+      "activation": "A",
+      "description": "You pull a maneuver either too brilliant or foolhardy for your tail to predict—putting them in your crosshairs.\n\nOne starfighter of your choice currently locked on to you makes a Wisdom saving throw or its lock on you is broken and you lock on to it instead. While locked on to a target you have advantage on attacks made against it. This lock on ends if you attack a different target or attempt to lock on to a different target.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Hit the Brakes",
+      "tier": "4",
+      "tradition": "Ace Starfighter",
+      "exertion": "3",
+      "activation": "R",
+      "description": "You suddenly decelerate, causing your foe to fly past you and into your gunsights.\n\nChoose another starfighter operating in the same combat zone which has locked on to you. The starfighter makes a Dexterity saving throw. On a failure, you make an attack against the target.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Trench Run",
+      "tier": "4",
+      "tradition": "Ace Starfighter",
+      "exertion": "2",
+      "activation": "BA (Stance)",
+      "description": "You fly dangerously close to avoid the guns firing above you and line up a perfect shot, but doing so puts you right in the crosshairs of the close range guns.\n\nYou may only perform this starship maneuver while operating in a combat zone surrounding a capital ship. Until the end of your next turn, any attacks that target you have disadvantage, and you have disadvantage on saving throws against weapons with the anti-starfighter property. Any attacks you make during your next turn have advantage and their critical hit range is increased by 1 (for example a weapon that would score a critical hit on a 20 instead scores a critical hit on an attack roll of 19-20).",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Trust Your Instincts",
+      "tier": "5",
+      "tradition": "Ace Starfighter",
+      "exertion": "3",
+      "activation": "BA",
+      "description": "Dispensing with targeting systems and electronic aids, you focus your mind and make an attack out of pure instinct. Your next attack with a starfighter weapon before the start of your next turn automatically hits its target.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Quantum Slip",
+      "tier": "5",
+      "tradition": "Ace Starfighter",
+      "exertion": "3",
+      "activation": "BA",
+      "description": "You use irregularities in the space-time continuum to continuously jink your ship, making it impossible to target you. Until the start of your next turn, when an attack would hit your starfighter, it misses instead, and when you would fail a saving throw, you succeed instead.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "High Ground",
+      "tier": "1",
+      "tradition": "Blazing Starglaive",
+      "exertion": "1",
+      "activation": "R",
+      "description": "Prerequisite: attuned starglaive When you have the high ground, you have the advantage.\n\nIf you are 5 feet or more higher than your foe and they make a melee attack against you while within reach of your starglaive, you can use your reaction to interrupt their attack with an attack of your own. Make a melee attack. This attack takes place before your attacker's attack.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Quickdraw",
+      "tier": "1",
+      "tradition": "Blazing Starglaive",
+      "exertion": "1",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive You reflexively draw your starglaive and attack with it in one blinding movement.\n\nWhen you activate this maneuver, you take the Attack action and make a weapon attack with a starglaive, as well as any additional attacks granted by Extra Attack. You can draw and activate a starglaive as part of making your attack. You can do so even if it is not in your possession at the beginning of your turn as long as it is within 15 feet, is unattended, and a straight line path from it to you is unobstructed.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Reactive Re-arm",
+      "tier": "1",
+      "tradition": "Blazing Starglaive",
+      "exertion": "1",
+      "activation": "R",
+      "description": "Prerequisite: attuned starglaive When your opponent disarms you, you recall your weapon instantly.\n\nIf you are disarmed, you can use your reaction to instantly teleport your starglaive back to your hand.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Trusting Stance",
+      "tier": "1",
+      "tradition": "Blazing Starglaive",
+      "exertion": "1",
+      "activation": "BA (Stance)",
+      "description": "Prerequisite: attuned starglaive Relaxing your mind, you trust your instincts, allowing your psionic energy to guide your actions.\n\nWhen you roll a 9 or less on an attack roll with a starglaive, you may treat that roll as though it were a 10.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Guided Throw",
+      "tier": "2",
+      "tradition": "Blazing Starglaive",
+      "exertion": "1",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive You throw your starglaive at your target, and it returns instantly to your hand.\n\nMake a melee weapon attack with a starglaive against a creature within 30 feet. If you have additional attacks granted by Extra Attack, this maneuver replaces only one of them, and you may use the remaining attacks as normal",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Blinding Light",
+      "tier": "2",
+      "tradition": "Blazing Starglaive",
+      "exertion": "3",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive Focusing your mind on your weapon, the illumination from your starglaive intensifies, blinding your foes.\n\nUse an action to intensify your starglaive briefly. All creatures within 10 feet of you who can see the light of your starglaive must make a Constitution saving throw. On a failure, they are blinded until the end of their next turn.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Pass-Through",
+      "tier": "2",
+      "tradition": "Blazing Starglaive",
+      "exertion": "2",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive You deactivate your blade momentarily just before it would be blocked by your enemy's, and reactivate it to finish the strike.\n\nWhen you make an attack against an enemy with a starglaive or an energy-imbued weapon, you make the attack at advantage using a maneuver to neatly bypass their defence.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Imbued Strike",
+      "tier": "2",
+      "tradition": "Blazing Starglaive",
+      "exertion": "2",
+      "activation": "BA",
+      "description": "Prerequisite: attuned starglaive You imbue your strike with additional psychic energy.\n\nWhen you next hit a target with a starglaive before the start of your next turn, you deal an additional 2d6 psychic damage.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Earthstrike",
+      "tier": "3",
+      "tradition": "Blazing Starglaive",
+      "exertion": "2",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive maul You strike the ground with a starglaive maul, causing a psychic shockwave to knock nearby creatures prone.\n\nUse an action to strike the ground with a starglaive. All creatures within 10 feet of you make a Strength saving throw against your psionics save DC. On a failed save the target is pushed 5 feet and knocked prone.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Shielded Stance",
+      "tier": "3",
+      "tradition": "Blazing Starglaive",
+      "exertion": "1",
+      "activation": "BA (Stance)",
+      "description": "Prerequisite: attuned starglaive You stand firm, deflecting incoming missile attacks.\n\nWhile you are wielding a starglaive, you can use your reaction to slice through or block ammunition when you are hit by a ranged weapon attack. When you do so, your AC against ranged attacks is increased by double your Wisdom modifier (including against the triggering attack) until the end of your next turn.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Psychic Sunder",
+      "tier": "3",
+      "tradition": "Blazing Starglaive",
+      "exertion": "3",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive maul Focusing your psychic energy, you strike an object with concentrated force.\n\nYou make a single attack against an unattended object of size Large or smaller, such as a door, with a starglaive maul. On a hit, the object gains the broken condition. If the object is reinforced, you must instead beat its AC by 4 points or more in order to sunder it.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Sever Limb",
+      "tier": "4",
+      "tradition": "Blazing Starglaive",
+      "exertion": "3",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive With a swift, clean blow you sever the limb of your opponent.\n\nMake an attack against a creature within reach with a starglaive blade or polearm. This attack bypasses the target's resistance to damage, but its immunity to damage is unchanged. Your attack is made at disadvantage.\n\nOn a hit you cleanly sever one of the target's limbs and the target takes an additional 1d10 psychic damage. In addition, the creature suffers a level of strife. The limb is not severed if the target has immunity to the weapon's damage or the creature is two or more sizes larger than you.\n\nDef﻿ll ect Missile (1 points) 4th degree Blazing Starglaive free action Prerequisite: Shielded Stance, attuned starglaive You block a missile and direct it back at your attackers.\n\nIf your Shielded Stance causes a missile to miss you, you can spend 1 exertion to make a thrown attack with it. You make this attack with proficiency, regardless of your weapon proficiencies, and it has a normal range of 20 feet and a long range of 60 feet. If you hit, the missile does the same damage it would normally have done to you if it had hit you.\n\nYou do not need to spend any action type to deflect a missile as long as you are able to expend exertion points, but the maximum number of missiles you can deflect each round is equal to your proficiency modifier.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Reeling Strike",
+      "tier": "4",
+      "tradition": "Blazing Starglaive",
+      "exertion": "3",
+      "activation": "A",
+      "description": "Prerequisite: attuned starglaive With a gesture, you telekinetically pull a distant foe towards you and strike them with your starglaive.\n\nOne target you can see or sense within 30 feet makes a Strength saving throw or is pulled towards you until it hits a stationary barrier (e.g. a wall or force field) or is within reach of your melee attacks. If the target ends up within reach of your melee attacks, you immediately take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Unstoppable Attack",
+      "tier": "5",
+      "tradition": "Blazing Starglaive",
+      "exertion": "3",
+      "activation": "BA",
+      "description": "Prerequisite: attuned starglaive Your attacks are ferocious enough that nothing can stop them.\n\nAttacks you make with a starglaive bypass immunity to its damage until the start of your next turn.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Total Dismemberment",
+      "tier": "5",
+      "tradition": "Blazing Starglaive",
+      "exertion": "3",
+      "activation": "A",
+      "description": "Prerequisite: Sever Limb, attuned starglaive With a flurry of lightning-fast cuts, you sever all of your opponent's limbs.\n\nMake an attack against a creature within reach with a starglaive blade or polearm. This attack bypasses the target's resistance to damage, but its immunity to damage is unchanged. Your attack is made at disadvantage.\n\nOn a hit you cleanly sever 1d4 of the target's limbs and the target takes an additional 1d10 psychic damage per limb severed. In addition, the creature suffers a level of strife for each limb severed.\n\nThe limb is not severed if the target has immunity to the weapon's damage or the creature is two or more sizes larger than you.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Always Prepared",
+      "tier": "1",
+      "tradition": "Mindful Body",
+      "exertion": "2",
+      "activation": "BA",
+      "description": "You are always looking for the right opportunity.\n\nYou take the Ready action as a bonus action.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Anticipated Intercept",
+      "tier": "1",
+      "tradition": "Mindful Body",
+      "exertion": "1",
+      "activation": "R",
+      "description": "You intuit your enemy's movements and hamper them.\n\nWhen you see a creature start to use its movement, you can use your reaction to move up to your Speed to a square 5 feet from where it started its movement. The creature makes a Wisdom saving throw or its Speed is reduced to 0 for the remainder of its turn.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Blind Stance",
+      "tier": "1",
+      "tradition": "Mindful Body",
+      "exertion": "1",
+      "activation": "BA (Stance)",
+      "description": "Even when you can't see, you are able to sense your environment, While in this stance you have blindsight to a range of 30 feet, and you are immune to the blinded condition.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Gunner's Focus",
+      "tier": "1",
+      "tradition": "Mindful Body",
+      "exertion": "1",
+      "activation": "A",
+      "description": "Bringing a heightened focus to the gunner's seat, you can make a difficult shot seem easy.\n\nYou make an attack using a vehicle's direct fire or indirect fire weapon with advantage.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Elusive Maneuvering",
+      "tier": "2",
+      "tradition": "Mindful Body",
+      "exertion": "1",
+      "activation": "BA",
+      "description": "You are ever-present in the moment, allowing you to evade foes with ease.\n\nYou take the Dash or Disengage action (1 point) or the Dodge action (2 points) as a bonus action.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Martial Alacrity",
+      "tier": "2",
+      "tradition": "Mindful Body",
+      "exertion": "3",
+      "activation": "A",
+      "description": "With a little quick thinking on your feet, you can adjust your attack strategy to find additional ways to hit an opponent.\n\nWhen you activate this maneuver, you take the Attack action and make a weapon attack, as well as any additional attacks granted by Extra Attack. Immediately after, you can make two unarmed strikes against the target of your last attack.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Thoughtful Assistance",
+      "tier": "2",
+      "tradition": "Mindful Body",
+      "exertion": "1",
+      "activation": "BA",
+      "description": "You have a level of awareness and the presence of mind to support an ally in need.\n\nYou take the Help action.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Assess Defenses",
+      "tier": "3",
+      "tradition": "Mindful Body",
+      "exertion": "3",
+      "activation": "BA",
+      "description": "A quick scan reveals weaknesses you can exploit.\n\nYou can use a bonus action to gain advantage on all attack rolls made during an Attack action you take on the same turn.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Calculated Trajectory",
+      "tier": "3",
+      "tradition": "Mindful Body",
+      "exertion": "1",
+      "activation": "R",
+      "description": "You instantly calculate and adjust your aim.\n\nWhen you make a ranged weapon attack, you can use your reaction to gain an expertise die on the attack roll. If the weapon is a light or medium caster, a pistol, or a rifle, you can forgo the expertise die to instead ignore half or three-quarters cover.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Psychosomatic Encouragement",
+      "tier": "3",
+      "tradition": "Mindful Body",
+      "exertion": "2",
+      "activation": "BA",
+      "description": "You can uplift an ally's spirits and boost their endurance.\n\nSelect a friendly target that can see, hear, feel, or otherwise sense your presence. You impart the target with temporary hit points equal to 1d6 + your proficiency bonus + your Charisma modifier (minimum 0).",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Kinesthetic Geometry",
+      "tier": "4",
+      "tradition": "Mindful Body",
+      "exertion": "3",
+      "activation": "A",
+      "description": "Prerequisite: Extra Attack You instinctively identify and leverage the perfect angles and impact points for throwing your weapon.\n\nMake a ranged weapon attack, as well as any additional attacks granted by Extra Attack. Until the start of your next turn, when you make a ranged weapon attack with a weapon that has the thrown property, its ranges are doubled, you gain an expertise die on the attack and damage rolls, and on a hit that does not deal piercing damage the weapon rebounds, returning to your hand at the end of the attack. If a weapon returns, you can immediately use your reaction to spend 1 exertion point and make a melee weapon attack against a target within reach.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Pilot's Trance Stance",
+      "tier": "4",
+      "tradition": "Mindful Body",
+      "exertion": "1",
+      "activation": "BA (Stance)",
+      "description": "You put your game face on as you strap into the pilot's seat.\n\nWhile piloting a vehicle:  You gain an expertise die on ability checks made to drive or pilot a vehicle.  You can take the Accelerate vehicle action as a reaction.  Attacks against you, the vehicle, and its cargo and passengers have disadvantage unless the vehicle is Titanic.  If a collision occurs, after determining the collision damage roll the vehicle's collision damage a second time. You can reduce the damage your vehicle sustains by the result of the second roll. If you reduce the damage to 0 the collision is avoided altogether.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Tactical Retreat",
+      "tier": "4",
+      "tradition": "Mindful Body",
+      "exertion": "3",
+      "activation": "R",
+      "description": "When you realize an expedient exit is needed (perhaps due to the arrival of enemy reinforcements), you can quickly identify the best route and create the space for you and your allies to make a hasty escape.\n\nYou use your reaction to make a Wisdom (Deception) check opposed by an enemy's passive Perception. On a success, you and allies within 30 feet (or within the same region during a space battle) can take the Disengage action and move up to twice your Speed (or engage your FTL engines) without invoking an opportunity attack.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Starfield Vision",
+      "tier": "5",
+      "tradition": "Mindful Body",
+      "exertion": "3",
+      "activation": "A",
+      "description": "While aboard a capital ship, you can recognize patterns and strategies, then intuit and perform actions that could dynamically tilt the battle in your favor.\n\nWhen you activate this maneuver, you can immediately make a system action using the deck you are crewing. Any attack rolls made with that system action gain advantage and any saving throws made against it have disadvantage. In addition, until the start of your next turn both you and any allies you communicate with each gain an expertise die for one saving throw, ability check, or attack made before the start of your next turn.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Sympathetic Heart Stop",
+      "tier": "5",
+      "tradition": "Mindful Body",
+      "exertion": "2",
+      "activation": "A",
+      "description": "Prerequisite: Extra Attack By first aligning with then clashing violently against the exact rhythm of your opponent's movements, breath, and even heartbeat, your physical touch interrupts their life force.\n\nA living creature you touch makes a Dexterity saving throw or takes psychic damage equal to 6d8 + your Wisdom modifier and is stunned until the end of your next turn. On a success the creature takes half the damage and is slowed until the end of your next turn instead of stunned. A creature immune to being stunned automatically succeeds on its saving throw. The effort of activating this maneuver drains you and you are rattled until the end of your next turn.",
+      "reference": "Voidrunner's Codex"
+    }
+  ]
+}

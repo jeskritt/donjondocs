@@ -1,0 +1,1666 @@
+{
+  "style": "Dungeons & Dragons 5e",
+  "kind": "equipment",
+  "items": [
+    {
+      "name": "Arrows (20)",
+      "type": "Ammunition",
+      "value": "1 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Blowgun needles (50)",
+      "type": "Ammunition",
+      "value": "1 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Crossbow bolts (20)",
+      "type": "Ammunition",
+      "value": "1 gp",
+      "weight": "1.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Sling bullets (20)",
+      "type": "Ammunition",
+      "value": "4 cp",
+      "weight": "1.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Arcane Focus (Crystal)",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Arcane Focus (Orb)",
+      "type": "Spellcasting Focus",
+      "value": "20 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Arcane Focus (Rod)",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Arcane Focus (Staff)",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Arcane Focus (Wand)",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Druidic Focus (Sprig of mistletoe)",
+      "type": "Spellcasting Focus",
+      "value": "1 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Druidic Focus (Totem)",
+      "type": "Spellcasting Focus",
+      "value": "1 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Druidic Focus (Wooden staff)",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Druidic Focus (Yew wand)",
+      "type": "Spellcasting Focus",
+      "value": "10 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Holy Symbol (Amulet)",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Holy Symbol (Emblem)",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Holy Symbol (Reliquary)",
+      "type": "Spellcasting Focus",
+      "value": "5 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "A spellcasting focus usable in place of non-costly, non-consumed material components.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Abacus",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Acid (vial)",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Alchemist's fire (flask)",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Antitoxin (vial)",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Backpack",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Ball bearings (bag of 1000)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Bedroll",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "7 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Bell",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Blanket",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Book",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Bottle, glass",
+      "type": "Adventuring Gear",
+      "value": "2 cp",
+      "weight": "1.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Bucket",
+      "type": "Adventuring Gear",
+      "value": "5 cp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Caltrops (bag of 20)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Candle",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Case, crossbow bolt",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Case, map or scroll",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Chain (10 feet)",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Chalk (10 pieces)",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Chest",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Climber's kit",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "12 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Clothes, common",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Clothes, costume",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Clothes, fine",
+      "type": "Adventuring Gear",
+      "value": "15 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Clothes, traveler's",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Component pouch",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Crowbar",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Fishing tackle",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Grappling hook",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Hammer",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Hammer, sledge",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Healer's kit",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Holy water (flask)",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Hourglass",
+      "type": "Adventuring Gear",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Hunting trap",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Ink (1 ounce vial)",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Ink pen",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Jug or pitcher",
+      "type": "Adventuring Gear",
+      "value": "2 cp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Ladder (10 feet)",
+      "type": "Adventuring Gear",
+      "value": "1 sp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lamp",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lantern",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lantern bullseye",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lantern hooded",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lock",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Magnifying glass",
+      "type": "Adventuring Gear",
+      "value": "100 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Manacles",
+      "type": "Adventuring Gear",
+      "value": "15 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Mess kit",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Mirror",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Oil (flask)",
+      "type": "Adventuring Gear",
+      "value": "1 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Paper (one sheet)",
+      "type": "Adventuring Gear",
+      "value": "2 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Parchment (one sheet)",
+      "type": "Adventuring Gear",
+      "value": "1 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Perfume (vial)",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Pick miner's",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Pole (10-foot)",
+      "type": "Adventuring Gear",
+      "value": "5 cp",
+      "weight": "7 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Pot",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Potion of healing",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Potion of healing (greater)",
+      "type": "Adventuring Gear",
+      "value": "200 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Potion of healing (superior)",
+      "type": "Adventuring Gear",
+      "value": "500 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Potion of healing (supreme)",
+      "type": "Adventuring Gear",
+      "value": "1000 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Pouch",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Quiver",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "A quiver can hold up to 20 arrows. Ram, Portable. You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. One other character can help you use the ram, giving you advantage on this check.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Ram portable",
+      "type": "Adventuring Gear",
+      "value": "4 gp",
+      "weight": "35 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Rations (1 day)",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts. Rope. Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check. Scale, Merchant's. A scale includes a small balance, pans, and a suitable assortment of weights up to 2 pounds. With it, you can measure the exact weight of small objects, such as raw precious metals or trade goods, to help determine their worth. Spellbook. Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells. Spyglass. Objects viewed through a spyglass are magnified to twice their size. Tent. A simple and portable canvas shelter, a tent sleeps two. Tinderbox. This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch—or anything else with abundant, exposed fuel—takes an action. Lighting any other fire takes 1 minute. Torch. A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Rope hempen (50 feet)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Rope silk (50 feet)",
+      "type": "Adventuring Gear",
+      "value": "10 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Sack",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Scale",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Sealing wax",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Shovel",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Signal whistle",
+      "type": "Adventuring Gear",
+      "value": "5 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Sling",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Soap",
+      "type": "Adventuring Gear",
+      "value": "2 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Tinderbox",
+      "type": "Adventuring Gear",
+      "value": "5 sp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Torch",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Vial",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Waterskin",
+      "type": "Adventuring Gear",
+      "value": "2 sp",
+      "weight": "5 lb. (full)",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Whetstone",
+      "type": "Adventuring Gear",
+      "value": "1 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Alchemist's supplies",
+      "type": "Tool",
+      "value": "50 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Brewer's supplies",
+      "type": "Tool",
+      "value": "20 gp",
+      "weight": "9 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Calligrapher's supplies",
+      "type": "Tool",
+      "value": "10 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Carpenter's tools",
+      "type": "Tool",
+      "value": "50 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Cartographer's tools",
+      "type": "Tool",
+      "value": "15 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Cobbler's tools",
+      "type": "Tool",
+      "value": "5 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Cook's utensils",
+      "type": "Tool",
+      "value": "1 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Glassblower's tools",
+      "type": "Tool",
+      "value": "30 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Jeweler's tools",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Leatherworker's tools",
+      "type": "Tool",
+      "value": "5 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Navigator's tools",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Mason's tools",
+      "type": "Tool",
+      "value": "10 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Painter's supplies",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Poisoner's kit",
+      "type": "Tool",
+      "value": "50 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Potter's tools",
+      "type": "Tool",
+      "value": "1 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Smith's tools",
+      "type": "Tool",
+      "value": "20 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Tinker's tools",
+      "type": "Tool",
+      "value": "50 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Weaver's tools",
+      "type": "Tool",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Woodcarver's tools",
+      "type": "Tool",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Disguise kit",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Forgery kit",
+      "type": "Tool",
+      "value": "15 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Herbalism kit",
+      "type": "Tool",
+      "value": "5 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Thieves' tools",
+      "type": "Tool",
+      "value": "25 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Proficiency with this tool set lets you add your proficiency bonus to any ability checks you make using it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Dice set",
+      "type": "Gaming Set",
+      "value": "1 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "Proficiency with a gaming set lets you add your proficiency bonus to ability checks made to play a game with that set.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Dragonchess set",
+      "type": "Gaming Set",
+      "value": "1 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Proficiency with a gaming set lets you add your proficiency bonus to ability checks made to play a game with that set.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Playing card set",
+      "type": "Gaming Set",
+      "value": "5 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "Proficiency with a gaming set lets you add your proficiency bonus to ability checks made to play a game with that set.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Three-dragon ante set",
+      "type": "Gaming Set",
+      "value": "1 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "Proficiency with a gaming set lets you add your proficiency bonus to ability checks made to play a game with that set.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Bagpipes",
+      "type": "Musical Instrument",
+      "value": "30 gp",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Drum",
+      "type": "Musical Instrument",
+      "value": "1 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Dulcimer",
+      "type": "Musical Instrument",
+      "value": "25 gp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Flute",
+      "type": "Musical Instrument",
+      "value": "2 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lute",
+      "type": "Musical Instrument",
+      "value": "35 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lyre",
+      "type": "Musical Instrument",
+      "value": "30 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Horn",
+      "type": "Musical Instrument",
+      "value": "3 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Pan flute",
+      "type": "Musical Instrument",
+      "value": "12 gp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Shawm",
+      "type": "Musical Instrument",
+      "value": "10 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Viol",
+      "type": "Musical Instrument",
+      "value": "30 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "Proficiency with a musical instrument lets you add your proficiency bonus to ability checks made to play music with it.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Barding",
+      "type": "Mount Gear",
+      "value": "x4 equivalent",
+      "weight": "x2 equivalent",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Bit and bridle",
+      "type": "Mount Gear",
+      "value": "2 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Carriage",
+      "type": "Vehicle",
+      "value": "100 gp",
+      "weight": "600 lb.",
+      "effects": {
+        "summary": "Land Vehicle — Speed Drawn. Four-wheeled enclosed passenger vehicle drawn by mounts.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Carriage\n> *Land Vehicle (Cost: 100 gp)*\n> ___\n> - **Speed** Drawn\n> - **Weight** 600 lb.\n> - **Notes** Four-wheeled enclosed passenger vehicle drawn by mounts.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Land Vehicle — Speed Drawn. Four-wheeled enclosed passenger vehicle drawn by mounts.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Cart",
+      "type": "Vehicle",
+      "value": "15 gp",
+      "weight": "200 lb.",
+      "effects": {
+        "summary": "Land Vehicle — Speed Drawn. Two-wheeled open cargo vehicle drawn by a draft animal.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Cart\n> *Land Vehicle (Cost: 15 gp)*\n> ___\n> - **Speed** Drawn\n> - **Weight** 200 lb.\n> - **Notes** Two-wheeled open cargo vehicle drawn by a draft animal.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Land Vehicle — Speed Drawn. Two-wheeled open cargo vehicle drawn by a draft animal.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Chariot",
+      "type": "Vehicle",
+      "value": "250 gp",
+      "weight": "100 lb.",
+      "effects": {
+        "summary": "Land Vehicle — Speed Drawn. Two-wheeled war/racing vehicle drawn by one or two mounts.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Chariot\n> *Land Vehicle (Cost: 250 gp)*\n> ___\n> - **Speed** Drawn\n> - **Weight** 100 lb.\n> - **Notes** Two-wheeled war/racing vehicle drawn by one or two mounts.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Land Vehicle — Speed Drawn. Two-wheeled war/racing vehicle drawn by one or two mounts.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Saddle Exotic",
+      "type": "Mount Gear",
+      "value": "60 gp",
+      "weight": "40 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Saddle Military",
+      "type": "Mount Gear",
+      "value": "20 gp",
+      "weight": "30 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Saddle Riding",
+      "type": "Mount Gear",
+      "value": "10 gp",
+      "weight": "25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Wagon",
+      "type": "Vehicle",
+      "value": "35 gp",
+      "weight": "400 lb.",
+      "effects": {
+        "summary": "Land Vehicle — Speed Drawn. Four-wheeled heavy cargo wagon drawn by draft animals.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Wagon\n> *Land Vehicle (Cost: 35 gp)*\n> ___\n> - **Speed** Drawn\n> - **Weight** 400 lb.\n> - **Notes** Four-wheeled heavy cargo wagon drawn by draft animals.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Land Vehicle — Speed Drawn. Four-wheeled heavy cargo wagon drawn by draft animals.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Barrel",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "70 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Basket",
+      "type": "Adventuring Gear",
+      "value": "4 sp",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Block and tackle",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Flask or tankard",
+      "type": "Adventuring Gear",
+      "value": "2 cp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Piton",
+      "type": "Adventuring Gear",
+      "value": "5 cp",
+      "weight": "1/4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Poison basic (vial)",
+      "type": "Adventuring Gear",
+      "value": "100 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Robes",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "4 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Signet ring",
+      "type": "Adventuring Gear",
+      "value": "5 gp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Spellbook",
+      "type": "Adventuring Gear",
+      "value": "50 gp",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Spikes iron (10)",
+      "type": "Adventuring Gear",
+      "value": "1 gp",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Spyglass",
+      "type": "Adventuring Gear",
+      "value": "1000 gp",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Tent two-person",
+      "type": "Adventuring Gear",
+      "value": "2 gp",
+      "weight": "20 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Camel",
+      "type": "Mount",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large beast, unaligned — AC 9, HP 15 (2d10 + 4), Speed 50 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Camel\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 9\n> - **Hit Points** 15 (2d10 + 4)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|8 (-1)|14 (+2)|2 (-4)|8 (-1)|5 (-3)|\n> ___\n> - **Senses** passive Perception 9\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+      },
+      "description": "Large beast, unaligned — AC 9, HP 15 (2d10 + 4), Speed 50 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Donkey or mule",
+      "type": "Mount",
+      "value": "8 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Medium beast, unaligned — AC 10, HP 11 (2d8 + 2), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mule\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|10 (+0)|13 (+1)|2 (-4)|10 (+0)|5 (-3)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Beast of Burden.*** The mule is considered to be a Large animal for the purpose of determining its carrying capacity.\n>\n> ***Sure-Footed.*** The mule has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.\n>\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage."
+      },
+      "description": "Medium beast, unaligned — AC 10, HP 11 (2d8 + 2), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Elephant",
+      "type": "Mount",
+      "value": "200 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Huge beast, unaligned — AC 12 (natural armor), HP 76 (8d12 + 24), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Elephant\n> *Huge beast, unaligned*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 76 (8d12 + 24)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|9 (-1)|17 (+3)|3 (-4)|11 (+0)|6 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 4 (1,100 XP)\n> ___\n> ***Trampling Charge.*** If the elephant moves at least 20 feet straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the elephant can make one stomp attack against it as a bonus action.\n>\n> ### Actions\n> ***Gore.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) piercing damage.\n>\n> ***Stomp.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one prone creature. Hit: 22 (3d10 + 6) bludgeoning damage."
+      },
+      "description": "Huge beast, unaligned — AC 12 (natural armor), HP 76 (8d12 + 24), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Horse draft",
+      "type": "Mount",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large beast, unaligned — AC 10, HP 19 (3d10 + 3), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Draft Horse\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 19 (3d10 + 3)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|10 (+0)|12 (+1)|2 (-4)|11 (+0)|7 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 9 (2d4 + 4) bludgeoning damage."
+      },
+      "description": "Large beast, unaligned — AC 10, HP 19 (3d10 + 3), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Horse riding",
+      "type": "Mount",
+      "value": "75 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large beast, unaligned — AC 10, HP 13 (2d10 + 2), Speed 60 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Riding Horse\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 13 (2d10 + 2)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|10 (+0)|12 (+1)|2 (-4)|11 (+0)|7 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (2d4 + 3) bludgeoning damage."
+      },
+      "description": "Large beast, unaligned — AC 10, HP 13 (2d10 + 2), Speed 60 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Mastiff",
+      "type": "Mount",
+      "value": "25 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Medium beast, unaligned — AC 12, HP 5 (1d8 + 1), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mastiff\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 5 (1d8 + 1)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |13 (+1)|14 (+2)|12 (+1)|3 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Keen Hearing and Smell.*** The mastiff has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone. Mastiffs are impressive hounds prized by humanoids for their loyalty and keen senses. Mastiffs can be trained as guard dogs, hunting dogs, and war dogs. Halflings and other Small humanoids ride them as mounts."
+      },
+      "description": "Medium beast, unaligned — AC 12, HP 5 (1d8 + 1), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Pony",
+      "type": "Mount",
+      "value": "30 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Medium beast, unaligned — AC 10, HP 11 (2d8 + 2), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Pony\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|10 (+0)|13 (+1)|2 (-4)|11 (+0)|7 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) bludgeoning damage."
+      },
+      "description": "Medium beast, unaligned — AC 10, HP 11 (2d8 + 2), Speed 40 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Warhorse",
+      "type": "Mount",
+      "value": "400 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Large beast, unaligned — AC 11, HP 19 (3d10 + 3), Speed 60 ft. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Warhorse\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 19 (3d10 + 3)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|12 (+1)|13 (+1)|2 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Senses** passive Perception 11\n> - **Languages** —\n> - **Challenge** 1/2 (100 XP)\n> ___\n> ***Trampling Charge.*** If the horse moves at least 20 feet straight toward a creature and then hits it with a hooves attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the horse can make another attack with its hooves against it as a bonus action.\n>\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage."
+      },
+      "description": "Large beast, unaligned — AC 11, HP 19 (3d10 + 3), Speed 60 ft. Full stat block in Allies & Stat Blocks.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Saddle Pack",
+      "type": "Mount Gear",
+      "value": "5 gp",
+      "weight": "15 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Saddlebags",
+      "type": "Mount Gear",
+      "value": "4 gp",
+      "weight": "8 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Sled",
+      "type": "Vehicle",
+      "value": "20 gp",
+      "weight": "300 lb.",
+      "effects": {
+        "summary": "Land Vehicle — Speed Drawn. Runner-mounted vehicle for snow and ice travel.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Sled\n> *Land Vehicle (Cost: 20 gp)*\n> ___\n> - **Speed** Drawn\n> - **Weight** 300 lb.\n> - **Notes** Runner-mounted vehicle for snow and ice travel.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Land Vehicle — Speed Drawn. Runner-mounted vehicle for snow and ice travel.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Feed (per day)",
+      "type": "Mount Gear",
+      "value": "5 cp",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Stabling (per day)",
+      "type": "Mount Gear",
+      "value": "5 sp",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Galley",
+      "type": "Vehicle",
+      "value": "30000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Waterborne Vehicle — Speed 4 mph. Large oared & sailed warship/transport.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Galley\n> *Waterborne Vehicle (Cost: 30000 gp)*\n> ___\n> - **Speed** 4 mph\n> - **Weight** -\n> - **Notes** Large oared & sailed warship/transport.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Waterborne Vehicle — Speed 4 mph. Large oared & sailed warship/transport.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Keelboat",
+      "type": "Vehicle",
+      "value": "3000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Waterborne Vehicle — Speed 1 mph. River/coastal cargo boat.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Keelboat\n> *Waterborne Vehicle (Cost: 3000 gp)*\n> ___\n> - **Speed** 1 mph\n> - **Weight** -\n> - **Notes** River/coastal cargo boat.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Waterborne Vehicle — Speed 1 mph. River/coastal cargo boat.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Longship",
+      "type": "Vehicle",
+      "value": "10000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Waterborne Vehicle — Speed 3 mph. Swift oared & sailed raiding vessel.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Longship\n> *Waterborne Vehicle (Cost: 10000 gp)*\n> ___\n> - **Speed** 3 mph\n> - **Weight** -\n> - **Notes** Swift oared & sailed raiding vessel.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Waterborne Vehicle — Speed 3 mph. Swift oared & sailed raiding vessel.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Rowboat",
+      "type": "Vehicle",
+      "value": "50 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Waterborne Vehicle — Speed 1.5 mph. Small human-powered boat for lakes and rivers.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Rowboat\n> *Waterborne Vehicle (Cost: 50 gp)*\n> ___\n> - **Speed** 1.5 mph\n> - **Weight** -\n> - **Notes** Small human-powered boat for lakes and rivers.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Waterborne Vehicle — Speed 1.5 mph. Small human-powered boat for lakes and rivers.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Sailing ship",
+      "type": "Vehicle",
+      "value": "10000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Waterborne Vehicle — Speed 2 mph. Oceangoing wind-powered ship.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Sailing ship\n> *Waterborne Vehicle (Cost: 10000 gp)*\n> ___\n> - **Speed** 2 mph\n> - **Weight** -\n> - **Notes** Oceangoing wind-powered ship.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Waterborne Vehicle — Speed 2 mph. Oceangoing wind-powered ship.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Warship",
+      "type": "Vehicle",
+      "value": "25000 gp",
+      "weight": "-",
+      "effects": {
+        "summary": "Waterborne Vehicle — Speed 2.5 mph. Heavily built naval warship.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Warship\n> *Waterborne Vehicle (Cost: 25000 gp)*\n> ___\n> - **Speed** 2.5 mph\n> - **Weight** -\n> - **Notes** Heavily built naval warship.\n> ___\n> ### Crew, AC, HP & Modifications\n> *Track crew, cargo, AC, and HP here.*"
+      },
+      "description": "Waterborne Vehicle — Speed 2.5 mph. Heavily built naval warship.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Burglar's Pack",
+      "type": "Equipment Pack",
+      "value": "16 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 days rations, a tinderbox, a waterskin, and 50 feet of hempen rope.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Diplomat's Pack",
+      "type": "Equipment Pack",
+      "value": "39 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Dungeoneer's Pack",
+      "type": "Equipment Pack",
+      "value": "12 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, a waterskin, and 50 feet of hempen rope.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Entertainer's Pack",
+      "type": "Equipment Pack",
+      "value": "40 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 days of rations, a waterskin, and a disguise kit.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Explorer's Pack",
+      "type": "Equipment Pack",
+      "value": "10 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, a waterskin, and 50 feet of hempen rope.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Priest's Pack",
+      "type": "Equipment Pack",
+      "value": "19 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Scholar's Pack",
+      "type": "Equipment Pack",
+      "value": "40 gp",
+      "weight": "-",
+      "effects": "Starting equipment bundle",
+      "description": "Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.",
+      "reference": "SRD 5.1"
+    }
+  ]
+}
