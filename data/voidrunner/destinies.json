@@ -1,0 +1,102 @@
+{
+  "style": "Voidrunner",
+  "kind": "destinies",
+  "items": [
+    {
+      "name": "Logic",
+      "description": "Guided by cold reason and empirical clarity above impulse or sentiment.",
+      "src_inspiration": "Rationality. Gain inspiration whenever you make an optimal logical decision or solve a complex dilemma through pure reason.",
+      "inspiration_feat": "Clear Head. Spend your inspiration to gain advantage on an Intelligence or Wisdom saving throw or check, or suppress charmed/frightened for 1 minute.",
+      "fullfillment": "Calm Rationality. Whatever the circumstance, you act with equanimity and care. Whenever you make an ability check, you may treat rolls of less than 10 as being a roll of 10.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Victory",
+      "description": "Victory is everything — whether in warfare, academia, or sport, all that matters is triumph over your foes or competitors.",
+      "src_inspiration": "Triumph. You seek to overcome others at all costs. Gain inspiration whenever you defeat a worthy foe in a contest or battle.",
+      "inspiration_feat": "Direct Conflict. Spend inspiration so that for the next hour you gain an expertise die whenever you make an opposed check against another creature.",
+      "fullfillment": "Unstoppable Champion. Achieve ultimate triumph over a grand rival or impossible challenge to claim your lasting legacy of victory.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Chaos",
+      "description": "Those destined for Chaos don't live by the rules binding ordinary folk. They clash with authority and tradition all their lives, either in minor acts of subversion or outright rebellion. Tricksters are rarely mere rulebreakers—their ideology signals change for both the meek and mighty.",
+      "src_inspiration": "Chaos. You sow disorder, play tricks, and subvert tradition. You gain inspiration whenever you successfully subvert law and order, so long as it benefits your allies or moves the story forward.\n\nSuccessfully lie to or humiliate an authority figure, commit a punishable crime, indulge in base pleasures to ill-advised extremes.",
+      "inspiration_feat": "Ingenious Doubletalk. Undaunted by momentary setbacks, you twist conversations in any direction with an inspired turn of phrase and confusing doubletalk that plays off bold lies and impertinent proposals as jokes, obfuscates or redirects accidentally slipped information, or quells outrage with diffusing flattery. Whenever you or a friendly creature you can hear fails a Deception or a Persuasion check, you can use your reaction to spend your inspiration and undo any consequences of that failed check.",
+      "fullfillment": "Agent of Chaos. The whims of chaos flow through you and everything you do. Whenever you roll one or more dice to determine the damage of an attack or spell or the random effects of a spell or feature, you may choose to reroll those dice; if you do you must use the new rolls.\n\nIn addition, you gain the Chaotic alignment and emit a strong chaotic aura for the purposes of any feature, spell, or trait that detects or affects Chaotic creatures.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Coming of Age",
+      "description": "Not all heroes have a clear path ahead of them. Some are still finding their footing and are dreaming big all the same: of adventure, the open road, a chance to prove one's worth, and having a life worth living.",
+      "src_inspiration": "Yes to Adventure. You draw inspiration from setting out with adventure in front of you. You gain inspiration whenever you achieve a personal milestone.\n\nJoin a new guild or organization, travel somewhere new and far from home, accept a new major quest or mission, change worldviews and grow as a person.",
+      "inspiration_feat": "Ready to Learn. You haven't had training in everything but you're determined to give it your all anyway. As a bonus action you may spend your inspiration to gain proficiency with a weapon, armor, skill, or tool for the next hour.",
+      "fullfillment": "Returned. With the journey complete, you finally know who you are—or rather who you became along the way. When you gain this feature, you immediately choose the fulfillment feature from another destiny. You gain the chosen fulfillment feature, which replaces this one.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Devotion",
+      "description": "Devotion can be a pure or foolish thing. A beloved, a nation, a cause —anything may be the object of your Devotion, but very few are worthy of it. For you the choice is clear: the love at the center of your life is worth dying or killing for, and there is no limit to your service and sacrifice on its behalf.",
+      "src_inspiration": "Its Own Reward. You draw inspiration from seeing your duty through to the end. You gain inspiration whenever you complete a quest, fulfill a difficult promise, or commit an act of selfsacrifice that includes grievous injury to yourself.\n\nComplete a quest, keep a promise to your own detriment, keep an innocent safe while seriously endangering yourself, commit an act of genuine self-sacrifice.",
+      "inspiration_feat": "Selfless Aid. Your aid is a lifeline and a steadying source of resolve. Whenever you take the Help action to aid an ally attacking a creature, you may spend your inspiration. If you do, in addition to the normal benefits of the Help action, that creature has disadvantage on attack rolls against creatures other than you until the start of your next turn.",
+      "fullfillment": "Miraculous Revival. Universal forces are often inclined to restore those who die heroically for noble causes, blessing their sacrifice by making them better than they were before. As long as you have not died of old age, 24 hours after you die (or in 24 hours, if your death triggered gaining this feature) you miraculously revive intact with full hit points. You appear after \"narrowly surviving\" the circumstances that killed you—climbing out of the chasm you fell down, crawling from the rubble of the structure that collapsed over you, waking up from impossibly lethal wounds that prove superficial, or magically transporting from the plane of existence you were caught in.\n\nIn addition, the first time you are revived in this way, you gain a +1 bonus on all future attack rolls, ability checks, and saving throws.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Dominion",
+      "description": "An impostor seated on your throne, a land divided by civil strife, a feckless bureaucracy waiting to be gamed. Those with the Dominion destiny look at chaos and see opportunity. Some seek to return to their hand what is rightfully theirs, but others start with nothing and wish to accumulate influence and power however they may. Through shield and steel or cloak and dagger you reach out to claim your rightful seat of power— or a place in its shadows. The Dominion destiny is as varied as politics itself. Consult with the Narrator to come up with ideas for an ambition suitable to the setting and campaign.",
+      "src_inspiration": "Leadership. You draw inspiration from taking charge and directing what needs to be done. You gain inspiration whenever you lead by example or convince a group of NPCs to act against their own interests in order to complete a difficult task.\n\nSettle a vitriolic argument, direct a large number of nonplayer characters to participate in the completion of a task, rally a multitude of people to a cause.",
+      "inspiration_feat": "Studied Deliberation. With a level head and measured logic, you objectively determine the best path forward. You may spend your inspiration and a minute's deliberation to determine the results of an upcoming plan of action (as the augury spell).",
+      "fullfillment": "Absolute Power. Either through respect or fear you have become an uncontested ruler, and most simple orders you give are followed without question. You have advantage on checks made to influence your subjects.\n\nIn addition, you gain the Lawful alignment, and you emit a strong lawful aura for the purposes of any feature, spell, or trait that detects or affects Lawful creatures.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Excellence",
+      "description": "Some are fated to be the best, the apex, the pinnacle of their craft that all others aspire to. Such perfection demands single-minded determination, unending resolve and focus, and the luck of innate talent. Those destined for Excellence impact the world— often at the cost of countless sacrifices along the way.",
+      "src_inspiration": "Failure. Every failed attempt is a chance for growth and each time you fall you stand up stronger. You gain inspiration whenever the Narrator calls for you to make an ability check, attack roll, or saving throw and the final result of the d20 roll is a natural 1.",
+      "inspiration_feat": "Practiced Edge. A perfected technique is often the difference between victory and defeat. After you roll an ability check, attack roll, or saving throw but before you know the outcome, you may spend your inspiration to add a +5 bonus to that roll.",
+      "fullfillment": "A Technique Perfected: You have achieved the apex in at least some small area of mortal ability. Choose an ability score, combat tradition, or school of magic.\n\nAbility Score: When you make an ability check using the chosen ability score and can add your proficiency bonus, you gain an expertise die.\n\nCombat Tradition: Attacks you make using combat maneuvers from this tradition gain a +2 bonus to attack and damage rolls.\n\nSchool of Magic: When you cast a spell from this school of magic, your spell save DC is treated as 2 higher and you gain a +2 bonus on any spell attack roll it requires.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Knowledge",
+      "description": "You seek the philosopher's stone, universal truths too vast and terrible for mortal minds to comprehend, or untold secrets hidden away from inquiring minds. Scholars and seekers of Knowledge research and pry, chipping away at their own ignorance until they reveal some fundamental truths of reality.",
+      "src_inspiration": "Learning. You draw inspiration from research, understanding, and gaining new insights and data. You gain inspiration whenever you make an arcane, divine, scholastic, or scientific discovery.\n\nClosely examine a previously unknown or rare creature or phenomenon, discover something thought to be a myth or impossible, learn new information after at least 8 hours studying from a source of knowledge such as a library, book, or powerful artifact.",
+      "inspiration_feat": "Critical Evaluation. Drawing upon a lifetime of study, you leap to accurate conclusions with only preliminary findings. As a bonus action you may spend your inspiration to quickly evaluate a creature or item you can see and accurately determine one objective attribute of your choice.\n\nWhen evaluating a creature in this way, you may determine its resistances, immunities, vulnerabilities, what languages it speaks, or its Armor Class.\n\nWhen evaluating an item in this way, you may determine if it is magical, poisonous, cursed, trapped, or its approximate value.",
+      "fullfillment": "Converging Theories. Your understanding has bridged the gaps and you join what once was disparate into a unified scientific and spiritual theory. Your Intelligence, Wisdom, and Charisma scores each increase by 2 and their maximums each become 22.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Metamorphosis",
+      "description": "The trappings of daily life stifle you and the shackles of this mortal coil cannot contain you. People whose destiny is Metamorphosis seek to attain a higher mode of being. Some search for enlightenment but others turn their ambitions even higher, daring to pursue eternal life in the form of a vampire, a lich, a demon, or even a god. What will you sacrifice to walk this path?",
+      "src_inspiration": "Unburdening. When you gain this feature, inform your Narrator of the new form you desire (such as enlightenment, vampirism, or godhood). You gain inspiration whenever you make sacrifices to attain new lore, contacts, or items to aid your transformation.\n\nSever earthly attachments such as wealth or comfort, behave appropriately akin to your pursued form, spend inordinate time in your transformation's pursuit.",
+      "inspiration_feat": "Unearthly Diplomacy. Your unearthly aspirations grant you insights into the minds of even utterly alien beings. As an action, you may spend your inspiration to form a connection with a non-humanoid creature you can see that has a CR equal to or less than your level. You communicate freely, even if you do not share a language or the creature would be normally unable to speak. You have no control over a creature you connect with in this way but you gain an expertise die on checks made to influence it. The knowledge and awareness of a creature is limited by its intellect or perceptions, but most give you information about nearby locations, monsters in the area, and knowledge of whatever it perceived within the past day.\n\nThis connection lasts for up to 1 hour or until you use an action to end it.",
+      "fullfillment": "Forever Changed. You have finally reached the apex and have become something greater than your previous self could imagine. When you gain this feature, consult with the Narrator about the exact nature of your metamorphosis and if your adventurer would still choose to remain adventuring after transformation.\n\nIf your character would remain an adventurer, you may choose and become an appropriate creature with a CR equal to or lower than your class level –2 (as per the spell true polymorph, except that this transformation is permanent and cannot be dispelled.)\n\nIf your character would not remain an adventurer, you may use a portion of your new power however you see fit (as the wish spell) before ascending.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Revenge",
+      "description": "Someone or something has wronged you, and even the gods cannot shield them from your retribution. Your burning desire for Revenge fuels your plans and kindles your destiny. Was your ire sparked by a grave misunderstanding, a callous uncaring cruelty, or a wicked and personal transgression?",
+      "src_inspiration": "Served Cold. You draw inspiration from the wails of those who have wronged you. You gain inspiration whenever you outwit a foe without the use of Deception or Persuasion checks.\n\nSuccessfully attack a surprised opponent, lead a foe into a prepared trap, trick an enemy into harming themself or greatly benefiting you.",
+      "inspiration_feat": "Cloak and Dagger. You know how to avert suspicion when danger closes in. Whenever you or an ally you can see fail a Sleight of Hand or Stealth check, you can use your reaction to spend your inspiration and undo any consequences of that failed check.",
+      "fullfillment": "Retaliatory Reputation. It has become apparent that wronging you is decidedly unwise and those without a death wish instinctively fear you. While you are not incapacitated, you can use a bonus action to direct a threatening stare at any hostile creature within 20 feet of you. The creature makes a Wisdom saving throw with a DC equal to your passive Intimidation score. On a failure, the creature is frightened until the end of its next turn. A creature that succeeds on its saving throw is immune to your Retaliatory Reputation for the next 24 hours.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Underdog",
+      "description": "Some people strive towards their destiny while others are dragged there. Those fated to be Underdogs must battle adversity and survive against long odds, gradually growing into the heroes they never sought to become.",
+      "src_inspiration": "Defiance. You draw inspiration from striking out against oppression, defying long odds, and placing hope in the impossible. You gain inspiration whenever you score a critical hit against a creature larger than you are, roll a natural 20 on a death saving throw, openly defy a powerful being, or succeed after taking a risk with long odds.\n\nLoudly refuse the orders of a tyrant, follow through with a convoluted or risky plan, succeed at something you were extremely likely to fail.",
+      "inspiration_feat": "A Nose for Trouble. Get kicked around long enough and you start to know when trouble's brewing. Whenever you or an ally you can see fails an Insight check, you can use your reaction to spend your inspiration and learn any information that would have been gained by a successful Insight check.",
+      "fullfillment": "Expendable and Invulnerable. While being kicked around and batted from adventure to adventure, somehow you always seem to scramble out of the rubble. Whenever you would make a saving throw you may spend your inspiration to automatically succeed instead.",
+      "reference": "A5e AG"
+    },
+    {
+      "name": "Wealth",
+      "description": "Glittering gold holds the promise of luxuries and freedom from want, all wrapped with the exhilarating rush of acquisition. Of the countless people who spend their lives in pursuit of Wealth some are just shrewd, clever, or brave enough to achieve their destiny.",
+      "src_inspiration": "Profits. You draw inspiration from spoils both easily gained and hard fought. You gain inspiration whenever you acquire substantial wealth.\n\nGain currency or property worth at least 100 times your character level in gold, receive a magic item that is uncommon or rarer without purchasing it.",
+      "inspiration_feat": "Everyone Has a Price. You can see the glint in people's hungry eyes as they watch money change hands and can perfectly name their price. As a bonus action you may spend your inspiration to accurately determine if a creature you see will take a bribe and what price they'll accept.",
+      "fullfillment": "Wise Investments. The fabulously wealthy stay wealthy by creating businesses or investing wisely— then the engine of industry works tirelessly to keep the vaults full. You have a rich lifestyle (see page 347 for rules on lifestyle expenses).\n\nIn addition, living lavishly can be reinvigorating. You can lavish yourself and any number of other creatures with luxuries whenever you start a long rest at the cost of 100 gold per creature. Each creature lavished in this way is cured of all diseases and poison, becomes immune to poison and being frightened, and makes all Wisdom saving throws with advantage. A creature's hit point maximum also increases by 2d10, and it gains the same number of hit points. These benefits last for 24 hours.",
+      "reference": "A5e AG"
+    }
+  ]
+}

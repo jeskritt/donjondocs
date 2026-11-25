@@ -1,0 +1,106 @@
+{
+  "style": "Shadowrun: Anarchy 2.0",
+  "kind": "abilities",
+  "items": [
+    {
+      "name": "Spirit of Air",
+      "description": "Summoned Air spirit — swift reconnaissance, concealment, and wind/movement support.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Spirit of Air *(Summoned Spirit)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 2 | 4 | 3 | 2 | 3 |\n\n**Wound Thresholds:** Physical `2 / 5 / 8` *(immune to mundane weapons)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Services Remaining:** `1`  \n**Powers:** Astral Form, Materialization, Concealment, Movement, Wind/Elemental Attack."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Spirit of Beasts",
+      "description": "Summoned Beast spirit — tracking, animal command, and fierce melee combat.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Spirit of Beasts *(Summoned Spirit)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 4 | 4 | 3 | 2 | 2 |\n\n**Wound Thresholds:** Physical `4 / 7 / 10` *(immune to mundane weapons)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Services Remaining:** `1`  \n**Powers:** Astral Form, Materialization, Enhanced Senses, Animal Control, Natural Weapon (DV STR+2)."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Spirit of Earth",
+      "description": "Summoned Earth spirit — heavy armor, fortification, and raw physical durability.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Spirit of Earth *(Summoned Spirit)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 5 | 2 | 3 | 2 | 2 |\n\n**Wound Thresholds:** Physical `7 / 10 / 13` *(Armor 2; immune to mundane weapons)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Services Remaining:** `1`  \n**Powers:** Astral Form, Materialization, Guard, Movement (earth), Hardened Body."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Spirit of Fire",
+      "description": "Summoned Fire spirit — high-damage elemental offense and flame control.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Spirit of Fire *(Summoned Spirit)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 3 | 4 | 3 | 2 | 3 |\n\n**Wound Thresholds:** Physical `3 / 6 / 9` *(immune to mundane weapons)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Services Remaining:** `1`  \n**Powers:** Astral Form, Materialization, Energy Aura, Elemental Fire Attack (ranged/melee)."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Spirit of Kin",
+      "description": "Summoned Kin / Man spirit — urban intuition, spell support, and social assistance.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Spirit of Kin *(Summoned Spirit)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 3 | 3 | 3 | 3 | 3 |\n\n**Wound Thresholds:** Physical `3 / 6 / 9` *(immune to mundane weapons)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Services Remaining:** `1`  \n**Powers:** Astral Form, Materialization, Concealment, Accident, Influence, Innate Spell."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Spirit of Plants",
+      "description": "Summoned Plant spirit — entanglement, concealment, and natural healing support.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Spirit of Plants *(Summoned Spirit)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 3 | 2 | 3 | 3 | 3 |\n\n**Wound Thresholds:** Physical `3 / 6 / 9` *(immune to mundane weapons)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Services Remaining:** `1`  \n**Powers:** Astral Form, Materialization, Concealment, Engulf/Entangle, Silence."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Spirit of Water",
+      "description": "Summoned Water spirit — concealment, aquatic mobility, and engulfing attacks.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Spirit of Water *(Summoned Spirit)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 3 | 3 | 3 | 2 | 3 |\n\n**Wound Thresholds:** Physical `3 / 6 / 9` *(immune to mundane weapons)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Services Remaining:** `1`  \n**Powers:** Astral Form, Materialization, Concealment, Movement (water), Engulf."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Watcher Spirit",
+      "description": "Simple astral scout/messenger spirit; cannot materialize.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Spirit",
+        "stat_block_md": "### Watcher Spirit *(Astral Scout)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| — | — | 1 | 1 | 1 |\n\n**Wound Thresholds:** Mental / Astral `1 / 4 / 7`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Notes:** Astral-only scout and messenger; relays simple messages or watches a location."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Street Ganger (NPC Threat)",
+      "description": "Baseline street-level opposition.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "NPC / Threat",
+        "stat_block_md": "### Street Ganger *(Regular NPC)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 3 | 2 | 2 | 2 | 2 |\n\n**Wound Thresholds:** Physical `4 / 7 / 10` *(Gang Leathers Armor 1)* · Mental `2 / 5 / 8`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Fighting Spirit:** Low  \n**Key Skills:** Athletics 3, Ranged Weapons 3, Close Combat 3 (Blades 4), Stealth 3, Perception 3, Influence 2 (Intimidation 3)  \n**Weapons:** Knife DV 4 `[OK/—/—/—]` · Light Pistol DV 4 `[OK/OK/Dis./—]`  \n**Optional Amp (pick 1):** Muscle Replacement (melee DV +1), Dermal Plating (+1 Armor), Cyberarm (RR 1 Close Combat), or Jazz (+1 action)."
+      },
+      "reference": "SRA2 Core"
+    },
+    {
+      "name": "Security / Police Officer (NPC Threat)",
+      "description": "Trained corporate security or patrol officer.",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "NPC / Threat",
+        "stat_block_md": "### Security / Police Officer *(Regular NPC)*\n| STR | AGI | WIL | LOG | CHA |\n|:---:|:---:|:---:|:---:|:---:|\n| 3 | 3 | 3 | 2 | 2 |\n\n**Wound Thresholds:** Physical `6 / 9 / 12` *(Kevlar Vest Armor 3)* · Mental `3 / 6 / 9`  \n**Condition Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Fighting Spirit:** Medium  \n**Key Skills:** Athletics 4 (Ranged defense 4), Ranged Weapons 4 (Pistols 5), Close Combat 3, Perception 4  \n**Weapons:** Heavy Pistol DV 5 `[OK/OK/Dis./—]` · Stun Baton DV 5 `[OK/—/—/—]`  \n**Gear:** Commlink, handcuffs, Kevlar vest (Armor 3)."
+      },
+      "reference": "SRA2 Core"
+    }
+  ]
+}

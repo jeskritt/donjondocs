@@ -1,0 +1,42 @@
+{
+  "style": "Dungeons & Dragons 5e",
+  "kind": "attributes",
+  "items": [
+    {
+      "name": "Strength",
+      "alias": "STR",
+      "description": "Strength is the measure of your physical power and might.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Dexterity",
+      "alias": "DEX",
+      "description": "Dexterity is the measure of your agility, reflexes, and balance.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Constitution",
+      "alias": "CON",
+      "description": "Constitution is the measure of your health, stamina, and resilience.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Intelligence",
+      "alias": "INT",
+      "description": "Intelligence is the measure of your reasoning, memory, and analytical skill.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Wisdom",
+      "alias": "WIS",
+      "description": "Wisdom is the measure of your perception, intuition, and insight.",
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Charisma",
+      "alias": "CHA",
+      "description": "Charisma is the measure of your force of personality, persuasiveness, and leadership.",
+      "reference": "SRD 5.1"
+    }
+  ]
+}

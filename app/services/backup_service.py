@@ -6,7 +6,7 @@ Interactions:
 - `app.services.character_io`: `EXPORT_VERSION` and `migrate_character_data` are reused so each character's `character_data` blob is normalized to the latest version at backup time and re-validated on restore.
 - `app.schemas.char_sheet_specific.Character`: validates each character's blob during restore before any DB writes.
 - `cli.py`: only caller in production. The `backup` and `restore` subcommands wrap these functions.
-- Bulk rule data (rows with `owner_id IS NULL` in the `global_*` tables) is intentionally excluded — that data is reproducible from `data/*.csv` via `python -m app.cli.ingest`.
+- Bulk rule data (rows with `owner_id IS NULL` in the `global_*` tables) is intentionally excluded — that data is reproducible from `data/` via `python -m app.cli.ingest`.
 """
 
 """Backup and restore for user-owned data only.

@@ -106,8 +106,9 @@
         "rating": 4,
         "essence_cost": 0.0,
         "effects": [],
-        "body_md": "### Harley-Davidson Centaur *(Combat Bike — Vehicle Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 5 | 2 | 5 | 3 |\n\n**Damage Thresholds:** Light `8` · Serious `13` · Incap. `18`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing — *(empty)*  \n**Custom Notes:** Stored in a Tacoma lockup with hidden tool compartment.",
-        "is_custom": true
+        "body_md": "Combat bike — Pilot 6, Body 5, Handling 2, Speed 5, Armor 3 (1 front weapon mount). Stored in a Tacoma lockup with hidden tool compartment. Full stat block in Allies & Stat Blocks.",
+        "ally_id": "ally-bike",
+        "is_custom": false
       }
     ],
     "weapons": [
@@ -133,7 +134,13 @@
     "nuyen": 5000,
     "bio": "Former dockside security technician turned freelance combat decker operating out of Tacoma."
   },
-  "allies": [],
+  "allies": [
+    {
+      "name": "Harley-Davidson Centaur",
+      "ally_type": "Vehicle",
+      "body_md": "### Harley-Davidson Centaur *(Combat Bike — Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 5 | 2 | 5 | 3 |\n\n**Damage Thresholds:** Light `8` · Serious `13` · Incap. `18`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing — *(empty)*  \n**Custom Notes:** Stored in a Tacoma lockup with hidden tool compartment."
+    }
+  ],
   "notes": [
     {
       "title": "Run Checklist",

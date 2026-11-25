@@ -1,0 +1,42 @@
+{
+  "style": "Shadowdark RPG",
+  "kind": "attributes",
+  "items": [
+    {
+      "name": "Strength",
+      "alias": "STR",
+      "description": "Strength is the measure of your physical power and might.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Dexterity",
+      "alias": "DEX",
+      "description": "Dexterity is the measure of your agility, reflexes, and balance.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Constitution",
+      "alias": "CON",
+      "description": "Constitution is the measure of your health, stamina, and resilience.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Intelligence",
+      "alias": "INT",
+      "description": "Intelligence is the measure of your reasoning, memory, and analytical skill.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Wisdom",
+      "alias": "WIS",
+      "description": "Wisdom is the measure of your perception, intuition, and insight.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Charisma",
+      "alias": "CHA",
+      "description": "Charisma is the measure of your force of personality, persuasiveness, and leadership.",
+      "reference": "Shadowdark RPG"
+    }
+  ]
+}

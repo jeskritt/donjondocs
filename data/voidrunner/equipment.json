@@ -1,0 +1,1912 @@
+{
+  "style": "Voidrunner",
+  "kind": "equipment",
+  "items": [
+    {
+      "name": "Basic or uniform clothing",
+      "type": "Clothing",
+      "value": "—",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Costume",
+      "type": "Clothing",
+      "value": "5 cr",
+      "weight": "4 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Fine clothing",
+      "type": "Clothing",
+      "value": "15 cr",
+      "weight": "6 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Noble clothing",
+      "type": "Clothing",
+      "value": "50 cr",
+      "weight": "6 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Diver's suit",
+      "type": "Specialist Clothing",
+      "value": "300 cr",
+      "weight": "20 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Ghillie suit",
+      "type": "Specialist Clothing",
+      "value": "50 cr",
+      "weight": "5 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Optic camouflage cloak",
+      "type": "Specialist Clothing",
+      "value": "900 cr",
+      "weight": "3 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Tactical clothing",
+      "type": "Specialist Clothing",
+      "value": "25 cr",
+      "weight": "3 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Data wafer",
+      "type": "Communications",
+      "value": "2 cr",
+      "weight": "—",
+      "effects": "1 petabyte storage",
+      "description": "1 petabyte storage",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Personal communicator",
+      "type": "Communications",
+      "value": "50 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Portable computing device (PCD)",
+      "type": "Communications",
+      "value": "75 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Signal jammer",
+      "type": "Communications",
+      "value": "250 cr",
+      "weight": "10 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Workstation computing device (WCD)",
+      "type": "Communications",
+      "value": "200 cr",
+      "weight": "20 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Backpack",
+      "type": "Container",
+      "value": "10 cr",
+      "weight": "3 lbs.",
+      "effects": "60 lbs. of gear or 2 cubic feet",
+      "description": "60 lbs. of gear or 2 cubic feet",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Duffel bag",
+      "type": "Container",
+      "value": "20 cr",
+      "weight": "4 lbs.",
+      "effects": "200 lbs. of gear or 4 cubic feet",
+      "description": "200 lbs. of gear or 4 cubic feet",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Shipping container",
+      "type": "Container",
+      "value": "500 cr",
+      "weight": "8000 lbs.",
+      "effects": "70,000 lbs. or 1,150 cubic feet; ruggedized (AC 15, 30 HP, vacuum-sealed)",
+      "description": "70,000 lbs. or 1,150 cubic feet; ruggedized (AC 15, 30 HP, vacuum-sealed)",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Storage drum",
+      "type": "Container",
+      "value": "25 cr",
+      "weight": "30 lbs.",
+      "effects": "55 gallons liquid or 7 cubic feet of solid",
+      "description": "55 gallons liquid or 7 cubic feet of solid",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Storage crate",
+      "type": "Container",
+      "value": "10 cr",
+      "weight": "10 lbs.",
+      "effects": "300 lbs. of gear or 12 cubic feet",
+      "description": "300 lbs. of gear or 12 cubic feet",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Tactical case",
+      "type": "Container",
+      "value": "25 cr",
+      "weight": "5 lbs.",
+      "effects": "50 lbs. of gear or 2 cubic feet; ruggedized (AC 15, 30 HP, vacuum-sealed)",
+      "description": "50 lbs. of gear or 2 cubic feet; ruggedized (AC 15, 30 HP, vacuum-sealed)",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Utility drone",
+      "type": "Drone",
+      "value": "50 cr",
+      "weight": "2 lbs.",
+      "effects": {
+        "summary": "Tiny Construct (Drone) (CR 1/4) — AC 13 (natural armor), HP 6 (2d4 + 1; bloodied 3), Speed 30 ft., or fly 30 ft. (hover), swim 30 ft.. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Utility Drone\n> *Tiny Construct (Drone) (CR 1/4)*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 6 (2d4 + 1; bloodied 3)\n> - **Speed** 30 ft., or fly 30 ft. (hover), swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |4 (-4)|16 (+3)|13 (+1)|1 (-5)|10 (+0)|1 (-5)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Senses** blindsight 10 ft., passive Perception 12\n> - **Damage Immunities** poison, psychic\n> - **Condition Immunities** charmed, fatigue, frightened,\n> - **Languages** Common, Machine\n> ___\n> 50 XP paralyzed, petrified, poisoned\n>\n> ***Malfunction.*** The drone malfunctions when it takes a critical hit, becoming confused until another creature within 5 feet makes a DC 10 Engineering check to end the condition.\n>\n> ***Recording.*** The drone can stream audio-visual data to its control device or to other adjacent devices. Its on-board memory can record up to 1 hour of footage. No action is required for the drone to begin streaming or recording.\n>\n> ***Special Delivery.*** The drone can hold an object or objects weighing no more than 5 pounds. Adjacent allied creatures can retrieve these items as a bonus action.\n>\n> ### Actions\n> ***Spark.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) lightning damage. Combat If it cannot run or has been programmed to fight, the utility drone chooses a target (preferably one not targeted by one of its fellow drones) and attacks until that target is neutralized. It fights to the death. Variants: Modified Utility Drones Some drones have been loaded with weapons or equipment that changes their capabilities. The following are varieties of utility drone: Counselor Drone This drone is designed to provide information. Some are stationed in one location in a 'help desk' role, while others accompany individual people. The drone's Intelligence is treated as 16 (+3) for the purposes of recalling information only. It has proficiency in History, Science, and Culture, making those checks with a +5 bonus. Hacker Drone The drone gains the following trait and additional action:\n>\n> ***Built-in Hacker.*** The drone has integrated hacking tools which it uses with a +4 bonus; its Intelligence is treated as 14 (+2) for the purposes of hacking only. It can attempt to hack an adjacent device and is able to perform hacking maneuvers.\n>\n> ***Hacking Accomplice.*** Creatures directly controlling this drone can hack devices adjacent to it as if they'd established a direct connection. Healer Drone The drone gains the following additional action:\n>\n> ***Heal.*** The drone lands on a creature and injects it with nanobots that heal it for 11 (3d4+4) hit points. The drone can only hold 3 uses of the nanobots at a time. Refills cost 100 credits per nanobot pouch. Recon Drone The drone gains the following trait:\n>\n> ***Sight Expertise.*** The recon drone has proficiency in Perception, and its Wisdom score is treated as though it were 16 (+3) for the purposes of perception only. It has a +5 bonus to Perception and a passive Perception of 15. The drone is able to record and stream up to 24 hours of audiovisual data (instead of 1 hour). In addition, the drone gains darkvision to a range of 120 feet. Exterminator Drone These deadly drones are intelligent and filled with hate. Larger than most, they are heavily armed and want nothing more than the destruction of all life in the universe."
+      },
+      "description": "Tiny Construct (Drone) (CR 1/4) — AC 13 (natural armor), HP 6 (2d4 + 1; bloodied 3), Speed 30 ft., or fly 30 ft. (hover), swim 30 ft.. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Combat drone",
+      "type": "Drone",
+      "value": "120 cr",
+      "weight": "4 lbs.",
+      "effects": {
+        "summary": "Small Construct (Drone) (CR 1) — AC is 17. It gains the following additional action:, HP 24 (7d4 + 7; bloodied 12), Speed 0 ft., fly 50 ft. (hover). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Combat Drone\n> *Small Construct (Drone) (CR 1)*\n> ___\n> - **Armor Class** is 17. It gains the following additional action:\n> - **Hit Points** 24 (7d4 + 7; bloodied 12)\n> - **Speed** 0 ft., fly 50 ft. (hover)\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |11 (+0)|14 (+2)|13 (+1)|6 (-2)|13 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3\n> - **Damage Immunities** poison\n> - **Condition Immunities** fatigue, frightened, petrified,\n> - **Senses** darkvision 60 ft., passive Perception 13\n> - **Languages** Common, Machine\n> ___\n> 200 XP poisoned\n>\n> ***Communicator.*** The drone can silently communicate with drones and devices of its choice that are within 1 mile of it.\n>\n> ***Loudspeaker.*** The drone can make its voice heard up to 300 feet away.\n>\n> ***Malfunction.*** The drone malfunctions when it takes a critical hit, becoming confused until another creature within 5 feet makes a DC 10 Engineering check to end the condition.\n>\n> ### Actions\n> ***Multiattack.*** The drone attacks twice with its blaster.\n>\n> ***Blaster.*** Ranged Weapon Attack: +4 to hit, range 60/120 ft. one target. Hit: 6 (1d8 + 2) force damage. Combat The drone chooses a target (preferably one not targeted by one of its fellow drones) and attacks until that target is neutralized. It fights to the death. Variants: Modified Drones Some drones have been loaded with weapons or equipment that changes their capabilities. The following are varieties of drone: Assassin Drone\n>\n> ***The drone's CR is 4.*** It has 60 hit points and its\n>\n> ***Sniper.*** Ranged Weapon Attack: +6 to hit, range 120 ft., one target. Hit: 18 (4d8) radiant damage. Bomber Drone This drone is essentially a flying bomb, designed to explode when it reaches its target. It has 32 hit points. The drone's CR is 3. It replaces its Blaster action with the following action:\n>\n> ***Detonate.*** The drone explodes in a 20 foot radius area. Each creature in the area makes a DC 14 Dexterity saving throw, taking 26 (4d12) fire damage on a failure or half damage on a success. Flamethrower Drone\n>\n> ***The drone's CR is 2.*** It gains the following additional action:\n>\n> ***Flamethrower.*** The drone spouts flame in a 15 foot cone. Each creature in the area makes a DC 12 Dexterity saving throw, taking 14 (4d6) fire damage on a failure or half damage on a success. Mortar Drone\n>\n> ***The drone's CR is 2.*** It gains the following additional action:\n>\n> ***Mortar.*** The drone fires a bomb to a point within 120 feet that it can see. The bomb then falls until it hits a liquid or solid surface where it detonates in a 20 foot radius explosion. Each creature in the area makes a DC 12 Dexterity saving throw, taking 14 (4d6) fire damage and falling prone on a failure or taking half damage and not falling prone on a success. Processor Drone The drone's Intelligence is 14 (+2) and its CR is 2. It gains the following bonus action:\n>\n> ***Service Ticket.*** As a bonus action, the drone can issue an order to another drone within 30 feet. The other drone can use a reaction to make an attack. Shield Drone\n>\n> ***The drone's CR is 2.*** The drone's passive Perception becomes 15 and its Perception skill becomes +5. It also gains blindsight 60 ft.\n>\n> ***Shield Generator (Recharge 6).*** The drone and creatures of its choice within 5 feet of it gain 10 temporary hit points. Stunner Drone The drone replaces its Blaster action with the following action:\n>\n> ***Arc Stunner.*** Ranged Weapon Attack: +4 to hit, range 20 ft., one target. Hit: 9 (2d6 + 2) lightning damage. If this damage makes a creature bloodied it makes a DC 12 Wisdom saving throw or falls asleep for 1 minute, until it takes damage, or someone uses an action to shake or slap the creature awake. Utility Drone The smallest drones typically serve a specific purpose, a utility that takes up all or most of their capacity to accomplish. These simple drones are typically assistants, messengers, or scouts. Utility drones either fly or move on the ground."
+      },
+      "description": "Small Construct (Drone) (CR 1) — AC is 17. It gains the following additional action:, HP 24 (7d4 + 7; bloodied 12), Speed 0 ft., fly 50 ft. (hover). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Hacker drone",
+      "type": "Drone",
+      "value": "750 cr",
+      "weight": "5 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Hacker drone (750 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Hacker drone\n> *Tiny/Small Construct Drone (Cost: 750 cr, Weight: 5 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** Controlled via PCD/Comms link; subject to Hacking.\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Hacker drone (750 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Healer drone",
+      "type": "Drone",
+      "value": "75 cr",
+      "weight": "4 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Healer drone (75 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Healer drone\n> *Tiny/Small Construct Drone (Cost: 75 cr, Weight: 4 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** +100 cr per nanobot pouch\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Healer drone (75 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Recon drone",
+      "type": "Drone",
+      "value": "60 cr",
+      "weight": "4 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Recon drone (60 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Recon drone\n> *Tiny/Small Construct Drone (Cost: 60 cr, Weight: 4 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** Controlled via PCD/Comms link; subject to Hacking.\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Recon drone (60 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Flamethrower drone",
+      "type": "Drone",
+      "value": "250 cr",
+      "weight": "12 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Flamethrower drone (250 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Flamethrower drone\n> *Tiny/Small Construct Drone (Cost: 250 cr, Weight: 12 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** Controlled via PCD/Comms link; subject to Hacking.\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Flamethrower drone (250 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Mortar drone",
+      "type": "Drone",
+      "value": "250 cr",
+      "weight": "12 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Mortar drone (250 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Mortar drone\n> *Tiny/Small Construct Drone (Cost: 250 cr, Weight: 12 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** Controlled via PCD/Comms link; subject to Hacking.\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Mortar drone (250 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Processor drone",
+      "type": "Drone",
+      "value": "350 cr",
+      "weight": "10 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Processor drone (350 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Processor drone\n> *Tiny/Small Construct Drone (Cost: 350 cr, Weight: 10 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** Controlled via PCD/Comms link; subject to Hacking.\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Processor drone (350 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Shield drone",
+      "type": "Drone",
+      "value": "450 cr",
+      "weight": "14 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Shield drone (450 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Shield drone\n> *Tiny/Small Construct Drone (Cost: 450 cr, Weight: 14 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** Controlled via PCD/Comms link; subject to Hacking.\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Shield drone (450 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Stunner drone",
+      "type": "Drone",
+      "value": "200 cr",
+      "weight": "10 lbs.",
+      "effects": {
+        "summary": "Remote-controlled Stunner drone (200 cr). Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Drone",
+        "stat_block_md": "___\n> ## Stunner drone\n> *Tiny/Small Construct Drone (Cost: 200 cr, Weight: 10 lbs.)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 15\n> - **Speed** 0 ft., fly 40 ft.\n> - **Notes** Controlled via PCD/Comms link; subject to Hacking.\n> ___\n> ### Actions & Modules\n> *Customize onboard sensors, tools, or weapon mounts here.*"
+      },
+      "description": "Remote-controlled Stunner drone (200 cr). Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Construction foam",
+      "type": "Tool",
+      "value": "150 cr",
+      "weight": "60 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Duct tape (60 feet)",
+      "type": "Tool",
+      "value": "2 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Earplugs",
+      "type": "Tool",
+      "value": ".5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Multitool",
+      "type": "Tool",
+      "value": "75 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Notebook",
+      "type": "Tool",
+      "value": "1 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Pen (basic)",
+      "type": "Tool",
+      "value": ".10 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Pen (zero-g)",
+      "type": "Tool",
+      "value": "30 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Spray adhesive",
+      "type": "Tool",
+      "value": "8 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Spray paint (5 uses)",
+      "type": "Tool",
+      "value": "1.25 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Zero-friction lubricant",
+      "type": "Tool",
+      "value": "75 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Anti-grave pack/boots",
+      "type": "Jetpack",
+      "value": "5,000 cr",
+      "weight": "30 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Covert ops jetpack",
+      "type": "Jetpack",
+      "value": "15,000 cr",
+      "weight": "17 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Improved jetpack",
+      "type": "Jetpack",
+      "value": "10,000 cr",
+      "weight": "60 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Jet boots",
+      "type": "Jetpack",
+      "value": "1,500 cr",
+      "weight": "70 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Microgravity maneuver pack",
+      "type": "Jetpack",
+      "value": "2,500 cr",
+      "weight": "25 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Military ducted fan flightpack",
+      "type": "Jetpack",
+      "value": "10,000 cr",
+      "weight": "175 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Standard jetpack",
+      "type": "Jetpack",
+      "value": "1,500 cr",
+      "weight": "40 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Anti-G cocktail",
+      "type": "Drug",
+      "value": "50 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Anti-rad",
+      "type": "Drug",
+      "value": "10 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Gullibility serum",
+      "type": "Drug",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Quick-sober patch",
+      "type": "Drug",
+      "value": "25 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Smelling salts",
+      "type": "Drug",
+      "value": "5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Styx",
+      "type": "Drug",
+      "value": "75 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Synthetic adrenaline",
+      "type": "Drug",
+      "value": "250 cr",
+      "weight": "—",
+      "effects": "Advantage on STR, DEX, CON checks/saves for 1 minute",
+      "description": "Advantage on STR, DEX, CON checks/saves for 1 minute",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Truth serum",
+      "type": "Drug",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Universal airhypo",
+      "type": "Drug",
+      "value": "20 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Antiseptic (5 uses)",
+      "type": "Injury Treatment",
+      "value": "7.5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Blood-stop bandage",
+      "type": "Injury Treatment",
+      "value": "5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "First aid kit (15 uses)",
+      "type": "Injury Treatment",
+      "value": "15 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Medical gel",
+      "type": "Injury Treatment",
+      "value": "250 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Nanopatch",
+      "type": "Injury Treatment",
+      "value": "30 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Nanobot compound",
+      "type": "Injury Treatment",
+      "value": "80 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Sedative",
+      "type": "Injury Treatment",
+      "value": "3.5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Anti-inhibitive",
+      "type": "Medical Advancement",
+      "value": "5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Cognitive enhancer",
+      "type": "Medical Advancement",
+      "value": "5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Immune booster",
+      "type": "Medical Advancement",
+      "value": "10 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Steroid",
+      "type": "Medical Advancement",
+      "value": "10 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Stimulant",
+      "type": "Medical Advancement",
+      "value": "10 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Reflex enhancer",
+      "type": "Medical Advancement",
+      "value": "10 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Patch kit (15 uses)",
+      "type": "Synthetic Repair",
+      "value": "50 cr",
+      "weight": "5 lbs.",
+      "effects": "For synthetic lifeforms",
+      "description": "For synthetic lifeforms",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Repair kit",
+      "type": "Synthetic Repair",
+      "value": "300 cr",
+      "weight": "15 lbs.",
+      "effects": "For synthetic lifeforms",
+      "description": "For synthetic lifeforms",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Knotted focus",
+      "type": "Psionic Focus",
+      "value": "150 cr",
+      "weight": "—",
+      "effects": "Concentrate on multiple powers up to power rating",
+      "description": "Concentrate on multiple powers up to power rating",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Synthetic crystal",
+      "type": "Psionic Focus",
+      "value": "200 cr",
+      "weight": "3 lbs.",
+      "effects": "Concentrate on multiple powers up to power rating",
+      "description": "Concentrate on multiple powers up to power rating",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Imbued emblem",
+      "type": "Psionic Focus",
+      "value": "225 cr",
+      "weight": "—",
+      "effects": "Concentrate on multiple powers up to power rating",
+      "description": "Concentrate on multiple powers up to power rating",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Binoculars",
+      "type": "Security",
+      "value": "100 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Bug (audio-only)",
+      "type": "Security",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Bug (audio-visual)",
+      "type": "Security",
+      "value": "200 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Bug detector",
+      "type": "Security",
+      "value": "250 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Chemical light stick",
+      "type": "Security",
+      "value": "1 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Gateway projection device",
+      "type": "Security",
+      "value": "100,000 cr",
+      "weight": "5 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Handcuffs",
+      "type": "Security",
+      "value": "15 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Long-range microphone",
+      "type": "Security",
+      "value": "45 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Night vision/multi-spectrum goggles",
+      "type": "Security",
+      "value": "250 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Night vision/multi-spectrum contacts",
+      "type": "Security",
+      "value": "1,000 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Portable X-ray scanner",
+      "type": "Security",
+      "value": "500 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Proximity alarm",
+      "type": "Security",
+      "value": "100 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Range earmuffs",
+      "type": "Security",
+      "value": "30 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Tracer",
+      "type": "Security",
+      "value": "60 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Zip cuffs (set of 10)",
+      "type": "Security",
+      "value": ".5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Chemical detector",
+      "type": "Scientific",
+      "value": "100 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Cryospray",
+      "type": "Scientific",
+      "value": "20 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Geiger counter",
+      "type": "Scientific",
+      "value": "80 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Blanket",
+      "type": "Survival",
+      "value": ".5 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Digital scale",
+      "type": "Survival",
+      "value": "12 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Distress beacon",
+      "type": "Survival",
+      "value": "100 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Entrenching tool",
+      "type": "Survival",
+      "value": "5 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Flashlight",
+      "type": "Survival",
+      "value": "2 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Floodlight",
+      "type": "Survival",
+      "value": "40 cr",
+      "weight": "5 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Gas mask",
+      "type": "Survival",
+      "value": "100 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Grapple gun",
+      "type": "Survival",
+      "value": "300 cr",
+      "weight": "4 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Lighter (30 uses)",
+      "type": "Survival",
+      "value": "1 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Map (local)",
+      "type": "Survival",
+      "value": "0.5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Map (planetary)",
+      "type": "Survival",
+      "value": "20 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Map (system)",
+      "type": "Survival",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Map (galactic nav charts)",
+      "type": "Survival",
+      "value": "5,000 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Matches (100)",
+      "type": "Survival",
+      "value": "1.5 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Mirror (plastic)",
+      "type": "Survival",
+      "value": "1 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Paper (100 sheets)",
+      "type": "Survival",
+      "value": "0.1 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Rope, synthetic (50')",
+      "type": "Survival",
+      "value": "7 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Sleeping bag",
+      "type": "Survival",
+      "value": "4 cr",
+      "weight": "5 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Tent (one person)",
+      "type": "Survival",
+      "value": "10 cr",
+      "weight": "8 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Tent (two-person)",
+      "type": "Survival",
+      "value": "20 cr",
+      "weight": "16 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Tent (communal)",
+      "type": "Survival",
+      "value": "50 cr",
+      "weight": "30 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Umbrella",
+      "type": "Survival",
+      "value": "1.7 cr",
+      "weight": "½ lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Computer technician kit",
+      "type": "Specialist Tool",
+      "value": "200 cr",
+      "weight": "5 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Cybernetics kit",
+      "type": "Specialist Tool",
+      "value": "350 cr",
+      "weight": "8 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Engineer's toolbox",
+      "type": "Specialist Tool",
+      "value": "600 cr",
+      "weight": "20 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Field laboratory",
+      "type": "Specialist Tool",
+      "value": "2,000 cr",
+      "weight": "100 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Hacking tools",
+      "type": "Specialist Tool",
+      "value": "500 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Medical pouch (crash kit)",
+      "type": "Specialist Tool",
+      "value": "250 cr",
+      "weight": "5 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Multi-scanner",
+      "type": "Specialist Tool",
+      "value": "500 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Thieves' tools",
+      "type": "Specialist Tool",
+      "value": "25 cr",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Acoustic guitar",
+      "type": "Musical Instrument",
+      "value": "30 cr",
+      "weight": "7 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Electric guitar",
+      "type": "Musical Instrument",
+      "value": "50 cr",
+      "weight": "8 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Harmonica",
+      "type": "Musical Instrument",
+      "value": "2 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Keytar",
+      "type": "Musical Instrument",
+      "value": "50 cr",
+      "weight": "12 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Saxophone",
+      "type": "Musical Instrument",
+      "value": "40 cr",
+      "weight": "4 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Theremin",
+      "type": "Musical Instrument",
+      "value": "20 cr",
+      "weight": "2 lbs.",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Camouflage coating",
+      "type": "Armor Coating",
+      "value": "20 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Cloaking coating",
+      "type": "Armor Coating",
+      "value": "80 cr",
+      "weight": "—",
+      "effects": "Medium or heavy armor only",
+      "description": "Medium or heavy armor only",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Cold-shielding coating",
+      "type": "Armor Coating",
+      "value": "50 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Greased coating",
+      "type": "Armor Coating",
+      "value": "10 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Heat-shielding coating",
+      "type": "Armor Coating",
+      "value": "50 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Mirrored coating",
+      "type": "Armor Coating",
+      "value": "40 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Shear-thickening coating",
+      "type": "Armor Coating",
+      "value": "60 cr",
+      "weight": "—",
+      "effects": "Medium or heavy armor only",
+      "description": "Medium or heavy armor only",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Spikes coating",
+      "type": "Armor Coating",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Biosensors",
+      "type": "Armor Mod",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Cold-shielding, improved",
+      "type": "Armor Mod",
+      "value": "80 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Drone port",
+      "type": "Armor Mod",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Environmental recycling",
+      "type": "Armor Mod",
+      "value": "200 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Glider wings",
+      "type": "Armor Mod",
+      "value": "200 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Grappling hook",
+      "type": "Armor Mod",
+      "value": "12 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Ground anchors",
+      "type": "Armor Mod",
+      "value": "20 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Hazmat shielding",
+      "type": "Armor Mod",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Heat-shielding, improved",
+      "type": "Armor Mod",
+      "value": "80 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Integrated first aid",
+      "type": "Armor Mod",
+      "value": "25 cr",
+      "weight": "—",
+      "effects": "+50 cr per biomech",
+      "description": "+50 cr per biomech",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Integrated tool",
+      "type": "Armor Mod",
+      "value": "10 cr",
+      "weight": "—",
+      "effects": "plus cost of tool",
+      "description": "plus cost of tool",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Integrated jetpack",
+      "type": "Armor Mod",
+      "value": "600 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Jammer, personal",
+      "type": "Armor Mod",
+      "value": "100 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Jammer, mass",
+      "type": "Armor Mod",
+      "value": "200 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Kinetic assistance",
+      "type": "Armor Mod",
+      "value": "250 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Mindshielding",
+      "type": "Armor Mod",
+      "value": "40 cr",
+      "weight": "—",
+      "effects": "",
+      "description": "",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Caster cell (light/medium/heavy caster; 20)",
+      "type": "Ammunition",
+      "value": "1 cr",
+      "weight": "1 lb.",
+      "effects": "20 shots for a caster weapon",
+      "description": "20 shots for a caster weapon",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Firearm magazine (pistol/rifle/cannon; 20)",
+      "type": "Ammunition",
+      "value": "1 cr",
+      "weight": "½ lb.",
+      "effects": "20 rounds for a firearm",
+      "description": "20 rounds for a firearm",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Darts (10)",
+      "type": "Ammunition",
+      "value": "1 cr",
+      "weight": "½ lb.",
+      "effects": "10 darts",
+      "description": "10 darts",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Fuel canister",
+      "type": "Ammunition",
+      "value": "5 cr",
+      "weight": "½ lb.",
+      "effects": "Fuel for flame weapons",
+      "description": "Fuel for flame weapons",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Net cartridge",
+      "type": "Ammunition",
+      "value": "5 cr",
+      "weight": "½ lb.",
+      "effects": "Cartridge for a netcaster",
+      "description": "Cartridge for a netcaster",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Concussion grenade",
+      "type": "Explosive",
+      "value": "60 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "EMP grenade",
+      "type": "Explosive",
+      "value": "80 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Foam grenade",
+      "type": "Explosive",
+      "value": "20 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Flash grenade",
+      "type": "Explosive",
+      "value": "40 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Frag grenade",
+      "type": "Explosive",
+      "value": "30 cr",
+      "weight": "½ lb.",
+      "effects": "5 ft. radius",
+      "description": "5 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Gas grenade",
+      "type": "Explosive",
+      "value": "40 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Goo grenade",
+      "type": "Explosive",
+      "value": "40 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Incendiary grenade",
+      "type": "Explosive",
+      "value": "50 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Smoke grenade",
+      "type": "Explosive",
+      "value": "20 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Stun grenade",
+      "type": "Explosive",
+      "value": "100 cr",
+      "weight": "½ lb.",
+      "effects": "10 ft. radius",
+      "description": "10 ft. radius",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Remote detonator",
+      "type": "Explosive",
+      "value": "25 cr",
+      "weight": "—",
+      "effects": "Remotely detonates explosives",
+      "description": "Remotely detonates explosives",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Adhesion pads",
+      "type": "Cyberware",
+      "value": "500 cr",
+      "weight": "—",
+      "effects": "Wall/ceiling walking and a climbing speed; auto-succeed vs Disarm as a reaction",
+      "description": "Wall/ceiling walking and a climbing speed; auto-succeed vs Disarm as a reaction\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Augmented reality system",
+      "type": "Cyberware",
+      "value": "5,000 cr",
+      "weight": "—",
+      "effects": "Overlays an augmented-reality interface on your vision",
+      "description": "Overlays an augmented-reality interface on your vision\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Biomonitor",
+      "type": "Cyberware",
+      "value": "300 cr",
+      "weight": "—",
+      "effects": "Continuously monitors your vital signs",
+      "description": "Continuously monitors your vital signs\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Comms implant",
+      "type": "Cyberware",
+      "value": "150 cr",
+      "weight": "—",
+      "effects": "Implanted ICD for private inaudible voice comms",
+      "description": "Implanted ICD for private inaudible voice comms\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Companion AI",
+      "type": "Cyberware",
+      "value": "2,000 cr",
+      "weight": "—",
+      "effects": "Perfect week-long recall; advantage on INT checks and saves",
+      "description": "Perfect week-long recall; advantage on INT checks and saves\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Cyberlink",
+      "type": "Cyberware",
+      "value": "1,000 cr",
+      "weight": "—",
+      "effects": "Direct mental interface with connected devices; count as proficient with linked weapons",
+      "description": "Direct mental interface with connected devices; count as proficient with linked weapons\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Implanted psionic focus",
+      "type": "Cyberware",
+      "value": "500 cr",
+      "weight": "—",
+      "effects": "Acts as a psionic focus",
+      "description": "Acts as a psionic focus\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Implanted weapon",
+      "type": "Cyberware",
+      "value": "weapon cost + 30%",
+      "weight": "—",
+      "effects": "A light melee weapon or pistol implanted in your body for stealth and constant access",
+      "description": "A light melee weapon or pistol implanted in your body for stealth and constant access\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Jump coils",
+      "type": "Cyberware",
+      "value": "600 cr",
+      "weight": "—",
+      "effects": "No run-up needed for long jumps and jump distance tripled; fall up to 100 ft. safely",
+      "description": "No run-up needed for long jumps and jump distance tripled; fall up to 100 ft. safely\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Vision enhancers",
+      "type": "Cyberware",
+      "value": "500 cr",
+      "weight": "—",
+      "effects": "Function as multi-spectrum goggles",
+      "description": "Function as multi-spectrum goggles\n\n*Cyberware Note: Electronic implants may be targeted by Hacking maneuvers unless hardened.*",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Crane truck",
+      "type": "Vehicle",
+      "value": "2k cr",
+      "weight": "10 tons",
+      "effects": {
+        "summary": "Huge Vehicle — AC 15, HP 500, Speed 50 ft. / 50 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Crane truck\n> *Huge Vehicle (Cost: 2k cr, Weight: 10 tons)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 500 (malfunction at 250 HP)\n> - **Speed** 50 ft. / 50 mph\n> - **Crew** 1 · **Supply** 80\n> - **Properties** Integrated equipment: crane; heavy equipment: wrecking ball\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 15, HP 500, Speed 50 ft. / 50 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Ground car",
+      "type": "Vehicle",
+      "value": "200 cr",
+      "weight": "1.8 tons",
+      "effects": {
+        "summary": "Large Vehicle — AC 14, HP 200, Speed 60 ft. / 60 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Ground car\n> *Large Vehicle (Cost: 200 cr, Weight: 1.8 tons)*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 200 (malfunction at 100 HP)\n> - **Speed** 60 ft. / 60 mph\n> - **Crew** 1 · **Supply** 40\n> - **Properties** Civilian ground vehicle\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 14, HP 200, Speed 60 ft. / 60 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Hovercar",
+      "type": "Vehicle",
+      "value": "300 cr",
+      "weight": "1.8 tons",
+      "effects": {
+        "summary": "Large Vehicle — AC 14, HP 200, Speed 70 ft. / 70 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hovercar\n> *Large Vehicle (Cost: 300 cr, Weight: 1.8 tons)*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 200 (malfunction at 100 HP)\n> - **Speed** 70 ft. / 70 mph\n> - **Crew** 1 · **Supply** 40\n> - **Properties** Hover\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 14, HP 200, Speed 70 ft. / 70 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Hovercycle",
+      "type": "Vehicle",
+      "value": "250 cr",
+      "weight": "450 lbs.",
+      "effects": {
+        "summary": "Large Vehicle — AC 14, HP 155, Speed 175 ft. / 175 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hovercycle\n> *Large Vehicle (Cost: 250 cr, Weight: 450 lbs.)*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 155 (malfunction at 77 HP)\n> - **Speed** 175 ft. / 175 mph\n> - **Crew** 1 · **Supply** 8\n> - **Properties** Hover, high-performance, open frame, personal\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 14, HP 155, Speed 175 ft. / 175 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Hovertruck",
+      "type": "Vehicle",
+      "value": "550 cr",
+      "weight": "5 tons",
+      "effects": {
+        "summary": "Huge Vehicle — AC 15, HP 325, Speed 60 ft. / 60 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hovertruck\n> *Huge Vehicle (Cost: 550 cr, Weight: 5 tons)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 325 (malfunction at 162 HP)\n> - **Speed** 60 ft. / 60 mph\n> - **Crew** 1 · **Supply** 80\n> - **Properties** Hover, transport\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 15, HP 325, Speed 60 ft. / 60 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Mountain bike",
+      "type": "Vehicle",
+      "value": "8 cr",
+      "weight": "15 lbs.",
+      "effects": {
+        "summary": "Medium Vehicle — AC 12, HP 18, Speed Ridden, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Mountain bike\n> *Medium Vehicle (Cost: 8 cr, Weight: 15 lbs.)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 18 (malfunction at 9 HP)\n> - **Speed** Ridden\n> - **Crew** 1 · **Supply** 8\n> - **Properties** All-terrain, open frame, personal, ridden\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Medium Vehicle — AC 12, HP 18, Speed Ridden, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Motorcycle",
+      "type": "Vehicle",
+      "value": "100 cr",
+      "weight": "500 lbs.",
+      "effects": {
+        "summary": "Large Vehicle — AC 14, HP 165, Speed 150 ft. / 150 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Motorcycle\n> *Large Vehicle (Cost: 100 cr, Weight: 500 lbs.)*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 165 (malfunction at 82 HP)\n> - **Speed** 150 ft. / 150 mph\n> - **Crew** 1 · **Supply** 8\n> - **Properties** High-performance, personal, open frame\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 14, HP 165, Speed 150 ft. / 150 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Pod racer",
+      "type": "Vehicle",
+      "value": "800 cr",
+      "weight": "1 ton",
+      "effects": {
+        "summary": "Large Vehicle — AC 16, HP 225, Speed 200 ft. / 200 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Pod racer\n> *Large Vehicle (Cost: 800 cr, Weight: 1 ton)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 225 (malfunction at 112 HP)\n> - **Speed** 200 ft. / 200 mph\n> - **Crew** 1 · **Supply** 4\n> - **Properties** Hover, high-performance, open frame, personal\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 16, HP 225, Speed 200 ft. / 200 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Surface exploration vehicle",
+      "type": "Vehicle",
+      "value": "4k cr",
+      "weight": "15 tons",
+      "effects": {
+        "summary": "Huge Vehicle — AC 17, HP 450, Speed 40 ft. / 40 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Surface exploration vehicle\n> *Huge Vehicle (Cost: 4k cr, Weight: 15 tons)*\n> ___\n> - **Armor Class** 17\n> - **Hit Points** 450 (malfunction at 225 HP)\n> - **Speed** 40 ft. / 40 mph\n> - **Crew** 2 · **Supply** 80\n> - **Properties** All-terrain, pressurized, sealed, sensor array, mobile facility: science bay\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 17, HP 450, Speed 40 ft. / 40 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Truck",
+      "type": "Vehicle",
+      "value": "400 cr",
+      "weight": "5 tons",
+      "effects": {
+        "summary": "Huge Vehicle — AC 15, HP 350, Speed 50 ft. / 50 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Truck\n> *Huge Vehicle (Cost: 400 cr, Weight: 5 tons)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 350 (malfunction at 175 HP)\n> - **Speed** 50 ft. / 50 mph\n> - **Crew** 1 · **Supply** 80\n> - **Properties** Transport\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 15, HP 350, Speed 50 ft. / 50 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Firefighting VTOL",
+      "type": "Vehicle",
+      "value": "7k cr",
+      "weight": "—",
+      "effects": {
+        "summary": "Huge Vehicle — AC 15, HP 350, Speed 120 ft. / 120 mph (fly), Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Firefighting VTOL\n> *Huge Vehicle (Cost: 7k cr, Weight: —)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 350 (malfunction at 175 HP)\n> - **Speed** 120 ft. / 120 mph (fly)\n> - **Crew** 2 · **Supply** 40\n> - **Properties** VTOL, firefighting foam cannon, sensor array\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 15, HP 350, Speed 120 ft. / 120 mph (fly), Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Flying car",
+      "type": "Vehicle",
+      "value": "3k cr",
+      "weight": "—",
+      "effects": {
+        "summary": "Large Vehicle — AC 14, HP 200, Speed 100 ft. / 100 mph (fly), Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Flying car\n> *Large Vehicle (Cost: 3k cr, Weight: —)*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 200 (malfunction at 100 HP)\n> - **Speed** 100 ft. / 100 mph (fly)\n> - **Crew** 1 · **Supply** 20\n> - **Properties** VTOL, pressurized\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 14, HP 200, Speed 100 ft. / 100 mph (fly), Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Heavy transport VTOL",
+      "type": "Vehicle",
+      "value": "4k cr",
+      "weight": "—",
+      "effects": {
+        "summary": "Huge Vehicle — AC 16, HP 450, Speed 100 ft. / 100 mph (fly), Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Heavy transport VTOL\n> *Huge Vehicle (Cost: 4k cr, Weight: —)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 450 (malfunction at 225 HP)\n> - **Speed** 100 ft. / 100 mph (fly)\n> - **Crew** 2 · **Supply** 80\n> - **Properties** VTOL, transport\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 16, HP 450, Speed 100 ft. / 100 mph (fly), Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "News VTOL",
+      "type": "Vehicle",
+      "value": "3.5k cr",
+      "weight": "—",
+      "effects": {
+        "summary": "Huge Vehicle — AC 14, HP 250, Speed 120 ft. / 120 mph (fly), Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## News VTOL\n> *Huge Vehicle (Cost: 3.5k cr, Weight: —)*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 250 (malfunction at 125 HP)\n> - **Speed** 120 ft. / 120 mph (fly)\n> - **Crew** 2 · **Supply** 20\n> - **Properties** VTOL, broadcast sensor array\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 14, HP 250, Speed 120 ft. / 120 mph (fly), Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Heavy transport truck",
+      "type": "Vehicle",
+      "value": "1.5k cr",
+      "weight": "11 tons",
+      "effects": {
+        "summary": "Huge Vehicle — AC 17, HP 500, Speed 50 ft. / 50 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Heavy transport truck\n> *Huge Vehicle (Cost: 1.5k cr, Weight: 11 tons)*\n> ___\n> - **Armor Class** 17\n> - **Hit Points** 500 (malfunction at 250 HP)\n> - **Speed** 50 ft. / 50 mph\n> - **Crew** 2 · **Supply** 80\n> - **Properties** All-terrain, light armor, transport\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 17, HP 500, Speed 50 ft. / 50 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Medevac hover truck",
+      "type": "Vehicle",
+      "value": "8.5k cr",
+      "weight": "4 tons",
+      "effects": {
+        "summary": "Huge Vehicle — AC 15, HP 400, Speed 80 ft. / 80 mph, Crew 6. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Medevac hover truck\n> *Huge Vehicle (Cost: 8.5k cr, Weight: 4 tons)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 400 (malfunction at 200 HP)\n> - **Speed** 80 ft. / 80 mph\n> - **Crew** 6 · **Supply** 80\n> - **Properties** Hover, light armor, mobile facility: med bay\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 15, HP 400, Speed 80 ft. / 80 mph, Crew 6. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Police interceptor hovercar",
+      "type": "Vehicle",
+      "value": "2k cr",
+      "weight": "2 tons",
+      "effects": {
+        "summary": "Large Vehicle — AC 16, HP 250, Speed 100 ft. / 100 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Police interceptor hovercar\n> *Large Vehicle (Cost: 2k cr, Weight: 2 tons)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 250 (malfunction at 125 HP)\n> - **Speed** 100 ft. / 100 mph\n> - **Crew** 2 · **Supply** 20\n> - **Properties** Hover, high-performance, sensor array, light armor\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 16, HP 250, Speed 100 ft. / 100 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Recon speeder",
+      "type": "Vehicle",
+      "value": "500 cr",
+      "weight": "400 lbs.",
+      "effects": {
+        "summary": "Large Vehicle — AC 15, HP 180, Speed 140 ft. / 140 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Recon speeder\n> *Large Vehicle (Cost: 500 cr, Weight: 400 lbs.)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 180 (malfunction at 90 HP)\n> - **Speed** 140 ft. / 140 mph\n> - **Crew** 1 · **Supply** 12\n> - **Properties** Hover, open frame, lightly armed, sensor array\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 15, HP 180, Speed 140 ft. / 140 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Scout vehicle (Wild Boar)",
+      "type": "Vehicle",
+      "value": "1.1k cr",
+      "weight": "3 tons",
+      "effects": {
+        "summary": "Large Vehicle — AC 17, HP 300, Speed 70 ft. / 70 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Scout vehicle (Wild Boar)\n> *Large Vehicle (Cost: 1.1k cr, Weight: 3 tons)*\n> ___\n> - **Armor Class** 17\n> - **Hit Points** 300 (malfunction at 150 HP)\n> - **Speed** 70 ft. / 70 mph\n> - **Crew** 2 · **Supply** 40\n> - **Properties** All-terrain, light armor, lightly armed, sensor array\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 17, HP 300, Speed 70 ft. / 70 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "SWAT transport",
+      "type": "Vehicle",
+      "value": "4k cr",
+      "weight": "5 tons",
+      "effects": {
+        "summary": "Huge Vehicle — AC 18, HP 550, Speed 60 ft. / 60 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## SWAT transport\n> *Huge Vehicle (Cost: 4k cr, Weight: 5 tons)*\n> ___\n> - **Armor Class** 18\n> - **Hit Points** 550 (malfunction at 275 HP)\n> - **Speed** 60 ft. / 60 mph\n> - **Crew** 2 · **Supply** 60\n> - **Properties** Heavy armor, sealed, transport\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Huge Vehicle — AC 18, HP 550, Speed 60 ft. / 60 mph, Crew 2. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    },
+    {
+      "name": "Spy car",
+      "type": "Vehicle",
+      "value": "17.5k cr",
+      "weight": "4 tons",
+      "effects": {
+        "summary": "Large Vehicle — AC 17, HP 320, Speed 120 ft. / 120 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Spy car\n> *Large Vehicle (Cost: 17.5k cr, Weight: 4 tons)*\n> ___\n> - **Armor Class** 17\n> - **Hit Points** 320 (malfunction at 160 HP)\n> - **Speed** 120 ft. / 120 mph\n> - **Crew** 1 · **Supply** 20\n> - **Properties** Concealed armament, light armor, countermeasures, high-performance\n> ___\n> ### Notes & Modifications\n> *Track hull damage, weapon mounts, and upgrades here.*"
+      },
+      "description": "Large Vehicle — AC 17, HP 320, Speed 120 ft. / 120 mph, Crew 1. Full stat block in Allies & Stat Blocks.",
+      "reference": "Voidrunner's Codex"
+    }
+  ]
+}

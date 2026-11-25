@@ -119,6 +119,10 @@ class ShadowAmp(BaseModel):
     essence_cost: float = Field(default=0.0, ge=0.0)
     effects: list[AmpEffect] = Field(default_factory=list)
     body_md: str = ""
+    # Optional soft link to a `CharacterAlly.id` on the Allies & Stat Blocks tab
+    # (used by Vehicles, Drones, and Contacts so the full stat block lives once
+    # on Allies while Rating/RR math stays on the Shadow Amps card).
+    ally_id: str | None = None
     is_custom: bool = False
 
 

@@ -1,0 +1,168 @@
+{
+  "style": "Shadowdark RPG",
+  "kind": "equipment",
+  "items": [
+    {
+      "name": "Arrows (20)",
+      "type": "Gear",
+      "value": "1 gp",
+      "weight": "1/20",
+      "effects": "",
+      "description": "Ammunition for bows. 20 arrows occupy 1 gear slot.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Backpack",
+      "type": "Gear",
+      "value": "2 gp",
+      "weight": "1",
+      "effects": "",
+      "description": "Holds all gear you can carry; first backpack is free to carry (0 slots when worn).",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Caltrops (one bag)",
+      "type": "Gear",
+      "value": "5 sp",
+      "weight": "1",
+      "effects": "",
+      "description": "Covers a 5-foot area; creatures stepping on them take 1 damage and halve speed until healed.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Coin",
+      "type": "Gear",
+      "value": "Varies",
+      "weight": "100",
+      "effects": "",
+      "description": "First 100 coins are free; each additional 100 coins occupy 1 gear slot.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Crossbow bolts (20)",
+      "type": "Gear",
+      "value": "1 gp",
+      "weight": "1/20",
+      "effects": "",
+      "description": "Ammunition for crossbows. 20 bolts occupy 1 gear slot.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Crowbar",
+      "type": "Gear",
+      "value": "5 sp",
+      "weight": "1",
+      "effects": "",
+      "description": "Grants advantage on checks to pry open stuck doors, chests, or crates.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Flask or bottle",
+      "type": "Gear",
+      "value": "3 sp",
+      "weight": "1",
+      "effects": "",
+      "description": "Holds 1 pint of liquid.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Flint and steel",
+      "type": "Gear",
+      "value": "5 sp",
+      "weight": "1",
+      "effects": "",
+      "description": "Lights a torch, lantern, or campfire.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Gem",
+      "type": "Gear",
+      "value": "Varies",
+      "weight": "1/10",
+      "effects": "",
+      "description": "Valuable treasure; up to 10 gems per gear slot.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Grappling hook",
+      "type": "Gear",
+      "value": "1 gp",
+      "weight": "1",
+      "effects": "",
+      "description": "Tied to rope to anchor climbs across chasms or walls.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Iron spikes (10)",
+      "type": "Gear",
+      "value": "1 gp",
+      "weight": "1/10",
+      "effects": "",
+      "description": "10 spikes per gear slot; useful for spiking doors shut or anchoring rope.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Lantern",
+      "type": "Gear",
+      "value": "5 gp",
+      "weight": "1",
+      "effects": "",
+      "description": "Casts light out to Near distance for 1 hour of real time per oil flask; can be shuttered.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Mirror",
+      "type": "Gear",
+      "value": "10 gp",
+      "weight": "1",
+      "effects": "",
+      "description": "Small polished steel mirror for peeking around corners or deflecting gaze attacks.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Oil, flask",
+      "type": "Gear",
+      "value": "5 sp",
+      "weight": "1",
+      "effects": "",
+      "description": "Fuels a lantern for 1 real-time hour, or coats a Close area to burn for 1d4 rounds.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Pole",
+      "type": "Gear",
+      "value": "5 sp",
+      "weight": "1",
+      "effects": "",
+      "description": "10-foot wooden pole for prodding floors, chests, and traps from a safe distance.",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Rations (3)",
+      "type": "Gear",
+      "value": "5 sp",
+      "weight": "1/3",
+      "effects": "",
+      "description": "3 days of dried trail food (1 gear slot).",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Rope, 60'",
+      "type": "Gear",
+      "value": "1 gp",
+      "weight": "1",
+      "effects": "",
+      "description": "60 feet of sturdy hemp rope (1 gear slot).",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Torch",
+      "type": "Gear",
+      "value": "5 sp",
+      "weight": "1",
+      "effects": "",
+      "description": "Sheds light out to Near distance for **1 hour of real time** before burning out.",
+      "reference": "Shadowdark RPG"
+    }
+  ]
+}

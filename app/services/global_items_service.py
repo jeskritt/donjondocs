@@ -16,6 +16,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.char_sheet import (
     GlobalAbility,
+    GlobalCombatManeuver,
     GlobalWeapon, GlobalArmor, GlobalItem,
     GlobalClass, GlobalSkill, GlobalAttribute,
     GlobalDestiny, GlobalSpell,
@@ -75,6 +76,10 @@ async def list_spells(session: AsyncSession, style: SheetStyle, owner_id: str | 
 
 async def list_abilities(session: AsyncSession, style: SheetStyle, owner_id: str | None = None) -> Sequence[GlobalAbility]:
     return await _list_global(session, GlobalAbility, style, owner_id)
+
+
+async def list_combat_maneuvers(session: AsyncSession, style: SheetStyle, owner_id: str | None = None) -> Sequence[GlobalCombatManeuver]:
+    return await _list_global(session, GlobalCombatManeuver, style, owner_id)
 
 
 async def add_custom_weapon(

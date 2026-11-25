@@ -1,0 +1,71 @@
+{
+  "style": "Shadowdark RPG",
+  "kind": "armor",
+  "items": [
+    {
+      "name": "Leather armor",
+      "type": "",
+      "value": "10 gp",
+      "armor_class": "11 + DEX mod",
+      "max_dex": "-",
+      "strength_requirement": null,
+      "disadvantage_on_stealth": null,
+      "weight": "1 slot(s)",
+      "notes": "",
+      "description": "",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Chainmail",
+      "type": "",
+      "value": "60 gp",
+      "armor_class": "13 + DEX mod",
+      "max_dex": "-",
+      "strength_requirement": null,
+      "disadvantage_on_stealth": "Yes",
+      "weight": "2 slot(s)",
+      "notes": "Disadv on stealth, swim",
+      "description": "Disadv on stealth, swim",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Plate mail",
+      "type": "",
+      "value": "130 gp",
+      "armor_class": "15",
+      "max_dex": "-",
+      "strength_requirement": null,
+      "disadvantage_on_stealth": "Yes",
+      "weight": "3 slot(s)",
+      "notes": "No swim, disadv stealth",
+      "description": "No swim, disadv stealth",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Shield",
+      "type": "shield",
+      "value": "10 gp",
+      "armor_class": "+2",
+      "max_dex": "-",
+      "strength_requirement": null,
+      "disadvantage_on_stealth": null,
+      "weight": "1 slot(s)",
+      "notes": "Occupies one hand",
+      "description": "Occupies one hand",
+      "reference": "Shadowdark RPG"
+    },
+    {
+      "name": "Mithral (metal armor only)",
+      "type": "",
+      "value": "x4",
+      "armor_class": "-",
+      "max_dex": "-",
+      "strength_requirement": null,
+      "disadvantage_on_stealth": null,
+      "weight": "-1 slot(s)",
+      "notes": "No penalty stealth, swim",
+      "description": "No penalty stealth, swim",
+      "reference": "Shadowdark RPG"
+    }
+  ]
+}

@@ -1,0 +1,636 @@
+{
+  "style": "Dungeons & Dragons 5e",
+  "kind": "abilities",
+  "items": [
+    {
+      "name": "Ape",
+      "description": "Medium beast, unaligned (2 (450 XP)) — AC 13 (natural armor), HP 59 (7d12 + 14), Speed 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Ape\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 59 (7d12 + 14)\n> - **Speed** 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|14 (+2)|14 (+2)|6 (-2)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Athletics +5, Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1/2 (100 XP)\n> - **Damage** Vulnerabilities fire\n> - **Damage Resistances** piercing\n> - **Senses** passive Perception 10\n> - **Languages** one language known by its creator\n> - **Challenge** 0 (10 XP)\n> - **Damage** Vulnerabilities fire\n> - **Damage Resistances** bludgeoning, piercing\n> - **Senses** passive Perception 10\n> - **Languages** one language known by its creator\n> - **Challenge** 2 (450 XP)\n> ___\n> ### Actions\n> ***Multiattack.*** The ape makes two fist attacks.\n>\n> ***Fist.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage.\n>\n> ***Rock.*** Ranged Weapon Attack: +5 to hit, range 25/50 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage. Awakened Shrub Small plant, unaligned 8 (-1) 11 (+0) 10 (+0) 10 (+0) 6 (-2)\n>\n> ***False Appearance.*** While the shrub remains motionless, it is indistinguishable from a normal shrub.\n>\n> ### Actions\n> ***Rake.*** Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d4 - 1) slashing damage. An awakened shrub is an ordinary shrub given sentience and mobility by the awaken spell or similar magic. Awakened Tree Huge plant, unaligned\n>\n> ***False Appearance.*** While the tree remains motionless, it is indistinguishable from a normal tree.\n>\n> ### Actions\n> ***Slam.*** Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 14 (3d6 + 4) bludgeoning damage. An awakened tree is an ordinary tree given sentience and mobility by the awaken spell or similar magic."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Badger",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 10, HP 3 (1d4 + 1), Speed 20 ft., burrow 5 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Badger\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 3 (1d4 + 1)\n> - **Speed** 20 ft., burrow 5 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |4 (-3)|11 (+0)|12 (+1)|2 (-4)|12 (+1)|5 (-3)|\n> ___\n> - **Senses** darkvision 30 ft., passive Perception 11\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Keen Smell.*** The badger has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 1 piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Bat",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 12, HP 1 (1d4 - 1), Speed 5 ft., fly 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Bat\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 5 ft., fly 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|15 (+2)|8 (-1)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Senses** blindsight 60 ft., passive Perception 11\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Echolocation.*** The bat can't use its blindsight while deafened.\n>\n> ***Keen Hearing.*** The bat has advantage on Wisdom (Perception) checks that rely on hearing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +0 to hit, reach 5 ft., one creature. Hit: 1 piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Black Bear",
+      "description": "Medium beast, unaligned (1/4 (50 XP)) — AC 13, HP 22 (4d8 + 4), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Black Bear\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 22 (4d8 + 4)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|10 (+0)|14 (+2)|2 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1/2 (100 XP)\n> - **Skills** Perception +3, Stealth +5\n> - **Senses** passive Perception 13\n> - **Languages** Blink Dog, understands Sylvan but can't\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ***Keen Smell.*** The bear has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ### Actions\n> ***Multiattack.*** The bear makes two attacks: one with its bite and one with its claws.\n>\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage. Blink Dog Medium fey, lawful good speak it\n>\n> ***Keen Hearing and Smell.*** The dog has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage. Teleport (Recharge 4–6). The dog magically teleports, along with any equipment it is wearing or carrying, up to 40 feet to an unoccupied space it can see. Before or after teleporting, the dog can make one bite attack. A blink dog takes its name from its ability to blink in and out of existence, a talent it uses to aid its attacks and to avoid harm."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Blood Hawk",
+      "description": "Small beast, unaligned (1/8 (25 XP)) — AC 12, HP 7 (2d6), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Blood Hawk\n> *Small beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 7 (2d6)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |6 (-2)|14 (+2)|10 (+0)|3 (-4)|14 (+2)|5 (-3)|\n> ___\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Keen Sight.*** The hawk has advantage on Wisdom (Perception) checks that rely on sight.\n>\n> ***Pack Tactics.*** The hawk has advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 feet of the creature and the ally isn't incapacitated.\n>\n> ### Actions\n> ***Beak.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage. Taking its name from its crimson feathers and aggressive nature, the blood hawk fearlessly attacks almost any animal, stabbing it with its daggerlike beak. Blood hawks flock together in large numbers, attacking as a pack to take down prey."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Boar",
+      "description": "Medium beast, unaligned (1/4 (50 XP)) — AC 11 (natural armor), HP 11 (2d8 + 2), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Boar\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |13 (+1)|11 (+0)|12 (+1)|2 (-4)|9 (-1)|5 (-3)|\n> ___\n> - **Senses** passive Perception 9\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ***Charge.*** If the boar moves at least 20 feet straight toward a target and then hits it with a tusk attack on the same turn, the target takes an extra 3 (1d6) slashing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone. Relentless (Recharges after a Short or Long Rest). If the boar takes 7 damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead.\n>\n> ### Actions\n> ***Tusk.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Brown Bear",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 11 (natural armor), HP 34 (4d10 + 12), Speed 40 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Brown Bear\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 34 (4d10 + 12)\n> - **Speed** 40 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |19 (+4)|10 (+0)|16 (+3)|2 (-4)|13 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Keen Smell.*** The bear has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ### Actions\n> ***Multiattack.*** The bear makes two attacks: one with its bite and one with its claws.\n>\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d8 + 4) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Camel",
+      "description": "Large beast, unaligned (1/8 (25 XP)) — AC 9, HP 15 (2d10 + 4), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Camel\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 9\n> - **Hit Points** 15 (2d10 + 4)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|8 (-1)|14 (+2)|2 (-4)|8 (-1)|5 (-3)|\n> ___\n> - **Senses** passive Perception 9\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Cat",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 12, HP 2 (1d4), Speed 40 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Cat\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 2 (1d4)\n> - **Speed** 40 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |3 (-4)|15 (+2)|10 (+0)|3 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Keen Smell.*** The cat has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ### Actions\n> ***Claws.*** Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Constrictor Snake",
+      "description": "Large beast, unaligned (1/4 (50 XP)) — AC 12, HP 13 (2d10 + 2), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Constrictor Snake\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 13 (2d10 + 2)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|14 (+2)|12 (+1)|1 (-5)|10 (+0)|3 (-4)|\n> ___\n> - **Senses** blindsight 10 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 5 (1d6 + 2) piercing damage.\n>\n> ***Constrict.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 14). Until this grapple ends, the creature is restrained, and the snake can't constrict another target."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Crab",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 11 (natural armor), HP 2 (1d4), Speed 20 ft., swim 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Crab\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 2 (1d4)\n> - **Speed** 20 ft., swim 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|11 (+0)|10 (+0)|1 (-5)|8 (-1)|2 (-4)|\n> ___\n> - **Skills** Stealth +2\n> - **Senses** blindsight 30 ft., passive Perception 9\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Amphibious.*** The crab can breathe air and water.\n>\n> ### Actions\n> ***Claw.*** Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Crocodile",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 12, HP 39 (6d8 + 12), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Crocodile\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 39 (6d8 + 12)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|10 (+0)|13 (+1)|2 (-4)|10 (+0)|5 (-3)|\n> ___\n> - **Skills** Stealth +2\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/2 (100 XP)\n> - **Skills** Perception +5, Stealth +4\n> - **Senses** darkvision 120 ft., passive Perception 15\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Hold Breath.*** The crocodile can hold its breath for 15 minutes.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (1d10 + 2) piercing damage, and the target is grappled (escape DC 12). Until this grapple ends, the target is restrained, and the crocodile can't bite another target. Death Dog Medium monstrosity, neutral evil\n>\n> ***Two-Headed.*** The dog has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.\n>\n> ### Actions\n> ***Multiattack.*** The dog makes two bite attacks.\n>\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage. If the target is a creature, it must succeed on a DC 12 Constitution saving throw against disease or become poisoned until the disease is cured. Every 24 hours that elapse, the creature must repeat the saving throw, reducing its hit point maximum by 5 (1d10) on a failure. This reduction lasts until the disease is cured. The creature dies if the disease reduces its hit point maximum to 0. A death dog is an ugly two-headed hound that roams plains, and deserts. Hate burns in a death dog's heart, and a taste for humanoid flesh drives it to attack travelers and explorers. Death dog saliva carries a foul disease that causes a victim's flesh to slowly rot off the bone."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Dire Wolf",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 14 (natural armor), HP 37 (5d10 + 10), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Dire Wolf\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 14 (natural armor)\n> - **Hit Points** 37 (5d10 + 10)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |17 (+3)|15 (+2)|15 (+2)|3 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Keen Hearing and Smell.*** The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ***Pack Tactics.*** The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally isn't incapacitated.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Draft Horse",
+      "description": "Large beast, unaligned (1/4 (50 XP)) — AC 10, HP 19 (3d10 + 3), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Draft Horse\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 19 (3d10 + 3)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|10 (+0)|12 (+1)|2 (-4)|11 (+0)|7 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 9 (2d4 + 4) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Eagle",
+      "description": "Small beast, unaligned (0 (10 XP)) — AC 12, HP 3 (1d6), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Eagle\n> *Small beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 3 (1d6)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |6 (-2)|15 (+2)|10 (+0)|2 (-4)|14 (+2)|7 (-2)|\n> ___\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Keen Sight.*** The eagle has advantage on Wisdom (Perception) checks that rely on sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Elephant",
+      "description": "Huge beast, unaligned (4 (1,100 XP)) — AC 12 (natural armor), HP 76 (8d12 + 24), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Elephant\n> *Huge beast, unaligned*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 76 (8d12 + 24)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|9 (-1)|17 (+3)|3 (-4)|11 (+0)|6 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 4 (1,100 XP)\n> ___\n> ***Trampling Charge.*** If the elephant moves at least 20 feet straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the elephant can make one stomp attack against it as a bonus action.\n>\n> ### Actions\n> ***Gore.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) piercing damage.\n>\n> ***Stomp.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one prone creature. Hit: 22 (3d10 + 6) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Elk",
+      "description": "Large beast, unaligned (1/4 (50 XP)) — AC 10, HP 13 (2d10 + 2), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Elk\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 13 (2d10 + 2)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|10 (+0)|12 (+1)|2 (-4)|10 (+0)|6 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ***Charge.*** If the elk moves at least 20 feet straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 7 (2d6) damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.\n>\n> ### Actions\n> ***Ram.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage.\n>\n> ***Hooves.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one prone creature. Hit: 8 (2d4 + 3) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Frog",
+      "description": "Tiny beast, unaligned (0 (0 XP)) — AC 11, HP 1 (1d4 - 1), Speed 20 ft., swim 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Frog\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 20 ft., swim 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |1 (-5)|13 (+1)|8 (-1)|1 (-5)|8 (-1)|3 (-4)|\n> ___\n> - **Skills** Perception +1, Stealth +3\n> - **Senses** darkvision 30 ft., passive Perception 11\n> - **Languages** —\n> - **Challenge** 0 (0 XP)\n> ___\n> ***Amphibious.*** The frog can breathe air and water.\n>\n> ***Standing Leap.*** The frog's long jump is up to 10 feet and its high jump is up to 5 feet, with or without a running start.\n>\n> ***A frog has no effective attacks.*** It feeds on small insects and typically dwells near water, in trees, or underground. The frog's statistics can also be used to represent a toad."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Ape",
+      "description": "Huge beast, unaligned (7 (2,900 XP)) — AC 12, HP 157 (15d12 + 60), Speed 40 ft., climb 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Ape\n> *Huge beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 157 (15d12 + 60)\n> - **Speed** 40 ft., climb 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |23 (+6)|14 (+2)|18 (+4)|7 (-2)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Athletics +9, Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** —\n> - **Challenge** 7 (2,900 XP)\n> ___\n> ### Actions\n> ***Multiattack.*** The ape makes two fist attacks.\n>\n> ***Fist.*** Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 22 (3d10 + 6) bludgeoning damage.\n>\n> ***Rock.*** Ranged Weapon Attack: +9 to hit, range 50/100 ft., one target. Hit: 30 (7d6 + 6) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Badger",
+      "description": "Medium beast, unaligned (1/4 (50 XP)) — AC 10, HP 13 (2d8 + 4), Speed 30 ft., burrow 10 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Badger\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 13 (2d8 + 4)\n> - **Speed** 30 ft., burrow 10 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |13 (+1)|10 (+0)|15 (+2)|2 (-4)|12 (+1)|5 (-3)|\n> ___\n> - **Senses** darkvision 30 ft., passive Perception 11\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ***Keen Smell.*** The badger has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ### Actions\n> ***Multiattack.*** The badger makes two attacks: one with its bite and one with its claws.\n>\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Bat",
+      "description": "Large beast, unaligned (1/4 (50 XP)) — AC 13, HP 22 (4d10), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Bat\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 22 (4d10)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|16 (+3)|11 (+0)|2 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Senses** blindsight 60 ft., passive Perception 11\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ***Echolocation.*** The bat can't use its blindsight while deafened.\n>\n> ***Keen Hearing.*** The bat has advantage on Wisdom (Perception) checks that rely on hearing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 5 (1d6 + 2) piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Boar",
+      "description": "Large beast, unaligned (2 (450 XP)) — AC 12 (natural armor), HP 42 (5d10 + 15), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Boar\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 42 (5d10 + 15)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |17 (+3)|10 (+0)|16 (+3)|2 (-4)|7 (-2)|5 (-3)|\n> ___\n> - **Senses** passive Perception 8\n> - **Languages** —\n> - **Challenge** 2 (450 XP)\n> ___\n> ***Charge.*** If the boar moves at least 20 feet straight toward a target and then hits it with a tusk attack on the same turn, the target takes an extra 7 (2d6) slashing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone. Relentless (Recharges after a Short or Long Rest). If the boar takes 10 damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead.\n>\n> ### Actions\n> ***Tusk.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Constrictor Snake",
+      "description": "Huge beast, unaligned (2 (450 XP)) — AC 12, HP 60 (8d12 + 8), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Constrictor Snake\n> *Huge beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 60 (8d12 + 8)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |19 (+4)|14 (+2)|12 (+1)|1 (-5)|10 (+0)|3 (-4)|\n> ___\n> - **Skills** Perception +2\n> - **Senses** blindsight 10 ft., passive Perception 12\n> - **Languages** —\n> - **Challenge** 2 (450 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +6 to hit, reach 10 ft., one creature. Hit: 11 (2d6 + 4) piercing damage.\n>\n> ***Constrict.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one creature. Hit: 13 (2d8 + 4) bludgeoning damage, and the target is grappled (escape DC 16). Until this grapple ends, the creature is restrained, and the snake can't constrict another target."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Crab",
+      "description": "Medium beast, unaligned (1/8 (25 XP)) — AC 15 (natural armor), HP 13 (3d8), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Crab\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 15 (natural armor)\n> - **Hit Points** 13 (3d8)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |13 (+1)|15 (+2)|11 (+0)|1 (-5)|9 (-1)|3 (-4)|\n> ___\n> - **Skills** Stealth +4\n> - **Senses** blindsight 30 ft., passive Perception 9\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Amphibious.*** The crab can breathe air and water.\n>\n> ### Actions\n> ***Claw.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage, and the target is grappled (escape DC 11). The crab has two claws, each of which can grapple only one target."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Crocodile",
+      "description": "Huge beast, unaligned (5 (1,800 XP)) — AC 14 (natural armor), HP 85 (9d12 + 27), Speed 30 ft., swim 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Crocodile\n> *Huge beast, unaligned*\n> ___\n> - **Armor Class** 14 (natural armor)\n> - **Hit Points** 85 (9d12 + 27)\n> - **Speed** 30 ft., swim 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |21 (+5)|9 (-1)|17 (+3)|2 (-4)|10 (+0)|7 (-2)|\n> ___\n> - **Skills** Stealth +5\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 5 (1,800 XP)\n> ___\n> ***Hold Breath.*** The crocodile can hold its breath for 30 minutes.\n>\n> ### Actions\n> ***Multiattack.*** The crocodile makes two attacks: one with its bite and one with its tail.\n>\n> ***Bite.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 21 (3d10 + 5) piercing damage, and the target is grappled (escape DC 16). Until this grapple ends, the target is restrained, and the crocodile can't bite another target.\n>\n> ***Tail.*** Melee Weapon Attack: +8 to hit, reach 10 ft., one target not grappled by the crocodile. Hit: 14 (2d8 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or be knocked prone."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Eagle",
+      "description": "Large beast, neutral good (1 (200 XP)) — AC 13, HP 26 (4d10 + 4), Speed 10 ft., fly 80 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Eagle\n> *Large beast, neutral good*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 26 (4d10 + 4)\n> - **Speed** 10 ft., fly 80 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|17 (+3)|13 (+1)|8 (-1)|14 (+2)|10 (+0)|\n> ___\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** Giant Eagle, understands Common and\n> - **Challenge** 1 (200 XP)\n> ___\n> Auran but can't speak them\n>\n> ***Keen Sight.*** The eagle has advantage on Wisdom (Perception) checks that rely on sight.\n>\n> ### Actions\n> ***Multiattack.*** The eagle makes two attacks: one with its beak and one with its talons.\n>\n> ***Beak.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage.\n>\n> ***Talons.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage. A giant eagle is a noble creature that speaks its own language and understands speech in the Common tongue. A mated pair of giant eagles typically has up to four eggs or young in their nest (treat the young as normal eagles)."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Elk",
+      "description": "Huge beast, unaligned (2 (450 XP)) — AC 14 (natural armor), HP 42 (5d12 + 10), Speed 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Elk\n> *Huge beast, unaligned*\n> ___\n> - **Armor Class** 14 (natural armor)\n> - **Hit Points** 42 (5d12 + 10)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |19 (+4)|16 (+3)|14 (+2)|7 (-2)|14 (+2)|10 (+0)|\n> ___\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** Giant Elk, understands Common, Elvish, and\n> - **Challenge** 2 (450 XP)\n> ___\n> Sylvan but can't speak them\n>\n> ***Charge.*** If the elk moves at least 20 feet straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 7 (2d6) damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.\n>\n> ### Actions\n> ***Ram.*** Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage.\n>\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one prone creature. Hit: 22 (4d8 + 4) bludgeoning damage. The majestic giant elk is rare to the point that its appearance is often taken as a foreshadowing of an important event, such as the birth of a king. Legends tell of gods that take the form of giant elk when visiting the Material Plane. Many cultures therefore believe that to hunt these creatures is to invite divine wrath."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Frog",
+      "description": "Medium beast, unaligned (1/4 (50 XP)) — AC 11, HP 18 (4d8), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Frog\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 18 (4d8)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|13 (+1)|11 (+0)|2 (-4)|10 (+0)|3 (-4)|\n> ___\n> - **Skills** Perception +2, Stealth +3\n> - **Senses** darkvision 30 ft., passive Perception 12\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ***Amphibious.*** The frog can breathe air and water.\n>\n> ***Standing Leap.*** The frog's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage, and the target is grappled (escape DC 11). Until this grapple ends, the target is restrained, and the frog can't bite another target.\n>\n> ***Swallow.*** The frog makes one bite attack against a\n>\n> ***Small or smaller target it is grappling.*** If the attack hits, the target is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the frog, and it takes 5 (2d4) acid damage at the start of each of the frog's turns. The frog can have only one target swallowed at a time. If the frog dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Hyena",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 12, HP 45 (6d10 + 12), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Hyena\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 45 (6d10 + 12)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|14 (+2)|14 (+2)|2 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Rampage.*** When the hyena reduces a creature to 0 hit points with a melee attack on its turn, the hyena can take a bonus action to move up to half its speed and make a bite attack.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Lizard",
+      "description": "Large beast, unaligned (1/4 (50 XP)) — AC 12 (natural armor), HP 19 (3d10 + 3), Speed 30 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Lizard\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 19 (3d10 + 3)\n> - **Speed** 30 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|12 (+1)|13 (+1)|2 (-4)|10 (+0)|5 (-3)|\n> ___\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage. A giant lizard can be ridden or used as a draft animal. Lizardfolk also keep them as pets, and subterranean giant lizards are used as mounts and pack animals by drow, duergar, and others."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Octopus",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 11, HP 52 (8d10 + 8), Speed 10 ft., swim 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Octopus\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 52 (8d10 + 8)\n> - **Speed** 10 ft., swim 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |17 (+3)|13 (+1)|13 (+1)|4 (-3)|10 (+0)|4 (-3)|\n> ___\n> - **Skills** Perception +4, Stealth +5\n> - **Senses** darkvision 60 ft., passive Perception 14\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Hold Breath.*** While out of water, the octopus can hold its breath for 1 hour.\n>\n> ***Underwater Camouflage.*** The octopus has advantage on Dexterity (Stealth) checks made while underwater.\n>\n> ***Water Breathing.*** The octopus can breathe only underwater.\n>\n> ### Actions\n> ***Tentacles.*** Melee Weapon Attack: +5 to hit, reach 15 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage. If the target is a creature, it is grappled (escape DC 16). Until this grapple ends, the target is restrained, and the octopus can't use its tentacles on another target. Ink Cloud (Recharges after a Short or Long Rest). A 20- foot-radius cloud of ink extends all around the octopus if it is underwater. The area is heavily obscured for 1 minute, although a significant current can disperse the ink. After releasing the ink, the octopus can use the Dash action as a bonus action."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Owl",
+      "description": "Large beast, neutral (1/4 (50 XP)) — AC 12, HP 19 (3d10 + 3), Speed 5 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Owl\n> *Large beast, neutral*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 19 (3d10 + 3)\n> - **Speed** 5 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |13 (+1)|15 (+2)|12 (+1)|8 (-1)|13 (+1)|10 (+0)|\n> ___\n> - **Skills** Perception +5, Stealth +4\n> - **Senses** darkvision 120 ft., passive Perception 15\n> - **Languages** Giant Owl, understands Common, Elvish,\n> - **Challenge** 1/4 (50 XP)\n> ___\n> and Sylvan but can't speak them\n>\n> ***Flyby.*** The owl doesn't provoke opportunity attacks when it flies out of an enemy's reach.\n>\n> ***Keen Hearing and Sight.*** The owl has advantage on Wisdom (Perception) checks that rely on hearing or sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 8 (2d6 + 1) slashing damage. Giant owls often befriend fey and other sylvan creatures and are guardians of their woodland realms."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Poisonous Snake",
+      "description": "Medium beast, unaligned (1/4 (50 XP)) — AC 14, HP 11 (2d8 + 2), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Poisonous Snake\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 14\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |10 (+0)|18 (+4)|13 (+1)|2 (-4)|10 (+0)|3 (-4)|\n> ___\n> - **Skills** Perception +2\n> - **Senses** blindsight 10 ft., passive Perception 12\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 6 (1d4 + 4) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Rat",
+      "description": "Small beast, unaligned (1/8 (25 XP)) — AC 12, HP 7 (2d6), Speed 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Rat\n> *Small beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 7 (2d6)\n> - **Speed** 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |7 (-2)|15 (+2)|11 (+0)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Senses** darkvision 60 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Keen Smell.*** The rat has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ***Pack Tactics.*** The rat has advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally isn't incapacitated.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage. Variant: Diseased Giant Rats Some giant rats carry vile diseases that they spread with their bites. A diseased giant rat has a challenge rating of 1/8 (25 XP) and the following action instead of its normal bite attack.\n>\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 10 Constitution saving throw or contract a disease. Until the disease is cured, the target can't regain hit points except by magical means, and the target's hit point maximum decreases by 3 (1d6) every 24 hours. If the target's hit point maximum drops to 0 as a result of this disease, the target dies."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Scorpion",
+      "description": "Large beast, unaligned (3 (700 XP)) — AC 15 (natural armor), HP 52 (7d10 + 14), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Scorpion\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 15 (natural armor)\n> - **Hit Points** 52 (7d10 + 14)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|13 (+1)|15 (+2)|1 (-5)|9 (-1)|3 (-4)|\n> ___\n> - **Senses** blindsight 60 ft., passive Perception 9\n> - **Languages** —\n> - **Challenge** 3 (700 XP)\n> ___\n> ### Actions\n> ***Multiattack.*** The scorpion makes three attacks: two with its claws and one with its sting.\n>\n> ***Claw.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 12). The scorpion has two claws, each of which can grapple only one target.\n>\n> ***Sting.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (1d10 + 2) piercing damage, and the target must make a DC 12 Constitution saving throw, taking 22 (4d10) poison damage on a failed save, or half as much damage on a successful one."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Shark",
+      "description": "Huge beast, unaligned (5 (1,800 XP)) — AC 13 (natural armor), HP 126 (11d12 + 55), Speed 0 ft., swim 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Shark\n> *Huge beast, unaligned*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 126 (11d12 + 55)\n> - **Speed** 0 ft., swim 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |23 (+6)|11 (+0)|21 (+5)|1 (-5)|10 (+0)|5 (-3)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** blindsight 60 ft., passive Perception 13\n> - **Languages** —\n> - **Challenge** 5 (1,800 XP)\n> ___\n> ***Blood Frenzy.*** The shark has advantage on melee attack rolls against any creature that doesn't have all its hit points.\n>\n> ***Water Breathing.*** The shark can breathe only underwater.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 22 (3d10 + 6) piercing damage. A giant shark is 30 feet long and normally found in deep oceans. Utterly fearless, it preys on anything that crosses its path, including whales and ships."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Spider",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 14 (natural armor), HP 26 (4d10 + 4), Speed 30 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Spider\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 14 (natural armor)\n> - **Hit Points** 26 (4d10 + 4)\n> - **Speed** 30 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|16 (+3)|12 (+1)|2 (-4)|11 (+0)|4 (-3)|\n> ___\n> - **Skills** Stealth +7\n> - **Senses** blindsight 10 ft., darkvision 60 ft., passive\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> Perception 10\n>\n> ***Spider Climb.*** The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.\n>\n> ***Web Sense.*** While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.\n>\n> ***Web Walker.*** The spider ignores movement restrictions caused by webbing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 7 (1d8 + 3) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 9 (2d8) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way. Web (Recharge 5–6). Ranged Weapon Attack: +5 to hit, range 30/60 ft., one creature. Hit: The target is restrained by webbing. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage). To snare its prey, a giant spider spins elaborate webs or shoots sticky strands of webbing from its abdomen. Giant spiders are most commonly found underground, making their lairs on ceilings or in dark, web-filled crevices. Such lairs are often festooned with web cocoons holding past victims."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Toad",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 11, HP 39 (6d10 + 6), Speed 20 ft., swim 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Toad\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 39 (6d10 + 6)\n> - **Speed** 20 ft., swim 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|13 (+1)|13 (+1)|2 (-4)|10 (+0)|3 (-4)|\n> ___\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Amphibious.*** The toad can breathe air and water.\n>\n> ***Standing Leap.*** The toad's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (1d10 + 2) piercing damage plus 5 (1d10) poison damage, and the target is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the toad can't bite another target.\n>\n> ***Swallow.*** The toad makes one bite attack against a\n>\n> ***Medium or smaller target it is grappling.*** If the attack hits, the target is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside the toad, and it takes 10 (3d6) acid damage at the start of each of the toad's turns. The toad can have only one target swallowed at a time. If the toad dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 5 feet of movement, exiting prone."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Weasel",
+      "description": "Medium beast, unaligned (1/8 (25 XP)) — AC 13, HP 9 (2d8), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Weasel\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 9 (2d8)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |11 (+0)|16 (+3)|10 (+0)|4 (-3)|12 (+1)|5 (-3)|\n> ___\n> - **Skills** Perception +3, Stealth +5\n> - **Senses** darkvision 60 ft., passive Perception 13\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Keen Hearing and Smell.*** The weasel has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Giant Wolf Spider",
+      "description": "Medium beast, unaligned (1/4 (50 XP)) — AC 13, HP 11 (2d8 + 2), Speed 40 ft., climb 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Wolf Spider\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 40 ft., climb 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|16 (+3)|13 (+1)|3 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Skills** Perception +3, Stealth +7\n> - **Senses** blindsight 10 ft., darkvision 60 ft., passive\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> Perception 13\n>\n> ***Spider Climb.*** The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.\n>\n> ***Web Sense.*** While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.\n>\n> ***Web Walker.*** The spider ignores movement restrictions caused by webbing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 7 (2d6) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way. Smaller than a giant spider, a giant wolf spider hunts prey across open ground or hides in a burrow or crevice, or in a hidden cavity beneath debris."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Goat",
+      "description": "Medium beast, unaligned (0 (10 XP)) — AC 10, HP 4 (1d8), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Goat\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 4 (1d8)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|10 (+0)|11 (+0)|2 (-4)|10 (+0)|5 (-3)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Charge.*** If the goat moves at least 20 feet straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 2 (1d4) bludgeoning damage. If the target is a creature, it must succeed on a DC 10 Strength saving throw or be knocked prone.\n>\n> ***Sure-Footed.*** The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.\n>\n> ### Actions\n> ***Ram.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Hawk",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 13, HP 1 (1d4 - 1), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Hawk\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |5 (-3)|16 (+3)|8 (-1)|2 (-4)|14 (+2)|6 (-2)|\n> ___\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Keen Sight.*** The hawk has advantage on Wisdom (Perception) checks that rely on sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lion",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 12, HP 26 (4d10 + 4), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Lion\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 26 (4d10 + 4)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |17 (+3)|15 (+2)|13 (+1)|3 (-4)|12 (+1)|8 (-1)|\n> ___\n> - **Skills** Perception +3, Stealth +6\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Keen Smell.*** The lion has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ***Pack Tactics.*** The lion has advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally isn't incapacitated.\n>\n> ***Pounce.*** If the lion moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13\n>\n> ***Strength saving throw or be knocked prone.*** If the target is prone, the lion can make one bite attack against it as a bonus action.\n>\n> ***Running Leap.*** With a 10-foot running start, the lion can long jump up to 25 feet.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) piercing damage.\n>\n> ***Claw.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Lizard",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 10, HP 2 (1d4), Speed 20 ft., climb 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Lizard\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 2 (1d4)\n> - **Speed** 20 ft., climb 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|11 (+0)|10 (+0)|1 (-5)|8 (-1)|3 (-4)|\n> ___\n> - **Senses** darkvision 30 ft., passive Perception 9\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Mastiff",
+      "description": "Medium beast, unaligned (1/8 (25 XP)) — AC 12, HP 5 (1d8 + 1), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mastiff\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 5 (1d8 + 1)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |13 (+1)|14 (+2)|12 (+1)|3 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Keen Hearing and Smell.*** The mastiff has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone. Mastiffs are impressive hounds prized by humanoids for their loyalty and keen senses. Mastiffs can be trained as guard dogs, hunting dogs, and war dogs. Halflings and other Small humanoids ride them as mounts."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Mule",
+      "description": "Medium beast, unaligned (1/8 (25 XP)) — AC 10, HP 11 (2d8 + 2), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mule\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|10 (+0)|13 (+1)|2 (-4)|10 (+0)|5 (-3)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ***Beast of Burden.*** The mule is considered to be a Large animal for the purpose of determining its carrying capacity.\n>\n> ***Sure-Footed.*** The mule has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.\n>\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Octopus",
+      "description": "Small beast, unaligned (0 (10 XP)) — AC 12, HP 3 (1d6), Speed 5 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Octopus\n> *Small beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 3 (1d6)\n> - **Speed** 5 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |4 (-3)|15 (+2)|11 (+0)|3 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Skills** Perception +2, Stealth +4\n> - **Senses** darkvision 30 ft., passive Perception 12\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Hold Breath.*** While out of water, the octopus can hold its breath for 30 minutes.\n>\n> ***Underwater Camouflage.*** The octopus has advantage on Dexterity (Stealth) checks made while underwater.\n>\n> ***Water Breathing.*** The octopus can breathe only underwater.\n>\n> ### Actions\n> ***Tentacles.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 bludgeoning damage, and the target is grappled (escape DC 10). Until this grapple ends, the octopus can't use its tentacles on another target. Ink Cloud (Recharges after a Short or Long Rest). A 5- foot-radius cloud of ink extends all around the octopus if it is underwater. The area is heavily obscured for 1 minute, although a significant current can disperse the ink. After releasing the ink, the octopus can use the Dash action as a bonus action."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Owl",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 11, HP 1 (1d4 - 1), Speed 5 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Owl\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 5 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |3 (-4)|13 (+1)|8 (-1)|2 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3, Stealth +3\n> - **Senses** darkvision 120 ft., passive Perception 13\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Flyby.*** The owl doesn't provoke opportunity attacks when it flies out of an enemy's reach.\n>\n> ***Keen Hearing and Sight.*** The owl has advantage on Wisdom (Perception) checks that rely on hearing or sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 1 slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Panther",
+      "description": "Medium beast, unaligned (3 (700 XP)) — AC 13 (natural armor), HP 32 (5d10 + 5), Speed 30 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Panther\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 32 (5d10 + 5)\n> - **Speed** 30 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|15 (+2)|10 (+0)|3 (-4)|14 (+2)|7 (-2)|\n> ___\n> - **Skills** Perception +4, Stealth +6\n> - **Senses** passive Perception 14\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> - **Skills** Stealth +6\n> - **Senses** darkvision 60 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 3 (700 XP)\n> ___\n> ***Keen Smell.*** The panther has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ***Pounce.*** If the panther moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 12\n>\n> ***Strength saving throw or be knocked prone.*** If the target is prone, the panther can make one bite attack against it as a bonus action.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.\n>\n> ***Claw.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage. Phase Spider Large monstrosity, unaligned\n>\n> ***Ethereal Jaunt.*** As a bonus action, the spider can magically shift from the Material Plane to the Ethereal Plane, or vice versa.\n>\n> ***Spider Climb.*** The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.\n>\n> ***Web Walker.*** The spider ignores movement restrictions caused by webbing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (1d10 + 2) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 18 (4d8) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way. A phase spider possesses the magical ability to phase in and out of the Ethereal Plane. It seems to appear out of nowhere and quickly vanishes after attacking. Its movement on the Ethereal Plane before coming back to the Material Plane makes it seem like it can teleport."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Poisonous Snake",
+      "description": "Tiny beast, unaligned (1/8 (25 XP)) — AC 13, HP 2 (1d4), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Poisonous Snake\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 2 (1d4)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|16 (+3)|11 (+0)|1 (-5)|10 (+0)|3 (-4)|\n> ___\n> - **Senses** blindsight 10 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 piercing damage, and the target must make a DC 10 Constitution saving throw, taking 5 (2d4) poison damage on a failed save, or half as much damage on a successful one."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Polar Bear",
+      "description": "Large beast, unaligned (2 (450 XP)) — AC 12 (natural armor), HP 42 (5d10 + 15), Speed 40 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Polar Bear\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 42 (5d10 + 15)\n> - **Speed** 40 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |20 (+5)|10 (+0)|16 (+3)|2 (-4)|13 (+1)|7 (-2)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 2 (450 XP)\n> ___\n> ***Keen Smell.*** The bear has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ### Actions\n> ***Multiattack.*** The bear makes two attacks: one with its bite and one with its claws.\n>\n> ***Bite.*** Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (1d8 + 5) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Pony",
+      "description": "Medium beast, unaligned (1/8 (25 XP)) — AC 10, HP 11 (2d8 + 2), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Pony\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |15 (+2)|10 (+0)|13 (+1)|2 (-4)|11 (+0)|7 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/8 (25 XP)\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Rat",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 10, HP 1 (1d4 - 1), Speed 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Rat\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|11 (+0)|9 (-1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Keen Smell.*** The rat has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Raven",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 12, HP 1 (1d4 - 1), Speed 10 ft., fly 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Raven\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 10 ft., fly 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|14 (+2)|8 (-1)|2 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Mimicry.*** The raven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful DC 10 Wisdom (Insight) check.\n>\n> ### Actions\n> ***Beak.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 piercing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Reef Shark",
+      "description": "Medium beast, unaligned (1/2 (100 XP)) — AC 12 (natural armor), HP 22 (4d8 + 4), Speed 0 ft., swim 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Reef Shark\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 22 (4d8 + 4)\n> - **Speed** 0 ft., swim 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|13 (+1)|13 (+1)|1 (-5)|10 (+0)|4 (-3)|\n> ___\n> - **Skills** Perception +2\n> - **Senses** blindsight 30 ft., passive Perception 12\n> - **Languages** —\n> - **Challenge** 1/2 (100 XP)\n> ___\n> ***Pack Tactics.*** The shark has advantage on an attack roll against a creature if at least one of the shark's allies is within 5 feet of the creature and the ally isn't incapacitated.\n>\n> ***Water Breathing.*** The shark can breathe only underwater.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage. Smaller than giant sharks and hunter sharks, reef sharks inhabit shallow waters and coral reefs, gathering in small packs to hunt. A full-grown specimen measures 6 to 10 feet long."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Riding Horse",
+      "description": "Large beast, unaligned (1/4 (50 XP)) — AC 10, HP 13 (2d10 + 2), Speed 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Riding Horse\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 13 (2d10 + 2)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|10 (+0)|12 (+1)|2 (-4)|11 (+0)|7 (-2)|\n> ___\n> - **Senses** passive Perception 10\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (2d4 + 3) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Saber-Toothed Tiger",
+      "description": "Large beast, unaligned (2 (450 XP)) — AC 12, HP 52 (7d10 + 14), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Saber-Toothed Tiger\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 52 (7d10 + 14)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|14 (+2)|15 (+2)|3 (-4)|12 (+1)|8 (-1)|\n> ___\n> - **Skills** Perception +3, Stealth +6\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 2 (450 XP)\n> ___\n> ***Keen Smell.*** The tiger has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ***Pounce.*** If the tiger moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14\n>\n> ***Strength saving throw or be knocked prone.*** If the target is prone, the tiger can make one bite attack against it as a bonus action.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (1d10 + 5) piercing damage.\n>\n> ***Claw.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Scorpion",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 11 (natural armor), HP 1 (1d4 - 1), Speed 10 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Scorpion\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 10 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|11 (+0)|8 (-1)|1 (-5)|8 (-1)|2 (-4)|\n> ___\n> - **Senses** blindsight 10 ft., passive Perception 9\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ### Actions\n> ***Sting.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one creature. Hit: 1 piercing damage, and the target must make a DC 9 Constitution saving throw, taking 4 (1d8) poison damage on a failed save, or half as much damage on a successful one."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Spider",
+      "description": "Tiny beast, unaligned (0 (10 XP)) — AC 12, HP 1 (1d4 - 1), Speed 20 ft., climb 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Spider\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 1 (1d4 - 1)\n> - **Speed** 20 ft., climb 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|14 (+2)|8 (-1)|1 (-5)|10 (+0)|2 (-4)|\n> ___\n> - **Skills** Stealth +4\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> ___\n> ***Spider Climb.*** The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.\n>\n> ***Web Sense.*** While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.\n>\n> ***Web Walker.*** The spider ignores movement restrictions caused by webbing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 1 piercing damage, and the target must succeed on a DC 9 Constitution saving throw or take 2 (1d4) poison damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Tiger",
+      "description": "Large beast, unaligned (1 (200 XP)) — AC 12, HP 37 (5d10 + 10), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Tiger\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 37 (5d10 + 10)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |17 (+3)|15 (+2)|14 (+2)|3 (-4)|12 (+1)|8 (-1)|\n> ___\n> - **Skills** Perception +3, Stealth +6\n> - **Senses** darkvision 60 ft., passive Perception 13\n> - **Languages** —\n> - **Challenge** 1 (200 XP)\n> ___\n> ***Keen Smell.*** The tiger has advantage on Wisdom (Perception) checks that rely on smell.\n>\n> ***Pounce.*** If the tiger moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13\n>\n> ***Strength saving throw or be knocked prone.*** If the target is prone, the tiger can make one bite attack against it as a bonus action.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) piercing damage.\n>\n> ***Claw.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Warhorse",
+      "description": "Large beast, unaligned (1/2 (100 XP)) — AC 11, HP 19 (3d10 + 3), Speed 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Warhorse\n> *Large beast, unaligned*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 19 (3d10 + 3)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|12 (+1)|13 (+1)|2 (-4)|12 (+1)|7 (-2)|\n> ___\n> - **Senses** passive Perception 11\n> - **Languages** —\n> - **Challenge** 1/2 (100 XP)\n> ___\n> ***Trampling Charge.*** If the horse moves at least 20 feet straight toward a creature and then hits it with a hooves attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the horse can make another attack with its hooves against it as a bonus action.\n>\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Weasel",
+      "description": "Tiny beast, unaligned (3 (700 XP)) — AC 13 (natural armor), HP 75 (10d10 + 20), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Weasel\n> *Tiny beast, unaligned*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 75 (10d10 + 20)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |3 (-4)|16 (+3)|8 (-1)|2 (-4)|12 (+1)|3 (-4)|\n> ___\n> - **Skills** Perception +3, Stealth +5\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 0 (10 XP)\n> - **Skills** Perception +5, Stealth +3\n> - **Damage Immunities** cold\n> - **Senses** passive Perception 15\n> - **Languages** Common, Giant, Winter Wolf\n> - **Challenge** 3 (700 XP)\n> ___\n> ***Keen Hearing and Smell.*** The weasel has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 piercing damage. Winter Wolf Large monstrosity, neutral evil\n>\n> ***Keen Hearing and Smell.*** The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ***Pack Tactics.*** The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally isn't incapacitated.\n>\n> ***Snow Camouflage.*** The wolf has advantage on Dexterity (Stealth) checks made to hide in snowy terrain.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone. Cold Breath (Recharge 5–6). The wolf exhales a blast of freezing wind in a 15-foot cone. Each creature in that area must make a DC 12 Dexterity saving throw, taking 18 (4d8) cold damage on a failed save, or half as much damage on a successful one. The arctic-dwelling winter wolf is as large as a dire wolf but has snow-white fur and pale blue eyes. Frost giants use these evil creatures as guards and hunting companions, putting the wolves' deadly breath weapon to use against their foes. Winter wolves communicate with one another using growls and barks, but they speak Common and Giant well enough to follow simple conversations."
+      },
+      "reference": "SRD 5.1"
+    },
+    {
+      "name": "Wolf",
+      "description": "Medium beast, unaligned (8 (3,900 XP)) — AC 12 (leather armor), HP 11 (2d8 + 2), Speed 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Wolf\n> *Medium beast, unaligned*\n> ___\n> - **Armor Class** 12 (leather armor)\n> - **Hit Points** 11 (2d8 + 2)\n> - **Speed** 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|15 (+2)|12 (+1)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** passive Perception 13\n> - **Languages** —\n> - **Challenge** 1/4 (50 XP)\n> - **Skills** Perception +4\n> - **Senses** darkvision 60 ft., passive Perception 14\n> - **Languages** Goblin, Worg\n> - **Challenge** 1/2 (100 XP)\n> - **Skills** Medicine +4, Religion +2\n> - **Senses** passive Perception 12\n> - **Languages** any one language (usually Common)\n> - **Challenge** 1/4 (50 XP)\n> - **Saving Throws** Int +9, Wis +6\n> - **Skills** Arcana +13, History +13\n> - **Damage** Resistance damage from spells; nonmagical\n> - **Senses** passive Perception 12\n> - **Languages** any six languages\n> - **Challenge** 12 (8,400 XP)\n> - **Saving Throws** Dex +6, Int +4\n> - **Skills** Acrobatics +6, Deception +3, Perception +3,\n> - **Damage Resistances** poison\n> - **Senses** passive Perception 13\n> - **Languages** Thieves' cant plus any two languages\n> - **Challenge** 8 (3,900 XP)\n> ___\n> ***Keen Hearing and Smell.*** The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ***Pack Tactics.*** The wolf has advantage on attack rolls against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally isn't incapacitated.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone. Worg Large monstrosity, neutral evil\n>\n> ***Keen Hearing and Smell.*** The worg has advantage on Wisdom (Perception) checks that rely on hearing or smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone. A worg is an evil predator that delights in hunting and devouring creatures weaker than itself. Cunning and malevolent, worgs roam across the remote wilderness or are raised by goblins and hobgoblins. Those creatures use worgs as mounts, but a worg will turn on its rider if it feels mistreated or malnourished. Worgs speak in their own language and Goblin, and a few learn to speak Common as well. Appendix MM-B: Nonplayer Characters This appendix contains statistics for various humanoid nonplayer characters (NPCs) that adventurers might encounter during a campaign, including lowly commoners and mighty archmages. These stat blocks can be used to represent both human and nonhuman NPCs. Customizing NPCs There are many easy ways to customize the NPCs in this appendix for your home campaign.\n>\n> ***Racial Traits.*** You can add racial traits to an NPC. For example, a halfling druid might have a speed of 25 feet and the Lucky trait. Adding racial traits to an\n>\n> ***NPC doesn't alter its challenge rating.*** For more on racial traits, see the Player's Handbook.\n>\n> ***Spell Swaps.*** One way to customize an NPC spellcaster is to replace one or more of its spells. You can substitute any spell on the NPC's spell list with a different spell of the same level from the same spell list. Swapping spells in this manner doesn't alter an NPC's challenge rating.\n>\n> ***Armor and Weapon Swaps.*** You can upgrade or downgrade an NPC's armor, or add or switch weapons. Adjustments to Armor Class and damage can change an NPC's challenge rating.\n>\n> ***Magic Items.*** The more powerful an NPC, the more likely it has one or more magic items in its possession. An archmage, for example, might have a magic staff or wand, as well as one or more potions and scrolls. Giving an NPC a potent damage-dealing magic item could alter its challenge rating. Acolyte Medium humanoid (any race), any alignment\n>\n> ***Spellcasting.*** The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: Cantrips (at will): light, sacred flame, thaumaturgy 1st level (3 slots): bless, cure wounds, sanctuary\n>\n> ### Actions\n> ***Club.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage. Acolytes are junior members of a clergy, usually answerable to a priest. They perform a variety of functions in a temple and are granted minor spellcasting power by their deities. Archmage Medium humanoid (any race), any alignment bludgeoning, piercing, and slashing (from stoneskin)\n>\n> ***Magic Resistance.*** The archmage has advantage on saving throws against spells and other magical effects.\n>\n> ***Spellcasting.*** The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared: Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp 1st level (4 slots): detect magic, identify, mage armor,* magic missile 2nd level (3 slots): detect thoughts, mirror image, misty step 3rd level (3 slots): counterspell, fly, lightning bolt 4th level (3 slots): banishment, fire shield, stoneskin* 5th level (3 slots): cone of cold, scrying, wall of force 6th level (1 slot): globe of invulnerability 7th level (1 slot): teleport 8th level (1 slot): mind blank* 9th level (1 slot): time stop *The archmage casts these spells on itself before combat.\n>\n> ### Actions\n> ***Dagger.*** Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage. Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption. An archmage typically has one or more apprentice mages, and an archmage's abode has numerous magical wards and guardians to discourage interlopers. Assassin Medium humanoid (any race), any non-good alignment Stealth +9\n>\n> ***Assassinate.*** During its first turn, the assassin has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the assassin scores against a surprised creature is a critical hit.\n>\n> ***Evasion.*** If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.\n>\n> ***Sneak Attack.*** Once per turn, the assassin deals an extra 14 (4d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the assassin that isn't incapacitated and the assassin doesn't have disadvantage on the attack roll.\n>\n> ### Actions\n> ***Multiattack.*** The assassin makes two shortsword attacks.\n>\n> ***Shortsword.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.\n>\n> ***Light Crossbow.*** Ranged Weapon Attack: +6 to hit, range 80/320 ft., one target. Hit: 7 (1d8 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one. Trained in the use of poison, assassins are remorseless killers who work for nobles, guildmasters, sovereigns, and anyone else who can afford them. Bandit Medium humanoid (any race), any non-lawful alignment"
+      },
+      "reference": "SRD 5.1"
+    }
+  ]
+}

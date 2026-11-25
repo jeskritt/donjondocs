@@ -1,0 +1,2154 @@
+{
+  "style": "Ultramodern 5e",
+  "kind": "equipment",
+  "items": [
+    {
+      "name": "Bayonet Plug",
+      "type": "Gear",
+      "value": "$20",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Laser Sight",
+      "type": "Gear",
+      "value": "$2,000",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Scope, Targeting",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Scope. ET/M",
+      "type": "Gear",
+      "value": "$2,500",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Suppressor",
+      "type": "Gear",
+      "value": "$75",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Friend/foe trigger",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Impact trigger",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Magnetic trigger",
+      "type": "Gear",
+      "value": "$15",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Motion trigger",
+      "type": "Gear",
+      "value": "$15",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Pressure trigger",
+      "type": "Gear",
+      "value": "$20",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Radio remote",
+      "type": "Gear",
+      "value": "$25",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Timer",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Trip trigger",
+      "type": "Gear",
+      "value": "$5",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Wired remote",
+      "type": "Gear",
+      "value": "$15",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Medical kit",
+      "type": "Gear",
+      "value": "$50",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Engineering kit",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Drug kit",
+      "type": "Gear",
+      "value": "$50",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Battery Flare",
+      "type": "Gear",
+      "value": "$2",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Battery Cell B",
+      "type": "Gear",
+      "value": "$2",
+      "weight": "10x1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Battery Cell M",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "0.25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Battery Cell H",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Big ear",
+      "type": "Gear",
+      "value": "$1,000",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Binoculars",
+      "type": "Gear",
+      "value": "$20",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Briefcase",
+      "type": "Gear",
+      "value": "$20",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Bolt cutter",
+      "type": "Gear",
+      "value": "$50",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Caltrops (10)",
+      "type": "Gear",
+      "value": "$40",
+      "weight": "2 lb..",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Camera Ball",
+      "type": "Gear",
+      "value": "$500",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Chemical Light Sticks (5)",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Climbing Boots",
+      "type": "Gear",
+      "value": "$50",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Business",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Casual",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Formal",
+      "type": "Gear",
+      "value": "$500",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Fatigues",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "3 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Compass",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Digital Audio Recorder",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Duct Tape",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Electro Optical Sensor",
+      "type": "Gear",
+      "value": "$5,000",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Electric Torch",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Filament Camera",
+      "type": "Gear",
+      "value": "$500",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Fire Extinguisher",
+      "type": "Gear",
+      "value": "$25",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Flash Goggles",
+      "type": "Gear",
+      "value": "$1,600",
+      "weight": "0.5 ls.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Force Shield",
+      "type": "Gear",
+      "value": "$7,000",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Gas Mask",
+      "type": "Gear",
+      "value": "$500",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Glow-Paint",
+      "type": "Gear",
+      "value": "$5",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Gravity Lens",
+      "type": "Gear",
+      "value": "$5,000",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Grip Gloves",
+      "type": "Gear",
+      "value": "$3,000",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Handcuffs",
+      "type": "Gear",
+      "value": "$3",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Holographic Generator",
+      "type": "Gear",
+      "value": "$15,000",
+      "weight": "30 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Infrared Goggles",
+      "type": "Gear",
+      "value": "$6,000",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Lie Detector",
+      "type": "Gear",
+      "value": "$1,500",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Light Bender",
+      "type": "Gear",
+      "value": "$15,000",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Light Sticks (5)",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "0.25 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Lighter",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Metal Detector",
+      "type": "Gear",
+      "value": "$500",
+      "weight": "2 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Nano-Healer",
+      "type": "Gear",
+      "value": "$250",
+      "weight": "--",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Pillow",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Parabolic Microphone",
+      "type": "Gear",
+      "value": "$350",
+      "weight": "4",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Perfume/Cologne",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Portable Jammer",
+      "type": "Gear",
+      "value": "$2,500",
+      "weight": "6 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Puppet",
+      "type": "Gear",
+      "value": "$5",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Rover Robot",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "20 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Shovel",
+      "type": "Gear",
+      "value": "$5",
+      "weight": "1",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sleeping Bag",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Smartphone",
+      "type": "Gear",
+      "value": "$100",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Soap",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Spike Strip",
+      "type": "Gear",
+      "value": "$500",
+      "weight": "22 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Survival Rations (1 week)",
+      "type": "Gear",
+      "value": "$2",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Suspension Filament",
+      "type": "Gear",
+      "value": "$200",
+      "weight": "0.5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Tablet Assistant",
+      "type": "Gear",
+      "value": "$50",
+      "weight": "0.1",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Towel",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Two-Way Radio",
+      "type": "Gear",
+      "value": "$20",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Ultrasound Goggles",
+      "type": "Gear",
+      "value": "$10,000",
+      "weight": "1 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Watch, Automatic",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Whistle",
+      "type": "Gear",
+      "value": "$1",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Widget Bag",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "5 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Standard Adventurers Kit",
+      "type": "Gear",
+      "value": "$15",
+      "weight": "20 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sunglasses",
+      "type": "Gear",
+      "value": "$50",
+      "weight": "-",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Tent (2-6 person)",
+      "type": "Gear",
+      "value": "$10",
+      "weight": "10 lb.",
+      "effects": "",
+      "description": "",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Battery cell – B",
+      "type": "Ammunition",
+      "value": "$2",
+      "weight": "-",
+      "effects": "QTY 1; Fits/dmg: Various",
+      "description": "QTY 1; Fits/dmg: Various",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Battery cell – M",
+      "type": "Ammunition",
+      "value": "$10",
+      "weight": "-",
+      "effects": "QTY 1; Fits/dmg: Various",
+      "description": "QTY 1; Fits/dmg: Various",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Battery cell – H",
+      "type": "Ammunition",
+      "value": "$100",
+      "weight": "-",
+      "effects": "QTY 1; Fits/dmg: Various",
+      "description": "QTY 1; Fits/dmg: Various",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Caseless round",
+      "type": "Ammunition",
+      "value": "$4",
+      "weight": "-",
+      "effects": "QTY 20; Fits any",
+      "description": "QTY 20; Fits any",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Explosive Spheres",
+      "type": "Ammunition",
+      "value": "$20",
+      "weight": "-",
+      "effects": "QTY 1; Fits any",
+      "description": "QTY 1; Fits any",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "ESP bullet",
+      "type": "Ammunition",
+      "value": "$4",
+      "weight": "-",
+      "effects": "QTY 20; Fits any",
+      "description": "QTY 20; Fits any",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Flame tank",
+      "type": "Ammunition",
+      "value": "$25",
+      "weight": "-",
+      "effects": "QTY 1 tank; Fits any",
+      "description": "QTY 1 tank; Fits any",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Gauss flechette (coil/rail) (1d6-1d8)",
+      "type": "Ammunition",
+      "value": "$5",
+      "weight": "-",
+      "effects": "QTY 10; Fits/dmg: 1d6-1d8",
+      "description": "QTY 10; Fits/dmg: 1d6-1d8",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Gauss flechette (coil/rail) (1d10-2d6)",
+      "type": "Ammunition",
+      "value": "$10",
+      "weight": "-",
+      "effects": "QTY 10; Fits/dmg: 1d10-2d6",
+      "description": "QTY 10; Fits/dmg: 1d10-2d6",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Gauss flechette (coil/rail) (< 2d6)",
+      "type": "Ammunition",
+      "value": "$15",
+      "weight": "-",
+      "effects": "QTY 10; Fits/dmg: < 2d6",
+      "description": "QTY 10; Fits/dmg: < 2d6",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Heavy shell",
+      "type": "Ammunition",
+      "value": "$10",
+      "weight": "-",
+      "effects": "QTY 1; Fits any",
+      "description": "QTY 1; Fits any",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Net cartridge",
+      "type": "Ammunition",
+      "value": "$5",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sabot SPP",
+      "type": "Ammunition",
+      "value": "$2",
+      "weight": "-",
+      "effects": "QTY 20; Fits any",
+      "description": "QTY 20; Fits any",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sawblade",
+      "type": "Ammunition",
+      "value": "$1",
+      "weight": "-",
+      "effects": "QTY 1; Fits/dmg: 1d10",
+      "description": "QTY 1; Fits/dmg: 1d10",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Shotgun slug",
+      "type": "Ammunition",
+      "value": "$2",
+      "weight": "-",
+      "effects": "QTY 10; Fits any",
+      "description": "QTY 10; Fits any",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Traditional bullet (1d4-1d6)",
+      "type": "Ammunition",
+      "value": "$1",
+      "weight": "-",
+      "effects": "QTY 20; Fits/dmg: 1d4-1d6",
+      "description": "QTY 20; Fits/dmg: 1d4-1d6",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Traditional bullet (1d8-1d10)",
+      "type": "Ammunition",
+      "value": "$2",
+      "weight": "-",
+      "effects": "QTY 20; Fits/dmg: 1d8-1d10",
+      "description": "QTY 20; Fits/dmg: 1d8-1d10",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Traditional bullet (1d12 and up)",
+      "type": "Ammunition",
+      "value": "$3",
+      "weight": "-",
+      "effects": "QTY 20; Fits/dmg: 1d12 and up",
+      "description": "QTY 20; Fits/dmg: 1d12 and up",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Detonator",
+      "type": "Ammunition",
+      "value": "$10",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Fear",
+      "type": "Ammunition",
+      "value": "$100",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Narcosynthesis",
+      "type": "Ammunition",
+      "value": "$20",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Open Mind",
+      "type": "Ammunition",
+      "value": "$150",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Paralysis",
+      "type": "Ammunition",
+      "value": "$75",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Pain",
+      "type": "Ammunition",
+      "value": "$100",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sleep",
+      "type": "Ammunition",
+      "value": "$100",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Slow",
+      "type": "Ammunition",
+      "value": "$50",
+      "weight": "-",
+      "effects": "QTY 1",
+      "description": "QTY 1",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Armor Piercing",
+      "type": "Ammunition",
+      "value": "$x5",
+      "weight": "-",
+      "effects": "-",
+      "description": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Rubber",
+      "type": "Ammunition",
+      "value": "$x3",
+      "weight": "-",
+      "effects": "-",
+      "description": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Tracer",
+      "type": "Ammunition",
+      "value": "$x4",
+      "weight": "-",
+      "effects": "-",
+      "description": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Unusual Ammunition",
+      "type": "Ammunition",
+      "value": "$x3-x4",
+      "weight": "-",
+      "effects": "-",
+      "description": "-",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Adrenaline Regulator",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Arms/Legs",
+      "description": "**Implant location: Arms/Legs**\n\nA painful procedure, this mesh is interlaced through your muscles to significantly improve your physical attributes. Property. You gain a +2 bonus to Dexterity. Special. You can purchase this bonus two additional times, though each additional weave costs five times as much as the previous one purchased.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Artificial Mutation",
+      "type": "Cybernetic",
+      "value": "$5,500",
+      "weight": "-",
+      "effects": "Implant location: Arms/Legs",
+      "description": "**Implant location: Arms/Legs**\n\nYou are no longer inconspicuous. This freakish mod is reserved for those people willing to sacrifice their very humanity for an advantage in the task at hand. You have been implanted with mounting hardware, allowing for additional limbs. You can have either an extra set of arms or an extra set of legs (or both if you purchase this add-on twice). Property (Arms). An extra set of arms can provide a brace for weapons and give you advantage with grapple checks. Property (Legs). An extra set of legs gives you advantage against being knocked prone and your speed increases by 5 feet.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Biofort",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Torso",
+      "description": "**Implant location: Torso**\n\nThe bio fort enhances or replaces major internal organs like your liver, stomach, and heart. Property. You gain a +2 bonus to Constitution. You are also immune to poison. Special. You can purchase this bonus two additional times, though each additional biofort costs five times as much as the previous one purchased.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Boosted Lungs",
+      "type": "Cybernetic",
+      "value": "$500",
+      "weight": "-",
+      "effects": "Implant location: Torso",
+      "description": "**Implant location: Torso**\n\nSynthetic lungs can store oxygen while also improving the efficiency of natural breathing. These can be used as a replacement or as an additional organ. Property. You can hold your breath for twenty minutes.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Boosterware",
+      "type": "Cybernetic",
+      "value": "$1,500",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nThis batch of neural implants relay information from various sensors to improve response time. Property. You gain a +2 bonus to Initiative and a +2 bonus with Dexterity saving throws.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Claws",
+      "type": "Cybernetic",
+      "value": "$2,500",
+      "weight": "-",
+      "effects": "Implant location: Hands",
+      "description": "**Implant location: Hands**\n\nYou can extend razor-sharp blades from your fingers. Property. You can extend or retract your claws with a bonus action. If your unarmed melee damage is less than 1d10, it becomes 1d10. If it is 1d10 or higher, it increases by 1 step (1d10 to 1d12 to 2d6 to 2d8 to 2d10 to 2d12).\n\nCONCEALED HOLSTER Your leg opens a miniature chamber on which you can conceal a single one-handed small arm weighing 2 lb. or less. Removing it only takes a bonus action.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Concealable Holster",
+      "type": "Cybernetic",
+      "value": "$200",
+      "weight": "-",
+      "effects": "Implant location: Leg/ Arm",
+      "description": "Implant location: Leg/ Arm",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Cyberlink",
+      "type": "Cybernetic",
+      "value": "$200",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nA cyberlink is a typical early brain implant that allows a user to record memories for perfect playback. It also permits accessing the internet without a computer. Property. You have advantage with any checks to recall memory or lore.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Deployable Shield",
+      "type": "Cybernetic",
+      "value": "$500",
+      "weight": "-",
+      "effects": "Implant location: Arm",
+      "description": "**Implant location: Arm**\n\nYour forearm opens up to block incoming fire. You must have an arm free to use this feature.\n\nProperty. As a bonus action, one free arm turns into a shield, granting a +1 bonus to AC.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Detachable Limb",
+      "type": "Cybernetic",
+      "value": "$200",
+      "weight": "-",
+      "effects": "Implant location: Arm/ Leg",
+      "description": "**Implant location: Arm/ Leg**\n\nThis limb is easily removed or swapped. Property. You must select which already cybernetic limb can be removed, which can only be an arm or a leg. You can detach the limb as a reaction to a grapple or as a bonus action on your turn. The grapple ends, but you lose the limb as a result. It takes an action to reattach.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Digitigrade",
+      "type": "Cybernetic",
+      "value": "$5,000",
+      "weight": "-",
+      "effects": "Implant location: Legs",
+      "description": "**Implant location: Legs**\n\nThis replacement for both legs allows them to be reconfigured into a springy, multi-jointed form. The extra joint locks in place during normal use, so you don't look weird wearing shorts. These joints hold massive amounts of conserved kinetic energy. Property. You automatically subtract 50 feet from any fall. You also double the distance of any jump. Your speed increases by 5 feet. You also have advantage on Dexterity (Stealth) checks that rely on moving silently.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Empathy Chip",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nAn empathy chip uses a combination of olfactory and visual inputs to allow you to communicate easier with those around you. You know what to say and how to say it. Property. You gain a +2 bonus to Charisma. Special. You can purchase this bonus two additional times, though each additional empathy chip costs five times as much as the previous one purchased.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Eyeshine",
+      "type": "Cybernetic",
+      "value": "$4,500",
+      "weight": "-",
+      "effects": "Implant location: Eyes",
+      "description": "**Implant location: Eyes**\n\nThe Tapetum Lucidum-2 replicates the nightvision of predatory animals. This can be unnerving to people who catch the glint from your eyes. Property. You have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Fashionwear",
+      "type": "Cybernetic",
+      "value": "$200",
+      "weight": "-",
+      "effects": "Implant location: Any",
+      "description": "**Implant location: Any**\n\nNot one upgrade but a variety, fashionwear encompasses dozens of aesthetic cybernetics with little no functional value. Each one can accomplish something unique. Here are some examples: Color/shape changing tattoo, color-shifting eyes, color-changing skin tint, color-shifting hair, or length changing hair.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Feign Implant",
+      "type": "Cybernetic",
+      "value": "$500",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nYou can appear entirely dead for both observers and under examination. Property. As an action, you fall prone and are unconscious. Vital signs vanish. The pulse is masked. The brain is placed on low-power mode. All pain receptors are shut off. The brain runs on minimum power and re-circulates an internal air supply on low consumption to prevent notable breathing. You appear dead. This effect can last for a full hour until it reactivates to save the brain from permanent damage. Only a full physical examination by a professional can reveal the truth. Once reactivated, you cannot use this modification again until you finish a long rest. This implant can also be used to induce a medical coma until you have time to be treated. As a reaction to being reduced to 0 hit points or making a death save, you can activate the system. You do not have to make death saves for the duration of the effect - however, any failed saves still count when you wake up.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Filtration system",
+      "type": "Cybernetic",
+      "value": "$850",
+      "weight": "-",
+      "effects": "Implant location: Torso",
+      "description": "**Implant location: Torso**\n\nNot one but several implants across the body that replicates the effect of a gas mask without being required to wear one.\n\nProperty. You gain resistance to poison as well as advantage to any saving throws against the poisoned condition.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Flash Caps",
+      "type": "Cybernetic",
+      "value": "$850",
+      "weight": "-",
+      "effects": "Implant location: Eyes",
+      "description": "**Implant location: Eyes**\n\nReplacing your eyes, flash caps can still appear like your eyes, but a close inspection reveals their mechanical nature. They suppress radical changes in lighting, which could cause damage to one's eyes. Property. You cannot be blinded or disadvantaged from exposure to light.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Focused Skill Implant",
+      "type": "Cybernetic",
+      "value": "$3,500",
+      "weight": "-",
+      "effects": "Implant location: Various",
+      "description": "**Implant location: Various**\n\nThis broad category covers any cybernetic device design to improve one's skill. These can include any of the following: Your fingers open up to reveal smaller manipulators that can extend up to one foot and accomplish tasks requiring a deft and tiny hand; you gain aesthetic modifications to appear more attractive; your body is laced with muscle reinforcements to improve stamina; your visual cortex is enhanced to provide vital information regarding the world around you. The end result is a pronounced improvement with one skill. Property. Select one skill when you gain this cybernetic; you add double your proficiency modifier to checks with that skill.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Gills",
+      "type": "Cybernetic",
+      "value": "$2,000",
+      "weight": "-",
+      "effects": "Implant location: Torso",
+      "description": "**Implant location: Torso**\n\nThese are placed either along your neck or along your torso and allow you to breathe underwater.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Implanted Computer",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nYour memory and skills are digitized within a computer implant.\n\nProperty. You gain a +2 bonus to Intelligence. Special. You can purchase this bonus two additional times, though each additional weave costs five times as much as the previous one purchased.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Knowledge Chip",
+      "type": "Cybernetic",
+      "value": "$500",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nImplanted Knowledge still remains the most popular cybernetic implant, more than any physical augmentation on the market.\n\nProperty. You gain any one skill or tool proficiency or gain one language you can read and write in.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Language Translator",
+      "type": "Cybernetic",
+      "value": "$750",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nThis brain implant will translate all languages you hear or read into one you already know. It has difficulty with slang and idiomatic expressions or languages without a sizeable lexicon; you cannot benefit from bonuses or advantage on Charisma checks related to non-routine communication.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Lightning Fists",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Arms",
+      "description": "**Implant location: Arms**\n\nThis modification places metal caps on the knuckles.\n\nProperty. Your unarmed melee attacks gain the Pincher property, and you can turn any amount of your unarmed damage to lightning damage.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Linear Frame",
+      "type": "Cybernetic",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": "Implant location: Entire",
+      "description": "**Implant location: Entire**\n\nNearly your entire body is replaced with a prosthetic, with only 5 to 45 percent of your original organic form remaining. This new body can look like anything, though most do not stray too far from a binocular/bipedal/upright configuration. The number of configurations is virtually limitless. When you purchase a linear frame, select one of the following.\n\nAlpha. Your Constitution score increases by 4, as does your maximum for that score. All forced movement is halved. You gain +10 hit points +1 additional hit point per character level in addition to normal level rewards. When you finish a long rest and ingest some food and drink, you remove two levels of exhaustion. Your speed is reduced by 5 feet. If an attack knocks you prone without inflicting another effect, which makes falling unavoidable (like being incapacitated), you can choose to ignore being knocked prone.\n\nBeta. Your Strength score increases by 4, as does your maximum for that score. You are still a Medium-sized creature but cannot fit in any advanced armor. You gain +25 hit points plus 1 hit point for every character level. You have advantage with Strength ability checks, and you gain a +2 bonus to melee damage rolls but not melee attacks.\n\nDelta. Your Dexterity score increases by 4, as does your maximum for that score. You have advantage with Dexterity saving throws and ability checks. Your base walking speed increases by 5 feet.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Muscle Weave",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Torso",
+      "description": "**Implant location: Torso**\n\nA painful procedure, this mesh is interlaced through your muscles to significantly improve your physical attributes.\n\nProperty. You gain a +2 bonus to Strength. Special. You can purchase this bonus two additional times, though each additional weave costs five times as much as the previous one purchased.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Nanite Injection",
+      "type": "Cybernetic",
+      "value": "$5,000",
+      "weight": "-",
+      "effects": "Implant location: Torso",
+      "description": "**Implant location: Torso**\n\nThis implant distributed and maintains a small army of molecule-sized robots to quickly repair injuries.\n\nSurge. When you finish a short rest, you recover lost hit points equal to your level.\n\nRegeneration. When you roll a Hit Die to recover hit points, you recover 1 additional hit point.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Nasal Implant",
+      "type": "Cybernetic",
+      "value": "$500",
+      "weight": "-",
+      "effects": "Implant location: Nose",
+      "description": "Implant location: Nose",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Pain Implant",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nYour body still suffers damage—you are just able to ignore the effects.\n\nProperty. You gain +10 hit points. Special. You can purchase this bonus two additional times, though each additional amplification costs five times as much as the previous one purchased. With two implants, you have advantage on Constitution saves to maintain concentration. With three, you have advantage on all Constitution saves.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Palm Anchors",
+      "type": "Cybernetic",
+      "value": "$500",
+      "weight": "-",
+      "effects": "Implant location: Hands",
+      "description": "**Implant location: Hands**\n\nHand-installed gravity pads and magnetic hooks bestow a climb speed of 20 feet.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Power Arms",
+      "type": "Cybernetic",
+      "value": "$5,000",
+      "weight": "-",
+      "effects": "Implant location: Arms",
+      "description": "**Implant location: Arms**\n\nOne or more arms are replaced with cybernetic enhancements equipped with powerful synthetic muscles.\n\nProperty. Unarmed melee damage using your arms increase by one step (1 to 1d4 to 1d6 to 1d8 to 1d10 to 1d12 to 2d6 to 2d8 to 2d10). Replace two arms to increase unarmed melee damage by two steps.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Power Eyes",
+      "type": "Cybernetic",
+      "value": "$500",
+      "weight": "-",
+      "effects": "Implant location: Eyes",
+      "description": "**Implant location: Eyes**\n\nYour eyes now come equipped with an inbuilt 500x optical zoom, which may or may not result in lenses extending from your head. Property. You do not have disadvantage on attack rolls past normal range.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Radar Implant",
+      "type": "Cybernetic",
+      "value": "$750",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nThis implant is more than just giving you eyes on the back of your head—it enables you to see what most people cannot. Property. Your Passive Perception increases by 5.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Radio Communicator",
+      "type": "Cybernetic",
+      "value": "$350",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nA brain implant with a cellular transmitter allows you to communicate with anyone else in signal range. Property. For free, you can communicate with anyone with a similar implant or any kind of communication device.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Remote Link",
+      "type": "Cybernetic",
+      "value": "$250",
+      "weight": "-",
+      "effects": "Implant location: Brain",
+      "description": "**Implant location: Brain**\n\nThis brain implant allows you to remotely control a machine you own, which can include a robot, a car, or a weapon system. Property. You are considered occupying the same space as the machine you are controlling. Each link comes with a controller, so you can only control one item at a time with one link, though you can possess multiple links. Using the item still requires the same action as if you were controlling the item manually.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sensor Amplification",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Head",
+      "description": "**Implant location: Head**\n\nA combination of visual and auditory upgrades, sensor amplifications boost spatial awareness and improve overall sensory input. Property. You gain a +2 bonus to Wisdom.\n\nSpecial. You can purchase this bonus two additional times, though each additional amplification costs five times as much as the previous one purchased.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Speed Legs",
+      "type": "Cybernetic",
+      "value": "$2,500",
+      "weight": "-",
+      "effects": "Implant location: Legs",
+      "description": "**Implant location: Legs**\n\nLighter materials, stronger muscle fibers, and tendons with powerful elastic recoil offer incredible speed when needed.\n\nProperty. You gain a +10 ft. bonus to speed.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Thick Hide",
+      "type": "Cybernetic",
+      "value": "$1,500",
+      "weight": "-",
+      "effects": "Implant location: Torso",
+      "description": "**Implant location: Torso**\n\nYour skin is rough to the touch, and you no longer grow hair. Your skin was not replaced but rather heavily fortified.\n\nProperty. You gain a natural AC of 15 + your Dexterity modifier. If you wear armor, your AC is the higher of the two values.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "VOX Box",
+      "type": "Cybernetic",
+      "value": "$1,500",
+      "weight": "-",
+      "effects": "Implant location: Throat",
+      "description": "**Implant location: Throat**\n\nThe vox box allows you to imitate another subject's voice entirely, although it doesn't help mimic their mannerisms. You must have heard the other voice clearly to be able to imitate it, and you can keep up to three voice patterns in your memory at any one time (not including your own).\n\nProperty. You can replicate the voice of someone you have heard perfectly. You have advantage on Charisma (Deception or Performance) checks to pass yourself off as that person by voice.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Weapon Mount",
+      "type": "Cybernetic",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": "Implant location: Arm",
+      "description": "**Implant location: Arm**\n\nYou gain a subcutaneous weapon embedded in your body, usually in a prosthetic forearm or hand. The weapon extends is visible when in use. This can either be a firearm or a blade (pick one).\n\nProperty (Blade). You can implant any one-handed melee weapon (within reason). The weapon is concealed in the limb, but the limb's purpose is evident if the limb is exposed. Each limb can only contain one weapon.\n\nProperty (Firearm). You can implant any one-handed or non-heavy two-handed small arm under your skin. You cannot be disarmed. Reloading a clip takes an action, and you cannot make the reloading sequence any faster. Extending or retracting the weapon takes no action. Each limb can only contain one weapon. The weapon is concealed in the limb, but the limb's purpose is evident if the limb is exposed.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Vigor Injection (Stock)",
+      "type": "Consumable",
+      "value": "$25",
+      "weight": "0.5 lb.",
+      "effects": "Temporarily boosts Vigor score/vessel/VR (Stock tier)",
+      "description": "Temporarily boosts Vigor score/vessel/VR (Stock tier)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Vigor Injection (Greater)",
+      "type": "Consumable",
+      "value": "$50",
+      "weight": "0.5 lb.",
+      "effects": "Temporarily boosts Vigor score/vessel/VR (Greater tier)",
+      "description": "Temporarily boosts Vigor score/vessel/VR (Greater tier)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Vigor Injection (Superior)",
+      "type": "Consumable",
+      "value": "$250",
+      "weight": "0.5 lb.",
+      "effects": "Temporarily boosts Vigor score/vessel/VR (Superior tier)",
+      "description": "Temporarily boosts Vigor score/vessel/VR (Superior tier)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Vigor Injection (Supreme)",
+      "type": "Consumable",
+      "value": "$1,000",
+      "weight": "0.5 lb.",
+      "effects": "Temporarily boosts Vigor score/vessel/VR (Supreme tier)",
+      "description": "Temporarily boosts Vigor score/vessel/VR (Supreme tier)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Dark Brew (Stock)",
+      "type": "Consumable",
+      "value": "$25",
+      "weight": "0.5 lb.",
+      "effects": "Dark-magic consumable (Stock tier)",
+      "description": "Dark-magic consumable (Stock tier)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Dark Brew (Superior)",
+      "type": "Consumable",
+      "value": "$250",
+      "weight": "0.5 lb.",
+      "effects": "Dark-magic consumable (Superior tier)",
+      "description": "Dark-magic consumable (Superior tier)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Dark Brew (Supreme)",
+      "type": "Consumable",
+      "value": "$1,000",
+      "weight": "0.5 lb.",
+      "effects": "Dark-magic consumable (Supreme tier)",
+      "description": "Dark-magic consumable (Supreme tier)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Angel River",
+      "type": "Consumable",
+      "value": "$500",
+      "weight": "0.2 lb.",
+      "effects": "Dark consumable",
+      "description": "Dark consumable",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Libration",
+      "type": "Consumable",
+      "value": "$300",
+      "weight": "0.2 lb.",
+      "effects": "Dark consumable",
+      "description": "Dark consumable",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Darkephrine",
+      "type": "Consumable",
+      "value": "$350",
+      "weight": "0.2 lb.",
+      "effects": "Dark consumable",
+      "description": "Dark consumable",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Linked Vessel (Mark 4)",
+      "type": "Cybernetic (magic)",
+      "value": "$60,000",
+      "weight": "-",
+      "effects": "Links/expands your dark vessel (Mark 4)",
+      "description": "Links/expands your dark vessel (Mark 4)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Implant Vessel (Mark 3)",
+      "type": "Cybernetic (magic)",
+      "value": "$6,000",
+      "weight": "-",
+      "effects": "Implanted dark vessel (Mark 3)",
+      "description": "Implanted dark vessel (Mark 3)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Implant Vessel (Mark 4)",
+      "type": "Cybernetic (magic)",
+      "value": "$60,000",
+      "weight": "-",
+      "effects": "Implanted dark vessel (Mark 4)",
+      "description": "Implanted dark vessel (Mark 4)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Somatic Surrogate",
+      "type": "Cybernetic (magic)",
+      "value": "$1,350",
+      "weight": "-",
+      "effects": "Provides somatic spell components",
+      "description": "Provides somatic spell components",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Vocal Proxy",
+      "type": "Cybernetic (magic)",
+      "value": "$1,350",
+      "weight": "-",
+      "effects": "Provides verbal spell components",
+      "description": "Provides verbal spell components",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Permatek",
+      "type": "Cybernetic (magic)",
+      "value": "$3,500",
+      "weight": "-",
+      "effects": "Permanent dark-tech augment",
+      "description": "Permanent dark-tech augment",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "River Expansion",
+      "type": "Cybernetic (magic)",
+      "value": "$4,500",
+      "weight": "-",
+      "effects": "Expands river (quick-cast spell) capacity",
+      "description": "Expands river (quick-cast spell) capacity",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Darktech Regenerator",
+      "type": "Cybernetic (magic)",
+      "value": "$5,000",
+      "weight": "-",
+      "effects": "Increases Vigor Regeneration (VR)",
+      "description": "Increases Vigor Regeneration (VR)",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "4-wheel ATV",
+      "type": "Vehicle",
+      "value": "$500",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 100; Speed 30 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## 4-wheel ATV\n> *Size M Vehicle — TL1 (Cost: $500)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 20\n> - **Speed** 30 ft.\n> - **Capacity** 2 passengers · **Cargo** 100 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 100; Speed 30 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "APC",
+      "type": "Vehicle",
+      "value": "$28,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 8; Cargo 1,000; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 100; Size H; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## APC\n> *Size H Vehicle — TL1 (Cost: $28,000)*\n> ___\n> - **Armor Class** 15+ Dex/Int mod. (max 2)\n> - **Hit Points** 100\n> - **Speed** 30 ft.\n> - **Capacity** 8 passengers · **Cargo** 1,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 8; Cargo 1,000; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 100; Size H; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Armored Truck",
+      "type": "Vehicle",
+      "value": "$13,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 7; Cargo 3,000; Speed 30 ft.; AC 14+ Dex/Int mod (max 2); HP 70; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Armored Truck\n> *Size L Vehicle — TL1 (Cost: $13,000)*\n> ___\n> - **Armor Class** 14+ Dex/Int mod (max 2)\n> - **Hit Points** 70\n> - **Speed** 30 ft.\n> - **Capacity** 7 passengers · **Cargo** 3,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 7; Cargo 3,000; Speed 30 ft.; AC 14+ Dex/Int mod (max 2); HP 70; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Car, Hyper",
+      "type": "Vehicle",
+      "value": "$300,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 50; Speed 100 ft.; AC 14+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Car, Hyper\n> *Size L Vehicle — TL1 (Cost: $300,000)*\n> ___\n> - **Armor Class** 14+ Dex/Int mod.\n> - **Hit Points** 40\n> - **Speed** 100 ft.\n> - **Capacity** 2 passengers · **Cargo** 50 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 50; Speed 100 ft.; AC 14+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Car, Luxury Sedan",
+      "type": "Vehicle",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 500; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Car, Luxury Sedan\n> *Size L Vehicle — TL1 (Cost: $25,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 40\n> - **Speed** 50 ft.\n> - **Capacity** 4 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 500; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Car, Sedan",
+      "type": "Vehicle",
+      "value": "$10,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 5; Cargo 500; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Car, Sedan\n> *Size L Vehicle — TL1 (Cost: $10,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 40\n> - **Speed** 40 ft.\n> - **Capacity** 5 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 5; Cargo 500; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Car, Sporty",
+      "type": "Vehicle",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 200; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Car, Sporty\n> *Size L Vehicle — TL1 (Cost: $25,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 35\n> - **Speed** 50 ft.\n> - **Capacity** 4 passengers · **Cargo** 200 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 200; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Car, Sports Sedan",
+      "type": "Vehicle",
+      "value": "$40,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 500; Speed 60 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Car, Sports Sedan\n> *Size L Vehicle — TL1 (Cost: $40,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 35\n> - **Speed** 60 ft.\n> - **Capacity** 4 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 500; Speed 60 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Car, Sports",
+      "type": "Vehicle",
+      "value": "$60,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 200; Speed 70 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Car, Sports\n> *Size L Vehicle — TL1 (Cost: $60,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 35\n> - **Speed** 70 ft.\n> - **Capacity** 2 passengers · **Cargo** 200 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 200; Speed 70 ft.; AC 13+ Dex/Int mod.; HP 35; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Car, Super",
+      "type": "Vehicle",
+      "value": "$100,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 100; Speed 90 ft.; AC 14+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Car, Super\n> *Size L Vehicle — TL1 (Cost: $100,000)*\n> ___\n> - **Armor Class** 14+ Dex/Int mod.\n> - **Hit Points** 40\n> - **Speed** 90 ft.\n> - **Capacity** 2 passengers · **Cargo** 100 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 100; Speed 90 ft.; AC 14+ Dex/Int mod.; HP 40; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Semi-Trailer Truck",
+      "type": "Vehicle",
+      "value": "$50,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 1,000; Speed 30 ft.; AC 15; HP 100; Size H; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Semi-Trailer Truck\n> *Size H Vehicle — TL1 (Cost: $50,000)*\n> ___\n> - **Armor Class** 15\n> - **Hit Points** 100\n> - **Speed** 30 ft.\n> - **Capacity** 4 passengers · **Cargo** 1,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 1,000; Speed 30 ft.; AC 15; HP 100; Size H; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sport Utility Vehicle",
+      "type": "Vehicle",
+      "value": "$20,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 6; Cargo 500; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Sport Utility Vehicle\n> *Size L Vehicle — TL1 (Cost: $20,000)*\n> ___\n> - **Armor Class** 15+ Dex/Int mod. (max 2)\n> - **Hit Points** 50\n> - **Speed** 30 ft.\n> - **Capacity** 6 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 6; Cargo 500; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sport Utility Vehicle, Luxury",
+      "type": "Vehicle",
+      "value": "$35,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 6; Cargo 500; Speed 40 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Sport Utility Vehicle, Luxury\n> *Size L Vehicle — TL1 (Cost: $35,000)*\n> ___\n> - **Armor Class** 15+ Dex/Int mod. (max 2)\n> - **Hit Points** 50\n> - **Speed** 40 ft.\n> - **Capacity** 6 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 6; Cargo 500; Speed 40 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Truck",
+      "type": "Vehicle",
+      "value": "$8,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 3,500; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Truck\n> *Size L Vehicle — TL1 (Cost: $8,000)*\n> ___\n> - **Armor Class** 15+ Dex/Int mod. (max 2)\n> - **Hit Points** 50\n> - **Speed** 30 ft.\n> - **Capacity** 4 passengers · **Cargo** 3,500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 3,500; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 50; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Van",
+      "type": "Vehicle",
+      "value": "$10,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 8; Cargo 200; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 55; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Van\n> *Size L Vehicle — TL1 (Cost: $10,000)*\n> ___\n> - **Armor Class** 15+ Dex/Int mod. (max 2)\n> - **Hit Points** 55\n> - **Speed** 30 ft.\n> - **Capacity** 8 passengers · **Cargo** 200 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 8; Cargo 200; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 55; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Chopper",
+      "type": "Vehicle",
+      "value": "$15,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 10; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 25; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Chopper\n> *Size M Vehicle — TL1 (Cost: $15,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 25\n> - **Speed** 40 ft.\n> - **Capacity** 2 passengers · **Cargo** 10 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 10; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 25; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Cruiser",
+      "type": "Vehicle",
+      "value": "$10,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 1; Cargo 20; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 23; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Cruiser\n> *Size M Vehicle — TL1 (Cost: $10,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 23\n> - **Speed** 50 ft.\n> - **Capacity** 1 passengers · **Cargo** 20 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 1; Cargo 20; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 23; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Dirt / Motorcross",
+      "type": "Vehicle",
+      "value": "$2,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 1; Cargo 0; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Dirt / Motorcross\n> *Size M Vehicle — TL1 (Cost: $2,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 20\n> - **Speed** 40 ft.\n> - **Capacity** 1 passengers · **Cargo** 0 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 1; Cargo 0; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Enduro",
+      "type": "Vehicle",
+      "value": "$5,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 50; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 27; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Enduro\n> *Size M Vehicle — TL1 (Cost: $5,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 27\n> - **Speed** 50 ft.\n> - **Capacity** 2 passengers · **Cargo** 50 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 50; Speed 50 ft.; AC 13+ Dex/Int mod.; HP 27; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Scooter",
+      "type": "Vehicle",
+      "value": "$1,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 1; Cargo 5; Speed 20 ft.; AC 13+ Dex/Int mod.; HP 10; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Scooter\n> *Size M Vehicle — TL1 (Cost: $1,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 10\n> - **Speed** 20 ft.\n> - **Capacity** 1 passengers · **Cargo** 5 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 1; Cargo 5; Speed 20 ft.; AC 13+ Dex/Int mod.; HP 10; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Superbike",
+      "type": "Vehicle",
+      "value": "$50,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 1; Cargo 10; Speed 100 ft.; AC 13+ Dex/Int mod.; HP 25; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Superbike\n> *Size M Vehicle — TL1 (Cost: $50,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 25\n> - **Speed** 100 ft.\n> - **Capacity** 1 passengers · **Cargo** 10 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 1; Cargo 10; Speed 100 ft.; AC 13+ Dex/Int mod.; HP 25; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Touring / Dual Sports",
+      "type": "Vehicle",
+      "value": "$2,500",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 30; Speed 60 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Touring / Dual Sports\n> *Size M Vehicle — TL1 (Cost: $2,500)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 20\n> - **Speed** 60 ft.\n> - **Capacity** 2 passengers · **Cargo** 30 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 30; Speed 60 ft.; AC 13+ Dex/Int mod.; HP 20; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Trike",
+      "type": "Vehicle",
+      "value": "$9,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 50; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 30; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Trike\n> *Size M Vehicle — TL1 (Cost: $9,000)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 30\n> - **Speed** 40 ft.\n> - **Capacity** 2 passengers · **Cargo** 50 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 50; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 30; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Buggy, Wheeled",
+      "type": "Vehicle",
+      "value": "$1,500",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 50; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 30; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Buggy, Wheeled\n> *Size L Vehicle — TL1 (Cost: $1,500)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 30\n> - **Speed** 40 ft.\n> - **Capacity** 2 passengers · **Cargo** 50 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 50; Speed 40 ft.; AC 13+ Dex/Int mod.; HP 30; Size L; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Earth Crawler",
+      "type": "Vehicle",
+      "value": "$105",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 50; Cargo 30,000; Speed 20 ft.; AC 19; HP 400; Size Titanic; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Earth Crawler\n> *Size Titanic Vehicle — TL3 (Cost: $105)*\n> ___\n> - **Armor Class** 19\n> - **Hit Points** 400\n> - **Speed** 20 ft.\n> - **Capacity** 50 passengers · **Cargo** 30,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 50; Cargo 30,000; Speed 20 ft.; AC 19; HP 400; Size Titanic; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Haul Truck",
+      "type": "Vehicle",
+      "value": "$500,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 10; Cargo 20,000; Speed 20 ft.; AC 19; HP 300; Size Colossal; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Haul Truck\n> *Size Colossal Vehicle — TL3 (Cost: $500,000)*\n> ___\n> - **Armor Class** 19\n> - **Hit Points** 300\n> - **Speed** 20 ft.\n> - **Capacity** 10 passengers · **Cargo** 20,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 10; Cargo 20,000; Speed 20 ft.; AC 19; HP 300; Size Colossal; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Hot Tank",
+      "type": "Vehicle",
+      "value": "$50,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 500; Speed 30 ft.; AC 17+ Dex/Int mod. (max 2); HP 75; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hot Tank\n> *Size H Vehicle — TL3 (Cost: $50,000)*\n> ___\n> - **Armor Class** 17+ Dex/Int mod. (max 2)\n> - **Hit Points** 75\n> - **Speed** 30 ft.\n> - **Capacity** 4 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 500; Speed 30 ft.; AC 17+ Dex/Int mod. (max 2); HP 75; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Hovercar",
+      "type": "Vehicle",
+      "value": "$70,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 50; Speed 70 ft.; AC 14+ Dex/Int mod.; HP 50; Size L; TL4. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hovercar\n> *Size L Vehicle — TL4 (Cost: $70,000)*\n> ___\n> - **Armor Class** 14+ Dex/Int mod.\n> - **Hit Points** 50\n> - **Speed** 70 ft.\n> - **Capacity** 4 passengers · **Cargo** 50 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 50; Speed 70 ft.; AC 14+ Dex/Int mod.; HP 50; Size L; TL4. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Hoverbike",
+      "type": "Vehicle",
+      "value": "$60,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 10; Speed 100 ft.; AC 14+ Dex/Int mod.; HP 30; Size M; TL4. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hoverbike\n> *Size M Vehicle — TL4 (Cost: $60,000)*\n> ___\n> - **Armor Class** 14+ Dex/Int mod.\n> - **Hit Points** 30\n> - **Speed** 100 ft.\n> - **Capacity** 2 passengers · **Cargo** 10 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 10; Speed 100 ft.; AC 14+ Dex/Int mod.; HP 30; Size M; TL4. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Hovertruck",
+      "type": "Vehicle",
+      "value": "$40,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 6; Cargo 200; Speed 50 ft.; AC 16+ Dex/Int mod. (max 2); HP 60; Size L; TL4. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Hovertruck\n> *Size L Vehicle — TL4 (Cost: $40,000)*\n> ___\n> - **Armor Class** 16+ Dex/Int mod. (max 2)\n> - **Hit Points** 60\n> - **Speed** 50 ft.\n> - **Capacity** 6 passengers · **Cargo** 200 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 6; Cargo 200; Speed 50 ft.; AC 16+ Dex/Int mod. (max 2); HP 60; Size L; TL4. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Land Yacht / Bus",
+      "type": "Vehicle",
+      "value": "$400,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 20; Cargo 2000; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 100; Size G; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Land Yacht / Bus\n> *Size G Vehicle — TL3 (Cost: $400,000)*\n> ___\n> - **Armor Class** 15+ Dex/Int mod. (max 2)\n> - **Hit Points** 100\n> - **Speed** 30 ft.\n> - **Capacity** 20 passengers · **Cargo** 2000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 20; Cargo 2000; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 100; Size G; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Mobile Base",
+      "type": "Vehicle",
+      "value": "$500,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 10; Cargo 500; Speed 20 ft.; AC 19; HP 250; Size G; TL4. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Mobile Base\n> *Size G Vehicle — TL4 (Cost: $500,000)*\n> ___\n> - **Armor Class** 19\n> - **Hit Points** 250\n> - **Speed** 20 ft.\n> - **Capacity** 10 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 10; Cargo 500; Speed 20 ft.; AC 19; HP 250; Size G; TL4. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Multi-Ped Vehicle, Light",
+      "type": "Vehicle",
+      "value": "$75,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 100; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 70; Size L; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Multi-Ped Vehicle, Light\n> *Size L Vehicle — TL3 (Cost: $75,000)*\n> ___\n> - **Armor Class** 15+ Dex/Int mod. (max 2)\n> - **Hit Points** 70\n> - **Speed** 30 ft.\n> - **Capacity** 2 passengers · **Cargo** 100 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 100; Speed 30 ft.; AC 15+ Dex/Int mod. (max 2); HP 70; Size L; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Multi-Ped Vehicle, Heavy",
+      "type": "Vehicle",
+      "value": "$125,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 500; Speed 20 ft.; AC 17; HP 100; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Multi-Ped Vehicle, Heavy\n> *Size H Vehicle — TL3 (Cost: $125,000)*\n> ___\n> - **Armor Class** 17\n> - **Hit Points** 100\n> - **Speed** 20 ft.\n> - **Capacity** 4 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 500; Speed 20 ft.; AC 17; HP 100; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Personal Transporter",
+      "type": "Vehicle",
+      "value": "$500",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 1; Cargo 20; Speed 20 ft.; AC 13+ Dex/Int mod.; HP 5; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Personal Transporter\n> *Size M Vehicle — TL1 (Cost: $500)*\n> ___\n> - **Armor Class** 13+ Dex/Int mod.\n> - **Hit Points** 5\n> - **Speed** 20 ft.\n> - **Capacity** 1 passengers · **Cargo** 20 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 1; Cargo 20; Speed 20 ft.; AC 13+ Dex/Int mod.; HP 5; Size M; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Sprung Train",
+      "type": "Vehicle",
+      "value": "$200,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 50; Cargo 10,000; Speed 20 ft.; AC 16; HP 150; Size G; TL2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Sprung Train\n> *Size G Vehicle — TL2 (Cost: $200,000)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 150\n> - **Speed** 20 ft.\n> - **Capacity** 50 passengers · **Cargo** 10,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 50; Cargo 10,000; Speed 20 ft.; AC 16; HP 150; Size G; TL2. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Tank",
+      "type": "Vehicle",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 500; Speed 20 ft.; AC 18; HP 125; Size H; TL1. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Tank\n> *Size H Vehicle — TL1 (Cost: $25,000)*\n> ___\n> - **Armor Class** 18\n> - **Hit Points** 125\n> - **Speed** 20 ft.\n> - **Capacity** 4 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 500; Speed 20 ft.; AC 18; HP 125; Size H; TL1. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Advanced Aerial Vehicle",
+      "type": "Vehicle",
+      "value": "$100,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 6; Cargo 1,500; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 100; Size H; TL4. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Advanced Aerial Vehicle\n> *Size H Vehicle — TL4 (Cost: $100,000)*\n> ___\n> - **Armor Class** 13 + Dex/Int mod.\n> - **Hit Points** 100\n> - **Speed** 60 ft.\n> - **Capacity** 6 passengers · **Cargo** 1,500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 6; Cargo 1,500; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 100; Size H; TL4. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Attack Helicopter",
+      "type": "Vehicle",
+      "value": "$80,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 500; Speed 60 ft.; AC 15 + Dex/Int mod. (max 2); HP 90; Size H; TL2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Attack Helicopter\n> *Size H Vehicle — TL2 (Cost: $80,000)*\n> ___\n> - **Armor Class** 15 + Dex/Int mod. (max 2)\n> - **Hit Points** 90\n> - **Speed** 60 ft.\n> - **Capacity** 2 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 500; Speed 60 ft.; AC 15 + Dex/Int mod. (max 2); HP 90; Size H; TL2. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Blimp",
+      "type": "Vehicle",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 5; Cargo 300; Speed 10 ft.; AC 16; HP 50; Size G; TL2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Blimp\n> *Size G Vehicle — TL2 (Cost: $25,000)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 50\n> - **Speed** 10 ft.\n> - **Capacity** 5 passengers · **Cargo** 300 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 5; Cargo 300; Speed 10 ft.; AC 16; HP 50; Size G; TL2. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Buzzboy",
+      "type": "Vehicle",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 1; Cargo 5; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 30; Size M; TL2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Buzzboy\n> *Size M Vehicle — TL2 (Cost: $25,000)*\n> ___\n> - **Armor Class** 13 + Dex/Int mod.\n> - **Hit Points** 30\n> - **Speed** 60 ft.\n> - **Capacity** 1 passengers · **Cargo** 5 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 1; Cargo 5; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 30; Size M; TL2. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Flying Supercar",
+      "type": "Vehicle",
+      "value": "$3,5000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 50; Speed 60 ft.; AC 14 + Dex/Int mod.; HP 40; Size H; TL5. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Flying Supercar\n> *Size H Vehicle — TL5 (Cost: $3,5000)*\n> ___\n> - **Armor Class** 14 + Dex/Int mod.\n> - **Hit Points** 40\n> - **Speed** 60 ft.\n> - **Capacity** 2 passengers · **Cargo** 50 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 50; Speed 60 ft.; AC 14 + Dex/Int mod.; HP 40; Size H; TL5. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Flying Car",
+      "type": "Vehicle",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 200; Speed 40 ft.; AC 13 + Dex/Int mod.; HP 30; Size H; TL4. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Flying Car\n> *Size H Vehicle — TL4 (Cost: $25,000)*\n> ___\n> - **Armor Class** 13 + Dex/Int mod.\n> - **Hit Points** 30\n> - **Speed** 40 ft.\n> - **Capacity** 4 passengers · **Cargo** 200 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 200; Speed 40 ft.; AC 13 + Dex/Int mod.; HP 30; Size H; TL4. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Helicopter (TL2)",
+      "type": "Vehicle",
+      "value": "$25,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 500; Speed 50 ft.; AC 14 + Dex/Int mod. (max 2); HP 40; Size H; TL2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Helicopter (TL2)\n> *Size H Vehicle — TL2 (Cost: $25,000)*\n> ___\n> - **Armor Class** 14 + Dex/Int mod. (max 2)\n> - **Hit Points** 40\n> - **Speed** 50 ft.\n> - **Capacity** 4 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 500; Speed 50 ft.; AC 14 + Dex/Int mod. (max 2); HP 40; Size H; TL2. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Helicopter (TL3)",
+      "type": "Vehicle",
+      "value": "$70,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 4; Cargo 500; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 40; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Helicopter (TL3)\n> *Size H Vehicle — TL3 (Cost: $70,000)*\n> ___\n> - **Armor Class** 13 + Dex/Int mod.\n> - **Hit Points** 40\n> - **Speed** 60 ft.\n> - **Capacity** 4 passengers · **Cargo** 500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 4; Cargo 500; Speed 60 ft.; AC 13 + Dex/Int mod.; HP 40; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Leviathan",
+      "type": "Vehicle",
+      "value": "$200,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 80; Cargo 20,000; Speed 40 ft.; AC 18; HP 200; Size G; TL4. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Leviathan\n> *Size G Vehicle — TL4 (Cost: $200,000)*\n> ___\n> - **Armor Class** 18\n> - **Hit Points** 200\n> - **Speed** 40 ft.\n> - **Capacity** 80 passengers · **Cargo** 20,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 80; Cargo 20,000; Speed 40 ft.; AC 18; HP 200; Size G; TL4. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Rocket Yacht",
+      "type": "Vehicle",
+      "value": "$100,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 8; Cargo 800; Speed 100 ft.; AC 15 + Dex/Int mod. (max 2); HP 50; Size H; TL5. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Rocket Yacht\n> *Size H Vehicle — TL5 (Cost: $100,000)*\n> ___\n> - **Armor Class** 15 + Dex/Int mod. (max 2)\n> - **Hit Points** 50\n> - **Speed** 100 ft.\n> - **Capacity** 8 passengers · **Cargo** 800 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 8; Cargo 800; Speed 100 ft.; AC 15 + Dex/Int mod. (max 2); HP 50; Size H; TL5. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Swoosh Bike",
+      "type": "Vehicle",
+      "value": "$20,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 2; Cargo 100; Speed 80 ft.; AC 13 + Dex/Int mod.; HP 20; Size M; TL5. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Swoosh Bike\n> *Size M Vehicle — TL5 (Cost: $20,000)*\n> ___\n> - **Armor Class** 13 + Dex/Int mod.\n> - **Hit Points** 20\n> - **Speed** 80 ft.\n> - **Capacity** 2 passengers · **Cargo** 100 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 2; Cargo 100; Speed 80 ft.; AC 13 + Dex/Int mod.; HP 20; Size M; TL5. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Tilt-Fan",
+      "type": "Vehicle",
+      "value": "$100,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 6; Cargo 2,000; Speed 50 ft.; AC 15 + Dex/Int mod. (max 2); HP 100; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Tilt-Fan\n> *Size H Vehicle — TL3 (Cost: $100,000)*\n> ___\n> - **Armor Class** 15 + Dex/Int mod. (max 2)\n> - **Hit Points** 100\n> - **Speed** 50 ft.\n> - **Capacity** 6 passengers · **Cargo** 2,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 6; Cargo 2,000; Speed 50 ft.; AC 15 + Dex/Int mod. (max 2); HP 100; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Tilt-Rotor",
+      "type": "Vehicle",
+      "value": "$100,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 10; Cargo 3,000; Speed 60 ft.; AC 16; HP 100; Size G; TL2. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Tilt-Rotor\n> *Size G Vehicle — TL2 (Cost: $100,000)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 100\n> - **Speed** 60 ft.\n> - **Capacity** 10 passengers · **Cargo** 3,000 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 10; Cargo 3,000; Speed 60 ft.; AC 16; HP 100; Size G; TL2. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    },
+    {
+      "name": "Tilt-Jet",
+      "type": "Vehicle",
+      "value": "$125,000",
+      "weight": "-",
+      "effects": {
+        "summary": "Cap 10; Cargo 5,500; Speed 70 ft.; AC 16; HP 100; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+        "ally_type": "Vehicle",
+        "stat_block_md": "___\n> ## Tilt-Jet\n> *Size H Vehicle — TL3 (Cost: $125,000)*\n> ___\n> - **Armor Class** 16\n> - **Hit Points** 100\n> - **Speed** 70 ft.\n> - **Capacity** 10 passengers · **Cargo** 5,500 lb.\n> ___\n> ### Notes & Modifications\n> *Track hull damage, mounted weapons, upgrades, and driver notes here.*"
+      },
+      "description": "Cap 10; Cargo 5,500; Speed 70 ft.; AC 16; HP 100; Size H; TL3. Full stat block in Allies & Stat Blocks.",
+      "reference": "UM5 OGL"
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "style": "Level Up: Advanced 5e",
+  "kind": "abilities",
+  "items": [
+    {
+      "name": "Bat",
+      "description": "Tiny Beast (CR 0) — AC 12, HP 1 (1d4 – 1), Speed 5 ft., fly 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Bat\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 5 ft., fly 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|14 (+2)|8 (-1)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** blindsight 60 ft., passive Perception 11\n> - **Languages** —\n> ___\n> ***Echolocation.*** The bat can't use blindsight while deafened.\n>\n> ***Keen Hearing.*** The bat has advantage on Perception checks that rely on hearing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 1 piercing damage. If this damage would reduce a Small or larger target to 0 hit points, the target takes no damage from this attack."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Black Bear",
+      "description": "Medium Beast (CR 1/2) — AC 11 (natural armor), HP 19 (3d8+6; bloodied 9), Speed 40 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Black Bear\n> *Medium Beast (CR 1/2)*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 19 (3d8+6; bloodied 9)\n> - **Speed** 40 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|10 (+0)|14 (+2)|2 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The bear has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Multiattack.*** The bear attacks once with its bite and once with its claws.\n>\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Blood Hawk",
+      "description": "Small Beast (CR 1/8) — AC 11, HP 7 (2d6; bloodied 3), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Blood Hawk\n> *Small Beast (CR 1/8)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 7 (2d6; bloodied 3)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |6 (-2)|12 (+1)|10 (+0)|2 (-4)|14 (+2)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Skills** Perception +4\n> - **Senses** passive Perception 12\n> - **Languages** —\n> ___\n> ***Keen Sight.*** The hawk has advantage on Perception checks that rely on sight.\n>\n> ***Pack Tactics.*** The hawk has advantage on attack rolls against a creature if at least one of the hawk's allies is within 5 feet of the creature and not incapacitated.\n>\n> ### Actions\n> ***Beak.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Boar",
+      "description": "Medium Beast (CR 1/4) — AC 11 (natural armor), HP 11 (2d8 + 2; bloodied 5), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Boar\n> *Medium Beast (CR 1/4)*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 11 (2d8 + 2; bloodied 5)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|10 (+0)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ***Relentless (1/Day).*** If the boar takes 5 or less damage that would reduce it to 0 hit points, it is instead reduced to 1 hit point.\n>\n> ### Actions\n> ***Tusk.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage. If the boar moves at least 20 feet straight towards the target before the attack, the attack deals an extra 3 (1d6) slashing damage and the target makes a DC 11 Strength saving throw, falling prone on a failure."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Brown Bear",
+      "description": "Large Beast (CR 1) — AC 11 (natural armor), HP 34 (4d10 + 12; bloodied 17), Speed 30 ft. (40 ft., climb 30 ft.).",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Brown Bear\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 34 (4d10 + 12; bloodied 17)\n> - **Speed** 30 ft. (40 ft., climb 30 ft.)\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|10 (+0)|16 (+3)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 14\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The bear has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 9 (2d4 + 4) slashing damage. If the target is a Medium or smaller creature, it is grappled (escape\n>\n> ***DC 14).*** Until this grapple ends, the bear can't attack a different target with its claws."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Camel",
+      "description": "Large Beast (CR 1/8) — AC 10, HP 15 (2d10 + 4; bloodied 7), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Camel\n> *Large Beast (CR 1/8)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 15 (2d10 + 4; bloodied 7)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|10 (+0)|14 (+2)|2 (-4)|8 (-1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Senses** passive Perception 9\n> - **Languages** —\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Cat",
+      "description": "Tiny Beast (CR 0) — AC 12, HP 2 (1d4; bloodied 1), Speed 40 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Cat\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 2 (1d4; bloodied 1)\n> - **Speed** 40 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|14 (+2)|10 (+0)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** darkvision 30 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The cat has advantage on Perception checks that rely on smell.\n>\n> ***Safe Landing.*** The cat takes no falling damage from the first 10 feet that it falls.\n>\n> ### Actions\n> ***Claws.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 slashing damage. If this damage would reduce a Small or larger target to 0 hit points, the target takes no damage from this attack."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Constrictor Snake",
+      "description": "Large Beast (CR 1/4) — AC 11, HP 13 (2d10 + 2; bloodied 6), Speed 30 ft., climb 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Constrictor Snake\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 13 (2d10 + 2; bloodied 6)\n> - **Speed** 30 ft., climb 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|12 (+1)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** blindsight 10 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage.\n>\n> ***Constrict.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage and the target is grappled (escape DC 14). Until this grapple ends, the target is restrained and the snake can't constrict a different target."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Crocodile",
+      "description": "Large Beast (CR 1/2) — AC 12 (natural armor), HP 19 (3d10 + 3; bloodied 9), Speed 20 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Crocodile\n> *Large Beast (CR 1/2)*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 19 (3d10 + 3; bloodied 9)\n> - **Speed** 20 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|10 (+0)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Stealth +2\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ***Hold Breath.*** The crocodile can hold its breath for 15 minutes.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (1d10 + 2) piercing damage and the target is grappled (escape DC 12). Until this grapple ends, the target is restrained and the crocodile can't bite a different target."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Dire Wolf",
+      "description": "Large Beast (CR 1) — AC 13 (natural armor), HP 30 (4d10 + 8; bloodied 15), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Dire Wolf\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 30 (4d10 + 8; bloodied 15)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|14 (+2)|14 (+2)|2 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** darkvision 30 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Hearing and Smell.*** The wolf has advantage on Perception checks that rely on hearing and smell.\n>\n> ***Pack Tactics.*** The wolf has advantage on attack rolls against a creature if at least one of the wolf's allies is within 5 feet of the creature and not incapacitated.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (2d4 + 3) piercing damage. If the target is a creature, it makes a DC 13 Strength saving throw, falling prone on a failure."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Draft Horse",
+      "description": "Large Beast (CR 1/4) — AC 10, HP 22 (3d10 + 6; bloodied 11), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Draft Horse\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 22 (3d10 + 6; bloodied 11)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|10 (+0)|14 (+2)|2 (-4)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 14\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Eagle",
+      "description": "Small Beast (CR 0) — AC 12, HP 3 (1d6; bloodied 1), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Eagle\n> *Small Beast (CR 0)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 3 (1d6; bloodied 1)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |6 (-2)|14 (+2)|10 (+0)|2 (-4)|14 (+2)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** —\n> ___\n> ***Keen Sight.*** The eagle has advantage on Perception checks that rely on sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 slashing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Elephant",
+      "description": "Huge Beast (CR 4) — AC 12 (natural armor), HP 76 (8d12 + 24; bloodied 38), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Elephant\n> *Huge Beast (CR 4)*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 76 (8d12 + 24; bloodied 38)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |22 (+6)|8 (-1)|16 (+3)|4 (-3)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 16\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Gore.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) piercing damage. If the elephant moves at least 20 feet straight towards the target before the attack, the target makes a DC 16 Strength saving throw, falling prone on a failure.\n>\n> ***Stomp.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 22 (3d10 + 6) bludgeoning damage.\n>\n> ### Bonus Actions\n> ***Trample Underfoot.*** The elephant makes a stomp attack against a prone creature."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Elk",
+      "description": "Large Beast (CR 1/4) — AC 10, HP 15 (2d10 + 4; bloodied 7), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Elk\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 15 (2d10 + 4; bloodied 7)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|10 (+0)|14 (+2)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Ram.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage. If the target is a creature and the elk moves at least 20 feet straight towards the target before the attack, the target makes a DC 12 Strength saving throw, falling prone on a failure.\n>\n> ### Bonus Actions\n> ***Hooves.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one prone creature. Hit: 7 (2d4 + 2) bludgeoning damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Frog",
+      "description": "Tiny Beast (CR 0) — AC 11, HP 1 (1d4 – 1), Speed 20 ft., swim 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Frog\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 20 ft., swim 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |1 (-5)|12 (+1)|8 (-1)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Skills** Stealth +3\n> - **Senses** darkvision 30 ft., passive Perception 11\n> - **Languages** —\n> ___\n> ***Amphibious.*** The frog can breathe air and water.\n>\n> ***Jumper.*** The frog can jump up to 10 feet horizontally and 5 feet vertically without a running start."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Badger",
+      "description": "Medium Beast (CR 1/4) — AC 10, HP 19 (3d8 + 6; bloodied 9), Speed 30 ft., burrow 10 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Badger\n> *Medium Beast (CR 1/4)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 19 (3d8 + 6; bloodied 9)\n> - **Speed** 30 ft., burrow 10 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|10 (+0)|14 (+2)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Senses** darkvision 30 ft., passive Perception 11\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The badger has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Bat",
+      "description": "Large Beast (CR 1/4) — AC 13, HP 16 (3d10; bloodied 8), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Bat\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 16 (3d10; bloodied 8)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|16 (+3)|10 (+0)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Senses** blindsight 60 ft., passive Perception 11\n> - **Languages** —\n> ___\n> ***Echolocation.*** The bat can't use blindsight while deafened.\n>\n> ***Keen Hearing.*** The bat has advantage on Perception checks that rely on hearing.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Eagle",
+      "description": "Large Beast (CR 1) — AC 12, HP 26 (4d10 + 4; bloodied 13), Speed 10 ft., fly 80 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Eagle\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 26 (4d10 + 4; bloodied 13)\n> - **Speed** 10 ft., fly 80 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|14 (+2)|12 (+1)|8 (-1)|14 (+2)|10 (+0)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** Giant Eagle, understands but can't speak\n> ___\n> Common and Auran\n>\n> ***Keen Sight.*** The eagle has advantage on Perception checks that rely on sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) slashing damage and the target is grappled (escape DC 13). Until this grapple ends, the giant eagle can't attack a different target with its talons.\n>\n> ### Bonus Actions\n> ***Beak.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one grappled creature. Hit: 5 (1d6 + 2) piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Elk",
+      "description": "Huge Beast (CR 2) — AC 13 (natural armor), HP 42 (5d12 + 10; bloodied 21), Speed 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Elk\n> *Huge Beast (CR 2)*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 42 (5d12 + 10; bloodied 21)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|14 (+2)|14 (+2)|6 (-2)|14 (+2)|10 (+0)|\n> ___\n> - **Proficiency** +2; Maneuver DC 14\n> - **Senses** passive Perception 12\n> - **Languages** Giant Elk, understands but can't speak\n> ___\n> Common, Elvish, and Sylvan\n>\n> ### Actions\n> ***Ram.*** Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage. If the target is a creature and the elk moves at least 20 feet straight towards the target before the attack, the target makes a DC 14 Strength saving throw, falling prone on a failure.\n>\n> ### Bonus Actions\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one prone creature. Hit: 9 (2d4 + 4) bludgeoning damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Frog",
+      "description": "Medium Beast (CR 1/4) — AC 11, HP 18 (4d8; bloodied 9), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Frog\n> *Medium Beast (CR 1/4)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 18 (4d8; bloodied 9)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|12 (+1)|10 (+0)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Skills** Perception +2, Stealth +3\n> - **Senses** darkvision 30 ft., passive Perception 12\n> - **Languages** —\n> ___\n> ***Amphibious.*** The frog can breathe air and water.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage and the target is grappled (escape DC 11). Until this grapple ends, the frog can't bite another target.\n>\n> ***Swallow.*** The frog makes a bite attack against a Small or smaller creature it is grappling. If the attack hits and the frog has not swallowed another creature, the target is swallowed and the grapple ends. A swallowed creature has total cover from attacks from outside the frog, it is blinded and restrained, and it takes 5 (2d4) acid damage at the beginning of each of the frog's turns. If the frog dies, the target is no longer swallowed.\n>\n> ***Vaulting Leap.*** The frog jumps up to 10 feet horizontally and 5 feet vertically. If it's within 5 feet of a creature that it is not grappling at the end of this movement, it may make a bite attack against that creature with advantage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Lizard",
+      "description": "Large Beast (CR 1/4) — AC 12 (natural armor), HP 19 (3d10 + 3; bloodied 9), Speed 30 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Lizard\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 19 (3d10 + 3; bloodied 9)\n> - **Speed** 30 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|12 (+1)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Octopus",
+      "description": "Large Beast (CR 1) — AC 11, HP 32 (5d10+5; bloodied 16), Speed 10 ft., swim 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Octopus\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 32 (5d10+5; bloodied 16)\n> - **Speed** 10 ft., swim 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|12 (+1)|12 (+1)|4 (-3)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Stealth +3 (+1d4)\n> - **Senses** darkvision 60 ft., passive Perception 11\n> - **Languages** —\n> ___\n> ***Camouflage.*** The octopus has advantage on Stealth checks.\n>\n> ***Water Breathing.*** The octopus breathes water and can hold its breath for 1 hour while in air.\n>\n> ### Actions\n> ***Tentacles.*** Melee Weapon Attack: +5 to hit, reach 15 ft., one target. Hit: 8 (2d4 + 3) bludgeoning damage. If the target is a creature, it is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the octopus can't attack a different target with its tentacles.\n>\n> ### Bonus Actions\n> ***Ink Cloud (1/Day).*** If underwater, the octopus exudes a cloud of ink in a 20-foot-radius sphere, extending around corners. The area is heavily obscured for 1 minute unless dispersed by a strong current."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Owl",
+      "description": "Large Beast (CR 1/4) — AC 12, HP 19 (3d10 + 3; bloodied 9), Speed 5 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Owl\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 19 (3d10 + 3; bloodied 9)\n> - **Speed** 5 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|14 (+2)|12 (+1)|8 (-1)|14 (+2)|10 (+0)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +4, Stealth +4\n> - **Senses** darkvision 120 ft., passive Perception 14\n> - **Languages** Giant Owl; understands but can't speak\n> ___\n> Common, Elvish, and Sylvan\n>\n> ***Flyby.*** The owl doesn't provoke opportunity attacks when it flies out of a creature's reach.\n>\n> ***Keen Hearing and Sight.*** The owl has advantage on Perception checks that rely on hearing and sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Rat",
+      "description": "Small Beast (CR 1/8) — AC 12, HP 7 (2d6; bloodied 3), Speed 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Rat\n> *Small Beast (CR 1/8)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 7 (2d6; bloodied 3)\n> - **Speed** 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |6 (-2)|14 (+2)|10 (+0)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** darkvision 60 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The rat has advantage on Perception checks that rely on smell.\n>\n> ***Pack Tactics.*** The giant rat has advantage on attack rolls against a creature if at least one of the rat's allies is within 5 feet of the creature and not incapacitated.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Shark",
+      "description": "Huge Beast (CR 5) — AC 13 (natural armor), HP 105 (10d12 + 40; bloodied 52), Speed 0 ft., swim 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Shark\n> *Huge Beast (CR 5)*\n> ___\n> - **Armor Class** 13 (natural armor)\n> - **Hit Points** 105 (10d12 + 40; bloodied 52)\n> - **Speed** 0 ft., swim 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |20 (+5)|10 (+0)|18 (+4)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +3; Maneuver DC 16\n> - **Skills** Perception +3\n> - **Senses** blindsight 60 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Water Breathing.*** The shark breathes only water.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 21 (3d10 + 5) piercing damage. On a hit, the shark can make a second bite attack as a bonus action.\n>\n> ***Tail.*** Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 15 (3d6 + 5) bludgeoning damage, and the shark can swim 20 feet without provoking opportunity attacks."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Spider",
+      "description": "Large Beast (CR 1) — AC 14 (natural armor), HP 26 (4d10 + 4; bloodied 13), Speed 30 ft., climb 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Spider\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 14 (natural armor)\n> - **Hit Points** 26 (4d10 + 4; bloodied 13)\n> - **Speed** 30 ft., climb 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|16 (+3)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Stealth +5\n> - **Senses** blindsight 10 ft., darkvision 60 ft., passive\n> - **Languages** —\n> ___\n> Perception 10\n>\n> ***Spider Climb.*** The spider can climb even on difficult surfaces and upside down on ceilings.\n>\n> ***Web Sense.*** While touching a web, the spider knows the location of other creatures touching that web.\n>\n> ***Web Walker.*** The spider ignores movement restrictions imposed by webs.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage and the target makes a DC 11 Constitution saving throw, taking 9 (2d8) poison damage on a failure. If the poison damage reduces the target to 0 hit points, the target is made stable but poisoned for 1 hour, even if it regains hit points, and it is paralyzed while poisoned in this way.\n>\n> ### Bonus Actions\n> Web (Recharge 5–6). Ranged Weapon Attack: +5 to hit, range 20/60 feet., one Large or smaller creature. Hit:\n>\n> ***The creature is restrained by a web.*** As an action, a creature can make a DC 12 Strength check, breaking the web on a success. The effect also ends if the web is destroyed. The web is an object with AC 10, 1 hit point, and immunity to all forms of damage except slashing, fire, and force."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Toad",
+      "description": "Large Beast (CR 1) — AC 11, HP 33 (6d10; bloodied 16), Speed 20 ft., swim 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Toad\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 33 (6d10; bloodied 16)\n> - **Speed** 20 ft., swim 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|12 (+1)|10 (+0)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ***Amphibious.*** The toad can breathe air and water.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage plus 4 (1d8) poison damage and the target is grappled (escape\n>\n> ***DC 12).*** Until this grapple ends, the toad can't bite another target.\n>\n> ***Swallow.*** The toad makes a bite attack against a Medium or smaller creature it is grappling. If the attack hits and the toad has not swallowed another creature, the target is swallowed and the grapple ends. A swallowed creature has total cover from attacks from outside the toad, it is blinded and restrained, and it takes 7 (2d6) acid damage at the beginning of each of the toad's turns. If the toad dies, the target is no longer swallowed.\n>\n> ***Vaulting Leap.*** The toad jumps up to 20 feet horizontally and 10 feet vertically. If it's within 5 feet of a creature that it is not grappling at the end of this movement, it can make a bite attack against that creature with advantage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Weasel",
+      "description": "Medium Beast (CR 1/8) — AC 12, HP 9 (2d8; bloodied 4), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Weasel\n> *Medium Beast (CR 1/8)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 9 (2d8; bloodied 4)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |10 (+0)|14 (+2)|10 (+0)|4 (-3)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** darkvision 60 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Hearing and Smell.*** The weasel has advantage on Perception checks that rely on hearing and smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage, or 7 (2d4 + 2) piercing damage against a creature the weasel is grappling.\n>\n> ***Grab.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: The target is grappled (escape DC 12)."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Giant Wolf Spider",
+      "description": "Medium Beast (CR 1/4) — AC 13, HP 13 (3d8; bloodied 6), Speed 40 ft., climb 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Giant Wolf Spider\n> *Medium Beast (CR 1/4)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 13 (3d8; bloodied 6)\n> - **Speed** 40 ft., climb 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|16 (+3)|10 (+0)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Perception +3, Stealth +5\n> - **Senses** blindsight 10 ft., darkvision 60 ft., passive\n> - **Languages** —\n> ___\n> Perception 13\n>\n> ***Spider Climb.*** The spider can climb even on difficult surfaces and upside down on ceilings.\n>\n> ***Web Sense.*** While touching a web, the spider knows the location of other creatures touching that web.\n>\n> ***Web Walker.*** The spider ignores movement restrictions imposed by webs.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage and the target makes a DC 11 Constitution saving throw, taking 5 (2d4) poison damage on a failure or half damage on a success. If the poison damage reduces the target to 0 hit points, the target is made stable but poisoned for 1 hour, even if it regains hit points, and it is paralyzed while poisoned in this way."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Goat",
+      "description": "Medium Beast (CR 0) — AC 10, HP 4 (1d8; bloodied 2), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Goat\n> *Medium Beast (CR 0)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 4 (1d8; bloodied 2)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |10 (+0)|10 (+0)|10 (+0)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 10\n> - **Skills** Athletics +2\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Ram.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage. If the target is a creature and the goat moves at least 20 feet straight towards the target before the attack, the target takes an extra 2 (1d4) bludgeoning damage and makes a DC 10 Strength saving throw, falling prone on a failure."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Hawk",
+      "description": "Tiny Beast (CR 0) — AC 13, HP 1 (1d4 – 1), Speed 10 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Hawk\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 10 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |4 (-3)|16 (+3)|8 (-1)|2 (-4)|14 (+2)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Perception +4\n> - **Senses** passive Perception 14\n> - **Languages** —\n> ___\n> ***Keen Sight.*** The hawk has advantage on Perception checks that rely on sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 slashing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Lion",
+      "description": "Large Beast (CR 1) — AC 12, HP 30 (4d10 + 8; bloodied 15), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Lion\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 30 (4d10 + 8; bloodied 15)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|14 (+2)|14 (+2)|3 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The lion has advantage on Perception checks that rely on smell.\n>\n> ***Long Jump.*** The lion can long jump up to 25 feet.\n>\n> ***Pack Tactics.*** The lion has advantage on attack rolls against a creature if at least one of the lion's allies is within 5 feet of the creature and not incapacitated.\n>\n> ### Actions\n> ***Claws.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage. If the lion moves at least 20 feet straight towards the target before the attack, the target makes a DC 13 Strength saving throw, falling prone on a failure.\n>\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) piercing damage.\n>\n> ### Bonus Actions\n> ***Opportune Bite.*** The lion makes a bite attack against a prone creature."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Lizard",
+      "description": "Tiny Beast (CR 0) — AC 10, HP 2 (1d4; bloodied 1), Speed 20 ft., climb 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Lizard\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 2 (1d4; bloodied 1)\n> - **Speed** 20 ft., climb 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|10 (+0)|10 (+0)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 10\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 piercing damage. If this damage would reduce a Small or larger target to 0 hit points, the target takes no damage from this attack."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Mastiff",
+      "description": "Medium Beast (CR 1/8) — AC 12, HP 9 (2d8; bloodied 4), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mastiff\n> *Medium Beast (CR 1/8)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 9 (2d8; bloodied 4)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|14 (+2)|10 (+0)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Hearing and Smell.*** The mastiff has advantage on Perception checks that rely on hearing and smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage. If the target is a creature, it makes a DC 11 Strength saving throw, falling prone on a failure."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Mule",
+      "description": "Medium Beast (CR 1/8) — AC 10, HP 11 (2d8 + 2; bloodied 5), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Mule\n> *Medium Beast (CR 1/8)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2; bloodied 5)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|10 (+0)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Saving Throws** Str +3\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ***Beast of Burden.*** The mule is considered Large when calculating its carrying capacity.\n>\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Octopus",
+      "description": "Tiny Beast (CR 0) — AC 12, HP 3 (1d6; bloodied 1), Speed 5 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Octopus\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 3 (1d6; bloodied 1)\n> - **Speed** 5 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |4 (-3)|14 (+2)|10 (+0)|3 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Stealth +4\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ***Camouflage.*** The octopus has advantage on Stealth checks.\n>\n> ***Water Breathing.*** The octopus breathes water and can hold its breath for 30 minutes while in air.\n>\n> ### Actions\n> ***Tentacles.*** Melee Weapon Attack: +4 to hit, reach 15 ft., one target. Hit: 1 bludgeoning damage. If the target is a creature, it is grappled (escape DC 10). Until this grapple ends, the target is restrained, and the octopus can't attack a different target with its tentacles.\n>\n> ### Bonus Actions\n> ***Ink Cloud (1/Day).*** If underwater, the octopus exudes a cloud of ink in a 5-foot-radius sphere, extending around corners. The area is heavily obscured for 1 minute unless dispersed by a strong current."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Owl",
+      "description": "Tiny Beast (CR 0) — AC 11, HP 1 (1d4 – 1), Speed 5 ft., fly 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Owl\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 5 ft., fly 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|12 (+1)|8 (-1)|2 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Skills** Perception +3, Stealth +3\n> - **Senses** darkvision 120 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Flyby.*** The owl doesn't provoke opportunity attacks when it flies out of a creature's reach.\n>\n> ***Keen Hearing and Sight.*** The owl has advantage on Perception checks that rely on hearing and sight.\n>\n> ### Actions\n> ***Talons.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 1 slashing damage. If this damage would reduce a Small or larger target to 0 hit points, the target takes no damage from this attack."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Panther",
+      "description": "Medium Beast (CR 1/4) — AC 12, HP 13 (3d8; bloodied 6), Speed 50 ft., climb 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Panther\n> *Medium Beast (CR 1/4)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 13 (3d8; bloodied 6)\n> - **Speed** 50 ft., climb 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|14 (+2)|10 (+0)|3 (-4)|14 (+2)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +4, Stealth +4 (+1d4)\n> - **Senses** darkvision 30 ft., passive Perception 14\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The panther has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Claws.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage. If the panther moves at least 20 feet straight towards the target before the attack, the target makes a DC 12 Strength saving throw, falling prone on a failure.\n>\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.\n>\n> ### Bonus Actions\n> ***Opportune Bite.*** The panther makes a bite attack against a prone creature."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Poisonous Snake",
+      "description": "Tiny Beast (CR 1/8) — AC 12, HP 2 (1d4; bloodied 1), Speed 30 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Poisonous Snake\n> *Tiny Beast (CR 1/8)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 2 (1d4; bloodied 1)\n> - **Speed** 30 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|14 (+2)|10 (+0)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** blindsight 10 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 piercing damage and the target makes a DC 10 Constitution saving throw, taking 5 (2d4) poison damage on a failure or half damage on a success."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Polar Bear",
+      "description": "Large Beast (CR 2) — AC 12 (natural armor), HP 42 (5d10 + 15; bloodied 21), Speed 40 ft., swim 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Polar Bear\n> *Large Beast (CR 2)*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 42 (5d10 + 15; bloodied 21)\n> - **Speed** 40 ft., swim 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |20 (+5)|10 (+0)|16 (+3)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 15\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The bear has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Multiattack.*** The bear makes two melee attacks.\n>\n> ***Bite.*** Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (1d8 + 5) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 7 (1d4 + 5) slashing damage. If the target is a Medium or smaller creature, it is grappled (escape\n>\n> ***DC 15).*** Until this grapple ends, the bear can't attack a different target with its claws."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Pony",
+      "description": "Medium Beast (CR 1/8) — AC 10, HP 11 (2d8 + 2; bloodied 5), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Pony\n> *Medium Beast (CR 1/8)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 11 (2d8 + 2; bloodied 5)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|10 (+0)|12 (+1)|2 (-4)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Rat",
+      "description": "Tiny Beast (CR 0) — AC 11, HP 1 (1d4 – 1), Speed 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Rat\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|12 (+1)|8 (-1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 11\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The rat has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Raven",
+      "description": "Tiny Beast (CR 0) — AC 12, HP 1 (1d4 –1), Speed 10 ft., fly 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Raven\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 1 (1d4 –1)\n> - **Speed** 10 ft., fly 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|14 (+2)|8 (-1)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Mimicry.*** The raven can imitate sounds it hears frequently, such as a simple phrase or an animal noise. Recognizing the sounds as imitation requires a DC 10 Insight check.\n>\n> ### Actions\n> ***Beak.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 piercing damage. If this damage would reduce a Small or larger target to 0 hit points, the target takes no damage from this attack."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Reef Shark",
+      "description": "Medium Beast (CR 1/2) — AC 12 (natural armor), HP 22 (4d8 + 4; bloodied 11), Speed 0 ft., swim 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Reef Shark\n> *Medium Beast (CR 1/2)*\n> ___\n> - **Armor Class** 12 (natural armor)\n> - **Hit Points** 22 (4d8 + 4; bloodied 11)\n> - **Speed** 0 ft., swim 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |14 (+2)|12 (+1)|12 (+1)|2 (-4)|10 (+0)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +2\n> - **Senses** blindsight 30 ft., passive Perception 12\n> - **Languages** —\n> ___\n> ***Pack Tactics.*** The shark has advantage on attack rolls against a creature if at least one of the shark's allies is within 5 feet of the creature and not incapacitated.\n>\n> ***Water Breathing.*** The shark breathes only water.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Riding Horse",
+      "description": "Large Beast (CR 1/4) — AC 10, HP 19 (3d10 + 3; bloodied 9), Speed 60 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Riding Horse\n> *Large Beast (CR 1/4)*\n> ___\n> - **Armor Class** 10\n> - **Hit Points** 19 (3d10 + 3; bloodied 9)\n> - **Speed** 60 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|12 (+1)|12 (+1)|2 (-4)|10 (+0)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Senses** passive Perception 10\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage"
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Saber-Toothed Tiger",
+      "description": "Large Beast (CR 2) — AC 12, HP 45 (6d10 + 12; bloodied 22), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Saber-Toothed Tiger\n> *Large Beast (CR 2)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 45 (6d10 + 12; bloodied 22)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |20 (+5)|14 (+2)|14 (+2)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 15\n> - **Skills** Perception +3, Stealth +4 (+1d4)\n> - **Senses** passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The tiger has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Claws.*** Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 10 (2d4 + 5) slashing damage. If the tiger moves at least 20 feet straight towards the target before the attack, the target makes a DC 15 Strength saving throw, falling prone on a failure.\n>\n> ***Bite.*** Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) piercing damage.\n>\n> ### Bonus Actions\n> ***Opportune Bite.*** The tiger makes a bite attack against a prone creature."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Scorpion",
+      "description": "Tiny Beast (CR 0) — AC 11 (natural armor), HP 1 (1d4 – 1), Speed 10 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Scorpion\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 11 (natural armor)\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 10 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|10 (+0)|8 (-1)|1 (-5)|8 (-1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 10\n> - **Senses** blindsight 10 ft., passive Perception 9\n> - **Languages** —\n> ___\n> ### Actions\n> ***Sting.*** Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 1 piercing damage and the target makes a DC 9 Constitution save, taking 4 (1d8) poison damage on a failure or half damage on a success."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Spider",
+      "description": "Tiny Beast (CR 0) — AC 12, HP 1 (1d4 – 1), Speed 20 ft., climb 20 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Spider\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 20 ft., climb 20 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|14 (+2)|8 (-1)|1 (-5)|10 (+0)|2 (-4)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Stealth +4\n> - **Senses** darkvision 30 ft., passive Perception 10\n> - **Languages** —\n> ___\n> ***Spider Climb.*** The spider can climb even on difficult surfaces and upside down on ceilings.\n>\n> ***Web Sense.*** While touching a web, the spider knows the location of other creatures touching that web.\n>\n> ***Web Walker.*** The spider ignores movement restrictions imposed by webs.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 piercing damage and the target makes a DC 9 Constitution saving throw, taking 2 (1d4) poison damage on a failure."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Tiger",
+      "description": "Large Beast (CR 1) — AC 12, HP 30 (4d10 + 8; bloodied 15), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Tiger\n> *Large Beast (CR 1)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 30 (4d10 + 8; bloodied 15)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |16 (+3)|14 (+2)|14 (+2)|3 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Perception +3, Stealth +4 (+1d4)\n> - **Senses** darkvision 60 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Smell.*** The tiger has advantage on Perception checks that rely on smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) piercing damage.\n>\n> ***Claws.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage. If the tiger moves at least 20 feet straight towards the target before the attack, the target makes a DC 13 Strength saving throw, falling prone on a failure.\n>\n> ### Bonus Actions\n> ***Opportune Bite.*** The tiger makes a bite attack against a prone creature."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Warhorse",
+      "description": "Large Beast (CR 1/2) — AC 11, HP 30 (4d10 + 8; bloodied 15), Speed 50 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Warhorse\n> *Large Beast (CR 1/2)*\n> ___\n> - **Armor Class** 11\n> - **Hit Points** 30 (4d10 + 8; bloodied 15)\n> - **Speed** 50 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |18 (+4)|12 (+1)|14 (+2)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 14\n> - **Senses** passive Perception 11\n> - **Languages** —\n> ___\n> ### Actions\n> ***Hooves.*** Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) bludgeoning damage. If the horse moves at least 20 feet straight towards the target before the attack, the target makes a DC 14 Strength saving throw, falling prone on a failure."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Weasel",
+      "description": "Tiny Beast (CR 0) — AC 13, HP 1 (1d4 – 1), Speed 30 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Pet",
+        "stat_block_md": "___\n> ## Weasel\n> *Tiny Beast (CR 0)*\n> ___\n> - **Armor Class** 13\n> - **Hit Points** 1 (1d4 – 1)\n> - **Speed** 30 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |2 (-4)|16 (+3)|8 (-1)|2 (-4)|12 (+1)|4 (-3)|\n> ___\n> - **Proficiency** +2; Maneuver DC 13\n> - **Skills** Perception +3, Stealth +5\n> - **Senses** darkvision 30 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Hearing and Smell.*** The weasel has advantage on Perception checks that rely on hearing and smell.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 piercing damage. If this damage would reduce a Small or larger target to 0 hit points, the target takes no damage from this attack."
+      },
+      "reference": "A5e MM"
+    },
+    {
+      "name": "Wolf",
+      "description": "Medium Beast (CR 1/4) — AC 12, HP 11 (2d8 + 2; bloodied 5), Speed 40 ft..",
+      "features": {
+        "stat_block_only": true,
+        "ally_type": "Companion",
+        "stat_block_md": "___\n> ## Wolf\n> *Medium Beast (CR 1/4)*\n> ___\n> - **Armor Class** 12\n> - **Hit Points** 11 (2d8 + 2; bloodied 5)\n> - **Speed** 40 ft.\n> ___\n> |STR|DEX|CON|INT|WIS|CHA|\n> |:---:|:---:|:---:|:---:|:---:|:---:|\n> |12 (+1)|14 (+2)|12 (+1)|3 (-4)|12 (+1)|6 (-2)|\n> ___\n> - **Proficiency** +2; Maneuver DC 12\n> - **Skills** Perception +3, Stealth +4\n> - **Senses** darkvision 30 ft., passive Perception 13\n> - **Languages** —\n> ___\n> ***Keen Hearing and Smell.*** The wolf has advantage on Perception checks that rely on hearing and smell.\n>\n> ***Pack Tactics.*** The wolf has advantage on attack rolls against a creature if at least one of the wolf's allies is within 5 feet of the creature and not incapacitated.\n>\n> ### Actions\n> ***Bite.*** Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage. If the target is a creature, it makes a DC 12 Strength saving throw, falling prone on a failure."
+      },
+      "reference": "A5e MM"
+    }
+  ]
+}

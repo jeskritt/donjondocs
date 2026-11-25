@@ -280,110 +280,236 @@
     },
     {
       "name": "Sedan / Ford Americar (Vehicle)",
-      "description": "### Ford Americar *(Sedan — Vehicle Amp, Rating 1, 5,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 6 | 2 | 4 | 0 |\n\n**Damage Thresholds:** Light `6` · Serious `12` · Incap. `18`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing — *(none mounted)*  \n**Notes:** Common urban sedan that blends easily into traffic.",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 1, "essence_cost": 0.0, "effects": []},
+      "description": "Sedan — Pilot 6, Body 6, Handling 2, Speed 4, Armor 0. Common urban sedan.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 1,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Vehicle",
+        "stat_block_md": "### Ford Americar *(Sedan — Vehicle Amp, Rating 1, 5,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 6 | 2 | 4 | 0 |\n\n**Damage Thresholds:** Light `6` · Serious `12` · Incap. `18`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing — *(none mounted)*  \n**Notes:** Common urban sedan that blends easily into traffic."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Racing Bike (Vehicle)",
-      "description": "### Racing Bike *(Vehicle Amp, Rating 1, 5,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 4 | 2 | 6 | 0 |\n\n**Damage Thresholds:** Light `4` · Serious `8` · Incap. `12`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle) — *(none mounted)*",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 1, "essence_cost": 0.0, "effects": []},
+      "description": "Racing Bike — Pilot 6, Body 4, Handling 2, Speed 6, Armor 0.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 1,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Vehicle",
+        "stat_block_md": "### Racing Bike *(Vehicle Amp, Rating 1, 5,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 4 | 2 | 6 | 0 |\n\n**Damage Thresholds:** Light `4` · Serious `8` · Incap. `12`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle) — *(none mounted)*"
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Van / GMC Bulldog Step-Van (Vehicle)",
-      "description": "### GMC Bulldog Step-Van *(Van — Vehicle Amp, Rating 1, 5,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 8 | 1 | 3 | 0 |\n\n**Damage Thresholds:** Light `8` · Serious `16` · Incap. `24`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing — *(none mounted)*  \n**Notes:** Room for full runner team and drone racks.",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 1, "essence_cost": 0.0, "effects": []},
+      "description": "Van — Pilot 6, Body 8, Handling 1, Speed 3, Armor 0. Room for runner team and drone racks.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 1,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Vehicle",
+        "stat_block_md": "### GMC Bulldog Step-Van *(Van — Vehicle Amp, Rating 1, 5,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 8 | 1 | 3 | 0 |\n\n**Damage Thresholds:** Light `8` · Serious `16` · Incap. `24`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing — *(none mounted)*  \n**Notes:** Room for full runner team and drone racks."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Harley-Davidson Centaur (Vehicle)",
-      "description": "### Harley-Davidson Centaur *(Combat Bike — Vehicle Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 5 | 2 | 5 | 3 |\n\n**Damage Thresholds:** Light `8` · Serious `13` · Incap. `18`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle) — *(none mounted)*  \n**Notes:** Reinforced armor and run-flat tires.",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 4, "essence_cost": 0.0, "effects": []},
+      "description": "Combat Bike — Pilot 6, Body 5, Handling 2, Speed 5, Armor 3. Reinforced armor and run-flat tires.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 4,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Vehicle",
+        "stat_block_md": "### Harley-Davidson Centaur *(Combat Bike — Vehicle Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 5 | 2 | 5 | 3 |\n\n**Damage Thresholds:** Light `8` · Serious `13` · Incap. `18`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle) — *(none mounted)*  \n**Notes:** Reinforced armor and run-flat tires."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Horizon-Doble Revolution (Vehicle)",
-      "description": "### Horizon-Doble Revolution *(Monowheel Bike — Vehicle Amp, Rating 2, 10,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 5 | 2 | 6 | 0 |\n\n**Damage Thresholds:** Light `5` · Serious `10` · Incap. `15`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle)",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 2, "essence_cost": 0.0, "effects": []},
+      "description": "Monowheel Bike — Pilot 6, Body 5, Handling 2, Speed 6, Armor 0.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 2,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Vehicle",
+        "stat_block_md": "### Horizon-Doble Revolution *(Monowheel Bike — Vehicle Amp, Rating 2, 10,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 5 | 2 | 6 | 0 |\n\n**Damage Thresholds:** Light `5` · Serious `10` · Incap. `15`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle)"
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Mitsubishi Nightsky (Vehicle)",
-      "description": "### Mitsubishi Nightsky *(Armored Limo — Vehicle Amp, Rating 9, 45,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 7 | 2 | 4 | 5 |\n\n**Damage Thresholds:** Light `12` · Serious `19` · Incap. `26`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Effects:** RR 1 on Influence Tests when the vehicle is used to impress.",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 9, "essence_cost": 0.0, "effects": []},
+      "description": "Armored Limo — Pilot 6, Body 7, Handling 2, Speed 4, Armor 5; RR 1 Influence when impressing.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 9,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Vehicle",
+        "stat_block_md": "### Mitsubishi Nightsky *(Armored Limo — Vehicle Amp, Rating 9, 45,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 7 | 2 | 4 | 5 |\n\n**Damage Thresholds:** Light `12` · Serious `19` · Incap. `26`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Effects:** RR 1 on Influence Tests when the vehicle is used to impress."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Artemis Industries Nightwing (Vehicle)",
-      "description": "### Artemis Industries Nightwing *(Stealth Glider — Vehicle Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 3 | 7 | 4 (Flying) | 0 |\n\n**Damage Thresholds:** Light `3` · Serious `6` · Incap. `9`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Effects:** RR 1 on Stealth (physical sneaking) Tests while gliding.",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 4, "essence_cost": 0.0, "effects": []},
+      "description": "Stealth Glider — Pilot 6, Body 3, Handling 7, Speed 4 (Flying), Armor 0; RR 1 Stealth (physical).",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 4,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Vehicle",
+        "stat_block_md": "### Artemis Industries Nightwing *(Stealth Glider — Vehicle Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 3 | 7 | 4 (Flying) | 0 |\n\n**Damage Thresholds:** Light `3` · Serious `6` · Incap. `9`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Effects:** RR 1 on Stealth (physical sneaking) Tests while gliding."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Shiawase Kanmushi (Microdrone)",
-      "description": "### Shiawase Kanmushi *(Microdrone — Drone Amp, Rating 3, 15,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 8 | 0 | 10 | 0 | 0 |\n\n**Damage Thresholds:** Light `0` · Serious `0` · Incap. `0`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** None  \n**Effects:** Advantage on Stealth (physical sneaking) Tests; insect-sized spider walker.",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 3, "essence_cost": 0.0, "effects": []},
+      "description": "Microdrone — Pilot 8, Body 0, Handling 10, Speed 0, Armor 0. Advantage on physical sneaking.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 3,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### Shiawase Kanmushi *(Microdrone — Drone Amp, Rating 3, 15,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 8 | 0 | 10 | 0 | 0 |\n\n**Damage Thresholds:** Light `0` · Serious `0` · Incap. `0`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** None  \n**Effects:** Advantage on Stealth (physical sneaking) Tests; insect-sized spider walker."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "MCT Gnat (Flying Microdrone)",
-      "description": "### MCT Gnat *(Flying Microdrone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 0 | 10 | 1 (Flying) | 0 |\n\n**Damage Thresholds:** Light `0` · Serious `0` · Incap. `0`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** None  \n**Effects:** Advantage on Stealth (physical sneaking); RR 1 on Perception (physical).",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 4, "essence_cost": 0.0, "effects": []},
+      "description": "Flying Microdrone — Pilot 6, Body 0, Handling 10, Speed 1 (Flying), Armor 0; RR 1 Perception (physical).",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 4,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### MCT Gnat *(Flying Microdrone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 0 | 10 | 1 (Flying) | 0 |\n\n**Damage Thresholds:** Light `0` · Serious `0` · Incap. `0`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** None  \n**Effects:** Advantage on Stealth (physical sneaking); RR 1 on Perception (physical)."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Cyberspace Design Quadrotor (Small Drone)",
-      "description": "### Cyberspace Design Quadrotor *(Small Flying Drone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 1 | 9 | 4 (Flying) | 0 |\n\n**Damage Thresholds:** Light `1` · Serious `2` · Incap. `3`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to SMG) — *(none mounted)*  \n**Effects:** RR 1 on Perception (physical) Tests.",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 4, "essence_cost": 0.0, "effects": []},
+      "description": "Small Flying Drone — Pilot 6, Body 1, Handling 9, Speed 4 (Flying), Armor 0; SMG mount; RR 1 Perception (physical).",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 4,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### Cyberspace Design Quadrotor *(Small Flying Drone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 1 | 9 | 4 (Flying) | 0 |\n\n**Damage Thresholds:** Light `1` · Serious `2` · Incap. `3`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to SMG) — *(none mounted)*  \n**Effects:** RR 1 on Perception (physical) Tests."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Lockheed Optic-X2 (Small Stealth Drone)",
-      "description": "### Lockheed Optic-X2 *(Small Flying Recon Drone — Drone Amp, Rating 6, 30,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 1 | 9 | 4 (Flying) | 0 |\n\n**Damage Thresholds:** Light `1` · Serious `2` · Incap. `3`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to SMG) — *(none mounted)*  \n**Effects:** RR 1 on Stealth (physical) and RR 1 on Perception (physical).",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 6, "essence_cost": 0.0, "effects": []},
+      "description": "Small Flying Recon Drone — Pilot 6, Body 1, Handling 9, Speed 4 (Flying), Armor 0; RR 1 Stealth & Perception (physical).",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 6,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### Lockheed Optic-X2 *(Small Flying Recon Drone — Drone Amp, Rating 6, 30,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 1 | 9 | 4 (Flying) | 0 |\n\n**Damage Thresholds:** Light `1` · Serious `2` · Incap. `3`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to SMG) — *(none mounted)*  \n**Effects:** RR 1 on Stealth (physical) and RR 1 on Perception (physical)."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Chrysler-Nissan Pursuit V (Small Ground Drone)",
-      "description": "### Chrysler-Nissan Pursuit V *(Small Pursuit Drone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 1 | 9 | 5 | 0 |\n\n**Damage Thresholds:** Light `1` · Serious `2` · Incap. `3`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to SMG) — *(none mounted)*",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 4, "essence_cost": 0.0, "effects": []},
+      "description": "Small Pursuit Drone — Pilot 6, Body 1, Handling 9, Speed 5, Armor 0; SMG mount.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 4,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### Chrysler-Nissan Pursuit V *(Small Pursuit Drone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 1 | 9 | 5 | 0 |\n\n**Damage Thresholds:** Light `1` · Serious `2` · Incap. `3`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to SMG) — *(none mounted)*"
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "GM-Nissan Doberman (Medium Combat Drone)",
-      "description": "### GM-Nissan Doberman *(Medium Ground Drone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 2 | 7 | 3 | 2 |\n\n**Damage Thresholds:** Light `4` · Serious `6` · Incap. `8`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Turret (up to assault rifle) — *(none mounted)*",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 4, "essence_cost": 0.0, "effects": []},
+      "description": "Medium Ground Drone — Pilot 6, Body 2, Handling 7, Speed 3, Armor 2; turret (up to assault rifle).",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 4,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### GM-Nissan Doberman *(Medium Ground Drone — Drone Amp, Rating 4, 20,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 2 | 7 | 3 | 2 |\n\n**Damage Thresholds:** Light `4` · Serious `6` · Incap. `8`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Turret (up to assault rifle) — *(none mounted)*"
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "MCT-Nissan Roto-Drone (Medium Flying Drone)",
-      "description": "### MCT-Nissan Roto-Drone *(Medium Flying Drone — Drone Amp, Rating 5, 25,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 2 | 7 | 6 (Flying) | 2 |\n\n**Damage Thresholds:** Light `4` · Serious `6` · Incap. `8`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle) — *(none mounted)*",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 5, "essence_cost": 0.0, "effects": []},
+      "description": "Medium Flying Drone — Pilot 6, Body 2, Handling 7, Speed 6 (Flying), Armor 2; front mount (up to assault rifle).",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 5,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### MCT-Nissan Roto-Drone *(Medium Flying Drone — Drone Amp, Rating 5, 25,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 2 | 7 | 6 (Flying) | 2 |\n\n**Damage Thresholds:** Light `4` · Serious `6` · Incap. `8`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Front-facing (up to assault rifle) — *(none mounted)*"
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Ares-DocWagon First Responder (Medical Drone)",
-      "description": "### Ares-DocWagon First Responder *(Medical Drone — Drone Amp, Rating 9, 45,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 10 | 2 | 7 | 3 | 2 |\n\n**Damage Thresholds:** Light `4` · Serious `6` · Incap. `8`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Features:** Articulated arm; Valkyrie module (autonomous medkit rolling Pilot 10).",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 9, "essence_cost": 0.0, "effects": []},
+      "description": "Medical Drone — Pilot 10, Body 2, Handling 7, Speed 3, Armor 2; autonomous medkit (Pilot 10).",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 9,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### Ares-DocWagon First Responder *(Medical Drone — Drone Amp, Rating 9, 45,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 10 | 2 | 7 | 3 | 2 |\n\n**Damage Thresholds:** Light `4` · Serious `6` · Incap. `8`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Features:** Articulated arm; Valkyrie module (autonomous medkit rolling Pilot 10)."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Steel Lynx (Large Combat Drone)",
-      "description": "### Steel Lynx *(Large Combat Drone — Drone Amp, Rating 7, 35,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 4 | 4 | 4 | 4 |\n\n**Damage Thresholds:** Light `8` · Serious `12` · Incap. `16`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Dual-weapon turret (heavy weapons capable) — *(none mounted)*",
-      "features": {"amp_type": "Vehicle or Drone", "rating": 7, "essence_cost": 0.0, "effects": []},
+      "description": "Large Combat Drone — Pilot 6, Body 4, Handling 4, Speed 4, Armor 4; dual-weapon heavy turret.",
+      "features": {
+        "amp_type": "Vehicle or Drone",
+        "rating": 7,
+        "essence_cost": 0.0,
+        "effects": [],
+        "ally_type": "Drone",
+        "stat_block_md": "### Steel Lynx *(Large Combat Drone — Drone Amp, Rating 7, 35,000¥)*\n| Pilot | Body | Handling | Speed | Armor |\n|:---:|:---:|:---:|:---:|:---:|\n| 6 | 4 | 4 | 4 | 4 |\n\n**Damage Thresholds:** Light `8` · Serious `12` · Incap. `16`  \n**Damage Monitor:** `[ ]` `[ ]` Light · `[ ]` Serious · `[ ]` Incap.  \n**Weapon Mount:** Dual-weapon turret (heavy weapons capable) — *(none mounted)*"
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Street Fixer (Contact)",
-      "description": "### Contact Name *(Fixer — Contact Amp, Rating 2, 10,000¥)*\n**Circle:** Street / Criminal  \n**Effect:** RR 1 on Network (street) Tests  \n**Notes:** Reliable broker for gear, jobs, and rumors.",
-      "features": {"amp_type": "Contact", "rating": 2, "essence_cost": 0.0, "effects": [{"kind": "rr_spec", "target": "street", "value": 1, "note": "RR 1 Network (street)"}]},
+      "description": "Fixer contact (Street / Criminal circle) — RR 1 on Network (street) Tests.",
+      "features": {
+        "amp_type": "Contact",
+        "rating": 2,
+        "essence_cost": 0.0,
+        "effects": [{"kind": "rr_spec", "target": "street", "value": 1, "note": "RR 1 Network (street)"}],
+        "ally_type": "Contact",
+        "stat_block_md": "### Contact Name *(Fixer — Contact Amp, Rating 2, 10,000¥)*\n**Circle:** Street / Criminal  \n**Effect:** RR 1 on Network (street) Tests  \n**Notes:** Reliable broker for gear, jobs, and rumors."
+      },
       "reference": "SRA2 Core"
     },
     {
       "name": "Street Doc (Contact)",
-      "description": "### Contact Name *(Street Doc — Contact Amp, Rating 2, 10,000¥)*\n**Circle:** Medical  \n**Effect:** RR 1 on Network (medical) Tests  \n**Notes:** Discreet clinic for patch-ups and cyberware maintenance.",
-      "features": {"amp_type": "Contact", "rating": 2, "essence_cost": 0.0, "effects": [{"kind": "rr_spec", "target": "medical", "value": 1, "note": "RR 1 Network (medical)"}]},
+      "description": "Street Doc contact (Medical circle) — RR 1 on Network (medical) Tests.",
+      "features": {
+        "amp_type": "Contact",
+        "rating": 2,
+        "essence_cost": 0.0,
+        "effects": [{"kind": "rr_spec", "target": "medical", "value": 1, "note": "RR 1 Network (medical)"}],
+        "ally_type": "Contact",
+        "stat_block_md": "### Contact Name *(Street Doc — Contact Amp, Rating 2, 10,000¥)*\n**Circle:** Medical  \n**Effect:** RR 1 on Network (medical) Tests  \n**Notes:** Discreet clinic for patch-ups and cyberware maintenance."
+      },
       "reference": "SRA2 Core"
     }
   ]

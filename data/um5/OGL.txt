@@ -1,0 +1,9 @@
+OPEN GAME LICENSE Version 1.0a
+
+The JSON catalog files in this directory (`data/um5/*.json`) contain Open Game Content derived from
+Ultramodern5 REDUX OGL/SRD (2.0) by Dias Ex Machina Games under the Open Game License v 1.0a.
+
+Section 15 COPYRIGHT NOTICE
+Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+System Reference Document 5.0 Copyright 2016, Wizards of the Coast, Inc.
+Ultramodern5 REDUX OGL/SRD Copyright Dias Ex Machina Games (Chris Tavares Dias).

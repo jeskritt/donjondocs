@@ -8,23 +8,29 @@ Interactions:
 
 from __future__ import annotations
 
-import json
 import uuid
 from pathlib import Path
 
 from nicegui import ui
 
 from app.rule_systems import SheetStyle
+from app.schemas.ally import AllyCreate
 from app.schemas.shadowrun_anarchy import DEFAULT_AMP_ESSENCE, AmpType
+from app.services.ally_service import create_ally
 from app.services.global_items_service import list_abilities
 from app.services.session import service_session
+from app.services.stat_block_library import extract_ability_stat_block
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error
 
 _TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
-_AMP_TEMPLATES: dict[str, str] = {
+# Blank Markdown templates for inline-edited Amps (Cyberdecks stay inline on
+# Shadow Amps; Vehicles/Drones/Contacts default to seeding Allies & Stat Blocks).
+_AMP_INLINE_TEMPLATES: dict[str, str] = {
     AmpType.CYBERDECK.value: "cyberdeck_template.md",
-    AmpType.VEHICLE_DRONE.value: "vehicle_drone_template.md",
-    AmpType.CONTACT.value: "contact_template.md",
+}
+_AMP_ALLY_TEMPLATES: dict[str, tuple[str, str]] = {
+    AmpType.VEHICLE_DRONE.value: ("Vehicle", "vehicle_drone_template.md"),
+    AmpType.CONTACT.value: ("Contact", "contact_template.md"),
 }
 
 _EFFECT_KINDS = {
@@ -48,12 +54,15 @@ _FILTER_GROUPS = [
 ]
 
 
-def _read_amp_template(amp_type: str) -> str | None:
-    fname = _AMP_TEMPLATES.get(amp_type)
+def _read_template_file(fname: str | None) -> str | None:
     if not fname:
         return None
     path = _TEMPLATE_DIR / fname
     return path.read_text(encoding="utf-8") if path.is_file() else None
+
+
+def _read_amp_template(amp_type: str) -> str | None:
+    return _read_template_file(_AMP_INLINE_TEMPLATES.get(amp_type))
 
 
 def _matches_filter(amp_type: str, group: str) -> bool:
@@ -66,16 +75,6 @@ def _matches_filter(amp_type: str, group: str) -> bool:
     if group == "Deck/Vehicle":
         return amp_type in (AmpType.CYBERDECK.value, AmpType.VEHICLE_DRONE.value)
     return amp_type in (AmpType.EQUIPMENT.value, AmpType.QUALITY.value, AmpType.CONTACT.value)
-
-
-def _parse_library_features(raw: str | None) -> dict:
-    if not raw:
-        return {}
-    try:
-        data = json.loads(raw)
-        return data if isinstance(data, dict) else {}
-    except json.JSONDecodeError:
-        return {}
 
 
 def _render_anarchy_shadow_amps(state, char_id, user, _save):
@@ -95,11 +94,15 @@ def _render_anarchy_shadow_amps(state, char_id, user, _save):
         lib_rows = []
         if is_new:
             async with service_session() as session:
-                lib_rows = await list_abilities(session, SheetStyle.SHADOWRUN_ANARCHY_2, owner_id=user.id)
+                all_abilities = await list_abilities(session, SheetStyle.SHADOWRUN_ANARCHY_2, owner_id=user.id)
+            # Exclude Allies-only presets (Spirits, NPC Threats) from the Amp picker.
+            lib_rows = [r for r in all_abilities if not extract_ability_stat_block(r)["stat_block_only"]]
 
         effects_state: list[dict] = (
             [e.model_dump() for e in existing.effects] if existing else []
         )
+        # Tracks optional prebuilt Allies stat block when adding a Vehicle/Drone/Contact Amp.
+        pending_ally: dict[str, str] = {"ally_type": "", "stat_block_md": ""}
 
         with ui.dialog() as dlg, ui.card().classes("w-full max-w-2xl").style(DIALOG_CARD_STYLE):
             ui.label("Add Shadow Amp" if is_new else f"Edit Shadow Amp — {existing.name}").classes(
@@ -135,10 +138,41 @@ def _render_anarchy_shadow_amps(state, char_id, user, _save):
                 ).props("dense outlined dark").classes("flex-1")
 
             body_in = ui.textarea(
-                "Details / Markdown Stat Block (Cyberdecks, Vehicles, Drones, Contacts)",
+                "Details / Inline Markdown (Cyberdecks, Cyberware, Powers, Summaries)",
                 value=(existing.body_md if existing else ""),
             ).props("dense outlined dark autogrow").classes("w-full mt-2")
-            ui.label("Supports Markdown tables & checklists. Changes only edit this runner's local copy.").classes("text-xs text-gray-500")
+            ui.label("Supports Markdown. Vehicles, Drones, and Contacts can seed a full stat block on Allies & Stat Blocks.").classes("text-xs text-gray-500")
+
+            # Seed-to-Allies checkbox (shown on Add for Vehicles, Drones, and Contacts).
+            seed_ally_box = None
+            if is_new:
+                seed_ally_box = ui.checkbox(
+                    "Also create stat block in Allies & Stat Blocks",
+                    value=False,
+                ).classes("mt-1 text-xs text-cyan-300")
+                seed_ally_box.set_visibility(False)
+
+            def _sync_ally_checkbox(chosen_type: str, ally_type: str = "", stat_md: str = ""):
+                if seed_ally_box is None:
+                    return
+                if ally_type and stat_md:
+                    pending_ally["ally_type"] = ally_type
+                    pending_ally["stat_block_md"] = stat_md
+                    seed_ally_box.set_text(f"Also create {ally_type} stat block in Allies & Stat Blocks")
+                    seed_ally_box.set_value(True)
+                    seed_ally_box.set_visibility(True)
+                elif chosen_type in _AMP_ALLY_TEMPLATES:
+                    default_type, tmpl_file = _AMP_ALLY_TEMPLATES[chosen_type]
+                    pending_ally["ally_type"] = default_type
+                    pending_ally["stat_block_md"] = _read_template_file(tmpl_file) or ""
+                    seed_ally_box.set_text(f"Also create {default_type} stat block in Allies & Stat Blocks")
+                    seed_ally_box.set_value(True)
+                    seed_ally_box.set_visibility(True)
+                else:
+                    pending_ally["ally_type"] = ""
+                    pending_ally["stat_block_md"] = ""
+                    seed_ally_box.set_value(False)
+                    seed_ally_box.set_visibility(False)
 
             # Structured mechanical modifiers section
             ui.separator().classes("my-2")
@@ -187,7 +221,10 @@ def _render_anarchy_shadow_amps(state, char_id, user, _save):
                     essence_in.set_value(DEFAULT_AMP_ESSENCE.get(t_enum, 0.0))
                 except ValueError:
                     pass
-                # Seed a Markdown stat-block template only when body is empty.
+                # Only overwrite ally defaults when picking Custom (library pick sets its own).
+                if lib_select is None or lib_select.value == "Custom…":
+                    _sync_ally_checkbox(chosen)
+                # Seed inline Markdown template for Cyberdecks when body is empty.
                 if not (body_in.value or "").strip():
                     tmpl = _read_amp_template(chosen)
                     if tmpl:
@@ -199,19 +236,25 @@ def _render_anarchy_shadow_amps(state, char_id, user, _save):
                 def _on_lib_pick(_=None):
                     row = lib_map.get(lib_select.value)
                     if row is None:
+                        _sync_ally_checkbox(str(type_in.value or ""))
                         return
-                    meta = _parse_library_features(row.features)
+                    info = extract_ability_stat_block(row)
                     name_in.set_value(row.name)
-                    if meta.get("amp_type") in [t.value for t in AmpType]:
-                        type_in.set_value(meta["amp_type"])
-                    rating_in.set_value(int(meta.get("rating", 1)))
-                    essence_in.set_value(float(meta.get("essence_cost", 0.0)))
-                    body_in.set_value(row.description or "")
+                    chosen_type = info["amp_type"] if info["amp_type"] in [t.value for t in AmpType] else AmpType.EQUIPMENT.value
+                    type_in.set_value(chosen_type)
+                    rating_in.set_value(int(info["rating"]))
+                    essence_in.set_value(float(info["essence_cost"]))
+                    body_in.set_value(info["summary"])
                     effects_state.clear()
-                    for ef in meta.get("effects") or []:
+                    for ef in info["effects"]:
                         if isinstance(ef, dict):
                             effects_state.append(ef)
                     _effects_list.refresh()
+                    _sync_ally_checkbox(
+                        chosen_type,
+                        ally_type=info["ally_type"] or "",
+                        stat_md=info["stat_block_md"] or "",
+                    )
 
                 lib_select.on_value_change(_on_lib_pick)
 
@@ -220,6 +263,23 @@ def _render_anarchy_shadow_amps(state, char_id, user, _save):
                 if not nm:
                     notify_error("Amp name is required.")
                     return
+
+                linked_ally_id = existing.ally_id if existing else None
+                if is_new and seed_ally_box is not None and seed_ally_box.visible and seed_ally_box.value:
+                    ally_type = pending_ally["ally_type"] or "Vehicle"
+                    ally_md = pending_ally["stat_block_md"] or (body_in.value or "")
+                    async with service_session() as session:
+                        created_ally = await create_ally(
+                            session,
+                            char_id,
+                            AllyCreate(name=nm, ally_type=ally_type, body_md=ally_md),
+                            user,
+                        )
+                    linked_ally_id = created_ally.id
+                    reload_allies = state.get("reload_allies")
+                    if callable(reload_allies):
+                        await reload_allies()
+
                 payload = {
                     "id": existing.id if existing else str(uuid.uuid4()),
                     "name": nm,
@@ -228,6 +288,7 @@ def _render_anarchy_shadow_amps(state, char_id, user, _save):
                     "essence_cost": float(essence_in.value or 0.0),
                     "effects": list(effects_state),
                     "body_md": body_in.value or "",
+                    "ally_id": linked_ally_id,
                     "is_custom": True if not is_new else (lib_select is None or lib_select.value == "Custom…"),
                 }
                 amps = [a.model_dump() for a in state["cs"].shadow_amps]
@@ -287,6 +348,12 @@ def _render_anarchy_shadow_amps(state, char_id, user, _save):
                                 label = ef.get("note") or f"{_EFFECT_KINDS.get(ef['kind'], ef['kind'])} {ef.get('target', '')}".strip()
                                 ui.badge(label, color="emerald-9").classes("text-[10px]")
                         with ui.row().classes("items-center gap-2").on("click.stop", lambda: None):
+                            if amp.get("ally_id"):
+                                ui.button(
+                                    "Stat Block",
+                                    icon="open_in_new",
+                                    on_click=lambda aid=amp["ally_id"]: state["open_ally"](aid),
+                                ).props("flat dense size=sm").classes("text-cyan-300 text-xs").tooltip("Open full stat block in Allies & Stat Blocks")
                             if amp["essence_cost"]:
                                 ui.badge(f"Ess -{amp['essence_display']}", color="red-9").classes("font-mono text-[11px]")
                             ui.badge(f"R{amp['rating']} ({amp['cost_nuyen']:,}¥)", color="amber-9").classes("font-mono text-[11px]")

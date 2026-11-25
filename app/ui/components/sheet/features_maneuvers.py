@@ -13,6 +13,8 @@ list; the trailing edit/delete buttons sit outside the clickable area.
 from nicegui import ui
 
 from app.schemas.char_sheet_specific import CharacterCombatManeuver
+from app.services.global_items_service import list_combat_maneuvers
+from app.services.session import service_session
 from app.ui.components.sheet.helpers import (
     render_detail_pairs,
     render_plain_markdown,
@@ -21,7 +23,7 @@ from app.ui.components.sheet.helpers import (
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error
 
 
-def _render_maneuvers_tab(state, cs, maneuvers_data, maneuvers, _save):
+def _render_maneuvers_tab(state, cs, maneuvers_data, maneuvers, _save, user=None):
     with ui.row().classes('w-full gap-4 items-center flex-wrap mb-1'):
         ui.label(f"Traditions: {maneuvers_data['known_traditions'] or '—'}").classes('text-gray-300 text-sm')
     with ui.row().classes('w-full gap-4 items-center flex-wrap mb-2'):
@@ -110,12 +112,33 @@ def _render_maneuvers_tab(state, cs, maneuvers_data, maneuvers, _save):
 
     tradition_options = [t.strip() for t in cs.known_traditions.split(',') if t.strip()] if cs.known_traditions else []
 
-    ui.button("Add Combat Maneuver", icon='add', on_click=lambda: _open_add_maneuver(cs, _save, tradition_options)).props('unelevated color=indigo').classes('mt-2')
+    ui.button("Add Combat Maneuver", icon='add', on_click=lambda: _open_add_maneuver(cs, _save, tradition_options, user=user)).props('unelevated color=indigo').classes('mt-2')
 
 
-def _open_add_maneuver(cs, _save, tradition_options):
+async def _open_add_maneuver(cs, _save, tradition_options, user=None):
+    lib_rows = []
+    async with service_session() as session:
+        lib_rows = await list_combat_maneuvers(session, cs.style, owner_id=user.id if user else None)
+
     with ui.dialog() as dialog, ui.card().classes('w-full max-w-md').style(DIALOG_CARD_STYLE):
         ui.label("Add Combat Maneuver").classes('text-lg font-bold mb-2 text-white')
+
+        lib_select = None
+        lib_map = {}
+        if lib_rows:
+            for r in lib_rows:
+                deg = f"Deg {r.tier}" if r.tier else ""
+                trad = r.tradition or ""
+                tag = " · ".join(p for p in (deg, trad) if p)
+                lbl = f"{r.name} ({tag})" if tag else r.name
+                lib_map[lbl] = r
+            lib_select = ui.select(
+                options=["Custom…"] + list(lib_map.keys()),
+                value="Custom…",
+                with_input=True,
+                label="Pick from Library (optional)",
+            ).props('dense outlined dark').classes('w-full mb-2')
+
         inp_name    = ui.input("Name").classes('w-full')
         inp_degree  = ui.number("Degree", value=1, min=1, max=5, step=1).classes('w-full').props('dense')
         inp_trad    = ui.select(tradition_options + ["Other..."], label="Tradition", value=tradition_options[0] if tradition_options else None).classes('w-full')
@@ -125,6 +148,35 @@ def _open_add_maneuver(cs, _save, tradition_options):
             inp_action = ui.select(["A", "BA", "R"], label="Action Type", value="A").classes('flex-1').props('dense')
         inp_stance  = ui.checkbox("Stance")
         inp_desc    = ui.textarea("Description").classes('w-full').props('rows=3')
+
+        if lib_select is not None:
+            def _on_lib_pick(_=None):
+                row = lib_map.get(lib_select.value)
+                if row is None:
+                    return
+                inp_name.set_value(row.name)
+                try:
+                    inp_degree.set_value(int(str(row.tier or "1").strip()))
+                except ValueError:
+                    inp_degree.set_value(1)
+                trad = (row.tradition or "").strip()
+                if trad in tradition_options:
+                    inp_trad.set_value(trad)
+                    inp_trad_custom.set_value("")
+                elif trad:
+                    inp_trad.set_value("Other...")
+                    inp_trad_custom.set_value(trad)
+                try:
+                    inp_cost.set_value(int(str(row.exertion or "1").strip()))
+                except ValueError:
+                    inp_cost.set_value(1)
+                act_raw = (row.activation or "A").strip()
+                act_base = act_raw.split("(")[0].strip().upper()
+                inp_action.set_value(act_base if act_base in {"A", "BA", "R"} else "A")
+                inp_stance.set_value("stance" in act_raw.lower())
+                inp_desc.set_value(row.description or "")
+
+            lib_select.on_value_change(_on_lib_pick)
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
             async def _confirm():
