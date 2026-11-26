@@ -9,6 +9,7 @@ def _render_hp(state, char_id, user, _save):
         cs = state["cs"]
         combat = state["vd"].get("combat", {})
         exhaustion_label = combat.get("exhaustion_label", "Exhaustion")
+        exhaustion_tooltip = combat.get("exhaustion_tooltip")
         show_strife = combat.get("show_strife", False)
         show_death_saves = combat.get("show_death_saves", False)
         is_editing = [False]
@@ -49,7 +50,9 @@ def _render_hp(state, char_id, user, _save):
 
                 for label, val, on_delta, is_hp in adjustable_rows:
                     with ui.row().classes('w-full justify-between items-center border-b border-gray-800 py-1'):
-                        ui.label(label).classes('text-gray-400')
+                        lbl = ui.label(label).classes('text-gray-400')
+                        if label == exhaustion_label and exhaustion_tooltip:
+                            lbl.tooltip(exhaustion_tooltip)
                         with ui.row().classes('items-center gap-1'):
                             render_pm_adjuster(on_delta)
                             ui.label(val).classes('text-white font-bold ml-2' if is_hp else 'text-white ml-2')

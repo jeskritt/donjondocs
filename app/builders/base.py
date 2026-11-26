@@ -429,6 +429,7 @@ class BaseSheetBuilder:
             'has_skills': True,
             'show_prof_bonus': True,
             'show_attunement': True,
+            'show_weapon_mastery': False,
         }
         return self
 

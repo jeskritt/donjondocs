@@ -12,6 +12,7 @@ class SheetStyle(str, enum.Enum):
     """The style of the character sheet."""
 
     DND5E = "Dungeons & Dragons 5e"
+    DND5E_2024 = "Dungeons & Dragons 5e (2024)"
     A5E = "Level Up: Advanced 5e"
     UM5 = "Ultramodern 5e"
     VOIDRUNNER = "Voidrunner"

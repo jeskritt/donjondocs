@@ -1,17 +1,23 @@
 """
 AI Helper Docstring
 Purpose: Shared NiceGUI modal for creating or editing a character's core identity
-(name, classes + archetype + level list, ancestry, culture, background).
+(name, optional ruleset/edition selector, classes + archetype + level list, ancestry/species, culture, background).
 Interactions:
-- `app.ui.pages.sheet_creator.py`: opens the modal in "create" mode.
+- `app.ui.pages.sheet_creator.py`: opens the modal in "create" mode (with edition selector for D&D 5e).
 - `app.ui.pages.character_sheet.py`: opens the modal in "edit" mode from the top-bar edit button.
 - `app.services.global_items_service.list_classes`: provides the class dropdown options.
 """
 
-from typing import Awaitable, Callable
 from nicegui import ui
 
 from app.schemas.char_sheet_global import SheetStyle
+
+
+def _ancestry_labels_for(style: SheetStyle) -> tuple[str, str]:
+    """Return (primary, secondary) origin field labels for the given SheetStyle."""
+    if style == SheetStyle.DND5E_2024:
+        return ("Species", "Lineage / Subspecies")
+    return ("Ancestry / Race", "Culture / Subrace")
 
 
 async def open_character_editor(
@@ -22,6 +28,8 @@ async def open_character_editor(
     title: str = "New Character",
     confirm_label: str = "Create",
     vigor_class_names: set[str] | None = None,
+    edition_options: list[tuple[str, SheetStyle]] | None = None,
+    classes_by_style: dict[SheetStyle, list[str]] | None = None,
 ) -> dict | None:
     """Show a modal for editing character identity and return the form values on confirm.
 
@@ -29,8 +37,14 @@ async def open_character_editor(
     Magus). Selecting one auto-checks and locks the "Include Vigor" box, since
     the save flow force-enables Vigor for such classes.
 
+    When `edition_options` is supplied (e.g. D&D 5e 2024 vs 2014 in create mode),
+    renders a "Ruleset / Edition" selector at the top of the dialog that switches
+    the active `SheetStyle`, updates origin labels, and swaps the class dropdown
+    options using `classes_by_style`.
+
     Return value on confirm:
         {
+            "style": SheetStyle,
             "name": str,
             "ancestry": str,
             "culture": str | None,
@@ -46,21 +60,37 @@ async def open_character_editor(
     """
     initial = initial or {}
     vigor_casters = vigor_class_names or set()
-    initial_classes = initial.get("classes") or [{"name": (available_classes[0] if available_classes else "Fighter"), "archetype": None, "level": 1}]
+    active_style = [style]
 
-    # Always add a custom sentinel — lets the user hand-type an unknown class.
-    options = list(available_classes) + ["Custom…"]
+    def _options_for(st: SheetStyle) -> list[str]:
+        base = (classes_by_style or {}).get(st, available_classes)
+        return list(base) + ["Custom…"]
 
-    result: dict | None = None
+    options = _options_for(active_style[0])
+    initial_classes = initial.get("classes") or [{"name": (options[0] if len(options) > 1 else "Fighter"), "archetype": None, "level": 1}]
+
+    ancestry_label, culture_label = _ancestry_labels_for(active_style[0])
+
     dialog = ui.dialog().props("persistent")
     with dialog, ui.card().classes("w-[640px] max-w-full"):
         ui.label(title).classes("text-xl font-bold mb-2")
 
+        # Optional ruleset/edition selector (used by the unified D&D 5e card to
+        # pick between 2024 SRD 5.2 and 2014 SRD 5.1 without cluttering /sheet/new).
+        edition_select = None
+        if edition_options:
+            edition_map = {st.value: lbl for lbl, st in edition_options}
+            edition_select = ui.select(
+                options=edition_map,
+                value=active_style[0].value,
+                label="Ruleset / Edition",
+            ).classes("w-full mb-2").props("outlined dark")
+
         name_input = ui.input(label="Name", value=initial.get("name", "")).classes("w-full").props("outlined dark")
 
         with ui.row().classes("w-full gap-2 mt-2"):
-            ancestry_input = ui.input(label="Ancestry / Race", value=initial.get("ancestry", "Human")).classes("flex-1").props("outlined dark")
-            culture_input = ui.input(label="Culture / Subrace", value=initial.get("culture") or "").classes("flex-1").props("outlined dark")
+            ancestry_input = ui.input(label=ancestry_label, value=initial.get("ancestry", "Human")).classes("flex-1").props("outlined dark")
+            culture_input = ui.input(label=culture_label, value=initial.get("culture") or "").classes("flex-1").props("outlined dark")
         background_input = ui.input(label="Background", value=initial.get("background", "Peasant")).classes("w-full mt-2").props("outlined dark")
 
         # Ultramodern5 only: opt the character into the optional Vigor attribute
@@ -97,18 +127,19 @@ async def open_character_editor(
                 vigor_checkbox.enable()
 
         def _add_row(entry: dict | None = None):
-            entry = entry or {"name": options[0] if options else "Custom…", "archetype": None, "level": 1}
+            cur_options = _options_for(active_style[0])
+            entry = entry or {"name": cur_options[0] if cur_options else "Custom…", "archetype": None, "level": 1}
             with rows_container:
                 with ui.row().classes("w-full items-end gap-2") as row:
                     class_select = ui.select(
-                        options,
-                        value=entry["name"] if entry["name"] in options else "Custom…",
+                        cur_options,
+                        value=entry["name"] if entry["name"] in cur_options else "Custom…",
                         label="Class",
                     ).classes("flex-[2]").props("outlined dark")
                     # Free-text fallback when Custom is picked (or when name not in list).
                     custom_name = ui.input(
                         label="Custom class name",
-                        value=entry["name"] if entry["name"] not in options else "",
+                        value=entry["name"] if entry["name"] not in cur_options else "",
                     ).classes("flex-[2]").props("outlined dark")
                     archetype_input = ui.input(
                         label="Archetype",
@@ -147,6 +178,29 @@ async def open_character_editor(
                         _sync_vigor_lock()
                     remove_btn.on("click", _remove)
 
+        if edition_select is not None:
+            def _on_edition_change(e):
+                if not e.value:
+                    return
+                try:
+                    new_style = SheetStyle(e.value)
+                except ValueError:
+                    return
+                active_style[0] = new_style
+                a_lbl, c_lbl = _ancestry_labels_for(new_style)
+                ancestry_input.props(f'label="{a_lbl}"')
+                culture_input.props(f'label="{c_lbl}"')
+                ancestry_input.update()
+                culture_input.update()
+                new_opts = _options_for(new_style)
+                for r in class_rows:
+                    cur = r["class_select"].value
+                    keep = cur if cur in new_opts else (new_opts[0] if new_opts else "Custom…")
+                    r["class_select"].set_options(new_opts, value=keep)
+                    r["custom_name"].visible = (keep == "Custom…")
+
+            edition_select.on_value_change(_on_edition_change)
+
         for c in initial_classes:
             _add_row(c)
         _sync_vigor_lock()
@@ -181,6 +235,7 @@ async def open_character_editor(
         classes_out.append({"name": name, "archetype": archetype, "level": level})
 
     return {
+        "style": active_style[0],
         "name": (name_input.value or "").strip() or "Unnamed Adventurer",
         "ancestry": (ancestry_input.value or "").strip() or "Human",
         "culture": ((culture_input.value or "").strip() or None),

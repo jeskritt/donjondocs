@@ -51,7 +51,7 @@ async def sheet_creator_page():
 
             system_card(
                 "Dungeons & Dragons 5e",
-                "The classic 2014 core ruleset. Standard abilities, skills, and magic.",
+                "2024 (SRD 5.2) or classic 2014 (SRD 5.1) core rules. Standard abilities, skills, and magic.",
                 SheetStyle.DND5E,
                 "auto_awesome",
                 "#EF4444",
@@ -118,29 +118,54 @@ async def sheet_creator_page():
                     notify_error(f"Failed to create character: {str(e)}")
             return
 
-        async with service_session() as session:
-            class_rows = await list_classes(session, style, owner_id=user.id)
+        edition_options: list[tuple[str, SheetStyle]] | None = None
+        classes_by_style: dict[SheetStyle, list[str]] | None = None
+        dialog_style = style
+        dialog_title = f"New {style.value.upper()} Character"
+
+        if style == SheetStyle.DND5E:
+            edition_options = [
+                ("2024 Rules (SRD 5.2)", SheetStyle.DND5E_2024),
+                ("2014 Rules (SRD 5.1)", SheetStyle.DND5E),
+            ]
+            dialog_style = SheetStyle.DND5E_2024
+            dialog_title = "New Dungeons & Dragons 5e Character"
+            async with service_session() as session:
+                rows_2024 = await list_classes(session, SheetStyle.DND5E_2024, owner_id=user.id)
+                rows_2014 = await list_classes(session, SheetStyle.DND5E, owner_id=user.id)
+            classes_by_style = {
+                SheetStyle.DND5E_2024: [c.name for c in rows_2024],
+                SheetStyle.DND5E: [c.name for c in rows_2014],
+            }
+            class_rows = rows_2024
+        else:
+            async with service_session() as session:
+                class_rows = await list_classes(session, style, owner_id=user.id)
+
         class_names = [c.name for c in class_rows]
         from app.services.character_seeding import _parse_saving_throws
         vigor_class_names = {c.name for c in class_rows if "VIG" in _parse_saving_throws(c.saving_throws)}
 
         form = await open_character_editor(
-            style=style,
+            style=dialog_style,
             available_classes=class_names,
-            title=f"New {style.value.upper()} Character",
+            title=dialog_title,
             confirm_label="Create",
             vigor_class_names=vigor_class_names,
+            edition_options=edition_options,
+            classes_by_style=classes_by_style,
         )
         if form is None:
             return
 
+        chosen_style = form.get("style", dialog_style)
         async with service_session() as session:
             try:
                 entries = [CharacterClassEntry(**c) for c in form["classes"]]
                 new_char = await create_character(
                     session,
                     form["name"],
-                    style,
+                    chosen_style,
                     user,
                     classes=entries,
                     ancestry=form["ancestry"],

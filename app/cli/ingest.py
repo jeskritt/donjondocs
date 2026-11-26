@@ -57,7 +57,9 @@ def normalize_attribute(value: str | None) -> str | None:
 
 def get_style_from_filename(filename: str) -> SheetStyle:
     low = filename.lower()
-    if "phb2014" in low:
+    if "2024" in low or "srd52" in low or "dnd2024" in low:
+        return SheetStyle.DND5E_2024
+    elif "phb2014" in low:
         return SheetStyle.DND5E
     elif "levelup" in low or "a5e" in low:
         return SheetStyle.A5E
