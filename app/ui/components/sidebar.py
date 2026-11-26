@@ -67,7 +67,7 @@ def build_sidebar():
                 ui.label("Admin").classes("text-xs font-semibold mb-3 uppercase tracking-wider").style(
                     "color: #94A3B8;"
                 )
-            _nav_item("User Management", "/admin/users", "manage_accounts", collapsed)
+            _nav_item("Admin Panel", "/admin/users", "admin_panel_settings", collapsed)
 
     return drawer
 

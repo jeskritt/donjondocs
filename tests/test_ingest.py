@@ -67,6 +67,7 @@ def test_normalize_key():
 
 def test_get_style_from_filename():
     assert get_style_from_filename("weapons_phb2014.csv") == SheetStyle.DND5E
+    assert get_style_from_filename("weapons_2024.csv") == SheetStyle.DND5E_2024
     assert get_style_from_filename("armor_a5e.csv") == SheetStyle.A5E
     assert get_style_from_filename("classes_shadowdark.csv") == SheetStyle.SHADOWDARK
     assert get_style_from_filename("classes_um5.csv") == SheetStyle.UM5

@@ -116,7 +116,7 @@ async def dashboard_page():
 
             with ui.card().classes("stat-card"):
                 ui.button(
-                    "Manage Users",
+                    "Open Admin Panel",
                     on_click=lambda: ui.navigate.to("/admin/users"),
-                    icon="manage_accounts",
+                    icon="admin_panel_settings",
                 ).props("flat no-caps").style("color: #818CF8;")

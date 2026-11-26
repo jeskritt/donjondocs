@@ -1,0 +1,42 @@
+{
+  "style": "Dungeons & Dragons 5e (2024)",
+  "kind": "attributes",
+  "items": [
+    {
+      "name": "Strength",
+      "alias": "STR",
+      "description": "Physical might.",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Dexterity",
+      "alias": "DEX",
+      "description": "Agility, reflexes, and balance.",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Constitution",
+      "alias": "CON",
+      "description": "Health and stamina.",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Intelligence",
+      "alias": "INT",
+      "description": "Reasoning and memory.",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Wisdom",
+      "alias": "WIS",
+      "description": "Perceptiveness and mental fortitude.",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Charisma",
+      "alias": "CHA",
+      "description": "Confidence, poise, and charm.",
+      "reference": "SRD 5.2"
+    }
+  ]
+}

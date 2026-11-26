@@ -1,0 +1,102 @@
+{
+  "style": "Dungeons & Dragons 5e (2024)",
+  "kind": "classes",
+  "items": [
+    {
+      "name": "Barbarian",
+      "hit_dice": "d12",
+      "primary_ability": "Strength",
+      "saving_throws": "Strength, Constitution",
+      "proficiencies": "Light armor, Medium armor, Shields, Simple weapons, Martial weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Bard",
+      "hit_dice": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": "Dexterity, Charisma",
+      "proficiencies": "Light armor, Simple weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Cleric",
+      "hit_dice": "d8",
+      "primary_ability": "Wisdom",
+      "saving_throws": "Wisdom, Charisma",
+      "proficiencies": "Light armor, Medium armor, Shields, Simple weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Druid",
+      "hit_dice": "d8",
+      "primary_ability": "Wisdom",
+      "saving_throws": "Intelligence, Wisdom",
+      "proficiencies": "Light armor, Shields, Simple weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Fighter",
+      "hit_dice": "d10",
+      "primary_ability": "Strength or Dexterity",
+      "saving_throws": "Strength, Constitution",
+      "proficiencies": "Light armor, Medium armor, Heavy armor, Shields, Simple weapons, Martial weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Monk",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity and Wisdom",
+      "saving_throws": "Strength, Dexterity",
+      "proficiencies": "Simple weapons, Martial weapons with the Light property",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Paladin",
+      "hit_dice": "d10",
+      "primary_ability": "Strength and Charisma",
+      "saving_throws": "Wisdom, Charisma",
+      "proficiencies": "Light armor, Medium armor, Heavy armor, Shields, Simple weapons, Martial weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Ranger",
+      "hit_dice": "d10",
+      "primary_ability": "Dexterity and Wisdom",
+      "saving_throws": "Strength, Dexterity",
+      "proficiencies": "Light armor, Medium armor, Shields, Simple weapons, Martial weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Rogue",
+      "hit_dice": "d8",
+      "primary_ability": "Dexterity",
+      "saving_throws": "Dexterity, Intelligence",
+      "proficiencies": "Light armor, Simple weapons, Martial weapons with the Finesse or Light property",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Sorcerer",
+      "hit_dice": "d6",
+      "primary_ability": "Charisma",
+      "saving_throws": "Constitution, Charisma",
+      "proficiencies": "Simple weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Warlock",
+      "hit_dice": "d8",
+      "primary_ability": "Charisma",
+      "saving_throws": "Wisdom, Charisma",
+      "proficiencies": "Light armor, Simple weapons",
+      "reference": "SRD 5.2"
+    },
+    {
+      "name": "Wizard",
+      "hit_dice": "d6",
+      "primary_ability": "Intelligence",
+      "saving_throws": "Intelligence, Wisdom",
+      "proficiencies": "Simple weapons",
+      "reference": "SRD 5.2"
+    }
+  ]
+}

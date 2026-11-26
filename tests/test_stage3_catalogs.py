@@ -30,8 +30,8 @@ async def test_full_data_dir_json_only_ingestion_all_six_systems_and_idempotency
     assert list(REPO_DATA_DIR.glob("*.csv")) == []
 
     report1 = await run_ingestion_in_session(db_session, str(REPO_DATA_DIR))
-    assert report1["files"] == 49
-    assert report1["inserted"] > 2300
+    assert report1["files"] == 57
+    assert report1["inserted"] > 2900
 
     # Re-running ingestion updates every seeded row in place with zero duplicates.
     report2 = await run_ingestion_in_session(db_session, str(REPO_DATA_DIR))
@@ -39,6 +39,39 @@ async def test_full_data_dir_json_only_ingestion_all_six_systems_and_idempotency
     assert report2["updated"] == report1["inserted"]
 
     owner = UserContext.from_user(test_user)
+
+    # --- D&D 5e 2024 (SRD 5.2) ---
+    dnd24_attrs = await list_attributes(db_session, SheetStyle.DND5E_2024, owner_id=test_user.id)
+    dnd24_skills = await list_skills(db_session, SheetStyle.DND5E_2024, owner_id=test_user.id)
+    dnd24_classes = await list_classes(db_session, SheetStyle.DND5E_2024, owner_id=test_user.id)
+    dnd24_weapons = await list_weapons(db_session, SheetStyle.DND5E_2024, owner_id=test_user.id)
+    dnd24_armor = await list_armor(db_session, SheetStyle.DND5E_2024, owner_id=test_user.id)
+    dnd24_spells = await list_spells(db_session, SheetStyle.DND5E_2024, owner_id=test_user.id)
+    dnd24_items = await list_items(db_session, SheetStyle.DND5E_2024, owner_id=test_user.id)
+    dnd24_presets = await list_ally_presets(db_session, SheetStyle.DND5E_2024, owner)
+    assert len(dnd24_attrs) == 6
+    assert len(dnd24_skills) == 18
+    assert len(dnd24_classes) == 12
+    assert len(dnd24_weapons) == 38
+    assert any(w.name == "Musket" and "Slow" in (w.notes or "") for w in dnd24_weapons)
+    assert any(w.name == "Longsword" and "Mastery: Sap" in (w.notes or "") for w in dnd24_weapons)
+    assert len(dnd24_armor) == 13
+    assert any(a.name == "Plate Armor" and a.base_ac == 18 and a.dex_cap == 0 for a in dnd24_armor)
+    assert len(dnd24_spells) == 339
+    chill = next(s for s in dnd24_spells if s.name == "Chill Touch")
+    assert chill.school == "Necromancy" and chill.duration == "Instantaneous"
+    alarm = next(s for s in dnd24_spells if s.name == "Alarm")
+    assert alarm.ritual is True and alarm.duration == "8 hours"
+    assert len(dnd24_items) >= 150
+    alch = next(i for i in dnd24_items if i.name == "Alchemist's Supplies")
+    assert "Utilize:" in (alch.description or "") and "Craft:" in (alch.description or "")
+    airship = next(i for i in dnd24_items if i.name == "Airship")
+    assert extract_item_stat_block(airship)["ally_type"] == "Vehicle"
+    warhorse = next(i for i in dnd24_items if i.name == "Warhorse")
+    assert extract_item_stat_block(warhorse)["ally_type"] == "Mount"
+    assert len(dnd24_presets) >= 92
+    assert any(p.name == "Allosaurus" for p in dnd24_presets)
+    assert any(p.name == "Owl" for p in dnd24_presets)
 
     # --- D&D 5e 2014 (SRD 5.1) ---
     dnd_spells = await list_spells(db_session, SheetStyle.DND5E, owner_id=test_user.id)
@@ -93,3 +126,26 @@ async def test_full_data_dir_json_only_ingestion_all_six_systems_and_idempotency
     assert all(p.ally_type != "Vehicle" for p in sd_presets)
     torch = next(i for i in sd_items if i.name == "Torch")
     assert "1 hour" in (torch.description or "")
+
+    # --- Admin global stats reports all 7 rule systems including maneuvers & destinies ---
+    from app.services.admin_service import get_global_table_stats
+    from app.user_roles import UserRole
+
+    admin_ctx = UserContext(
+        id=test_user.id,
+        username=test_user.username,
+        email=test_user.email,
+        role=UserRole.ADMIN,
+        is_active=True,
+    )
+    stats = await get_global_table_stats(db_session, admin_ctx)
+    sources = {row["source"] for row in stats}
+    assert len(sources) == 7
+    assert SheetStyle.DND5E_2024.value in sources
+    assert SheetStyle.DND5E.value in sources
+    dnd24_row = next(r for r in stats if r["source"] == SheetStyle.DND5E_2024.value)
+    assert dnd24_row["spells"] == 339
+    assert dnd24_row["abilities"] == 92
+    a5e_row = next(r for r in stats if r["source"] == SheetStyle.A5E.value)
+    assert a5e_row["maneuvers"] >= 160
+    assert a5e_row["destinies"] == 10

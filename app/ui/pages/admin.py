@@ -48,7 +48,7 @@ async def admin_users_page():
 
     ui.dark_mode(True)
     apply_global_styles()
-    ui.page_title("User Management — DonjonDocs")
+    ui.page_title("Admin Panel — DonjonDocs")
 
     build_header()
     build_sidebar()
@@ -518,13 +518,18 @@ async def admin_users_page():
                 {"name": "armor", "label": "Armor", "field": "armor", "align": "center"},
                 {"name": "items", "label": "Gear", "field": "items", "align": "center"},
                 {"name": "spells", "label": "Spells", "field": "spells", "align": "center"},
-                {"name": "abilities", "label": "Amps/Abilities", "field": "abilities", "align": "center"},
+                {"name": "maneuvers", "label": "Maneuvers", "field": "maneuvers", "align": "center"},
+                {"name": "destinies", "label": "Destinies", "field": "destinies", "align": "center"},
+                {"name": "abilities", "label": "Allies/Amps", "field": "abilities", "align": "center"},
                 {"name": "total", "label": "Total", "field": "total", "align": "center", "sortable": True},
             ]
+            # rowsPerPage=0 disables Quasar's default 5-row pagination so every
+            # rule system is shown even with hide-bottom active.
             ui.table(
                 columns=cols,
                 rows=global_stats_data,
                 row_key="source",
+                pagination={"rowsPerPage": 0},
             ).classes("w-full").props("dense flat bordered dark hide-bottom")
 
         global_stats_table()

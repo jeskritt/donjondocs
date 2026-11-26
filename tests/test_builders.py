@@ -230,8 +230,38 @@ def test_dnd5e_builder_nulls_destiny_and_renames_fatigue():
 
     assert view_data['details']['destiny'] is None
     assert view_data['combat'].get('fatigue_label') == 'Exhaustion'
-    # DnD 5e should suppress combat maneuvers
+    # DnD 5e should suppress combat maneuvers and 2024 weapon mastery
     assert view_data['combat_maneuvers'] is None
+    assert view_data['style_flags']['show_weapon_mastery'] is False
+
+
+def test_dnd2024_builder_enables_weapon_mastery_and_2024_hints():
+    from app.builders.dnd5e import DnD2024Builder, default_weapon_mastery_limit
+    from app.schemas.char_sheet_specific import CharacterClassEntry
+
+    c24 = create_mock_character(SheetStyle.DND5E_2024)
+    c24.classes = [CharacterClassEntry(name="Fighter", level=1)]
+    builder = get_builder(c24)
+    assert isinstance(builder, DnD2024Builder)
+    view_data = builder.build()
+
+    assert view_data['details']['destiny'] is None
+    assert view_data['combat_maneuvers'] is None
+    assert view_data['combat']['exhaustion_label'] == 'Exhaustion'
+    assert '−2' in view_data['combat']['exhaustion_tooltip']
+    assert view_data['style_flags']['species_label'] == 'Species'
+    assert view_data['style_flags']['show_weapon_mastery'] is True
+    assert view_data['style_flags']['weapon_mastery_default_limit'] == 3
+
+    # Verify SRD 5.2 class mastery scaling
+    c24.classes = [CharacterClassEntry(name="Fighter", level=10)]
+    assert default_weapon_mastery_limit(c24) == 5
+    c24.classes = [CharacterClassEntry(name="Barbarian", level=4)]
+    assert default_weapon_mastery_limit(c24) == 3
+    c24.classes = [CharacterClassEntry(name="Rogue", level=1)]
+    assert default_weapon_mastery_limit(c24) == 2
+    c24.classes = [CharacterClassEntry(name="Wizard", level=5)]
+    assert default_weapon_mastery_limit(c24) == 0
 
 def test_a5e_builder_retains_destiny_and_suppresses_alignments():
     c_a5e = create_mock_character(SheetStyle.A5E)

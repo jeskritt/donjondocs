@@ -26,6 +26,8 @@ from app.models.char_sheet import (
     GlobalArmor,
     GlobalAttribute,
     GlobalClass,
+    GlobalCombatManeuver,
+    GlobalDestiny,
     GlobalItem,
     GlobalSkill,
     GlobalSpell,
@@ -59,6 +61,8 @@ _GLOBAL_TABLES: tuple[tuple[str, type], ...] = (
     ("armor", GlobalArmor),
     ("items", GlobalItem),
     ("spells", GlobalSpell),
+    ("maneuvers", GlobalCombatManeuver),
+    ("destinies", GlobalDestiny),
     ("abilities", GlobalAbility),
 )
 
