@@ -2,7 +2,11 @@
 
 **A home for your tabletop characters, and your monsters too.**
 
-DonjonDocs is a self-hosted web app that keeps your **D&D 5e**, **Level Up: Advanced 5e**, **Shadowdark RPG**, **Ultramodern5**, **Voidrunner**, and **Shadowrun: Anarchy 2.0** characters in one tidy place. Run it on your laptop for game night or host it for your group, sign your friends in, and put the paper sheets and scattered spreadsheets away.
+DonjonDocs is a self-hosted web app that keeps your **D&D 5e (2024 & 2014)**, **Level Up: Advanced 5e**, **Shadowdark RPG**, **Ultramodern5**, **Voidrunner**, and **Shadowrun: Anarchy 2.0** characters in one tidy place. Run it on your laptop for game night or host it for your group, sign your friends in, and put the paper sheets and scattered spreadsheets away.
+
+![DonjonDocs Character Sheet](docs/images/a5e_char_top.png)
+
+*Explore more views in the **[Screenshot Gallery](docs/gallery.md)** — D&D 2024 Weapon Mastery, 2-column PHB Creature Catalog, Shadowrun: Anarchy 2.0, PHB-styled Allies & Notes, Spells, Combat Maneuvers, and the Admin Panel.*
 
 ## What it is
 
@@ -109,7 +113,7 @@ Want players at the table to connect from their own laptops or tablets on your h
    ALLOWED_HOSTS=localhost,127.0.0.1,192.168.1.42
    ```
    *(For casual local-only play while `DEBUG=true`, `ALLOWED_HOSTS=*` also works — never use `*` when `DEBUG=false`.)*
-3. Restart `python main.py` and share **`http://192.168.1.42:8080`** with your table. Players can register their own accounts at `/register`, or you can create accounts for them under **Admin → User Management**.
+3. Restart `python main.py` and share **`http://192.168.1.42:8080`** with your table. Players can register their own accounts at `/register`, or you can create accounts for them under **Admin → Admin Panel**.
 4. *(Windows firewall prompt)* If Windows Defender asks whether to allow Python on Private networks, click **Allow** so devices on your Wi-Fi can reach port `8080`.
 
 ### Updating later (`git pull`)
@@ -122,16 +126,22 @@ alembic upgrade head
 python main.py
 ```
 
-Then sign in as an admin, open **Admin → User Management**, and click **Reseed Global Data** to pull any new or updated rulebook items into your existing database without touching your characters.
+Then sign in as an admin, open **Admin → Admin Panel**, and click **Reseed Global Data** to pull any new or updated rulebook items into your existing database without touching your characters.
 
 ---
 
 ## Supported Game Systems & Highlights
 
-### Six rule systems supported first-class
+| D&D 5e (2024) Weapon Mastery & Tooltips | 2-Column PHB Creature Catalog |
+| :---: | :---: |
+| ![D&D 2024 Weapon Mastery](docs/images/weapon_mastery.png) | ![2-Column PHB Creature Catalog](docs/images/creature_catalog_2col.png) |
 
-**5e-family sheets** (multiclass-aware, live AC/save/skill/spell-DC math, HP `+/-` & slider, death saves, short/long rests, per-item equipment editing):
-- **D&D 5e** — classic 2014 core ruleset.
+*See all 11 screenshots — including Shadowrun: Anarchy 2.0, PHB-styled Allies & Notes, Spells, Maneuvers, and the Admin Panel — in the **[Screenshot Gallery](docs/gallery.md)**.*
+
+### Seven rulesets across six system cards
+
+**5e-family sheets** (multiclass-aware, live AC/save/skill/spell-DC math, HP `+/-` & slider, death saves, short/long rests, per-item equipment editing, searchable library pickers):
+- **D&D 5e (2024 & 2014)** — pick **2024 Rules (SRD 5.2)** or **2014 Rules (SRD 5.1)** right in the New Character dialog. 2024 sheets include **Weapon Mastery** tracking (`Ma` toggle column, class-scaled `Masteries X / Y` counter, Mastery badges with hover rule tooltips), `Species` labels, updated 2024 tools/gear/mounts/vehicles, and revised SRD 5.2 spells & animal stat blocks.
 - **Level Up: Advanced 5e (A5e)** — tactical 5e with Strife, Fatigue, Combat Maneuvers, and Exertion.
 - **Shadowdark RPG** — minimalist OSR layout with proficiency bonus hidden and single-currency GP tracking.
 - **Ultramodern5 (UM5)** — sci-fi/modern 5e with dollar-priced gear, optional **7th "Vigor" attribute** (auto-enabled by Vigor casters like the Magus), and Vigor-powered **DARK** magic (vessel/river/VR pool).
@@ -166,7 +176,7 @@ Then sign in as an admin, open **Admin → User Management**, and click **Reseed
 
 ### Through the Web Admin Panel (`/admin/users`)
 
-Sign in as an admin and open **Admin → User Management** in the sidebar:
+Sign in as an admin and open **Admin → Admin Panel** in the sidebar (or **Admin Panel** in the top bar):
 - **User Management:** create users, edit username/email/role, reset passwords, or deactivate/reactivate accounts.
 - **Rule Data Reseed:** inspect seeded rulebook row counts per game system and click **Reseed Global Data** to idempotently load updated `data/` catalogs without modifying any user-owned data.
 - **Database Backup Download:** export a JSON backup directly from the Admin panel (protected by admin password re-entry, a 2/hour rate limit, audit logging, and an **"Exclude password hashes"** option checked by default). Database restore stays CLI-only for safety.
@@ -231,6 +241,7 @@ Detailed docs live in [`docs/`](docs/):
 | [NiceGUI](docs/nicegui.md) | NiceGUI patterns and sanctioned exceptions |
 | [Operations](docs/operations.md) | Backup & restore CLI, file format, schema-version safety |
 | [RBAC](docs/rbac.md) | Roles, CLI admin promotion, auth flow, authorization rules |
+| [Screenshot Gallery](docs/gallery.md) | Full visual tour across all rule systems, PHB stat blocks, and Admin Panel |
 
 ## License
 
@@ -243,6 +254,6 @@ If you modify this application and offer it as a service over a network, you mus
 
 ### Game Data
 The game mechanics, rules, and trademarks referenced by the bundled data files (under `data/`) are the property of their respective creators and are **NOT** covered by the AGPL-3.0 license:
-- **D&D 5e** content is provided under the [Wizards of the Coast Systems Reference Document 5.1](https://dnd.wizards.com/resources/systems-reference-document) (CC-BY-4.0).
+- **D&D 5e (2014 & 2024)** content is provided under the Wizards of the Coast [Systems Reference Document 5.1](https://dnd.wizards.com/resources/systems-reference-document) and [System Reference Document 5.2](https://www.dndbeyond.com/srd) (CC-BY-4.0).
 - **Level Up: Advanced 5e**, **Ultramodern5**, and **Voidrunner** content is provided under their respective open gaming licenses.
 - **Shadowdark RPG** and **Shadowrun: Anarchy 2.0** bundled data files contain only concise mechanical reference stats and blank/template layouts for personal play; all respective trademarks and game rules belong to their copyright holders.

@@ -16,6 +16,7 @@ Audience: AI assistants and humans onboarding to the codebase.
 | [nicegui.md](nicegui.md) | NiceGUI conventions, sanctioned exceptions, deferred divergences |
 | [user_stories.md](user_stories.md) | Example end-to-end flows |
 | [operations.md](operations.md) | Backup & restore CLI |
+| [gallery.md](gallery.md) | Visual screenshot gallery across all rule systems and features |
 
 ## Conventions
 

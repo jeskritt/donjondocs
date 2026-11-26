@@ -37,7 +37,7 @@ def build_header():
             ).style("color: #94A3B8;")
 
             if me.role == UserRole.ADMIN:
-                ui.button("Users", on_click=lambda: ui.navigate.to("/admin/users"), icon="people").props(
+                ui.button("Admin Panel", on_click=lambda: ui.navigate.to("/admin/users"), icon="admin_panel_settings").props(
                     "flat no-caps"
                 ).style("color: #94A3B8;")
 
