@@ -1,7 +1,7 @@
 from typing import Protocol
 
 from app.builders.base import BaseSheetBuilder
-from app.builders.dnd5e import DnD2014Builder
+from app.builders.dnd5e import DnD2014Builder, DnD2024Builder
 from app.builders.a5e import A5eBuilder
 from app.builders.shadowdark import ShadowdarkBuilder
 from app.builders.shadowrun_anarchy import ShadowrunAnarchyBuilder
@@ -17,6 +17,7 @@ class SheetBuilder(Protocol):
 
 _BUILDERS: dict[SheetStyle, type] = {
     SheetStyle.DND5E: DnD2014Builder,
+    SheetStyle.DND5E_2024: DnD2024Builder,
     SheetStyle.A5E: A5eBuilder,
     SheetStyle.SHADOWDARK: ShadowdarkBuilder,
     SheetStyle.UM5: Um5Builder,

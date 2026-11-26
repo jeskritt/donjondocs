@@ -8,6 +8,7 @@ markdown textarea; every write goes through the page `_save`.
 """
 
 from nicegui import ui
+import re
 
 from app.ui.theme import DIALOG_CARD_STYLE, notify_error, notify_success
 from app.rule_systems import SheetStyle
@@ -32,6 +33,39 @@ from app.ui.components.sheet.helpers import (
 # is added on top. Hidden entirely for styles without attunement (e.g. Shadowdark).
 BASE_ATTUNEMENT_LIMIT = 3
 
+# SRD 5.2 (D&D 5e 2024) Weapon Mastery quick-reference descriptions for hover
+# tooltips and custom-weapon expanded views.
+WEAPON_MASTERY_DESCRIPTIONS: dict[str, str] = {
+    "Cleave": "On a melee hit, make one extra melee attack (no ability mod to damage unless negative) against a second creature within 5 ft. of the first and within your reach (once per turn).",
+    "Graze": "On a miss, deal damage equal to the ability modifier used for the attack roll (same damage type).",
+    "Nick": "Make the extra Light-property attack as part of the Attack action instead of a Bonus Action (once per turn).",
+    "Push": "On a hit, push a Large or smaller creature up to 10 feet straight away from you.",
+    "Sap": "On a hit, the target has Disadvantage on its next attack roll before the start of your next turn.",
+    "Slow": "On a hit that deals damage, reduce the target's Speed by 10 feet until the start of your next turn.",
+    "Topple": "On a hit, force a Constitution save (DC 8 + attack ability mod + PB) or knock the target Prone.",
+    "Vex": "On a hit that deals damage, gain Advantage on your next attack roll against that creature before the end of your next turn.",
+}
+
+_MASTERY_RE = re.compile(r"(?:\|\s*)?Mastery:\s*([A-Za-z]+)", re.IGNORECASE)
+
+
+def _extract_weapon_mastery(item_notes: str | None, explicit: str | None = None) -> str | None:
+    """Return the weapon's Mastery property name from explicit field or item_notes."""
+    if explicit and explicit.strip():
+        return explicit.strip()
+    if not item_notes:
+        return None
+    m = _MASTERY_RE.search(item_notes)
+    return m.group(1).strip().title() if m else None
+
+
+def _strip_mastery_from_notes(item_notes: str | None) -> str:
+    """Remove trailing '| Mastery: X' from properties text when rendered as a badge."""
+    if not item_notes:
+        return ""
+    cleaned = _MASTERY_RE.sub("", item_notes).strip(" |,")
+    return cleaned
+
 
 def _render_equipment(state, char_id, user, _save):
 
@@ -46,9 +80,16 @@ def _render_equipment(state, char_id, user, _save):
 
         # Attunement is a 5e-family concept; the builder's style flag hides it for
         # systems that don't use it (Shadowdark, and future non-attunement systems).
-        show_attunement = state["vd"]["style_flags"].get("show_attunement", True)
+        style_flags = state["vd"]["style_flags"]
+        show_attunement = style_flags.get("show_attunement", True)
         attuned_count = sum(1 for i in inventory if i.attuned)
         attunement_max = BASE_ATTUNEMENT_LIMIT + (cs.attunement_bonus or 0)
+
+        # Weapon Mastery tracking (D&D 5e 2024 / SRD 5.2 only).
+        show_weapon_mastery = style_flags.get("show_weapon_mastery", False)
+        mastery_count = sum(1 for w in weapons if w.mastery_active)
+        default_mastery_max = int(style_flags.get("weapon_mastery_default_limit", 0) or 0)
+        mastery_max = cs.weapon_mastery_limit if cs.weapon_mastery_limit is not None else default_mastery_max
 
         async def _toggle_attuned(v, name, itype):
             updated = []
@@ -59,17 +100,38 @@ def _render_equipment(state, char_id, user, _save):
                 updated.append(d)
             await _save({"inventory": updated})
 
+        async def _toggle_mastery(v, name):
+            updated = []
+            for it in cs.inventory:
+                d = it.model_dump()
+                if it.item_type == "weapon" and it.name == name:
+                    d["mastery_active"] = bool(v)
+                updated.append(d)
+            await _save({"inventory": updated})
+
         with ui.card().classes('w-full'):
-            with ui.row().classes('w-full items-center justify-between'):
+            with ui.row().classes('w-full items-center justify-between flex-wrap gap-2'):
                 ui.label("Equipment").classes('text-xl font-bold font-serif')
-                if show_attunement:
-                    with ui.row().classes('items-center gap-1'):
-                        ui.label(f"Attuned {attuned_count} / {attunement_max}").classes(
-                            'text-sm font-semibold ' +
-                            ('text-red-400' if attuned_count > attunement_max else 'text-gray-300'))
-                        ui.button(icon='edit',
-                                  on_click=lambda: _open_attunement_limit_dialog(cs, _save)
-                                  ).props('flat round dense size=sm color=primary')
+                with ui.row().classes('items-center gap-3'):
+                    if show_weapon_mastery:
+                        with ui.row().classes('items-center gap-1'):
+                            ui.label(f"Masteries {mastery_count} / {mastery_max}").classes(
+                                'text-sm font-semibold ' +
+                                ('text-red-400' if mastery_count > mastery_max
+                                 else ('text-amber-300' if mastery_count > 0 else 'text-gray-300'))
+                            )
+                            ui.button(
+                                icon='edit',
+                                on_click=lambda: _open_mastery_limit_dialog(cs, default_mastery_max, _save),
+                            ).props('flat round dense size=sm color=amber').tooltip("Edit Weapon Mastery limit")
+                    if show_attunement:
+                        with ui.row().classes('items-center gap-1'):
+                            ui.label(f"Attuned {attuned_count} / {attunement_max}").classes(
+                                'text-sm font-semibold ' +
+                                ('text-red-400' if attuned_count > attunement_max else 'text-gray-300'))
+                            ui.button(icon='edit',
+                                      on_click=lambda: _open_attunement_limit_dialog(cs, _save)
+                                      ).props('flat round dense size=sm color=primary').tooltip("Edit Attunement limit")
 
             ui.separator()
 
@@ -152,9 +214,17 @@ def _render_equipment(state, char_id, user, _save):
                         ui.label("No weapons carried.").classes('text-gray-500 italic text-sm py-1')
                     else:
                         with ui.row().classes('w-full text-xs text-gray-500 px-1 mb-1 gap-2'):
-                            for h in (["Eq"] + (["At"] if show_attunement else []) + ["Name", "Damage", "Type", "Range", "Properties", "Qty", ""]):
-                                if h in ("Eq", "At"):
-                                    ui.label(h).classes('w-8 text-center')
+                            weapon_headers = (
+                                ["Eq"]
+                                + (["At"] if show_attunement else [])
+                                + (["Ma"] if show_weapon_mastery else [])
+                                + ["Name", "Damage", "Type", "Range", "Properties", "Qty", ""]
+                            )
+                            for h in weapon_headers:
+                                if h in ("Eq", "At", "Ma"):
+                                    lbl = ui.label(h).classes('w-8 text-center')
+                                    if h == "Ma":
+                                        lbl.tooltip("Weapon Mastery")
                                 elif h in ("Qty", ""):
                                     ui.label(h).classes('w-10 text-center')
                                 else:
@@ -181,16 +251,37 @@ def _render_equipment(state, char_id, user, _save):
                                         ui.checkbox(value=bool(w.attuned),
                                                     on_change=lambda e, n=wname: _toggle_attuned(e.value, n, "weapon")
                                                     ).classes('w-8')
+                                    if show_weapon_mastery:
+                                        ui.checkbox(value=bool(w.mastery_active),
+                                                    on_change=lambda e, n=wname: _toggle_mastery(e.value, n)
+                                                    ).props('color=amber').classes('w-8').tooltip("Weapon Mastery")
                                     # Name toggles the extended view (the equip
                                     # checkbox and edit/delete stay independent).
                                     name_lbl = ui.label(w.name).classes('flex-1 text-white text-sm cursor-pointer')
                                     ui.label(w.damage or "—").classes('flex-1 text-gray-300 text-sm')
                                     ui.label(w.damage_type or "—").classes('flex-1 text-gray-400 text-sm')
                                     ui.label(w.weapon_range or "—").classes('flex-1 text-gray-400 text-sm')
-                                    ui.label(w.item_notes or "—").classes('flex-1 text-gray-400 text-xs')
+                                    mastery_name = _extract_weapon_mastery(w.item_notes, w.weapon_mastery) if show_weapon_mastery else None
+                                    if show_weapon_mastery and mastery_name:
+                                        plain_props = _strip_mastery_from_notes(w.item_notes)
+                                        with ui.row().classes('flex-1 items-center gap-1 flex-wrap'):
+                                            if plain_props:
+                                                ui.label(plain_props).classes('text-gray-400 text-xs')
+                                            badge_props = 'text-color=black' if w.mastery_active else 'outline'
+                                            badge = ui.badge(
+                                                f"Mastery: {mastery_name}",
+                                                color='amber' if w.mastery_active else 'grey-6',
+                                            ).props(badge_props).classes('text-xs')
+                                            m_tip = WEAPON_MASTERY_DESCRIPTIONS.get(
+                                                mastery_name,
+                                                f"Weapon Mastery: {mastery_name}",
+                                            )
+                                            badge.tooltip(m_tip)
+                                    else:
+                                        ui.label(w.item_notes or "—").classes('flex-1 text-gray-400 text-xs')
                                     ui.label(str(w.quantity)).classes('w-10 text-center text-white text-sm')
                                     ui.button(icon='edit',
-                                              on_click=lambda n=wname: _open_edit_inventory_dialog(cs, _save, _section, n, "weapon", show_attunement)
+                                              on_click=lambda n=wname: _open_edit_inventory_dialog(cs, _save, _section, n, "weapon", show_attunement, show_weapon_mastery)
                                               ).props('flat round dense color=primary')
                                     async def _rm_w(n=wname):
                                         updated = [it for it in cs.inventory if it.name != n or it.item_type != "weapon"]
@@ -198,10 +289,18 @@ def _render_equipment(state, char_id, user, _save):
                                     ui.button(icon='delete', on_click=_rm_w).props('flat round dense color=negative')
                                 desc_row = ui.column().classes('w-full pl-8 py-1 gap-1 border-b border-gray-800').style('display: none')
                                 with desc_row:
-                                    render_detail_pairs([
+                                    detail_pairs = [
                                         ("Weight", w.weight),
                                         ("Value", w.value),
-                                    ])
+                                    ]
+                                    if show_weapon_mastery and mastery_name:
+                                        m_status = f"{mastery_name} (Selected)" if w.mastery_active else mastery_name
+                                        m_rule = WEAPON_MASTERY_DESCRIPTIONS.get(mastery_name)
+                                        if m_rule and f"Mastery — {mastery_name}" not in (w.notes or ""):
+                                            detail_pairs.append(("Mastery", f"{m_status}: {m_rule}"))
+                                        else:
+                                            detail_pairs.append(("Mastery", m_status))
+                                    render_detail_pairs(detail_pairs)
                                     render_plain_markdown(w.notes)
                                 name_lbl.on('click', lambda dr=desc_row: toggle_element_display(dr))
 
@@ -356,6 +455,37 @@ def _render_equipment(state, char_id, user, _save):
     return _section
 
 
+def _open_mastery_limit_dialog(cs, default_limit: int, _save):
+    """Edit the per-character Weapon Mastery limit (D&D 5e 2024)."""
+    cur_val = cs.weapon_mastery_limit if cs.weapon_mastery_limit is not None else default_limit
+    with ui.dialog() as dlg, ui.card().classes('w-80').style(DIALOG_CARD_STYLE):
+        ui.label("Weapon Mastery Limit").classes('text-lg font-bold text-white mb-1')
+        ui.label(
+            f"Class default is {default_limit}. Adjust for feats (e.g. Weapon Master) or multiclassing."
+        ).classes('text-xs text-gray-400 mb-2')
+        limit_in = ui.number(
+            label="Mastery limit",
+            value=cur_val,
+            min=0,
+            step=1,
+        ).props('dense outlined').classes('w-full')
+        with ui.row().classes('w-full justify-between items-center mt-2'):
+            async def _reset():
+                await _save({"weapon_mastery_limit": None})
+                dlg.close()
+
+            ui.button("Use Default", on_click=_reset).props('flat dense').style('color:#94A3B8;')
+            with ui.row().classes('gap-2'):
+                ui.button("Cancel", on_click=dlg.close).props('flat').style('color:#94A3B8;')
+
+                async def _apply():
+                    await _save({"weapon_mastery_limit": max(0, int(limit_in.value or 0))})
+                    dlg.close()
+
+                ui.button("Save", on_click=_apply).props('unelevated color=primary')
+    dlg.open()
+
+
 def _open_attunement_limit_dialog(cs, _save):
     """Edit the per-character attunement-limit bonus (feats/archetypes raise the cap)."""
     with ui.dialog() as dlg, ui.card().classes('w-80').style(DIALOG_CARD_STYLE):
@@ -407,8 +537,15 @@ async def _open_picker_dialog(cs, state, char_id, user, _save, refresh_fn, item_
             with_input=True,
         ).classes('w-full')
         qty_inp = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
-        show_attunement = state["vd"]["style_flags"].get("show_attunement", True)
+        style_flags = state["vd"]["style_flags"]
+        show_attunement = style_flags.get("show_attunement", True)
+        show_weapon_mastery = style_flags.get("show_weapon_mastery", False)
         attuned_box = ui.checkbox("Attuned", value=False) if show_attunement else None
+        mastery_box = (
+            ui.checkbox("Weapon Mastery", value=False).props('color=amber')
+            if (item_type == "weapon" and show_weapon_mastery)
+            else None
+        )
 
         # Stat-block seeding checkbox for Vehicle/Drone/Mount/Pet items.
         seed_ally_box = None
@@ -446,6 +583,7 @@ async def _open_picker_dialog(cs, state, char_id, user, _save, refresh_fn, item_
             async def _confirm():
                 r = options[selected.value]
                 attuned = bool(attuned_box.value) if attuned_box is not None else False
+                mastery_active = bool(mastery_box.value) if mastery_box is not None else False
                 if item_type == "weapon":
                     inv_item = InventoryItem(
                         item_type="weapon", name=r.name,
@@ -454,6 +592,8 @@ async def _open_picker_dialog(cs, state, char_id, user, _save, refresh_fn, item_
                         weapon_range=r.range, weight=r.weight, value=r.value,
                         item_notes=r.notes, notes=r.description or "",
                         attuned=attuned,
+                        mastery_active=mastery_active,
+                        weapon_mastery=_extract_weapon_mastery(r.notes) if show_weapon_mastery else None,
                     )
                 elif item_type == "armor":
                     inv_item = InventoryItem(
@@ -516,7 +656,10 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
         ui.label(f"Add Custom {item_type.title()}").classes('text-lg font-bold mb-2 text-white')
         inp_name = ui.input("Name*").classes('w-full')
         qty_inp  = ui.number("Quantity", value=1, step=1, min=1).classes('w-full').props('dense')
-        show_attunement = state["vd"]["style_flags"].get("show_attunement", True)
+        style_flags = state["vd"]["style_flags"]
+        show_attunement = style_flags.get("show_attunement", True)
+        show_weapon_mastery = style_flags.get("show_weapon_mastery", False)
+        inp_mastery = None
 
         if item_type == "weapon":
             inp_type   = ui.input("Type (e.g. Simple Melee)").classes('w-full').props('dense')
@@ -526,6 +669,8 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
             inp_weight = ui.input("Weight").classes('w-full').props('dense')
             inp_value  = ui.input("Cost").classes('w-full').props('dense')
             inp_notes  = ui.input("Properties").classes('w-full').props('dense')
+            if show_weapon_mastery:
+                inp_mastery = ui.input("Mastery (e.g. Cleave, Graze, Nick, Push, Sap, Slow, Topple, Vex)").classes('w-full').props('dense')
         elif item_type == "armor":
             inp_type   = ui.input("Type (e.g. Light)").classes('w-full').props('dense')
             inp_ac     = ui.input("AC (e.g. 11 + Dex)").classes('w-full').props('dense')
@@ -542,6 +687,11 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
         # Free-form markdown description, shown in the row's extended view.
         inp_desc = ui.textarea("Description (markdown)").classes('w-full').props('rows=3')
         attuned_box = ui.checkbox("Attuned") if show_attunement else None
+        mastery_box = (
+            ui.checkbox("Weapon Mastery").props('color=amber')
+            if (item_type == "weapon" and show_weapon_mastery)
+            else None
+        )
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
@@ -552,6 +702,8 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                     notify_error("Name is required"); return
                 desc = (inp_desc.value or "").strip()
                 attuned = bool(attuned_box.value) if attuned_box is not None else False
+                mastery_active = bool(mastery_box.value) if mastery_box is not None else False
+                mastery_val = (inp_mastery.value or "").strip() if inp_mastery is not None else ""
 
                 async with service_session() as session:
                     if item_type == "weapon":
@@ -567,6 +719,8 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
                             weapon_range=dto.weapon_range, weight=dto.weight,
                             value=dto.value, item_notes=dto.notes, notes=desc,
                             is_custom=True, attuned=attuned,
+                            mastery_active=mastery_active,
+                            weapon_mastery=mastery_val or _extract_weapon_mastery(dto.notes),
                         )
                     elif item_type == "armor":
                         from app.cli.ingest import parse_armor_stats
@@ -610,7 +764,15 @@ def _open_custom_dialog(cs, state, user, _save, refresh_fn, item_type: str):
     dialog.open()
 
 
-def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type: str, show_attunement: bool = True):
+def _open_edit_inventory_dialog(
+    cs,
+    _save,
+    refresh_fn,
+    item_name: str,
+    item_type: str,
+    show_attunement: bool = True,
+    show_weapon_mastery: bool = False,
+):
     """Edit an existing inventory entry's display fields and quantity.
 
     Edits the inventory snapshot only — never the underlying GlobalWeapon /
@@ -629,6 +791,7 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
         ui.label(f"Edit {item_type.title()}").classes('text-lg font-bold mb-2 text-white')
         inp_name = ui.input("Name*", value=target.name).classes('w-full')
         qty_inp  = ui.number("Quantity", value=target.quantity, step=1, min=0).classes('w-full').props('dense')
+        inp_mastery = None
 
         if item_type == "weapon":
             inp_dmg    = ui.input("Damage (e.g. 1d8)", value=target.damage or "").classes('w-full').props('dense')
@@ -637,6 +800,11 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
             inp_weight = ui.input("Weight", value=target.weight or "").classes('w-full').props('dense')
             inp_value  = ui.input("Cost", value=target.value or "").classes('w-full').props('dense')
             inp_notes  = ui.input("Properties", value=target.item_notes or "").classes('w-full').props('dense')
+            if show_weapon_mastery:
+                inp_mastery = ui.input(
+                    "Mastery (e.g. Cleave, Graze, Nick, Push, Sap, Slow, Topple, Vex)",
+                    value=_extract_weapon_mastery(target.item_notes, target.weapon_mastery) or "",
+                ).classes('w-full').props('dense')
         elif item_type == "armor":
             inp_atype  = ui.input("Type (e.g. Light, Medium, Heavy, Shield)",
                                   value=("Shield" if target.is_shield else "")
@@ -653,6 +821,11 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
         # Free-form markdown description, shown in the row's extended view.
         inp_desc = ui.textarea("Description (markdown)", value=target.notes or "").classes('w-full').props('rows=3')
         attuned_box = ui.checkbox("Attuned", value=bool(target.attuned)) if show_attunement else None
+        mastery_box = (
+            ui.checkbox("Weapon Mastery", value=bool(target.mastery_active)).props('color=amber')
+            if (item_type == "weapon" and show_weapon_mastery)
+            else None
+        )
 
         with ui.row().classes('w-full justify-end gap-2 mt-4'):
             ui.button("Cancel", on_click=dialog.close).props('flat').style('color:#94A3B8;')
@@ -664,6 +837,12 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                 new_qty = max(0, int(qty_inp.value or 0))
                 new_desc = (inp_desc.value or "").strip()
                 new_attuned = bool(attuned_box.value) if attuned_box is not None else target.attuned
+                new_mastery_active = bool(mastery_box.value) if mastery_box is not None else target.mastery_active
+                new_mastery_name = (
+                    ((inp_mastery.value or "").strip() or None)
+                    if inp_mastery is not None
+                    else target.weapon_mastery
+                )
 
                 if item_type == "weapon":
                     new_entry = InventoryItem(
@@ -672,6 +851,8 @@ def _open_edit_inventory_dialog(cs, _save, refresh_fn, item_name: str, item_type
                         quantity=new_qty,
                         equipped=target.equipped,
                         attuned=new_attuned,
+                        mastery_active=new_mastery_active,
+                        weapon_mastery=new_mastery_name,
                         notes=new_desc,
                         damage=(inp_dmg.value or "").strip() or None,
                         damage_type=(inp_dmgt.value or "").strip() or None,

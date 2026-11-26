@@ -394,6 +394,9 @@ class Character(BaseModel):
     # Bonus to the base 5e-family attunement cap of 3 (feats/archetypes can raise it).
     # In the JSON blob → no migration; ignored by styles that hide attunement (Shadowdark).
     attunement_bonus: int = 0
+    # Optional explicit cap on active Weapon Masteries (D&D 5e 2024). When None,
+    # DnD2024Builder derives the default cap from the character's classes/levels.
+    weapon_mastery_limit: int | None = None
 
     # --- Roleplaying description (rendered on the Description card) ---
     personality: str = ""
@@ -482,6 +485,9 @@ class InventoryItem(BaseModel):
     quantity: int = 1
     equipped: bool = False
     attuned: bool = False
+    # D&D 5e 2024 Weapon Mastery tracking (weapons only; ignored by other styles).
+    mastery_active: bool = False
+    weapon_mastery: str | None = None
     notes: str = ""
     # Denormalized display fields
     damage: str | None = None
