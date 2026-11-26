@@ -149,3 +149,34 @@ async def test_full_data_dir_json_only_ingestion_all_six_systems_and_idempotency
     a5e_row = next(r for r in stats if r["source"] == SheetStyle.A5E.value)
     assert a5e_row["maneuvers"] >= 160
     assert a5e_row["destinies"] == 10
+
+
+def test_all_json_catalogs_match_postgres_column_types():
+    """Verify every JSON catalog value matches its SQLAlchemy column type.
+
+    SQLite silently coerces ints into VARCHAR columns, whereas Postgres/asyncpg
+    raises DataError at runtime. Catching mismatches here protects production
+    reseeds.
+    """
+    import json
+    from sqlalchemy import Boolean, Integer, String
+    from app.cli.ingest import _JSON_KIND_TO_MODEL
+
+    mismatches: list[str] = []
+    for path in sorted(REPO_DATA_DIR.rglob("*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        model_cls = _JSON_KIND_TO_MODEL.get(str(payload.get("kind", "")).lower())
+        assert model_cls is not None, f"Unknown kind in {path}"
+        cols = {c.name: c.type for c in model_cls.__table__.columns}
+        for item in payload["items"]:
+            for k, v in item.items():
+                if k not in cols or v is None:
+                    continue
+                ct = cols[k]
+                if isinstance(ct, String) and not isinstance(v, (str, dict, list)):
+                    mismatches.append(f"{path.relative_to(REPO_DATA_DIR)}:{item.get('name')}.{k} ({type(v).__name__} != str)")
+                elif isinstance(ct, Integer) and (isinstance(v, bool) or not isinstance(v, int)):
+                    mismatches.append(f"{path.relative_to(REPO_DATA_DIR)}:{item.get('name')}.{k} ({type(v).__name__} != int)")
+                elif isinstance(ct, Boolean) and not isinstance(v, bool):
+                    mismatches.append(f"{path.relative_to(REPO_DATA_DIR)}:{item.get('name')}.{k} ({type(v).__name__} != bool)")
+    assert mismatches == []

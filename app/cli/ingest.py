@@ -14,7 +14,7 @@ import os
 import re
 import sys
 
-from sqlalchemy import select
+from sqlalchemy import String, select
 
 from app.config import get_settings
 from app.database import async_session_factory, engine, Base
@@ -235,6 +235,9 @@ async def ingest_json_file(session, filepath: str) -> dict[str, int]:
                 parsed_row[k] = normalize_attribute(v)
             elif isinstance(v, (dict, list)):
                 parsed_row[k] = json.dumps(v, ensure_ascii=False)
+            elif v is not None and isinstance(valid_cols[k].type, String) and not isinstance(v, str):
+                # Postgres / asyncpg strictly rejects ints for VARCHAR columns (SQLite hides this).
+                parsed_row[k] = str(v)
             else:
                 parsed_row[k] = v
 
