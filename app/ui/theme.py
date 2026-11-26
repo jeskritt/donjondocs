@@ -207,21 +207,58 @@ def apply_global_styles():
 
         /* Opt-in two-column variant for the Creature Catalog. A creature
            row with `columns == 2` gets `.phb.phb-cols-2` on its markdown
-           wrapper, which restores the homebrewery printed-page two-column
-           flow on top of our single-column default. Headings still span
-           the full width so big creature names sit cleanly on the page. */
+           wrapper. Because `.phb` has `height: auto`, CSS `column-fill` MUST
+           be `balance` (not upstream's `auto`), otherwise everything stays
+           stacked in column 1. For Homebrewery stat-block blockquotes
+           (`hr + blockquote`), we span the gold-bordered box across the full
+           card width and split the stat block's interior into two balanced
+           columns — matching official 2-column Monster Manual / A5e layouts. */
         .phb.phb-cols-2 {
             column-count: 2 !important;
             -webkit-column-count: 2 !important;
             -moz-column-count: 2 !important;
-            column-width: 8cm !important;
-            -webkit-column-width: 8cm !important;
-            -moz-column-width: 8cm !important;
-            column-gap: 1cm !important;
+            column-width: auto !important;
+            -webkit-column-width: auto !important;
+            -moz-column-width: auto !important;
+            column-fill: balance !important;
+            -moz-column-fill: balance !important;
+            column-gap: 1.5rem !important;
         }
-        .phb.phb-cols-2 h1, .phb.phb-cols-2 h2 {
+        .phb.phb-cols-2 > h1, .phb.phb-cols-2 > h2 {
             column-span: all !important;
             -webkit-column-span: all !important;
+        }
+        .phb.phb-cols-2 hr + blockquote {
+            column-span: all !important;
+            -webkit-column-span: all !important;
+            column-count: 2 !important;
+            -webkit-column-count: 2 !important;
+            -moz-column-count: 2 !important;
+            column-width: auto !important;
+            -webkit-column-width: auto !important;
+            -moz-column-width: auto !important;
+            column-fill: balance !important;
+            -moz-column-fill: balance !important;
+            column-gap: 1.5rem !important;
+            break-inside: auto !important;
+            -webkit-column-break-inside: auto !important;
+            overflow: visible !important;
+        }
+        .phb.phb-cols-2 hr + blockquote h2 {
+            column-span: none !important;
+            -webkit-column-span: none !important;
+        }
+        .phb.phb-cols-2 hr + blockquote h3 {
+            break-after: avoid !important;
+            -webkit-column-break-after: avoid !important;
+        }
+        @media (max-width: 768px) {
+            .phb.phb-cols-2,
+            .phb.phb-cols-2 hr + blockquote {
+                column-count: 1 !important;
+                -webkit-column-count: 1 !important;
+                -moz-column-count: 1 !important;
+            }
         }
     ''')
 

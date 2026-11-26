@@ -398,7 +398,24 @@ def test_creature_public_checkbox_and_two_column_toggle(
     fill_field(
         dlg,
         "Body (Markdown)",
-        "> ## Dire Mammoth\n> *Huge Beast*\n> ___\n> ***Trampling Charge.*** Knock target prone.",
+        "___\n"
+        "> ## Dire Mammoth\n"
+        "> *Huge Beast*\n"
+        "> ___\n"
+        "> *Armor Class* 15  \n"
+        "> *Hit Points* 180  \n"
+        "> *Speed* 40 ft.  \n"
+        "> ___\n"
+        "> ### Traits\n"
+        "> ***Trampling Charge.*** Knock target prone.\n"
+        ">\n"
+        "> ### Actions\n"
+        "> ***Gore.*** *Melee Weapon Attack:* +10 to hit, reach 10 ft. *Hit:* 25 piercing damage.\n"
+        ">\n"
+        "> ***Stomp.*** *Melee Weapon Attack:* +10 to hit, reach 5 ft. *Hit:* 29 bludgeoning damage.\n"
+        ">\n"
+        "> ### Legendary Actions\n"
+        "> ***Trumpet.*** Nearby enemies must succeed on a Wisdom saving throw or be frightened.\n",
     )
     dlg.get_by_role("button", name="Save").click()
     expect(dlg).to_be_hidden()
@@ -406,10 +423,20 @@ def test_creature_public_checkbox_and_two_column_toggle(
     card = authed_page.locator(".q-card", has_text="Dire Mammoth").first
     expect(card.get_by_text("Public", exact=True)).to_be_visible()
 
-    # Expand -> verify 2-column `.phb-cols-2` class is applied.
+    # Expand -> verify 2-column `.phb-cols-2` class is applied AND content actually
+    # balances across both left and right columns inside the stat-block blockquote.
     card.locator(".cursor-pointer", has_text="Dire Mammoth").first.click()
-    expect(card.locator(".phb.phb-cols-2")).to_be_visible()
+    phb = card.locator(".phb.phb-cols-2")
+    expect(phb).to_be_visible()
     expect(card.get_by_text("Trampling Charge.")).to_be_visible()
+
+    bq = phb.locator("blockquote").first
+    bq_box = bq.bounding_box()
+    title_box = bq.locator("h2", has_text="Dire Mammoth").first.bounding_box()
+    leg_box = bq.locator("h3", has_text="Legendary Actions").first.bounding_box()
+    assert bq_box and title_box and leg_box
+    assert title_box["x"] < bq_box["x"] + bq_box["width"] * 0.3
+    assert leg_box["x"] > bq_box["x"] + bq_box["width"] * 0.45
 
     # Clean up.
     icon_button(card, "delete").click()
